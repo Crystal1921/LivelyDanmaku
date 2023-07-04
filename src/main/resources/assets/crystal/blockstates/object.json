@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "crystal:block/bucket"
+    },
+    "level=1": {
+      "model": "crystal:block/bucket_level1"
+    },
+    "level=2": {
+      "model": "crystal:block/bucket_level2"
+    },
+    "level=3": {
+      "model": "crystal:block/bucket_level3"
+    }
+  }
+}

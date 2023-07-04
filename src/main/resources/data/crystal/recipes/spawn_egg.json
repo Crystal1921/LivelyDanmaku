@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "crystal:bo_qi"
+  },
+  "group": "naga_armor",
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:gold_block"
+    },
+    "$": {
+      "item": "minecraft:apple"
+    }
+  }
+}

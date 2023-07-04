@@ -1,0 +1,27 @@
+{
+  "item.crystal.awaqwq":"屑服主",
+  "item.crystal.crystal_sword": "水晶剑(reach)",
+  "item.crystal.judge_sword1": "起风之剑（艾丽妮一技能）",
+  "item.crystal.judge_sword2": "裂潮之剑（艾丽妮二技能）",
+  "item.crystal.jet_pack": "喷气背包",
+  "item.crystal.aspect_of_end": "末影之剑",
+  "item.crystal.fishing_dragger": "抓钩",
+  "item.crystal.hakurei_gohei": "博丽御币",
+  "item.crystal.sanae_gohei": "早苗御币",
+  "item.crystal.mini_hakkero": "迷你八卦炉",
+  "item.crystal.stone_to_gold": "点石成金",
+  "item.crystal.bo_qi": "波奇",
+  "item.crystal.hakurei_reimu": "灵梦",
+
+  "block.crystal.reimu_block": "博丽灵梦手办",
+
+  "entity.crystal.danmaku": "弹幕",
+  "entity.crystal.reimu": "博丽灵梦",
+
+  "enchantment.crystal.fall_resistance": "摔落免疫",
+
+  "itemGroup.crystal": "水晶测试mod",
+
+  "chat.crystal.welcome": "你好",
+  "chat.crystal.reimu": "梦想天生"
+}
