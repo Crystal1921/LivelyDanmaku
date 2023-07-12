@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "lively_danmaku:p_point"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "lively_danmaku:red_point"
+    }
+  }
+}

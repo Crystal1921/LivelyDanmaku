@@ -1,0 +1,18 @@
+{
+  "result": {
+    "count": 4,
+    "item": "lively_danmaku:star_danmaku"
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "minecraft:red_mushroom"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "item.lively_danmaku.hakurei_gohei": "博丽御币",
+  "item.lively_danmaku.sanae_gohei": "早苗御币",
+  "item.lively_danmaku.mini_hakkero": "迷你八卦炉",
+  "item.lively_danmaku.bo_qi": "波奇",
+  "item.lively_danmaku.hakurei_reimu": "灵梦",
+  "item.lively_danmaku.p_point": "大P点",
+  "item.lively_danmaku.red_point": "小P点",
+  "item.lively_danmaku.blue_point": "蓝点",
+
+  "block.lively_danmaku.reimu_block": "博丽灵梦手办",
+
+  "entity.lively_danmaku.danmaku": "弹幕",
+  "entity.lively_danmaku.reimu": "博丽灵梦",
+
+  "enchantment.lively_danmaku.fall_resistance": "摔落免疫",
+  "enchantment.lively_danmaku.danmaku_resistance": "弹幕保护",
+
+  "ui.danmaku_table": "弹幕工作台",
+  "desc.speed": "速度",
+  "desc.amount": "数量",
+
+  "itemGroup.lively_danmaku": "水晶测试mod",
+  
+  "chat.lively_danmaku.reimu": "梦想天生"
+}

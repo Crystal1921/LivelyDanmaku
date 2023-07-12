@@ -2,13 +2,13 @@ modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="MIT"
 [[mods]]
-modId="crystal"
+modId="lively_danmaku"
 version="${mod_version}"
-displayName="crystal"
+displayName="lively_danmaku"
 authors="crystal1921"
 logoFile="crystal_logo.jpg"
 description='''
-This is crystal1921, the 1.19.4 Modding tutorial example mod.
+This is crystal1921, the 1.20.1 Modding tutorial mod.
 我很可爱，请给我钱，给我star
-https://github.com/Crystal1921
+https://github.com/lively_danmaku1921
 '''

@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "lively_danmaku:bo_qi"
+  },
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:gold_block"
+    },
+    "$": {
+      "item": "minecraft:apple"
+    }
+  }
+}
