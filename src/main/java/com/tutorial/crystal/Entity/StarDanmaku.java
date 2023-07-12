@@ -1,18 +1,16 @@
 package com.tutorial.crystal.Entity;
 
 import com.tutorial.crystal.init.ItemRegistry;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
-public class StarDanmaku extends ThrowableItemProjectile {
+public class StarDanmaku extends AbstractDanmaku {
     public StarDanmaku(EntityType<? extends ThrowableItemProjectile> p_37442_, Level p_37443_) {
         super(p_37442_, p_37443_);
         this.color = random.nextInt(3);
@@ -20,18 +18,7 @@ public class StarDanmaku extends ThrowableItemProjectile {
 
     private int color;
     Random random = new Random();
-    @Override
-    protected float getGravity() {
-        return 0.00F;
-    }
-    protected void onHitEntity(@NotNull EntityHitResult entityHitResult) {
-        super.onHitEntity(entityHitResult);
-        Entity entity = entityHitResult.getEntity();
-        double i = Math.sqrt(entity.distanceToSqr(entity.getDeltaMovement())) / 15;
-        entity.hurt(this.damageSources().thrown(this, this.getOwner()), (float)i);
-    }
-
-    protected void onHit(HitResult hitResult) {
+    protected void onHit(@NotNull HitResult hitResult) {
         super.onHit(hitResult);
         if (!level().isClientSide) {
             level().broadcastEntityEvent(this, (byte)3);
@@ -48,7 +35,7 @@ public class StarDanmaku extends ThrowableItemProjectile {
         }
     }
     @Override
-    protected Item getDefaultItem() {
+    protected @NotNull Item getDefaultItem() {
         return ItemRegistry.ItemStarDanmaku.get();
     }
     public int getColor() {return color;}

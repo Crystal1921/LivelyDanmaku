@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class Reimu extends PathfinderMob {
     public static final EntityDataAccessor<Integer> REIMU_STAGE = SynchedEntityData.defineId(Reimu.class, EntityDataSerializers.INT);
-    private boolean isGenerate = false;
+    public static final EntityDataAccessor<Boolean> IS_GENERATED = SynchedEntityData.defineId(Reimu.class, EntityDataSerializers.BOOLEAN);
     private final int NUM = 6;
     private final float DEGREE = (360 / (float)NUM);
     private final int DISTANCE = 2;
@@ -38,12 +38,12 @@ public class Reimu extends PathfinderMob {
         this.xpReward = 5;
         this.moveControl = new ReimuMoveControl(this);
         this.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(ItemRegistry.HakureiGohei.get()));
-        if (!isGenerate) {
+        if (!this.getEntityData().get(IS_GENERATED)) {
             for (int i = 0; i < NUM; i++) {
                 yinYangOrbs.add(new YinYangOrb(EntityTypeRegistry.YIN_YANG_ORB.get(), level));
                 yinYangOrbs.get(i).moveTo(this.getX() + DISTANCE * Math.cos(angle + DEGREE * i),this.getY(),this.getZ() + DISTANCE * Math.sin(angle + DEGREE * i));
                 level.addFreshEntity(yinYangOrbs.get(i));
-                isGenerate = true;
+                this.getEntityData().set(IS_GENERATED, true);
             }
         }
     }
@@ -62,7 +62,7 @@ public class Reimu extends PathfinderMob {
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, siborary.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, player.class, true));
     }
     @Override
     public void tick() {
@@ -80,6 +80,7 @@ public class Reimu extends PathfinderMob {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.getEntityData().define(REIMU_STAGE, 1);
+        this.getEntityData().define(IS_GENERATED, false);
     }
     public void die(@NotNull DamageSource damageSource) {
         super.die(damageSource);

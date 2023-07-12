@@ -12,6 +12,7 @@ import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.entity.PathfinderMob;
+import org.jetbrains.annotations.NotNull;
 
 public class ReimuModel<R extends PathfinderMob> extends EntityModel<Reimu> {
     public ReimuModel(ModelPart root) {
@@ -111,7 +112,7 @@ public class ReimuModel<R extends PathfinderMob> extends EntityModel<Reimu> {
         return LayerDefinition.create(mesh,128,32);
     }
     @Override
-    public void renderToBuffer(PoseStack ms, VertexConsumer buffer, int light, int overlay, float r, float g, float b, float a) {
+    public void renderToBuffer(@NotNull PoseStack ms, @NotNull VertexConsumer buffer, int light, int overlay, float r, float g, float b, float a) {
         this.head.render(ms, buffer, light, overlay, r, g, b, a);
         this.body1.render(ms, buffer, light, overlay, r, g, b, a);
         this.body2.render(ms, buffer, light, overlay, r, g, b, a);
@@ -130,7 +131,7 @@ public class ReimuModel<R extends PathfinderMob> extends EntityModel<Reimu> {
     }
 
     @Override
-    public void setupAnim(Reimu reimu, float limbSwing, float limbSwingAmount, float ageInTicks,
+    public void setupAnim(@NotNull Reimu reimu, float limbSwing, float limbSwingAmount, float ageInTicks,
                           float netHeadYaw, float headPitch) {
         // 头部转动
         this.head.yRot = netHeadYaw * ((float) Math.PI / 180f);

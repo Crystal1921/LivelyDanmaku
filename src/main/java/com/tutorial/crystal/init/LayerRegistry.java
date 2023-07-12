@@ -1,6 +1,6 @@
 package com.tutorial.crystal.init;
 
-import com.tutorial.crystal.Entity.model.Crystal1921Model;
+import com.tutorial.crystal.Entity.model.PlayerModel;
 import com.tutorial.crystal.Entity.model.ReimuModel;
 import com.tutorial.crystal.Utils;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -15,6 +15,6 @@ public class LayerRegistry {
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModelLayersRegistry.REIMU, ReimuModel::create);
-        event.registerLayerDefinition(ModelLayersRegistry.CRYSTAL, () -> LayerDefinition.create(Crystal1921Model.createMesh(CubeDeformation.NONE,true),64,64));
+        event.registerLayerDefinition(ModelLayersRegistry.CRYSTAL, () -> LayerDefinition.create(PlayerModel.createMesh(CubeDeformation.NONE,true),64,64));
     }
 }

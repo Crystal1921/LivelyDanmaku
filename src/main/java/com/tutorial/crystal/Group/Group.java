@@ -14,24 +14,18 @@ public class Group {
     public static final RegistryObject<CreativeModeTab> BLOCKS = TABS.register("blocks", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
             .title(Component.translatable("itemGroup.crystal"))
-            .icon(() -> new ItemStack(ItemRegistry.Boqi.get()))
+            .icon(() -> new ItemStack(ItemRegistry.ReimuItem.get()))
             .displayItems((parameters, output) -> {
-                    output.accept(ItemRegistry.awaqwq.get());
-                    output.accept(ItemRegistry.CrystalSword.get());
-                    output.accept(ItemRegistry.JudgeSword1.get());
-                    output.accept(ItemRegistry.JudgeSword2.get());
-                    output.accept(ItemRegistry.JetPack.get());
-                    output.accept(ItemRegistry.AdvancedJetPack.get());
-                    output.accept(ItemRegistry.AspectOfEnd.get());
-                    output.accept(ItemRegistry.Fishingdragger.get());
-                    output.accept(ItemRegistry.Stone2Gold.get());
                     output.accept(ItemRegistry.HakureiGohei.get());
                     output.accept(ItemRegistry.SanaeGohei.get());
                     output.accept(ItemRegistry.ItemMiniHakkero.get());
                     output.accept(ItemRegistry.ItemDanmaku.get());
                     output.accept(ItemRegistry.ItemStarDanmaku.get());
+                    output.accept(ItemRegistry.P_Point.get());
+                    output.accept(ItemRegistry.red_Point.get());
                     output.accept(ItemRegistry.ReimuItem.get());
-                    output.accept(ItemRegistry.Boqi.get());
+                    output.accept(ItemRegistry.DanmakuTableItem.get());
+                    output.accept(ItemRegistry.Player.get());
                     output.accept(ItemRegistry.HakureiReimu.get());
                 }).build());
     }

@@ -8,5 +8,5 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class EnchantmentRegistry {
     public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, Utils.MOD_ID);
-    public static final RegistryObject<Enchantment> fall_resistance = ENCHANTMENTS.register("fall_resistance", () -> new FallResistance(Enchantment.Rarity.UNCOMMON));
+    public static final RegistryObject<Enchantment> danmaku_resistance = ENCHANTMENTS.register("danamku_resistance", () -> new DanmakuResistance(Enchantment.Rarity.RARE));
 }

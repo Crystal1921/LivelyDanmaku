@@ -37,13 +37,13 @@ public class EntityTypeRegistry {
                     .sized(0.6F,1.6F)
                     .build("reimu")
     );
-    public static final RegistryObject<EntityType<siborary>> CRYSTAL_1921 = ENTITY_TYPE.register("crystal1921", () ->
-            EntityType.Builder.of(siborary::new, MobCategory.CREATURE)
+    public static final RegistryObject<EntityType<player>> CRYSTAL_1921 = ENTITY_TYPE.register("crystal1921", () ->
+            EntityType.Builder.of(player::new, MobCategory.CREATURE)
                     .sized(0.6F,2.0F)
                     .build("crystal1921")
     );
         public static void addEntityAttributes(EntityAttributeCreationEvent event) {
             event.put(REIMU.get(), Reimu.registerAttributes().build());
-            event.put(CRYSTAL_1921.get(), siborary.registerAttributes().build());
+            event.put(CRYSTAL_1921.get(), player.registerAttributes().build());
         }
     }

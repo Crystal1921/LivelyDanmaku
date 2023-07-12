@@ -8,6 +8,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.level.Level;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -15,7 +16,8 @@ import java.util.Random;
 
 public class FlyAndShoot extends Goal {
     private final Reimu reimu;
-    private Random random = new Random();
+    private final Level level;
+    private final Random random = new Random();
     private final ArrayList<Hakurei_bullet> hakureiBullets = new ArrayList<>();
     private int attackTime;
     private int Time;
@@ -24,6 +26,7 @@ public class FlyAndShoot extends Goal {
     public FlyAndShoot(Reimu reimu, int flyHeight) {
         this.reimu = reimu;
         this.flyHeight = flyHeight;
+        this.level = reimu.getLevel();
         this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
     }
 
@@ -42,7 +45,6 @@ public class FlyAndShoot extends Goal {
             this.reimu.getLookControl().setLookAt(living, 10.0F, 10.0F);
             if (reimu.getEntityData().get(Reimu.REIMU_STAGE) == 1 && Time % 20 == 0) {
                 reimu.setDeltaMovement(random.nextDouble(0.2) - 0.2,0,random.nextDouble(0.2) - 0.1);
-                System.out.println(random.nextDouble(0.2) - 0.1);
             }
             if (living.getY() > reimu.getY() - flyHeight) {
                 reimu.setDeltaMovement(reimu.getDeltaMovement().add(0,0.2,0));
@@ -53,31 +55,31 @@ public class FlyAndShoot extends Goal {
             if (this.attackTime <= 0) {
                 attackTime = 10;
                 if (reimu.getEntityData().get(Reimu.REIMU_STAGE) == 3) {    //一般弹幕射击
-                    Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), reimu.getLevel());
+                    Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level);
                     danmaku.moveTo(reimu.getX(), reimu.getY(0.5), reimu.getZ());
                     ShootFromEntityToEntity(reimu,living,danmaku,1);
-                    reimu.getLevel().addFreshEntity(danmaku);
+                    level.addFreshEntity(danmaku);
                 }
-                if (reimu.getEntityData().get(Reimu.REIMU_STAGE) == 2) {    //梦想封印 集
+                if (reimu.getEntityData().get(Reimu.REIMU_STAGE) == 2) {    //梦想封印 散
                     for (int i = 0; i < 360; i += 18) {
                         for (int j = 0; j < 360; j += 18) {
-                            Hakurei_bullet bullet = new Hakurei_bullet(EntityTypeRegistry.HAKUREI_BULLET.get(), reimu.getLevel(), 18 * i - 180, 18 * j - 180,140);
+                            Hakurei_bullet bullet = new Hakurei_bullet(EntityTypeRegistry.HAKUREI_BULLET.get(), level, 18 * i - 180, 18 * j - 180,140);
                             bullet.moveTo(reimu.getX(), reimu.getY(0.5), reimu.getZ());
                             bullet.shootFromRotation(reimu, i, j + Time, 0, 0.5F, 1);
-                            reimu.getLevel().addFreshEntity(bullet);
+                            level.addFreshEntity(bullet);
                         }
                     }
                 }
             }
-            if (reimu.getEntityData().get(Reimu.REIMU_STAGE) == 1) {        //梦想天生
+            if (reimu.getEntityData().get(Reimu.REIMU_STAGE) == 1) {        //梦想封印 集
                 StageTime++;
                 if (StageTime <= 6) {
                     for (int i = 0; i < 6; i++) {
-                        Hakurei_bullet bullet = new Hakurei_bullet(EntityTypeRegistry.HAKUREI_BULLET.get(),reimu.getLevel());
-                        bullet.moveTo(reimu.getX() + (i * 0.5 + 2) * Math.sin(Math.toRadians(StageTime * 60)),reimu.getY(0.5),reimu.getZ() + (i * 0.2 + 2) * Math.cos(Math.toRadians(StageTime * 60)));
-                        bullet.shootFromRotation(reimu,0,-StageTime * 60,0,0.02F,1);
+                        Hakurei_bullet bullet = new Hakurei_bullet(EntityTypeRegistry.HAKUREI_BULLET.get(),level);
+                        bullet.moveTo(reimu.getX() + i * Math.sin(Math.toRadians(StageTime * 60 + Time)),reimu.getY(0.5),reimu.getZ() +i * Math.cos(Math.toRadians(StageTime * 60 + Time)));
+                        bullet.shootFromRotation(reimu,0,-(StageTime * 60 + Time),0,0.8F,1);
                         hakureiBullets.add(bullet);
-                        reimu.getLevel().addFreshEntity(bullet);
+                        level.addFreshEntity(bullet);
                     }
                 }
                 if (StageTime >= 20) StageTime = 0;

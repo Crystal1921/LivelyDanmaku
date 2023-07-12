@@ -3,6 +3,7 @@ package com.tutorial.crystal.BlockEntity;
 import com.tutorial.crystal.init.BlockEntityTypeRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -18,7 +19,7 @@ public class ReimuEntityBlock extends BlockEntity {
         if (entity.count > 100) {
             entity.count = 0;
             if (level != null && !level.isClientSide()) {
-                var player = level.getNearestPlayer(pos.getX(), pos.getY(), pos.getZ(), 1.0, false);
+                Player player = level.getNearestPlayer(pos.getX(), pos.getY(), pos.getZ(), 1.0, false);
                 if (player != null) {
                     player.sendSystemMessage(Component.translatable("chat.crystal.welcome"));
                 }

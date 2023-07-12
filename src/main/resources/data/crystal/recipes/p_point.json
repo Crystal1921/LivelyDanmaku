@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "crystal:p_point"
+  },
+  "group": "naga_armor",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "crystal:red_point"
+    }
+  }
+}

@@ -18,9 +18,10 @@ public class crystal {
         ItemRegistry.ITEMS.register(eventBus);
         EntityTypeRegistry.ENTITY_TYPE.register(eventBus);
         EnchantmentRegistry.ENCHANTMENTS.register(eventBus);
-        eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
         BlockRegistry.BLOCKS.register(eventBus);
         BlockEntityTypeRegistry.BLOCK_ENTITY_TYPES.register(eventBus);
+        MenuRegistry.CONTAINERS.register(eventBus);
+        eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
         Group.TABS.register(eventBus);
     }
     public static ResourceLocation prefix(String name) {

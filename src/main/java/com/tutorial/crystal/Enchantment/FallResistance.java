@@ -10,7 +10,7 @@ public class FallResistance extends Enchantment {
     }
     @Override
     public boolean isTradeable() {
-        return false;
+        return true;
     }
 
     @Override
