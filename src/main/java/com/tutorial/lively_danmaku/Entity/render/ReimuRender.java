@@ -17,7 +17,7 @@ public class ReimuRender extends MobRenderer<Reimu, ReimuModel<Reimu>> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(Reimu p_114482_) {
+    public ResourceLocation getTextureLocation(Reimu reimu) {
         return null;
     }
     @Override

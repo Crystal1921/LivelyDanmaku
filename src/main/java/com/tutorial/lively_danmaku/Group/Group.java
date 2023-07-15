@@ -19,6 +19,7 @@ public class Group {
                     output.accept(ItemRegistry.HakureiGohei.get());
                     output.accept(ItemRegistry.SanaeGohei.get());
                     output.accept(ItemRegistry.ItemMiniHakkero.get());
+                    output.accept(ItemRegistry.ReimuHeaddress.get());
                     output.accept(ItemRegistry.ItemDanmaku.get());
                     output.accept(ItemRegistry.ItemStarDanmaku.get());
                     output.accept(ItemRegistry.P_Point.get());

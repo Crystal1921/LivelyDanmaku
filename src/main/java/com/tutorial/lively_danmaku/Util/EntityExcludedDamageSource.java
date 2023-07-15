@@ -6,6 +6,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,10 +21,10 @@ public class EntityExcludedDamageSource extends DamageSource {
     }
 
     @Override
-    public Component getLocalizedDeathMessage(LivingEntity living) {
+    public @NotNull Component getLocalizedDeathMessage(LivingEntity living) {
         LivingEntity livingentity = living.getKillCredit();
         String s = "death.attack." + this.type().msgId();
-        String s1 = s + ".player";
+        String s1 = s + ".lively_danmaku";
         if (livingentity != null) {
             for (EntityType<?> entity : entities) {
                 if (livingentity.getType() == entity) {

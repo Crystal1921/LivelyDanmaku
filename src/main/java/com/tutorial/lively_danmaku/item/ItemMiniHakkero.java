@@ -21,7 +21,7 @@ public class ItemMiniHakkero extends BowItem {
     }
 
     @Override
-    public void releaseUsing(ItemStack item, Level level, LivingEntity living, int i) {
+    public void releaseUsing(@NotNull ItemStack item, Level level, @NotNull LivingEntity living, int i) {
         if (!level.isClientSide) {
             if (living instanceof Player player) {
                 int k = this.getUseDuration(item) - i;
@@ -50,7 +50,7 @@ public class ItemMiniHakkero extends BowItem {
     }
 
     @Override
-    public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         player.startUsingItem(hand);
         return InteractionResultHolder.consume(itemstack);

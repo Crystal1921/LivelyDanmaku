@@ -19,6 +19,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Random;
 
 import static java.lang.Math.log;
 
@@ -46,23 +47,30 @@ public class ItemHakureiGohei extends BowItem {
                         danmaku.moveTo(living.getX(),living.getY() + 1,living.getZ());
                         danmaku.shootFromRotation(living,living.getXRot(),living.getYRot() + angle,0, f * multi,1);
                         level.addFreshEntity(danmaku);
-                        System.out.println("hihihi");
                     }
                 }   else{
                     String distribution = String.valueOf(item.getOrCreateTag().get("distribution"));
                     int[][] array = String2Int(distribution);
-                    for (int j = 0; j < 9; j++) {
-                        for (int l = 0; l < 9; l++) {
-                            if(array[j][l] == 1) {
-                                Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(),level,0.5F);
-                                danmaku.moveTo(living.getX(),living.getY() + 1,living.getZ());
-                                danmaku.shootFromRotation(living,living.getXRot() + 16 - j * 4,living.getYRot() + 16 - l * 4,0, f * multi,1);
-                                level.addFreshEntity(danmaku);
-                            } else if (array[j][l] == 2) {
-                                StarDanmaku danmaku = new StarDanmaku(EntityTypeRegistry.STAR_DANMAKU.get(), level);
-                                danmaku.moveTo(living.getX(),living.getY() + 1,living.getZ());
-                                danmaku.shootFromRotation(living,living.getXRot() + 16 - j * 4,living.getYRot() + 16 - l * 4,0, f * multi,1);
-                                level.addFreshEntity(danmaku);
+                    int num = countOccurrences(array);
+                    int repeat = amount / num;
+                    if (num > amount) {
+                        randomizeArray(array, num - amount);
+                        repeat = 1;
+                    }
+                    for (int m = 0; m < repeat; m++) {
+                        for (int j = 0; j < 9; j++) {
+                            for (int l = 0; l < 9; l++) {
+                                if(array[j][l] == 1) {
+                                    Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(),level,0.5F);
+                                    danmaku.moveTo(living.getX(),living.getY() + 1,living.getZ());
+                                    danmaku.shootFromRotation(living,living.getXRot() + 16 - j * 4,living.getYRot() + 16 - l * 4,0, f * multi,1);
+                                    level.addFreshEntity(danmaku);
+                                } else if (array[j][l] == 2) {
+                                    StarDanmaku danmaku = new StarDanmaku(EntityTypeRegistry.STAR_DANMAKU.get(), level);
+                                    danmaku.moveTo(living.getX(),living.getY() + 1,living.getZ());
+                                    danmaku.shootFromRotation(living,living.getXRot() + 16 - j * 4,living.getYRot() + 16 - l * 4,0, f * multi,1);
+                                    level.addFreshEntity(danmaku);
+                                }
                             }
                         }
                     }
@@ -101,5 +109,34 @@ public class ItemHakureiGohei extends BowItem {
             }
         }
         return array;
+    }
+
+    public static int countOccurrences(int[][] array) {
+        int count = 0;
+        for (int[] row : array) {
+            for (int element : row) {
+                if (element == 1 || element == 2) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public static void randomizeArray(int[][] array, int numOfOnesToChange) {
+        int count = 0;
+        int rows = array.length;
+        int columns = array[0].length;
+        Random random = new Random();
+
+        while (count < numOfOnesToChange) {
+            int randomRow = random.nextInt(rows);
+            int randomColumn = random.nextInt(columns);
+
+            if (array[randomRow][randomColumn] == 1 || array[randomRow][randomColumn] == 2) {
+                array[randomRow][randomColumn] = 0;
+                count++;
+            }
+        }
     }
 }

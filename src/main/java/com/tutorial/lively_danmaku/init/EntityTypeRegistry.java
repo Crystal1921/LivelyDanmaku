@@ -37,13 +37,13 @@ public class EntityTypeRegistry {
                     .sized(0.6F,1.6F)
                     .build("reimu")
     );
-    public static final RegistryObject<EntityType<player>> lively_danmaku_1921 = ENTITY_TYPE.register("lively_danmaku1921", () ->
+    public static final RegistryObject<EntityType<player>> FAKE_PLAYER = ENTITY_TYPE.register("fake_player", () ->
             EntityType.Builder.of(player::new, MobCategory.CREATURE)
                     .sized(0.6F,2.0F)
-                    .build("lively_danmaku1921")
+                    .build("fake_player")
     );
         public static void addEntityAttributes(EntityAttributeCreationEvent event) {
             event.put(REIMU.get(), Reimu.registerAttributes().build());
-            event.put(lively_danmaku_1921.get(), player.registerAttributes().build());
+            event.put(FAKE_PLAYER.get(), player.registerAttributes().build());
         }
     }

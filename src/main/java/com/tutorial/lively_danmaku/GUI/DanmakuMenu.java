@@ -40,7 +40,7 @@ public class DanmakuMenu extends AbstractContainerMenu {
             public boolean mayPlace(@NotNull ItemStack itemStack) {
                 return itemStack.is(ItemRegistry.P_Point.get());
             }
-            public int getMaxStackSize() {return 16;}
+            public int getMaxStackSize() { return 16;}
         });
         this.addSlot(new Slot(this.container, 2, -65, 47) {
             public boolean mayPlace(@NotNull ItemStack itemStack) {
@@ -63,6 +63,7 @@ public class DanmakuMenu extends AbstractContainerMenu {
                     public boolean mayPlace(@NotNull ItemStack itemStack) {
                         return itemStack.is(ItemRegistry.ItemDanmaku.get()) || itemStack.is(ItemRegistry.ItemStarDanmaku.get());
                     }
+                    public int getMaxStackSize() { return 1;}
                 });
             }
         }
