@@ -7,9 +7,10 @@
   "item.lively_danmaku.p_point": "大P点",
   "item.lively_danmaku.red_point": "小P点",
   "item.lively_danmaku.blue_point": "蓝点",
-  "item.lively_danmaku.player": "假人",
+  "item.lively_danmaku.fake_player": "假人",
   "item.lively_danmaku.danmaku": "弹幕",
   "item.lively_danmaku.star_danmaku": "星星",
+  "item.lively_danmaku.reimu_headdress": "灵梦蝴蝶结",
 
   "block.lively_danmaku.danmaku_table": "弹幕工作台",
   "block.lively_danmaku.reimu_block": "博丽灵梦手办",
@@ -20,8 +21,9 @@
   "enchantment.lively_danmaku.danmaku_resistance": "弹幕保护",
 
   "ui.danmaku_table": "弹幕工作台",
-  "desc.speed": "速度",
-  "desc.amount": "数量",
+  "hakurei_gohei.speed": "速度",
+  "hakurei_gohei.amount": "数量",
+  "headdress.describe": "在天空飞翔程度的能力",
 
   "itemGroup.lively_danmaku": "缤纷弹幕",
   

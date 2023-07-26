@@ -9,12 +9,14 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 public class DanmakuMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
+    public final int[] isFull = new int[3];
     private final Container container = new SimpleContainer(120) {
         public void setChanged() {
             super.setChanged();
@@ -28,7 +30,7 @@ public class DanmakuMenu extends AbstractContainerMenu {
     public DanmakuMenu(int id, Inventory inventory,ContainerLevelAccess access) {
         super(MenuRegistry.DANMAKU_CRAFT.get(),id);
         this.access = access;
-        this.addSlot(new Slot(this.container, 0, -55, 27) {
+        this.addSlot(new Slot(this.container, 0, 0, 19) {
             public boolean mayPlace(@NotNull ItemStack itemStack) {
                 return (itemStack.is(ItemRegistry.HakureiGohei.get()));
             }
@@ -36,15 +38,15 @@ public class DanmakuMenu extends AbstractContainerMenu {
                 return 1;
             }
         });
-        this.addSlot(new Slot(this.container, 1, -45, 47) {
-            public boolean mayPlace(@NotNull ItemStack itemStack) {
-                return itemStack.is(ItemRegistry.P_Point.get());
-            }
-            public int getMaxStackSize() { return 16;}
-        });
-        this.addSlot(new Slot(this.container, 2, -65, 47) {
+        this.addSlot(new Slot(this.container, 1, -30, 49) {
             public boolean mayPlace(@NotNull ItemStack itemStack) {
                 return itemStack.is(ItemRegistry.red_Point.get());
+            }
+        });
+        this.addSlot(new Slot(this.container, 2, 30, 49) {
+            public int getMaxStackSize() { return 16;}
+            public boolean mayPlace(@NotNull ItemStack itemStack) {
+                return itemStack.is(ItemRegistry.P_Point.get());
             }
         });
         for(int i = 0; i < 3; ++i) {
@@ -67,6 +69,7 @@ public class DanmakuMenu extends AbstractContainerMenu {
                 });
             }
         }
+        this.addDataSlot(DataSlot.shared(isFull,0));
     }
     @Override
     public boolean clickMenuButton(@NotNull Player player, int i) {
@@ -102,6 +105,19 @@ public class DanmakuMenu extends AbstractContainerMenu {
                 this.container.setItem(0, itemstack);
             });
             return true;
+        }
+    }
+
+    public void slotsChanged(@NotNull Container container) {
+        if (container == this.container) {
+            ItemStack itemstack = this.container.getItem(0);
+            ItemStack itemstack1 = this.container.getItem(1);
+            ItemStack itemStack2 = this.container.getItem(2);
+            if (!itemstack.isEmpty() && !itemstack1.isEmpty() && !itemStack2.isEmpty()) {
+                this.access.execute((level, blockPos) -> this.isFull[0] = 1);
+            }   else {
+                this.access.execute((level, blockPos) -> this.isFull[0] = 0);
+            }
         }
     }
 
@@ -153,6 +169,6 @@ public class DanmakuMenu extends AbstractContainerMenu {
     }
     public void removed(@NotNull Player player) {
         super.removed(player);
-        this.access.execute((p_39469_, p_39470_) -> this.clearContainer(player, this.container));
+        this.access.execute((level, blockPos) -> this.clearContainer(player, this.container));
     }
 }

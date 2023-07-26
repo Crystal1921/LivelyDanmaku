@@ -90,8 +90,8 @@ public class ItemHakureiGohei extends BowItem {
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> list, @NotNull TooltipFlag flags) {
         super.appendHoverText(stack, level, list, flags);
-        list.add(Component.translatable("desc.speed").withStyle(ChatFormatting.GRAY).append(" : " + stack.getOrCreateTag().getInt("speed")));
-        list.add(Component.translatable("desc.amount").withStyle(ChatFormatting.GRAY).append(" : " + stack.getOrCreateTag().getInt("damage")));
+        list.add(Component.translatable("hakurei_gohei.speed").withStyle(ChatFormatting.GRAY).append(" : " + stack.getOrCreateTag().getInt("speed")));
+        list.add(Component.translatable("hakurei_gohei.amount").withStyle(ChatFormatting.GRAY).append(" : " + stack.getOrCreateTag().getInt("damage")));
         if (stack.getOrCreateTag().get("distribution") != null) {
             for (int i = 0; i < 9; i++) {
                 list.add(Component.translatable(Component.EMPTY.getString()).append(stack.getOrCreateTag().get("distribution").toString().substring(i * 9 + 1, i * 9 + 10)));

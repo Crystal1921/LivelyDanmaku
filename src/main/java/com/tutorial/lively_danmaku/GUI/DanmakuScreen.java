@@ -17,16 +17,14 @@ public class DanmakuScreen extends AbstractContainerScreen<DanmakuMenu> {
     public boolean mouseClicked(double mouseX, double mouseY, int mouseButton) {
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
+        double d0 = mouseX + 4 - i;
+        double d1 = mouseY - 44 - j;
 
-        for(int k = 0; k < 3; ++k) {
-            double d0 = mouseX - (double)(i - 20);
-            double d1 = mouseY - (double)(j + 14 + 19 * k);
-            if (this.minecraft != null && this.minecraft.player != null && d0 >= 0D && d1 >= 0.0D && d0 < 108.0D && d1 < 19.0D && this.menu.clickMenuButton(this.minecraft.player, k)) {
-                if (this.minecraft.gameMode != null) {
-                    this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, k);
-                }
-                return true;
+        if (this.minecraft != null && this.minecraft.player != null && d0 >= 0D && d1 >= 0.0D && d0 < 30D && d1 < 30D && this.menu.clickMenuButton(this.minecraft.player, 0)) {
+            if (this.minecraft.gameMode != null) {
+                this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, 0);
             }
+            return true;
         }
 
         return super.mouseClicked(mouseX, mouseY, mouseButton);
@@ -38,8 +36,10 @@ public class DanmakuScreen extends AbstractContainerScreen<DanmakuMenu> {
         int j = (this.height - this.imageHeight) / 2;
         guiGraphics.blit(DANMAKU_TABLE, i - 80 , j, 0, 0, this.imageWidth, this.imageHeight);
         guiGraphics.blit(DANMAKU_TABLE_9, i + 120, j - 4, 0, 0, this.imageWidth - 1, this.imageHeight + 10);
+        if (this.menu.isFull[0] == 0) {
+            guiGraphics.blit(DANMAKU_TABLE, i - 7, j + 41, 175, 30,30,30);
+        }
     }
-
 
     public void render(@NotNull GuiGraphics guiGraphics, int p_282491_, int p_281953_, float p_282182_) {
         this.renderBackground(guiGraphics);
