@@ -17,6 +17,12 @@ import static com.tutorial.lively_danmaku.data.RegistryDataGenerator.getIndirect
 
 public class Hakurei_bullet extends AbstractDanmaku {
     private int time;
+    // 初始速度
+    double initialVelocity = 1;
+    // 初始位置
+    double initialPosition = 1;
+    // 阻尼系数
+    double dampingFactor = 10;
     public static final EntityDataAccessor<Integer> BULLET_STAGE = SynchedEntityData.defineId(Hakurei_bullet.class, EntityDataSerializers.INT);
     public Hakurei_bullet(EntityType<? extends ThrowableItemProjectile> p_37442_, Level p_37443_) {
         super(p_37442_, p_37443_);
@@ -69,13 +75,7 @@ public class Hakurei_bullet extends AbstractDanmaku {
         }
     }
     public double getVelocity(double time) {
-        // 阻尼系数
-        double dampingFactor = 10;
         double exponentialTerm = Math.exp(-dampingFactor * time);
-        // 初始速度
-        double initialVelocity = 1;
-        // 初始位置
-        double initialPosition = 1;
         return  1 / (initialVelocity * exponentialTerm +
                 (initialPosition * dampingFactor + initialVelocity) *
                         (1 - exponentialTerm) / dampingFactor);

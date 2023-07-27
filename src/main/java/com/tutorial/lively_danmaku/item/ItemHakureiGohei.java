@@ -91,10 +91,10 @@ public class ItemHakureiGohei extends BowItem {
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> list, @NotNull TooltipFlag flags) {
         super.appendHoverText(stack, level, list, flags);
         list.add(Component.translatable("hakurei_gohei.speed").withStyle(ChatFormatting.GRAY).append(" : " + stack.getOrCreateTag().getInt("speed")));
-        list.add(Component.translatable("hakurei_gohei.amount").withStyle(ChatFormatting.GRAY).append(" : " + stack.getOrCreateTag().getInt("damage")));
+        list.add(Component.translatable("hakurei_gohei.amount").withStyle(ChatFormatting.GRAY).append(" : " + stack.getOrCreateTag().getInt("amount")));
         if (stack.getOrCreateTag().get("distribution") != null) {
             for (int i = 0; i < 9; i++) {
-                list.add(Component.translatable(Component.EMPTY.getString()).append(stack.getOrCreateTag().get("distribution").toString().substring(i * 9 + 1, i * 9 + 10)));
+                list.add(Component.translatable(Component.EMPTY.getString()).append(format_NBT(stack.getOrCreateTag().get("distribution").toString().substring(i * 9 + 1, i * 9 + 10))));
             }
         }
     }
@@ -138,5 +138,17 @@ public class ItemHakureiGohei extends BowItem {
                 count++;
             }
         }
+    }
+
+    public String format_NBT(String string) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < 9; i++) {
+            switch (string.charAt(i)){
+                case '#' -> result.append('\u3000');
+                case '1' -> result.append('●').append(' ');
+                case '2' -> result.append('★');
+            }
+        }
+        return result.toString();
     }
 }

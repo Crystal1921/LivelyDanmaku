@@ -93,15 +93,14 @@ public class DanmakuMenu extends AbstractContainerMenu {
                     this.container.setItem(j,ItemStack.EMPTY);
                 }
                 if (!itemstack1.isEmpty()) {
-                    itemstack.getOrCreateTag().putInt("speed",itemstack1.getCount());
+                    itemstack.getOrCreateTag().putInt("amount",itemstack1.getCount());
                     itemstack1.setCount(0);
                 }
                 if(!itemStack2.isEmpty()) {
-                    itemstack.getOrCreateTag().putInt("amount",itemStack2.getCount());
+                    itemstack.getOrCreateTag().putInt("speed",itemStack2.getCount());
                     itemStack2.setCount(0);
                 }
                 itemstack.getOrCreateTag().putString("distribution",string.toString());
-                System.out.println(string);
                 this.container.setItem(0, itemstack);
             });
             return true;
