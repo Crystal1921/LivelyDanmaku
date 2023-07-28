@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class ReimuTileEntityRenderer implements BlockEntityRenderer<ReimuEntityBlock> {
     private final ReimuModel reimuModel;
@@ -21,7 +22,7 @@ public class ReimuTileEntityRenderer implements BlockEntityRenderer<ReimuEntityB
     public static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation("lively_danmaku", "textures/entity/reimu.png");
 
     @Override
-    public void render(ReimuEntityBlock reimuEntityBlock, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
+    public void render(@NotNull ReimuEntityBlock reimuEntityBlock, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
         VertexConsumer builder = buffer.getBuffer(this.reimuModel.renderType(TEXTURE_LOCATION));
         ms.pushPose();
         ms.mulPose(Axis.ZP.rotationDegrees(180));

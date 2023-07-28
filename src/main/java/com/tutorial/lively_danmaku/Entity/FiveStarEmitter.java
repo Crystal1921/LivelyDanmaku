@@ -16,7 +16,7 @@ public class FiveStarEmitter extends Projectile {
     public boolean isShoot = false;
     private Player player;
     private ArrayList<ItemSanaeGohei.DoublePoint> arrayList = new ArrayList<>();
-    private ArrayList<Danmaku> danmakuArrayList = new ArrayList<>();
+    private final ArrayList<Danmaku> danmakuArrayList = new ArrayList<>();
     public FiveStarEmitter(EntityType<? extends Projectile> entityType, Level level) {
         super(entityType, level);
     }

@@ -16,7 +16,7 @@ public class StarDanmaku extends AbstractDanmaku {
         this.color = random.nextInt(3);
     }
 
-    private int color;
+    private final int color;
     Random random = new Random();
     protected void onHit(@NotNull HitResult hitResult) {
         super.onHit(hitResult);

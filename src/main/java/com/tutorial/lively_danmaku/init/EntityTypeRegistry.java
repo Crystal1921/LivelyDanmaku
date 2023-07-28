@@ -42,8 +42,13 @@ public class EntityTypeRegistry {
                     .sized(0.6F,2.0F)
                     .build("fake_player")
     );
+    public static final RegistryObject<EntityType<Broomstick>> BROOMSTICK = ENTITY_TYPE.register("broomstick", () ->
+            EntityType.Builder.of(Broomstick::new, MobCategory.MISC)
+                    .sized(0.6F,0.6F)
+                    .build("broomstick"));
         public static void addEntityAttributes(EntityAttributeCreationEvent event) {
             event.put(REIMU.get(), Reimu.registerAttributes().build());
             event.put(FAKE_PLAYER.get(), player.registerAttributes().build());
+            event.put(BROOMSTICK.get(), Broomstick.registerAttributes().build());
         }
     }
