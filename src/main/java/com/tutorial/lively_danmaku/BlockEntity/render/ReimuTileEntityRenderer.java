@@ -7,6 +7,7 @@ import com.tutorial.lively_danmaku.BlockEntity.ReimuEntityBlock;
 import com.tutorial.lively_danmaku.Entity.model.ReimuModel;
 import com.tutorial.lively_danmaku.init.ModelLayersRegistry;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -23,11 +24,11 @@ public class ReimuTileEntityRenderer implements BlockEntityRenderer<ReimuEntityB
 
     @Override
     public void render(@NotNull ReimuEntityBlock reimuEntityBlock, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
-        VertexConsumer builder = buffer.getBuffer(this.reimuModel.renderType(TEXTURE_LOCATION));
+        VertexConsumer builder = buffer.getBuffer(RenderType.entityCutoutNoCull(TEXTURE_LOCATION));
         ms.pushPose();
         ms.mulPose(Axis.ZP.rotationDegrees(180));
         ms.translate(-0.5,-1.5,0.5);
-        this.reimuModel.renderToBuffer(ms, builder, 0xF000F0, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.reimuModel.renderToBuffer(ms, builder, light, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         ms.popPose();
     }
 }

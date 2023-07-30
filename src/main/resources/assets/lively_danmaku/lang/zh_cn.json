@@ -11,6 +11,7 @@
   "item.lively_danmaku.danmaku": "弹幕",
   "item.lively_danmaku.star_danmaku": "星星",
   "item.lively_danmaku.reimu_headdress": "灵梦蝴蝶结",
+  "item.lively_danmaku.broomstick": "扫帚",
 
   "block.lively_danmaku.danmaku_table": "弹幕工作台",
   "block.lively_danmaku.reimu_block": "博丽灵梦手办",
@@ -25,7 +26,5 @@
   "hakurei_gohei.amount": "数量",
   "headdress.describe": "在天空飞翔程度的能力",
 
-  "itemGroup.lively_danmaku": "缤纷弹幕",
-  
-  "chat.lively_danmaku.reimu": "梦想天生"
+  "itemGroup.lively_danmaku": "缤纷弹幕"
 }

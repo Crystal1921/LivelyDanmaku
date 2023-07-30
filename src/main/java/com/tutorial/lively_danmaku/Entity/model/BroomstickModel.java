@@ -1,7 +1,6 @@
-package com.tutorial.lively_danmaku.Entity.model;// Made with Blockbench 4.7.4
+package com.tutorial.lively_danmaku.Entity.model;// Made with Blockbench 4.8.0
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
-
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -12,6 +11,8 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
+import org.jetbrains.annotations.NotNull;
+
 
 public class BroomstickModel<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
@@ -30,7 +31,7 @@ public class BroomstickModel<T extends Entity> extends EntityModel<T> {
 		.texOffs(14, 11).addBox(-11.925F, -5.75F, 12.1F, 4.25F, 3.5F, 0.75F, new CubeDeformation(0.0F))
 		.texOffs(0, 0).addBox(-11.0F, -5.375F, 8.25F, 2.5F, 2.75F, 1.25F, new CubeDeformation(0.005F))
 		.texOffs(13, 0).addBox(-11.0F, -5.25F, 12.9566F, 2.5F, 2.5F, 6.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 0).addBox(-10.25F, -4.5F, -15.5F, 1.0F, 1.0F, 31.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-10.25F, 21.0F, -1.0F, 0.0F, 3.1416F, 0.0F));
+		.texOffs(0, 0).addBox(-10.25F, -4.5F, -15.5F, 1.0F, 1.0F, 31.0F, new CubeDeformation(0.0F)), PartPose.offset(9.75F, 21.0F, -1.0F));
 
 		PartDefinition cube_r1 = broom.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(16, 16).addBox(-1.0F, -1.5F, -1.75F, 2.5F, 2.5F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-10.0F, -3.0F, 10.5F, 0.3927F, 0.0F, 0.0F));
 
@@ -54,12 +55,12 @@ public class BroomstickModel<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(@NotNull T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+	public void renderToBuffer(@NotNull PoseStack poseStack, @NotNull VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		broom.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

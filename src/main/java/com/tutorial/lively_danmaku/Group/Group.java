@@ -28,5 +28,6 @@ public class Group {
                     output.accept(ItemRegistry.DanmakuTableItem.get());
                     output.accept(ItemRegistry.Player.get());
                     output.accept(ItemRegistry.HakureiReimu.get());
+                    output.accept(ItemRegistry.Broomstick.get());
                 }).build());
     }

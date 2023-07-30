@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  #",
+    " # ",
+    "$  "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:paper"
+    },
+    "$": {
+      "item": "minecraft:fishing_rod"
+    }
+  },
+  "result": {
+    "item": "lively_danmaku:hakurei_gohei",
+    "count": 1
+  }
+}

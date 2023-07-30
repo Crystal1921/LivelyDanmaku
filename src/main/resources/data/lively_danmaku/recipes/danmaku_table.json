@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "%%%",
+    "%#%",
+    "$$$"
+  ],
+  "key": {
+    "#": {
+      "item": "lively_danmaku:star_danmaku"
+    },
+    "%": {
+      "item": "lively_danmaku:danmaku"
+    },
+    "$": {
+      "item": "minecraft:stripped_cherry_log"
+    }
+  },
+  "result": {
+    "item": "lively_danmaku:danmaku_table_item",
+    "count": 1
+  }
+}

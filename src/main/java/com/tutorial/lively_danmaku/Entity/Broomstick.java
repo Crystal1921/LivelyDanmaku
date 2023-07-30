@@ -6,6 +6,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -27,6 +28,11 @@ public class Broomstick extends PathfinderMob {
 
     public @NotNull InteractionResult mobInteract(@NotNull Player player, @NotNull InteractionHand hand) {
         if (!this.level().isClientSide) {
+            if (player.isShiftKeyDown()){
+                ItemEntity item = new ItemEntity(this.level(), this.getX(), this.getY(1.0D), this.getZ(), ItemRegistry.Broomstick.get().getDefaultInstance());
+                this.level().addFreshEntity(item);
+                this.discard();
+            }
             player.startRiding(this);
         }
         return InteractionResult.sidedSuccess(this.level().isClientSide);
@@ -35,11 +41,9 @@ public class Broomstick extends PathfinderMob {
     @Nullable
     public LivingEntity getControllingPassenger() {
         Entity entity = this.getFirstPassenger();
-        if (entity instanceof Player player)
-            if (player.getMainHandItem().is(ItemRegistry.ItemMiniHakkero.get()) || player.getOffhandItem().is(ItemRegistry.ItemMiniHakkero.get())) {
-                return player;
-            }
-
+        if (entity instanceof Player player) {
+            return player;
+        }
         return null;
     }
 

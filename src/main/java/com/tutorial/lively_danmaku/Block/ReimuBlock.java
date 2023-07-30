@@ -4,9 +4,6 @@ import com.tutorial.lively_danmaku.BlockEntity.ReimuEntityBlock;
 import com.tutorial.lively_danmaku.init.BlockEntityTypeRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -16,7 +13,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -40,11 +36,5 @@ public class ReimuBlock extends BaseEntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> blockEntityType) {
         return level.isClientSide() ? null : createTickerHelper(blockEntityType, BlockEntityTypeRegistry.REIMU_ENTITY_BLOCK.get(), ReimuEntityBlock::tick);
-    }
-
-    @Deprecated
-    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult result) {
-        player.sendSystemMessage(Component.translatable("chat.lively_danmaku.reimu"));
-        return InteractionResult.SUCCESS;
     }
 }
