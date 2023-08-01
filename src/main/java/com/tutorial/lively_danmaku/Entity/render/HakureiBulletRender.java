@@ -31,7 +31,7 @@ public class HakureiBulletRender extends EntityRenderer<Hakurei_bullet> {
         return TEXTURE_LOCATION;
     }
     @Override
-    public void render(@NotNull Hakurei_bullet danmaku, float p_114081_, float p_114082_, PoseStack poseStack, MultiBufferSource p_114084_, int p_114085_) {
+    public void render(@NotNull Hakurei_bullet danmaku, float p_114081_, float p_114082_, PoseStack poseStack, MultiBufferSource bufferSource, int i) {
         rotation.rotationYXZ((float) Math.toRadians(danmaku.getYRot()),(float) Math.toRadians(-danmaku.getXRot() + 90),0);
         poseStack.pushPose();
         poseStack.scale(1.0F, 1.0F, 1.0F);
@@ -39,13 +39,13 @@ public class HakureiBulletRender extends EntityRenderer<Hakurei_bullet> {
         PoseStack.Pose posestack$pose = poseStack.last();
         Matrix4f matrix4f = posestack$pose.pose();
         Matrix3f matrix3f = posestack$pose.normal();
-        VertexConsumer vertexconsumer = p_114084_.getBuffer(RENDER_TYPE[danmaku.getEntityData().get(Hakurei_bullet.BULLET_STAGE)]);
-        vertex(vertexconsumer, matrix4f, matrix3f, p_114085_, 0.0F, 0, 0, 1);
-        vertex(vertexconsumer, matrix4f, matrix3f, p_114085_, 0.5F, 0, 1, 1);
-        vertex(vertexconsumer, matrix4f, matrix3f, p_114085_, 0.5F, 1, 1, 0);
-        vertex(vertexconsumer, matrix4f, matrix3f, p_114085_, 0.0F, 1, 0, 0);
+        VertexConsumer vertexconsumer = bufferSource.getBuffer(RENDER_TYPE[danmaku.getEntityData().get(Hakurei_bullet.BULLET_STAGE)]);
+        vertex(vertexconsumer, matrix4f, matrix3f, i, 0.0F, 0, 0, 1);
+        vertex(vertexconsumer, matrix4f, matrix3f, i, 0.5F, 0, 1, 1);
+        vertex(vertexconsumer, matrix4f, matrix3f, i, 0.5F, 1, 1, 0);
+        vertex(vertexconsumer, matrix4f, matrix3f, i, 0.0F, 1, 0, 0);
         poseStack.popPose();
-        super.render(danmaku, p_114081_, p_114082_, poseStack, p_114084_, p_114085_);
+        super.render(danmaku, p_114081_, p_114082_, poseStack, bufferSource, i);
     }
     private static void vertex(VertexConsumer p_254095_, Matrix4f p_254477_, Matrix3f p_253948_, int p_253829_, float p_253995_, int p_254031_, int p_253641_, int p_254243_) {
         p_254095_.vertex(p_254477_, p_253995_ - 0.25F, (float)p_254031_ - 0.25F, 0.0F)

@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class ReimuRender extends MobRenderer<Reimu, ReimuModel<Reimu>> {
     public static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation("lively_danmaku", "textures/entity/reimu.png");
@@ -17,11 +18,11 @@ public class ReimuRender extends MobRenderer<Reimu, ReimuModel<Reimu>> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(Reimu reimu) {
-        return null;
+    public @NotNull ResourceLocation getTextureLocation(@NotNull Reimu reimu) {
+        return TEXTURE_LOCATION;
     }
     @Override
-    public RenderType getRenderType(Reimu entity, boolean showBody, boolean translucent, boolean showOutline) {
+    public RenderType getRenderType(@NotNull Reimu entity, boolean showBody, boolean translucent, boolean showOutline) {
         return RENDER_TYPE;
     }
 }

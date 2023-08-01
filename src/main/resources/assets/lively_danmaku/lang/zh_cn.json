@@ -21,6 +21,10 @@
 
   "enchantment.lively_danmaku.danmaku_resistance": "弹幕保护",
 
+  "death.attack.lively_danmaku.danmaku_shoot": "死于弹幕",
+
+  "chat.lively_danmaku.welcome": "请赛钱",
+
   "ui.danmaku_table": "弹幕工作台",
   "hakurei_gohei.speed": "速度",
   "hakurei_gohei.amount": "数量",
