@@ -22,7 +22,7 @@ public class YinYangOrbRender extends EntityRenderer<YinYangOrb> {
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(YinYangOrb entity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull YinYangOrb entity) {
         return TEXTURE_LOCATION;
     }
     @Override
@@ -42,7 +42,7 @@ public class YinYangOrbRender extends EntityRenderer<YinYangOrb> {
         p_114083_.popPose();
         super.render(yinYangOrb, p_114081_, p_114082_, p_114083_, p_114084_, p_114085_);
     }
-    private static void vertex(VertexConsumer p_254095_, Matrix4f p_254477_, Matrix3f p_253948_, int p_253829_, float p_253995_, int p_254031_, int p_253641_, int p_254243_) {
-        p_254095_.vertex(p_254477_, p_253995_ - 0.5F, (float)p_254031_ - 0.25F, 0.0F).color(255, 255, 255, 255).uv((float)p_253641_, (float)p_254243_).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(p_253829_).normal(p_253948_, 0.0F, 1.0F, 0.0F).endVertex();
+    private static void vertex(VertexConsumer vertexConsumer, Matrix4f matrix4f, Matrix3f matrix3f, int p_253829_, float p_253995_, int p_254031_, int p_253641_, int p_254243_) {
+        vertexConsumer.vertex(matrix4f, p_253995_ - 0.5F, (float)p_254031_ - 0.25F, 0.0F).color(255, 255, 255, 255).uv((float)p_253641_, (float)p_254243_).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(p_253829_).normal(matrix3f, 0.0F, 1.0F, 0.0F).endVertex();
     }
 }

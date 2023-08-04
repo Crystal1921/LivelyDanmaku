@@ -47,13 +47,13 @@ public class HakureiBulletRender extends EntityRenderer<Hakurei_bullet> {
         poseStack.popPose();
         super.render(danmaku, p_114081_, p_114082_, poseStack, bufferSource, i);
     }
-    private static void vertex(VertexConsumer p_254095_, Matrix4f p_254477_, Matrix3f p_253948_, int p_253829_, float p_253995_, int p_254031_, int p_253641_, int p_254243_) {
-        p_254095_.vertex(p_254477_, p_253995_ - 0.25F, (float)p_254031_ - 0.25F, 0.0F)
+    private static void vertex(VertexConsumer consumer, Matrix4f matrix4f, Matrix3f matrix3f, int p_253829_, float p_253995_, int p_254031_, int p_253641_, int p_254243_) {
+        consumer.vertex(matrix4f, p_253995_ - 0.25F, (float)p_254031_ - 0.25F, 0.0F)
                 .color(255, 255, 255, 255)
                 .uv((float)p_253641_, (float)p_254243_)
                 .overlayCoords(OverlayTexture.NO_OVERLAY)
                 .uv2(p_253829_)
-                .normal(p_253948_, 0.0F, 1.0F, 0.0F)
+                .normal(matrix3f, 0.0F, 1.0F, 0.0F)
                 .endVertex();
     }
 }
