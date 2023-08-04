@@ -16,11 +16,11 @@ import org.joml.Quaternionf;
 
 public class HakureiBulletRender extends EntityRenderer<Hakurei_bullet> {
     private final Quaternionf rotation = new Quaternionf(0.0F, 0.0F, 0.0F, 1.0F);
-    public static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation("lively_danmaku", "textures/entity/hakurei_bullet1.png");
+    public static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation("lively_danmaku", "textures/entity/hakurei_danmaku.png");
     private static final RenderType[] RENDER_TYPE = {
-            RenderType.entityCutoutNoCull(new ResourceLocation("lively_danmaku", "textures/entity/hakurei_bullet1.png")),
-            RenderType.entityCutoutNoCull(new ResourceLocation("lively_danmaku","textures/entity/hakurei_bullet2.png")),
-            RenderType.entityCutoutNoCull(new ResourceLocation("lively_danmaku","textures/entity/hakurei_bullet3.png"))
+            RenderType.entityCutoutNoCull(new ResourceLocation("lively_danmaku", "textures/entity/hakurei_danmaku.png")),
+            RenderType.entityCutoutNoCull(new ResourceLocation("lively_danmaku","textures/entity/hakurei_danmaku1.png")),
+            RenderType.entityCutoutNoCull(new ResourceLocation("lively_danmaku","textures/entity/hakurei_danmaku2.png"))
     };
     public HakureiBulletRender(EntityRendererProvider.Context context) {
         super(context);
