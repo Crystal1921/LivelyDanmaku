@@ -61,7 +61,9 @@ public class HakureiDanmaku extends AbstractDanmaku {
         super.tick();
         if (this.getEntityData().get(BULLET_STAGE) == 1) {
             time++;
-            this.setDeltaMovement(this.getDeltaMovement().multiply(getVelocity(time),getVelocity(time),getVelocity(time)));
+            if (!isPlayerShoot) {
+                this.setDeltaMovement(this.getDeltaMovement().multiply(getVelocity(time), getVelocity(time), getVelocity(time)));
+            }
         }
         if (tickCount == 50) {
             this.getEntityData().set(BULLET_STAGE, 2);
