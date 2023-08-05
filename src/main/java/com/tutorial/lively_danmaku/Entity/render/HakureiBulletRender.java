@@ -2,7 +2,7 @@ package com.tutorial.lively_danmaku.Entity.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.tutorial.lively_danmaku.Entity.Hakurei_bullet;
+import com.tutorial.lively_danmaku.Entity.HakureiDanmaku;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -14,7 +14,7 @@ import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 
-public class HakureiBulletRender extends EntityRenderer<Hakurei_bullet> {
+public class HakureiBulletRender extends EntityRenderer<HakureiDanmaku> {
     private final Quaternionf rotation = new Quaternionf(0.0F, 0.0F, 0.0F, 1.0F);
     public static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation("lively_danmaku", "textures/entity/hakurei_danmaku.png");
     private static final RenderType[] RENDER_TYPE = {
@@ -27,11 +27,11 @@ public class HakureiBulletRender extends EntityRenderer<Hakurei_bullet> {
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(@NotNull Hakurei_bullet entity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull HakureiDanmaku entity) {
         return TEXTURE_LOCATION;
     }
     @Override
-    public void render(@NotNull Hakurei_bullet danmaku, float p_114081_, float p_114082_, PoseStack poseStack, MultiBufferSource bufferSource, int i) {
+    public void render(@NotNull HakureiDanmaku danmaku, float p_114081_, float p_114082_, PoseStack poseStack, MultiBufferSource bufferSource, int i) {
         rotation.rotationYXZ((float) Math.toRadians(danmaku.getYRot()),(float) Math.toRadians(-danmaku.getXRot() + 90),0);
         poseStack.pushPose();
         poseStack.scale(1.0F, 1.0F, 1.0F);
@@ -39,7 +39,7 @@ public class HakureiBulletRender extends EntityRenderer<Hakurei_bullet> {
         PoseStack.Pose posestack$pose = poseStack.last();
         Matrix4f matrix4f = posestack$pose.pose();
         Matrix3f matrix3f = posestack$pose.normal();
-        VertexConsumer vertexconsumer = bufferSource.getBuffer(RENDER_TYPE[danmaku.getEntityData().get(Hakurei_bullet.BULLET_STAGE)]);
+        VertexConsumer vertexconsumer = bufferSource.getBuffer(RENDER_TYPE[danmaku.getEntityData().get(HakureiDanmaku.BULLET_STAGE)]);
         vertex(vertexconsumer, matrix4f, matrix3f, i, 0.0F, 0, 0, 1);
         vertex(vertexconsumer, matrix4f, matrix3f, i, 0.5F, 0, 1, 1);
         vertex(vertexconsumer, matrix4f, matrix3f, i, 0.5F, 1, 1, 0);

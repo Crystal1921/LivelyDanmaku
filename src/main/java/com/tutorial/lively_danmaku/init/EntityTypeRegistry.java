@@ -20,8 +20,8 @@ public class EntityTypeRegistry {
             EntityType.Builder.of(StarDanmaku::new, MobCategory.MISC)
                     .sized(0.6F,0.6F)
                     .build("star_danmaku"));
-    public static final RegistryObject<EntityType<Hakurei_bullet>> HAKUREI_BULLET = ENTITY_TYPE.register("hakurei_bullet", () ->
-            EntityType.Builder.of((EntityType<Hakurei_bullet> type, Level level) -> new Hakurei_bullet(type, level), MobCategory.MISC)
+    public static final RegistryObject<EntityType<HakureiDanmaku>> HAKUREI_BULLET = ENTITY_TYPE.register("hakurei_bullet", () ->
+            EntityType.Builder.of((EntityType<HakureiDanmaku> type, Level level) -> new HakureiDanmaku(type, level), MobCategory.MISC)
                     .sized(0.5F,0.5F)
                     .build("hakurei_bullet"));
     public static final RegistryObject<EntityType<FiveStarEmitter>> FIVE_STAR_EMITTER = ENTITY_TYPE.register("five_star_emitter", () ->

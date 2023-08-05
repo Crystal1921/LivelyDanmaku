@@ -20,7 +20,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> ReimuHeaddress = ITEMS.register("reimu_headdress", () -> new ReimuHeaddress(ArmorMaterials.IRON, ArmorItem.Type.HELMET , new Item.Properties()));
     public static final RegistryObject<Item> ItemDanmaku = ITEMS.register("danmaku", () -> new DanmakuItem(new Item.Properties()));
     public static final RegistryObject<Item> ItemStarDanmaku = ITEMS.register("star_danmaku", () -> new StarDanmakuItem(new Item.Properties()));
-    public static final RegistryObject<Item> ItemBulletDanmaku = ITEMS.register("hakurei_danmaku", () -> new BulletDanmakuItem(new Item.Properties()));
+    public static final RegistryObject<Item> HakureiBulletDanmaku = ITEMS.register("hakurei_danmaku", () -> new HakureiDanmakuItem(new Item.Properties()));
     public static final RegistryObject<Item> P_Point = ITEMS.register("p_point", () -> new P_Point(new Item.Properties(),6));
     public static final RegistryObject<Item> red_Point = ITEMS.register("red_point", () -> new P_Point(new Item.Properties(),3));
     public static final RegistryObject<Item> ReimuItem = ITEMS.register("reimu_item", () -> new BlockItem(REIMU_BLOCK.get(), new Item.Properties()));

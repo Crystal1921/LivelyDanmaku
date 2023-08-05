@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku.Entity.ai;
 
 import com.tutorial.lively_danmaku.Entity.Danmaku;
-import com.tutorial.lively_danmaku.Entity.Hakurei_bullet;
+import com.tutorial.lively_danmaku.Entity.HakureiDanmaku;
 import com.tutorial.lively_danmaku.Entity.Reimu;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import net.minecraft.world.entity.Entity;
@@ -18,7 +18,7 @@ public class FlyAndShoot extends Goal {
     private final Reimu reimu;
     private final Level level;
     private final Random random = new Random();
-    private final ArrayList<Hakurei_bullet> hakureiBullets = new ArrayList<>();
+    private final ArrayList<HakureiDanmaku> hakureiBullets = new ArrayList<>();
     private int attackTime;
     private int Time;
     private int StageTime;
@@ -63,7 +63,7 @@ public class FlyAndShoot extends Goal {
                 if (reimu.getEntityData().get(Reimu.REIMU_STAGE) == 2) {    //梦想封印 散
                     for (int i = 0; i < 360; i += 18) {
                         for (int j = 0; j < 360; j += 18) {
-                            Hakurei_bullet bullet = new Hakurei_bullet(EntityTypeRegistry.HAKUREI_BULLET.get(), level, 18 * i - 180, 18 * j - 180,140);
+                            HakureiDanmaku bullet = new HakureiDanmaku(EntityTypeRegistry.HAKUREI_BULLET.get(), level, 18 * i - 180, 18 * j - 180,140);
                             bullet.moveTo(reimu.getX(), reimu.getY(0.5), reimu.getZ());
                             bullet.shootFromRotation(reimu, i, j + Time, 0, 0.5F, 1);
                             level.addFreshEntity(bullet);
@@ -75,7 +75,7 @@ public class FlyAndShoot extends Goal {
                 StageTime++;
                 if (StageTime <= 6) {
                     for (int i = 0; i < 6; i++) {
-                        Hakurei_bullet bullet = new Hakurei_bullet(EntityTypeRegistry.HAKUREI_BULLET.get(),level);
+                        HakureiDanmaku bullet = new HakureiDanmaku(EntityTypeRegistry.HAKUREI_BULLET.get(),level);
                         bullet.moveTo(reimu.getX() + i * Math.sin(Math.toRadians(StageTime * 60 + Time)),reimu.getY(0.5),reimu.getZ() +i * Math.cos(Math.toRadians(StageTime * 60 + Time)));
                         bullet.shootFromRotation(reimu,0,-(StageTime * 60 + Time),0,0.8F,1);
                         hakureiBullets.add(bullet);
