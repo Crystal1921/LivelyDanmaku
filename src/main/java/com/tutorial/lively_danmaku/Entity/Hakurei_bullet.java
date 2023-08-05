@@ -1,19 +1,14 @@
 package com.tutorial.lively_danmaku.Entity;
 
-import com.tutorial.lively_danmaku.init.DamageTypeRegistry;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.NotNull;
-
-import static com.tutorial.lively_danmaku.data.RegistryDataGenerator.getIndirectEntityDamageSource;
 
 public class Hakurei_bullet extends AbstractDanmaku {
     private int time;
@@ -38,15 +33,6 @@ public class Hakurei_bullet extends AbstractDanmaku {
     @Override
     protected Item getDefaultItem() {
         return null;
-    }
-
-    protected void onHitEntity(@NotNull EntityHitResult entityHitResult) {
-        super.onHitEntity(entityHitResult);
-        Entity entity = entityHitResult.getEntity();
-        double i = Math.sqrt(entity.distanceToSqr(entity.getDeltaMovement())) / 10;
-        if (!(entity instanceof Reimu)) {
-            entity.hurt(getIndirectEntityDamageSource(this.level(), DamageTypeRegistry.DANMAKU_SHOOT, this.getOwner(), this), (float)i);
-        }
     }
 
     protected void onHit(@NotNull HitResult hitResult) {

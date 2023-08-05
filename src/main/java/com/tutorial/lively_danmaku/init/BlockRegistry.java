@@ -13,6 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class BlockRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "lively_danmaku");
     public static final RegistryObject<Block> REIMU_BLOCK = BLOCKS.register("reimu_block",
-            () -> new ReimuBlock(BlockBehaviour.Properties.of().strength(0.5F, 1200.0F).lightLevel((light) -> 15)));
-    public static final RegistryObject<Block> DANMAKU_TABLE = BLOCKS.register("danmaku_table", () -> new DanmakuCraftingTable(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.FIRE).sound(SoundType.WOOD).strength(2.5F)));
+            () -> new ReimuBlock(BlockBehaviour.Properties.of().noCollission().strength(0.5F, 1200.0F).lightLevel((light) -> 15)));
+    public static final RegistryObject<Block> DANMAKU_TABLE = BLOCKS.register("danmaku_table",
+            () -> new DanmakuCraftingTable(BlockBehaviour.Properties.of().noCollission().ignitedByLava().mapColor(MapColor.FIRE).sound(SoundType.WOOD).strength(2.5F)));
 }
