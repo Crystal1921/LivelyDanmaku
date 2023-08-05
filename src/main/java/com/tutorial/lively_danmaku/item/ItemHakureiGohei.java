@@ -66,13 +66,13 @@ public class ItemHakureiGohei extends BowItem {
                                         Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level, 0.5F);
                                         danmaku.setOwner(player);
                                         danmaku.moveTo(living.getX(), living.getY() + 1, living.getZ());
-                                        danmaku.shootFromRotation(living, living.getXRot() + 16 - j * 4, living.getYRot() + 16 - l * 4, 0, f * multi, 1);
+                                        danmaku.shootFromRotation(living, -(living.getXRot() + 16 - j * 4), -(living.getYRot() + 16 - l * 4), 0, f * multi, 1);
                                         level.addFreshEntity(danmaku);
                                     } else if (array[j][l] == 2) {
                                         StarDanmaku danmaku = new StarDanmaku(EntityTypeRegistry.STAR_DANMAKU.get(), level);
                                         danmaku.setOwner(player);
                                         danmaku.moveTo(living.getX(), living.getY() + 1, living.getZ());
-                                        danmaku.shootFromRotation(living, living.getXRot() + 16 - j * 4, living.getYRot() + 16 - l * 4, 0, f * multi, 1);
+                                        danmaku.shootFromRotation(living, -(living.getXRot() + 16 - j * 4), -(living.getYRot() + 16 - l * 4), 0, f * multi, 1);
                                         level.addFreshEntity(danmaku);
                                     }
                                 }

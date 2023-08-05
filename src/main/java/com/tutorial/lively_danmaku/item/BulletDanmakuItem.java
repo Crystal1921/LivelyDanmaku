@@ -10,16 +10,17 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class DanmakuItem extends Item {
-    public DanmakuItem(Properties p_41383_) {
-        super(p_41383_);
+public class BulletDanmakuItem extends Item {
+    public BulletDanmakuItem(Properties properties) {
+        super(properties);
     }
+
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, @NotNull InteractionHand interactionHand) {
         ItemStack itemstack = player.getItemInHand(interactionHand);
         if (!level.isClientSide) {
-            Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(),level,0.5F);
+            Danmaku danmaku = new Danmaku(EntityTypeRegistry.HAKUREI_BULLET.get(), level,0.5F);
             danmaku.moveTo(player.getX(),player.getY() + 0.6,player.getZ());
-            danmaku.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
+            danmaku.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 0.5F, 1.0F);
             level.addFreshEntity(danmaku);
         }
 

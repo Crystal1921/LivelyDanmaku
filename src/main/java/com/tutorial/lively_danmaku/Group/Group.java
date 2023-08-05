@@ -23,6 +23,7 @@ public class Group {
                     output.accept(ItemRegistry.ItemDanmaku.get());
                     output.accept(ItemRegistry.ItemStarDanmaku.get());
                     output.accept(ItemRegistry.P_Point.get());
+                    output.accept(ItemRegistry.ItemBulletDanmaku.get());
                     output.accept(ItemRegistry.red_Point.get());
                     output.accept(ItemRegistry.ReimuItem.get());
                     output.accept(ItemRegistry.DanmakuTableItem.get());
