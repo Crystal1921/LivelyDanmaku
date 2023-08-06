@@ -46,6 +46,7 @@ public class FiveStarEmitter extends Projectile {
                 this.discard();
             }
         }
+        if (this.tickCount >= 200) this.discard();
     }
 
     @Override
