@@ -40,7 +40,6 @@ public class ItemHakureiGohei extends BowItem {
                 k = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(item, level, player, k, true);
                 if (k <= 10) k = 10;
                 float f = getPowerForTime(k);
-                System.out.println(f);
                 if (f > 0.8) {
                     if (item.getOrCreateTag().get("crystal_distribution") == null) {
                         for (int j = 0; j < 9; j++) {

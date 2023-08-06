@@ -19,8 +19,9 @@ public class HakureiDanmakuItem extends Item {
         ItemStack itemstack = player.getItemInHand(interactionHand);
         if (!level.isClientSide) {
             HakureiDanmaku danmaku = new HakureiDanmaku(EntityTypeRegistry.HAKUREI_BULLET.get(), level,true);
+            danmaku.setOwner(player);
             danmaku.moveTo(player.getX(),player.getY() + 0.6,player.getZ());
-            danmaku.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 0.5F, 1.0F);
+            danmaku.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 0.4F, 1.0F);
             level.addFreshEntity(danmaku);
         }
 

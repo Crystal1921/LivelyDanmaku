@@ -56,6 +56,7 @@ public class FlyAndShoot extends Goal {
                 attackTime = 10;
                 if (reimu.getEntityData().get(Reimu.REIMU_STAGE) == 3) {    //一般弹幕射击
                     Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level);
+                    danmaku.setOwner(reimu);
                     danmaku.moveTo(reimu.getX(), reimu.getY(0.5), reimu.getZ());
                     ShootFromEntityToEntity(reimu,living,danmaku,1);
                     level.addFreshEntity(danmaku);
@@ -63,10 +64,11 @@ public class FlyAndShoot extends Goal {
                 if (reimu.getEntityData().get(Reimu.REIMU_STAGE) == 2) {    //梦想封印 散
                     for (int i = 0; i < 360; i += 18) {
                         for (int j = 0; j < 360; j += 18) {
-                            HakureiDanmaku bullet = new HakureiDanmaku(EntityTypeRegistry.HAKUREI_BULLET.get(), level, 18 * i - 180, 18 * j - 180,140);
-                            bullet.moveTo(reimu.getX(), reimu.getY(0.5), reimu.getZ());
-                            bullet.shootFromRotation(reimu, i, j + Time, 0, 0.5F, 1);
-                            level.addFreshEntity(bullet);
+                            HakureiDanmaku danmaku = new HakureiDanmaku(EntityTypeRegistry.HAKUREI_BULLET.get(), level, 18 * i - 180, 18 * j - 180,140);
+                            danmaku.setOwner(reimu);
+                            danmaku.moveTo(reimu.getX(), reimu.getY(0.5), reimu.getZ());
+                            danmaku.shootFromRotation(reimu, i, j + Time, 0, 0.5F, 1);
+                            level.addFreshEntity(danmaku);
                         }
                     }
                 }
@@ -75,11 +77,12 @@ public class FlyAndShoot extends Goal {
                 StageTime++;
                 if (StageTime <= 6) {
                     for (int i = 0; i < 6; i++) {
-                        HakureiDanmaku bullet = new HakureiDanmaku(EntityTypeRegistry.HAKUREI_BULLET.get(),level);
-                        bullet.moveTo(reimu.getX() + i * Math.sin(Math.toRadians(StageTime * 60 + Time)),reimu.getY(0.5),reimu.getZ() +i * Math.cos(Math.toRadians(StageTime * 60 + Time)));
-                        bullet.shootFromRotation(reimu,0,-(StageTime * 60 + Time),0,0.8F,1);
-                        hakureiBullets.add(bullet);
-                        level.addFreshEntity(bullet);
+                        HakureiDanmaku danmaku = new HakureiDanmaku(EntityTypeRegistry.HAKUREI_BULLET.get(),level);
+                        danmaku.setOwner(reimu);
+                        danmaku.moveTo(reimu.getX() + i * Math.sin(Math.toRadians(StageTime * 60 + Time)),reimu.getY(0.5),reimu.getZ() +i * Math.cos(Math.toRadians(StageTime * 60 + Time)));
+                        danmaku.shootFromRotation(reimu,0,-(StageTime * 60 + Time),0,0.8F,1);
+                        hakureiBullets.add(danmaku);
+                        level.addFreshEntity(danmaku);
                     }
                 }
                 if (StageTime >= 20) StageTime = 0;
