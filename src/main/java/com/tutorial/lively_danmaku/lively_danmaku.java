@@ -23,6 +23,7 @@ public class lively_danmaku {
         MenuRegistry.CONTAINERS.register(eventBus);
         eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
         Group.TABS.register(eventBus);
+        //TODO:做一个fumo台
     }
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(Utils.MOD_ID, name.toLowerCase(Locale.ROOT));
