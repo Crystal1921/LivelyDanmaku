@@ -27,6 +27,8 @@ public class Group {
                     output.accept(ItemRegistry.red_Point.get());
                     output.accept(ItemRegistry.ReimuItem.get());
                     output.accept(ItemRegistry.DanmakuTableItem.get());
+                    output.accept(ItemRegistry.AdvancedDanmakuTableItem.get());
+                    output.accept(ItemRegistry.FumoTable.get());
                     output.accept(ItemRegistry.Player.get());
                     output.accept(ItemRegistry.HakureiReimu.get());
                     output.accept(ItemRegistry.Broomstick.get());

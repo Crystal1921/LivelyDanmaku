@@ -9,8 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import static com.tutorial.lively_danmaku.init.BlockRegistry.DANMAKU_TABLE;
-import static com.tutorial.lively_danmaku.init.BlockRegistry.REIMU_BLOCK;
+import static com.tutorial.lively_danmaku.init.BlockRegistry.*;
 
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Utils.MOD_ID);
@@ -25,6 +24,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> red_Point = ITEMS.register("red_point", () -> new P_Point(new Item.Properties(),3));
     public static final RegistryObject<Item> ReimuItem = ITEMS.register("reimu_item", () -> new BlockItem(REIMU_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> DanmakuTableItem = ITEMS.register("danmaku_table_item", () -> new BlockItem(DANMAKU_TABLE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> AdvancedDanmakuTableItem = ITEMS.register("advanced_danmaku_table_item", () -> new BlockItem(ADVANCED_DANMAKU_TABLE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> FumoTable = ITEMS.register("fumo_table", () -> new BlockItem(FUMO_TABLE.get(), new Item.Properties()));
     public static final RegistryObject<Item> Player = ITEMS.register("fake_player", () -> new ForgeSpawnEggItem(EntityTypeRegistry.FAKE_PLAYER,0xFFFFFF, 0xFFFFFF,new Item.Properties()));
     public static final RegistryObject<Item> HakureiReimu = ITEMS.register("hakurei_reimu", () -> new ForgeSpawnEggItem(EntityTypeRegistry.REIMU, 0xFFFFFF, 0xFFFFFF,new Item.Properties()));
     public static final RegistryObject<Item> Broomstick = ITEMS.register("broomstick", () -> new ForgeSpawnEggItem(EntityTypeRegistry.BROOMSTICK,0xFFFFFF, 0xFFFFFF,new Item.Properties()));

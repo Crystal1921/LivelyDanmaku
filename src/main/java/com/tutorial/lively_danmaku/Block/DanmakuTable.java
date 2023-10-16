@@ -17,8 +17,8 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class DanmakuCraftingTable extends BaseEntityBlock {
-    public DanmakuCraftingTable(Properties properties) {
+public class DanmakuTable extends BaseEntityBlock {
+    public DanmakuTable(Properties properties) {
         super(properties);
     }
 

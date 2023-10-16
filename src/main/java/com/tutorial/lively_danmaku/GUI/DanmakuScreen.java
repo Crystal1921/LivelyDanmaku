@@ -46,4 +46,10 @@ public class DanmakuScreen extends AbstractContainerScreen<DanmakuMenu> {
         super.render(guiGraphics, p_282491_, p_281953_, p_282182_);
         this.renderTooltip(guiGraphics, p_282491_, p_281953_);
     }
+
+    @Override
+    protected void renderLabels(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {
+        pGuiGraphics.drawString(this.font, this.title, this.titleLabelX - 80, this.titleLabelY, 4210752, false);
+        pGuiGraphics.drawString(this.font, this.playerInventoryTitle, this.inventoryLabelX - 80, this.inventoryLabelY, 4210752, false);
+    }
 }

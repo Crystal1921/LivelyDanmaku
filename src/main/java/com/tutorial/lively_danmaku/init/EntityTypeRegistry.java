@@ -39,7 +39,6 @@ public class EntityTypeRegistry {
     );
     public static final RegistryObject<EntityType<player>> FAKE_PLAYER = ENTITY_TYPE.register("fake_player", () ->
             EntityType.Builder.of(player::new, MobCategory.CREATURE)
-                    .sized(0.6F,2.0F)
                     .build("fake_player")
     );
     public static final RegistryObject<EntityType<Broomstick>> BROOMSTICK = ENTITY_TYPE.register("broomstick", () ->

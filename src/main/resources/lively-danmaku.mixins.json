@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "package": "com.tutorial.lively_danmaku.mixin.mixinClass",
+  "mixins": [
+    "MixinGuiGraphics"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "lively-danmaku.refmap.json"
+}

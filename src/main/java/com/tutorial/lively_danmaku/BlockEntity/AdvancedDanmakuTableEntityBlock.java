@@ -8,13 +8,13 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
-public class DanmakuTableEntityBlock extends BlockEntity implements Nameable {
-    public DanmakuTableEntityBlock(BlockPos blockPos, BlockState blockState) {
-        super(BlockEntityTypeRegistry.DANMAKU_TABLE_ENTITY.get(),blockPos, blockState);
+public class AdvancedDanmakuTableEntityBlock extends BlockEntity implements Nameable {
+    public AdvancedDanmakuTableEntityBlock(BlockPos blockPos, BlockState blockState) {
+        super(BlockEntityTypeRegistry.ADVANCED_DANMAKU_TABLE_ENTITY.get(), blockPos, blockState);
     }
 
     @Override
     public @NotNull Component getName() {
-        return Component.translatable("ui.danmaku_table");
+        return Component.translatable("ui.advanced_danmaku_table");
     }
 }
