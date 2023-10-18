@@ -6,15 +6,11 @@ import com.tutorial.lively_danmaku.mixin.mixinInterface.GuiGraphicsInterface;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.FastColor;
 import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GuiGraphics.class)
 public abstract class MixinGuiGraphics implements GuiGraphicsInterface {
@@ -35,15 +31,12 @@ public abstract class MixinGuiGraphics implements GuiGraphicsInterface {
         float f2 = (float)FastColor.ARGB32.blue(pColor) / 255.0F;
 
         VertexConsumer vertexconsumer = this.bufferSource.getBuffer(RenderType.gui());
-        // Calculate the line's angle and length
         double angle = Math.atan2(y2 - y1, x2 - x1);
         double halfWidth = width / 2.0;
 
-        // Calculate offsets for the width
         double xOffset = Math.sin(angle) * halfWidth;
         double yOffset = Math.cos(angle) * halfWidth;
 
-        // Calculate the coordinates of the four points to draw the diagonal line
         double x1a = x1 - xOffset;
         double y1a = y1 + yOffset;
         double x1b = x1 + xOffset;

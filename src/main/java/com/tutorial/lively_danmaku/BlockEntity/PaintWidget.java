@@ -2,6 +2,7 @@ package com.tutorial.lively_danmaku.BlockEntity;
 
 import com.tutorial.lively_danmaku.GUI.AdvancedDanmakuScreen;
 import com.tutorial.lively_danmaku.mixin.mixinInterface.GuiGraphicsInterface;
+import com.tutorial.lively_danmaku.network.DanmakuNetwork;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
@@ -12,8 +13,8 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class PaintWidget extends AbstractWidget {
-    private ArrayList<ArrayList<Point>> pointList = new ArrayList<>();
-    public int number = 0;
+    private final ArrayList<ArrayList<Point>> pointList = new ArrayList<>();
+    private int number = 0;
     private static final int TRANSLUCENT_BLACK = 838860800;
     private final AdvancedDanmakuScreen screen;
 
@@ -45,7 +46,13 @@ public class PaintWidget extends AbstractWidget {
 
     @Override
     public void onClick(double x, double y) {
-        pointList.get(number).add(new Point((int)x,(int)y));
+        if (screen.getMenu().isPaint[0] == 0) {
+            System.out.println(x);
+            System.out.println(y);
+            pointList.get(number).add(new Point((int)x,(int)y));
+            DanmakuNetwork.PointPacket packet = new DanmakuNetwork.PointPacket(screen.getMenu().containerId, (short) (x - 360.5) ,(short) (y - 125.5) ,(byte) number);
+            DanmakuNetwork.CHANNEL_POINT.sendToServer(packet);
+        }
     }
 
     public void addList () {

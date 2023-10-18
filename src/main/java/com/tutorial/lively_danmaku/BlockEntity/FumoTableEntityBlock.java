@@ -2,8 +2,6 @@ package com.tutorial.lively_danmaku.BlockEntity;
 
 import com.tutorial.lively_danmaku.GUI.FumoTableMenu;
 import com.tutorial.lively_danmaku.init.BlockEntityTypeRegistry;
-import com.tutorial.lively_danmaku.network.ModMessages;
-import com.tutorial.lively_danmaku.network.packet.ItemStackSyncS2CPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

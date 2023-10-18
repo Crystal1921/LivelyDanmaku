@@ -8,6 +8,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
+import java.util.ArrayList;
+
 public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanmakuMenu> {
     private static final ResourceLocation DANMAKU_TABLE = new ResourceLocation("lively_danmaku", "textures/gui/danmaku_table.png");
     private static final ResourceLocation ADVANCED_DANMAKU_TABLE = new ResourceLocation("lively_danmaku", "textures/gui/advanced_danmaku_table.png");
@@ -29,19 +32,14 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
         int j = (this.height - this.imageHeight) / 2;
         double d0 = mouseX + 4 - i;
         double d1 = mouseY - 44 - j;
-        boolean isPainting = menu.isPaint[0] == 0;
-        if (isPainting) {
-            paintWidget.mouseClicked(mouseX,mouseY,mouseButton);
-        }
 
         if (this.minecraft != null && this.minecraft.player != null && this.minecraft.gameMode != null) {
             if (d0 >= 0D && d1 >= 0.0D && d0 < 30D && d1 < 30D && this.menu.clickMenuButton(this.minecraft.player, 0)) {
                 this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, 0);
             } else if ( d0 >= 67 && d1 >= -36 && d0 < 97 && d1 < -6 && this.menu.clickMenuButton(this.minecraft.player, 1)) {
                 this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, 1);
-                if (isPainting) paintWidget.addList();
+                if (menu.isPaint[0] == 0) paintWidget.addList();
             }
-            return true;
         }
 
         return super.mouseClicked(mouseX, mouseY, mouseButton);

@@ -14,8 +14,12 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
+import java.util.ArrayList;
+
 public class AdvancedDanmakuMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
+    public ArrayList<ArrayList<Point>> pointList = new ArrayList<>();
     public final int[] isFull = new int[1];
     public final int[] isPaint = new int[1];
     private final Container container = new SimpleContainer(120) {
@@ -72,7 +76,17 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
                 return false;
             } else {
                 this.access.execute((level, blockPos) -> {
-
+                    if (!itemstack1.isEmpty()) {
+                        itemstack.getOrCreateTag().putInt("crystal_amount",itemstack1.getCount());
+                        itemstack1.setCount(0);
+                    }
+                    if(!itemStack2.isEmpty()) {
+                        itemstack.getOrCreateTag().putInt("crystal_speed",itemStack2.getCount());
+                        itemStack2.setCount(0);
+                    }
+                    itemstack.getOrCreateTag().putString("crystal_point",PointPos(pointList));
+                    System.out.println(PointPos(pointList));
+                    this.container.setItem(0, itemstack);
                 });
                 return true;
             }
@@ -142,8 +156,29 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
     public boolean stillValid(@NotNull Player player) {
         return stillValid(this.access, player, BlockRegistry.ADVANCED_DANMAKU_TABLE.get());
     }
+
     public void removed(@NotNull Player player) {
         super.removed(player);
         this.access.execute((level, blockPos) -> this.clearContainer(player, this.container));
+    }
+
+    private String PointPos(ArrayList<ArrayList<Point>> pointList) {
+        StringBuilder stringBuilder = new StringBuilder();
+        pointList.stream()
+                .filter(innerList -> innerList.size() > 1)
+                .forEach(innerList -> {
+                    stringBuilder.append('-');
+                    for (Point point : innerList) {
+                        stringBuilder.append("+").append(point.x).append("+").append(point.y);
+                    }
+                });
+        return stringBuilder.toString();
+    }
+
+    public void addPointOnServer(Player player, int x, int y, int number) {
+        if (pointList.size() <= number) {
+            pointList.add(new ArrayList<>());
+        }
+        pointList.get(number).add(new Point(x,y));
     }
 }
