@@ -3,6 +3,7 @@ package com.tutorial.lively_danmaku.GUI;
 import com.tutorial.lively_danmaku.init.BlockRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import com.tutorial.lively_danmaku.init.MenuRegistry;
+import com.tutorial.lively_danmaku.item.ItemSanaeGohei;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -84,8 +85,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
                         itemstack.getOrCreateTag().putInt("crystal_speed",itemStack2.getCount());
                         itemStack2.setCount(0);
                     }
-                    itemstack.getOrCreateTag().putString("crystal_point",PointPos(pointList));
-                    System.out.println(PointPos(pointList));
+                    itemstack.getOrCreateTag().putString("crystal_point",PointList(GenerateList(pointList)));
                     this.container.setItem(0, itemstack);
                 });
                 return true;
@@ -162,17 +162,31 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
         this.access.execute((level, blockPos) -> this.clearContainer(player, this.container));
     }
 
-    private String PointPos(ArrayList<ArrayList<Point>> pointList) {
+    private String PointList (ArrayList<Point> pointArrayList) {
         StringBuilder stringBuilder = new StringBuilder();
+        pointArrayList.forEach(point -> stringBuilder.append("*").append(point.x).append("+").append(point.y));
+        return stringBuilder.toString();
+    }
+
+    private ArrayList<Point> GenerateList(ArrayList<ArrayList<Point>> pointList) {
+        ArrayList<Point> arrayList = new ArrayList<>();
         pointList.stream()
                 .filter(innerList -> innerList.size() > 1)
                 .forEach(innerList -> {
-                    stringBuilder.append('-');
-                    for (Point point : innerList) {
-                        stringBuilder.append("+").append(point.x).append("+").append(point.y);
+                    for (int i = 0; i < innerList.size() - 1; i++) {
+                        Point p1 = innerList.get(i);
+                        Point p2 = innerList.get(i + 1);
+                        int numPoints = (int) (Math.sqrt(Math.pow((p1.x-p2.x),2) + Math.pow((p1.y-p2.y),2)) / 5);
+                        double deltaX = (p2.x - p1.x) / (numPoints + 1.0);
+                        double deltaY = (p2.y - p1.y) / (numPoints + 1.0);
+                        for (int j = 1; j <= numPoints; j++) {
+                            double x = p1.x + j * deltaX;
+                            double y = p1.y + j * deltaY;
+                            arrayList.add(new Point((int) x, (int) y));
+                        }
                     }
                 });
-        return stringBuilder.toString();
+        return arrayList;
     }
 
     public void addPointOnServer(Player player, int x, int y, int number) {

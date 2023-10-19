@@ -26,9 +26,9 @@ public class DanmakuNetwork {
         CHANNEL_POINT.registerMessage(0, PointPacket.class, PointPacket::encode, PointPacket::decode, PointPacket::handleOnServer, Optional.of(NetworkDirection.PLAY_TO_SERVER));
     }
 
-    public record PointPacket(int containerId, short x, short y, byte number) {
+    public record PointPacket(int containerId, short x, short y, short number) {
         public static PointPacket decode(FriendlyByteBuf friendlyByteBuf) {
-            return new PointPacket(friendlyByteBuf.readVarInt(), friendlyByteBuf.readByte(), friendlyByteBuf.readByte(), friendlyByteBuf.readByte());
+            return new PointPacket(friendlyByteBuf.readVarInt(), friendlyByteBuf.readShort(), friendlyByteBuf.readShort(), friendlyByteBuf.readShort());
         }
 
         public void encode(FriendlyByteBuf friendlyByteBuf) {

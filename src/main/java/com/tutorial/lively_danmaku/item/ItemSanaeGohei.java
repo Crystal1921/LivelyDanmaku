@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -52,31 +53,15 @@ public class ItemSanaeGohei extends BowItem {
         ItemStack itemstack = player.getItemInHand(hand);
         player.startUsingItem(hand);
         if (!level.isClientSide) {
-            ArrayList<DoublePoint> list = five_star.stream()
-                    .map(point -> { //XoZ平面旋转
-                        double x = point.x;
-                        double y = point.y;
-                        double theta = toRadians(player.getXRot());
-                        return new DoublePoint(x,y * sin(theta), y * cos(theta));
-                    })
-                    .map(point -> { //XoY平面旋转
-                        double x = point.x;
-                        double y = point.y;
-                        double theta = toRadians(player.getYRot());
-                        return new DoublePoint((x * cos(theta) - y * sin(theta)), (x * sin(theta) + y * cos(theta)), point.z);})
-                    .map(point -> { //全部按视角平移
-                        float rotationX = player.getXRot();
-                        float rotationY = player.getYRot();
-                        float distance = 6F;
-                        double offsetX = -sin(toRadians(rotationY)) * cos(toRadians(rotationX)) * distance;
-                        double offsetY = -sin(toRadians(rotationX)) * distance + 0.8;
-                        double offsetZ = cos(toRadians(rotationY)) * cos(toRadians(rotationX)) * distance;
-                        return new DoublePoint(point.x + offsetX,point.y + offsetZ, point.z + offsetY);
-                    })
-                    .collect(Collectors.toCollection(ArrayList::new));
-            emitter = new FiveStarEmitter(EntityTypeRegistry.FIVE_STAR_EMITTER.get(), level, list, player);
-            emitter.moveTo(player.getX(),player.getY(),player.getZ());
-            level.addFreshEntity(emitter);
+            ArrayList<DoublePoint> list;
+            if (itemstack.getOrCreateTag().get("crystal_point") != null){
+                list = ViewTransform(stringToPointList(String.valueOf(itemstack.getOrCreateTag().get("crystal_point"))),player);
+            }   else {
+                list = ViewTransform(five_star,player);
+            }
+                emitter = new FiveStarEmitter(EntityTypeRegistry.FIVE_STAR_EMITTER.get(), level, list, player);
+                emitter.moveTo(player.getX(), player.getY(), player.getZ());
+                level.addFreshEntity(emitter);
         }
         return InteractionResultHolder.consume(itemstack);
     }
@@ -92,6 +77,48 @@ public class ItemSanaeGohei extends BowItem {
         }
         return points;
     }
+
+    private static ArrayList<DoublePoint> stringToPointList(String pointString) {
+        ArrayList<DoublePoint> points = new ArrayList<>();
+        String newString = pointString.replace("\"","");
+        String[] parts = newString.split("\\*");
+        for (String part : parts) {
+            String[] coordinates = part.split("\\+");
+            if (coordinates.length == 2) {
+                double x = Integer.parseInt(coordinates[0]);
+                double y = Integer.parseInt(coordinates[1]);
+                points.add(new DoublePoint(x / 10, y / 10, 0));
+            }
+        }
+        return points;
+    }
+
+    private ArrayList<DoublePoint> ViewTransform (ArrayList<DoublePoint> origin, Player player) {
+        return origin.stream()
+                .map(point -> { //XoZ平面旋转
+                    double x = point.x;
+                    double y = point.y;
+                    double theta = toRadians(player.getXRot());
+                    return new DoublePoint(x, y * sin(theta), y * cos(theta));
+                })
+                .map(point -> { //XoY平面旋转
+                    double x = point.x;
+                    double y = point.y;
+                    double theta = toRadians(player.getYRot());
+                    return new DoublePoint((x * cos(theta) - y * sin(theta)), (x * sin(theta) + y * cos(theta)), point.z);
+                })
+                .map(point -> { //全部按视角平移
+                    float rotationX = player.getXRot();
+                    float rotationY = player.getYRot();
+                    float distance = 6F;
+                    double offsetX = -sin(toRadians(rotationY)) * cos(toRadians(rotationX)) * distance;
+                    double offsetY = -sin(toRadians(rotationX)) * distance + 0.8;
+                    double offsetZ = cos(toRadians(rotationY)) * cos(toRadians(rotationX)) * distance;
+                    return new DoublePoint(point.x + offsetX, point.y + offsetZ, point.z + offsetY);
+                })
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
     public static class DoublePoint {
         public double x;
         public double y;

@@ -47,8 +47,6 @@ public class PaintWidget extends AbstractWidget {
     @Override
     public void onClick(double x, double y) {
         if (screen.getMenu().isPaint[0] == 0) {
-            System.out.println(x);
-            System.out.println(y);
             pointList.get(number).add(new Point((int)x,(int)y));
             DanmakuNetwork.PointPacket packet = new DanmakuNetwork.PointPacket(screen.getMenu().containerId, (short) (x - 360.5) ,(short) (y - 125.5) ,(byte) number);
             DanmakuNetwork.CHANNEL_POINT.sendToServer(packet);
