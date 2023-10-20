@@ -87,7 +87,7 @@ public class ItemSanaeGohei extends BowItem {
             if (coordinates.length == 2) {
                 double x = Integer.parseInt(coordinates[0]);
                 double y = Integer.parseInt(coordinates[1]);
-                points.add(new DoublePoint(x / 10, y / 10, 0));
+                points.add(new DoublePoint(-x / 10, -y / 10, 0));
             }
         }
         return points;

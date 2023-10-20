@@ -3,7 +3,6 @@ package com.tutorial.lively_danmaku.GUI;
 import com.tutorial.lively_danmaku.init.BlockRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import com.tutorial.lively_danmaku.init.MenuRegistry;
-import com.tutorial.lively_danmaku.item.ItemSanaeGohei;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -176,7 +175,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
                     for (int i = 0; i < innerList.size() - 1; i++) {
                         Point p1 = innerList.get(i);
                         Point p2 = innerList.get(i + 1);
-                        int numPoints = (int) (Math.sqrt(Math.pow((p1.x-p2.x),2) + Math.pow((p1.y-p2.y),2)) / 5);
+                        int numPoints = (int) (Math.sqrt(Math.pow((p1.x-p2.x),2) + Math.pow((p1.y-p2.y),2)) / 6);
                         double deltaX = (p2.x - p1.x) / (numPoints + 1.0);
                         double deltaY = (p2.y - p1.y) / (numPoints + 1.0);
                         for (int j = 1; j <= numPoints; j++) {

@@ -8,9 +8,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
-import java.util.ArrayList;
-
 public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanmakuMenu> {
     private static final ResourceLocation DANMAKU_TABLE = new ResourceLocation("lively_danmaku", "textures/gui/danmaku_table.png");
     private static final ResourceLocation ADVANCED_DANMAKU_TABLE = new ResourceLocation("lively_danmaku", "textures/gui/advanced_danmaku_table.png");
