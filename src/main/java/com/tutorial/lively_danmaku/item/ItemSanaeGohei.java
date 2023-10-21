@@ -1,6 +1,9 @@
 package com.tutorial.lively_danmaku.item;
 
+import com.tutorial.lively_danmaku.Entity.AbstractDanmaku;
+import com.tutorial.lively_danmaku.Entity.Danmaku;
 import com.tutorial.lively_danmaku.Entity.FiveStarEmitter;
+import com.tutorial.lively_danmaku.Entity.StarDanmaku;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -19,6 +22,7 @@ import static java.lang.Math.*;
 
 public class ItemSanaeGohei extends BowItem {
     private FiveStarEmitter emitter;
+    private AbstractDanmaku abstractDanmaku;
     private final ArrayList<DoublePoint> five_star = new ArrayList<>();
     private static final int NUM_POINTS = 5;
     private static final int RADIUS = 5;
@@ -54,12 +58,18 @@ public class ItemSanaeGohei extends BowItem {
         player.startUsingItem(hand);
         if (!level.isClientSide) {
             ArrayList<DoublePoint> list;
+            String type;
             if (itemstack.getOrCreateTag().get("crystal_point") != null){
                 list = ViewTransform(stringToPointList(String.valueOf(itemstack.getOrCreateTag().get("crystal_point"))),player);
             }   else {
                 list = ViewTransform(five_star,player);
             }
-                emitter = new FiveStarEmitter(EntityTypeRegistry.FIVE_STAR_EMITTER.get(), level, list, player);
+            if (itemstack.getOrCreateTag().get("crystal_type") != null) {
+                type = itemstack.getOrCreateTag().get("crystal_type").getAsString();
+            }   else {
+                type = "danmaku";
+            }
+                emitter = new FiveStarEmitter(EntityTypeRegistry.FIVE_STAR_EMITTER.get(), level, list, player,type);
                 emitter.moveTo(player.getX(), player.getY(), player.getZ());
                 level.addFreshEntity(emitter);
         }

@@ -45,7 +45,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
         });
         this.addSlot(new Slot(this.container, 1, -30, 49) {
             public boolean mayPlace(@NotNull ItemStack itemStack) {
-                return itemStack.is(ItemRegistry.red_Point.get());
+                return itemStack.is(ItemRegistry.ItemStarDanmaku.get()) || itemStack.is(ItemRegistry.ItemDanmaku.get());
             }
         });
         this.addSlot(new Slot(this.container, 2, 30, 49) {
@@ -78,6 +78,11 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
                 this.access.execute((level, blockPos) -> {
                     if (!itemstack1.isEmpty()) {
                         itemstack.getOrCreateTag().putInt("crystal_amount",itemstack1.getCount());
+                        if (itemstack1.is(ItemRegistry.ItemDanmaku.get())) {
+                            itemstack.getOrCreateTag().putString("crystal_type","danmaku");
+                        }   else {
+                            itemstack.getOrCreateTag().putString("crystal_type","star");
+                        }
                         itemstack1.setCount(0);
                     }
                     if(!itemStack2.isEmpty()) {
