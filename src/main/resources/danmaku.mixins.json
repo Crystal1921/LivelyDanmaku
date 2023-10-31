@@ -9,5 +9,5 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "refmap": "lively-danmaku.refmap.json"
+  "refmap": "danmaku.refmap.json"
 }

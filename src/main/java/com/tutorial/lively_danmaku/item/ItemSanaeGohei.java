@@ -1,9 +1,7 @@
 package com.tutorial.lively_danmaku.item;
 
 import com.tutorial.lively_danmaku.Entity.AbstractDanmaku;
-import com.tutorial.lively_danmaku.Entity.Danmaku;
 import com.tutorial.lively_danmaku.Entity.FiveStarEmitter;
-import com.tutorial.lively_danmaku.Entity.StarDanmaku;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -16,13 +14,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static java.lang.Math.*;
 
 public class ItemSanaeGohei extends BowItem {
     private FiveStarEmitter emitter;
-    private AbstractDanmaku abstractDanmaku;
     private final ArrayList<DoublePoint> five_star = new ArrayList<>();
     private static final int NUM_POINTS = 5;
     private static final int RADIUS = 5;
@@ -65,7 +63,7 @@ public class ItemSanaeGohei extends BowItem {
                 list = ViewTransform(five_star,player);
             }
             if (itemstack.getOrCreateTag().get("crystal_type") != null) {
-                type = itemstack.getOrCreateTag().get("crystal_type").getAsString();
+                type = Objects.requireNonNull(itemstack.getOrCreateTag().get("crystal_type")).getAsString();
             }   else {
                 type = "danmaku";
             }

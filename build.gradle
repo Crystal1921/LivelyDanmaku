@@ -69,8 +69,8 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 mixin {
-    add sourceSets.main, "lively-danmaku.refmap.json"
-    config "lively-danmaku.mixins.json"
+    add sourceSets.main, "danmaku.refmap.json"
+    config "danmaku.mixins.json"
 }
 
 repositories {
@@ -82,6 +82,7 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 tasks.named('processResources', ProcessResources).configure {
