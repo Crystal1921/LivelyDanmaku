@@ -22,6 +22,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
     public ArrayList<ArrayList<Point>> pointList = new ArrayList<>();
     public final int[] isFull = new int[1];
     public final int[] isPaint = new int[1];
+    public final int[] isGrid = new int[1];
     private final Container container = new SimpleContainer(120) {
         public void setChanged() {
             super.setChanged();
@@ -65,6 +66,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
         }
         this.addDataSlot(DataSlot.shared(isFull,0));
         this.addDataSlot(DataSlot.shared(isPaint,0));
+        this.addDataSlot(DataSlot.shared(isGrid,0));
     }
     @Override
     public boolean clickMenuButton(@NotNull Player player, int i) {
@@ -96,6 +98,9 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
             }
         } else if (i == 1) {
             isPaint[0] = isPaint[0] == 1 ? 0 : 1;
+            return true;
+        } else if (i == 2) {
+            isGrid[0] = isGrid[0] == 1 ? 0 : 1;
             return true;
         }
         return false;

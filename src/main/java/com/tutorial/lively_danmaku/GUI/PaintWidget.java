@@ -1,12 +1,12 @@
-package com.tutorial.lively_danmaku.BlockEntity;
+package com.tutorial.lively_danmaku.GUI;
 
-import com.tutorial.lively_danmaku.GUI.AdvancedDanmakuScreen;
 import com.tutorial.lively_danmaku.mixin.mixinInterface.GuiGraphicsInterface;
 import com.tutorial.lively_danmaku.network.DanmakuNetwork;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.FastColor;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -15,8 +15,11 @@ import java.util.ArrayList;
 public class PaintWidget extends AbstractWidget {
     private final ArrayList<ArrayList<Point>> pointList = new ArrayList<>();
     private int number = 0;
-    private static final int TRANSLUCENT_BLACK = 838860800;
+    private int gridSize = 8;
+    private static final int TRANSLUCENT_BLACK = FastColor.ARGB32.color(24,256,256,256);
+    private static final int TRANSLUCENT_BROWN = FastColor.ARGB32.color(128,225,190,150);
     private final AdvancedDanmakuScreen screen;
+    public boolean isGrid = true;
 
     public PaintWidget(int pX, int pY, AdvancedDanmakuScreen screen) {
         super(pX, pY, 175,175, Component.empty());
@@ -26,6 +29,9 @@ public class PaintWidget extends AbstractWidget {
 
     @Override
     protected void renderWidget(@NotNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        if (isGrid) {
+            renderLine(pGuiGraphics);
+        }
         GuiGraphicsInterface guiGraphics = (GuiGraphicsInterface) pGuiGraphics;
         pointList.stream()
                 .filter(innerList -> innerList.size() > 1)
@@ -38,15 +44,24 @@ public class PaintWidget extends AbstractWidget {
                 });
     }
 
+    private void renderLine (@NotNull GuiGraphics guiGraphics) {
+        for (int i = 0; i < 21; i++) {
+            guiGraphics.hLine(this.getX() + 3,this.getX() + 172,this.getY() + (i+1) * gridSize + 4,TRANSLUCENT_BROWN);
+            guiGraphics.vLine(this.getX() + (i+1) * gridSize,this.getY() + 3,this.getY() + 172,TRANSLUCENT_BROWN);
+        }
+    }
 
     @Override
     protected void updateWidgetNarration(@NotNull NarrationElementOutput pNarrationElementOutput) {
-
     }
 
     @Override
     public void onClick(double x, double y) {
         if (screen.getMenu().isPaint[0] == 0) {
+            if (isGrid) {
+                x = Math.round(x / gridSize) * gridSize;
+                y = Math.round(y / gridSize) * gridSize;
+            }
             pointList.get(number).add(new Point((int)x,(int)y));
             DanmakuNetwork.PointPacket packet = new DanmakuNetwork.PointPacket(screen.getMenu().containerId, (short) (x - 360.5) ,(short) (y - 125.5) ,(byte) number);
             DanmakuNetwork.CHANNEL_POINT.sendToServer(packet);

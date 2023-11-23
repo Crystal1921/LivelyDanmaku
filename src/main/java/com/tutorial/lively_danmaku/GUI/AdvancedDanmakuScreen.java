@@ -1,6 +1,5 @@
 package com.tutorial.lively_danmaku.GUI;
 
-import com.tutorial.lively_danmaku.BlockEntity.PaintWidget;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -36,6 +35,9 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
             } else if ( d0 >= 67 && d1 >= -36 && d0 < 97 && d1 < -6 && this.menu.clickMenuButton(this.minecraft.player, 1)) {
                 this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, 1);
                 if (menu.isPaint[0] == 0) paintWidget.addList();
+            } else if (d0 >= 67 && d1 >= -6 && d0 < 97 && d1 < 26 && this.menu.clickMenuButton(this.minecraft.player, 2)) {
+                this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, 2);
+                paintWidget.isGrid = !paintWidget.isGrid;
             }
         }
 
@@ -52,6 +54,11 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
             guiGraphics.blit(DANMAKU_TABLE, i + 60, j + 5, 175, 90, 30, 30);
         }else {
             guiGraphics.blit(DANMAKU_TABLE, i + 60, j + 5, 175, 60, 30, 30);
+        }
+        if (this.menu.isGrid[0] == 1) {
+            guiGraphics.blit(DANMAKU_TABLE, i + 60, j + 35, 175, 150, 30, 30);
+        }else {
+            guiGraphics.blit(DANMAKU_TABLE, i + 60, j + 35, 175, 120, 30, 30);
         }
         if (this.menu.isFull[0] == 0) {
             guiGraphics.blit(DANMAKU_TABLE, i - 7, j + 41, 175, 30,30,30);
