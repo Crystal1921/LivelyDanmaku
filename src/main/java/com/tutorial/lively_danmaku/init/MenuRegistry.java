@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.init;
 
-import com.tutorial.lively_danmaku.GUI.*;
+import com.tutorial.lively_danmaku.gui.*;
 import com.tutorial.lively_danmaku.Utils;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.flag.FeatureFlags;

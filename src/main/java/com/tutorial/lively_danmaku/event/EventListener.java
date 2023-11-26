@@ -1,8 +1,8 @@
 package com.tutorial.lively_danmaku.event;
 
+import com.tutorial.lively_danmaku.init.DamageTypeRegistry;
 import com.tutorial.lively_danmaku.init.EnchantmentRegistry;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -19,7 +19,7 @@ public class EventListener {
     public static void LivingHurt(LivingHurtEvent event) {
         DamageSource damageSource = event.getSource();
         LivingEntity entity = event.getEntity();
-        if (damageSource.is(DamageTypes.THROWN)) {
+        if (damageSource.is(DamageTypeRegistry.DANMAKU_SHOOT)) {
             int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.danmaku_resistance.get(), entity);
             if (level >= 0) {
                 event.setAmount(event.getAmount() * Math.max((1 - level * 0.25F),0));
@@ -30,6 +30,6 @@ public class EventListener {
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {
         Player eventPlayer = event.player;
-        ItemStack itemStack = eventPlayer.getItemBySlot(EquipmentSlot.CHEST);
+        ItemStack itemStack = eventPlayer.getItemBySlot(EquipmentSlot.HEAD);
     }
 }

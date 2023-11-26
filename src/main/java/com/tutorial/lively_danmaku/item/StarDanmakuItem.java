@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.item;
 
-import com.tutorial.lively_danmaku.Entity.StarDanmaku;
+import com.tutorial.lively_danmaku.entity.StarDanmaku;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;

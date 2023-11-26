@@ -1,12 +1,11 @@
 package com.tutorial.lively_danmaku;
 
 import com.tutorial.lively_danmaku.init.EnchantmentRegistry;
-import com.tutorial.lively_danmaku.Group.Group;
+import com.tutorial.lively_danmaku.group.Group;
 import com.tutorial.lively_danmaku.init.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import java.util.Locale;

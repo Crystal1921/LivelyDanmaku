@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.data;
 
-import com.tutorial.lively_danmaku.Util.EntityExcludedDamageSource;
+import com.tutorial.lively_danmaku.util.EntityExcludedDamageSource;
 import com.tutorial.lively_danmaku.Utils;
 import com.tutorial.lively_danmaku.init.DamageTypeRegistry;
 import net.minecraft.core.HolderLookup;

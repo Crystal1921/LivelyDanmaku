@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.init;
 
-import com.tutorial.lively_danmaku.Armor.ReimuHeaddress;
+import com.tutorial.lively_danmaku.armor.ReimuHeaddress;
 import com.tutorial.lively_danmaku.Utils;
 import com.tutorial.lively_danmaku.item.*;
 import net.minecraft.world.item.*;

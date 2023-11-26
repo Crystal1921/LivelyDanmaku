@@ -1,9 +1,6 @@
 package com.tutorial.lively_danmaku.init;
 
-import com.tutorial.lively_danmaku.Block.AdvancedDanmakuTable;
-import com.tutorial.lively_danmaku.Block.DanmakuTable;
-import com.tutorial.lively_danmaku.Block.FumoTable;
-import com.tutorial.lively_danmaku.Block.ReimuBlock;
+import com.tutorial.lively_danmaku.block.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -22,4 +19,6 @@ public class BlockRegistry {
             () -> new FumoTable(BlockBehaviour.Properties.of().strength(2.5F).noCollission()));
     public static final RegistryObject<Block> ADVANCED_DANMAKU_TABLE = BLOCKS.register("advanced_danmaku_table",
             () -> new AdvancedDanmakuTable(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.FIRE).sound(SoundType.WOOD).strength(2.5F).noOcclusion()));
+    public static final RegistryObject<Block> DANMAKU_EMITTER = BLOCKS.register("danmaku_emitter",
+            () -> new DanmakuEmitter(BlockBehaviour.Properties.of().noOcclusion()));
 }

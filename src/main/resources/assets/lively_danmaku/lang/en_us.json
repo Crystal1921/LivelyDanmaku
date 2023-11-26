@@ -1,0 +1,36 @@
+{
+  "item.lively_danmaku.hakurei_gohei": "Hakurei Gohei",
+  "item.lively_danmaku.sanae_gohei": "Sanae Gohei",
+  "item.lively_danmaku.mini_hakkero": "Mini Hakkero",
+  "item.lively_danmaku.bo_qi": "Pochy",
+  "item.lively_danmaku.hakurei_reimu": "Hakurei Reimu",
+  "item.lively_danmaku.p_point": "Big Point",
+  "item.lively_danmaku.red_point": "Little Point",
+  "item.lively_danmaku.blue_point": "Blue Point",
+  "item.lively_danmaku.fake_player": "Fake Player",
+  "item.lively_danmaku.danmaku": "Normal Danmaku",
+  "item.lively_danmaku.star_danmaku": "Star Danmaku",
+  "item.lively_danmaku.reimu_headdress": "Reimu Headdress",
+  "item.lively_danmaku.broomstick": "Broomstick",
+  "item.lively_danmaku.hakurei_danmaku": "Self-propelled Sniper",
+
+  "block.lively_danmaku.danmaku_table": "Danmaku Table",
+  "block.lively_danmaku.reimu_block": "Reimu Handmade",
+
+  "entity.lively_danmaku.danmaku": "Danmaku",
+  "entity.lively_danmaku.reimu": "Hakurei Reimu",
+
+  "enchantment.lively_danmaku.danmaku_resistance": "Danmaku Resistance",
+
+  "death.attack.lively_danmaku.danmaku_shoot": "Death of Danmaku",
+
+  "chat.lively_danmaku.welcome": "Please compete for money",
+
+  "ui.danmaku_table": "Danmaku Table",
+  "ui.advanced_danmaku_table": "Advanced Danmaku Table",
+  "hakurei_gohei.speed": "Speed",
+  "hakurei_gohei.amount": "Amount",
+  "headdress.describe": "The ability to Fly",
+
+  "itemGroup.lively_danmaku": "Lively Danmaku"
+}

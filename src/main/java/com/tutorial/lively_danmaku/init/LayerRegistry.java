@@ -1,9 +1,9 @@
 package com.tutorial.lively_danmaku.init;
 
-import com.tutorial.lively_danmaku.Entity.model.BroomstickModel;
-import com.tutorial.lively_danmaku.Entity.model.HeaddressModel;
-import com.tutorial.lively_danmaku.Entity.model.PlayerModel;
-import com.tutorial.lively_danmaku.Entity.model.ReimuModel;
+import com.tutorial.lively_danmaku.entity.model.BroomstickModel;
+import com.tutorial.lively_danmaku.entity.model.HeaddressModel;
+import com.tutorial.lively_danmaku.entity.model.PlayerModel;
+import com.tutorial.lively_danmaku.entity.model.ReimuModel;
 import com.tutorial.lively_danmaku.Utils;
 import net.minecraft.client.model.geom.LayerDefinitions;
 import net.minecraft.client.model.geom.builders.CubeDeformation;

@@ -1,7 +1,6 @@
 package com.tutorial.lively_danmaku.item;
 
-import com.tutorial.lively_danmaku.Entity.AbstractDanmaku;
-import com.tutorial.lively_danmaku.Entity.FiveStarEmitter;
+import com.tutorial.lively_danmaku.entity.FiveStarEmitter;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -12,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.stream.Collectors;

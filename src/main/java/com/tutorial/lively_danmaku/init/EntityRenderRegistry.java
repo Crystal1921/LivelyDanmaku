@@ -1,9 +1,9 @@
 package com.tutorial.lively_danmaku.init;
 
-import com.tutorial.lively_danmaku.Entity.model.BroomstickModel;
-import com.tutorial.lively_danmaku.Entity.model.PlayerModel;
-import com.tutorial.lively_danmaku.Entity.model.ReimuModel;
-import com.tutorial.lively_danmaku.Entity.render.*;
+import com.tutorial.lively_danmaku.entity.model.BroomstickModel;
+import com.tutorial.lively_danmaku.entity.model.PlayerModel;
+import com.tutorial.lively_danmaku.entity.model.ReimuModel;
+import com.tutorial.lively_danmaku.entity.render.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

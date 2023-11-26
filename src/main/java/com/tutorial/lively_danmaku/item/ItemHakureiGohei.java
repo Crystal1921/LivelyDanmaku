@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku.item;
 
-import com.tutorial.lively_danmaku.Entity.Danmaku;
-import com.tutorial.lively_danmaku.Entity.StarDanmaku;
+import com.tutorial.lively_danmaku.entity.Danmaku;
+import com.tutorial.lively_danmaku.entity.StarDanmaku;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -33,50 +33,56 @@ public class ItemHakureiGohei extends BowItem {
     public void releaseUsing(@NotNull ItemStack item, Level level, @NotNull LivingEntity living, int i) {
         if (!level.isClientSide) {
             if (living instanceof Player player) {
-                int amount = item.getOrCreateTag().getInt("crystal_amount");
-                int speed = item.getOrCreateTag().getInt("crystal_speed");
-                float multi = 1 + (float) log((float) speed / 5 + 1);
                 int k = this.getUseDuration(item) - i;
                 k = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(item, level, player, k, true);
                 if (k <= 10) k = 10;
                 float f = getPowerForTime(k);
-                if (f > 0.8) {
-                    if (item.getOrCreateTag().get("crystal_distribution") == null) {
-                        for (int j = 0; j < 9; j++) {
-                            int angle = 8 * j - 32;
+                if (f > 0.8) HakureiShoot(item, level, player);
+            }
+        }
+    }
+
+    private void HakureiShoot(@NotNull ItemStack item, Level level, Player player) {
+        this.HakureiShoot(item,level,player,player.getX(),player.getY(),player.getZ(),player.getXRot(),player.getYRot());
+    }
+
+    public void HakureiShoot(@NotNull ItemStack item, Level level, Player player,double getX,double getY, double getZ, float getXRot, float getYRot) {
+        if (item.getOrCreateTag().get("crystal_distribution") == null) {
+            for (int j = 0; j < 9; j++) {
+                int angle = 8 * j - 32;
+                Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level, 0.5F);
+                danmaku.setOwner(player);
+                danmaku.moveTo(getX, getY + 1, getZ);
+                danmaku.shootFromRotation(getXRot, getYRot + angle, 0, 1, 1);
+                level.addFreshEntity(danmaku);
+            }
+        } else {
+            String distribution = String.valueOf(item.getOrCreateTag().get("crystal_distribution"));
+            int amount = item.getOrCreateTag().getInt("crystal_amount");
+            int speed = item.getOrCreateTag().getInt("crystal_speed");
+            float multi = 1 + (float) log((float) speed / 5 + 1);
+            int[][] array = String2Int(distribution);
+            int num = countOccurrences(array);
+            int repeat = amount / num;
+            if (num > amount) {
+                randomizeArray(array, num - amount);
+                repeat = 1;
+            }
+            for (int m = 0; m < repeat; m++) {
+                for (int j = 0; j < 9; j++) {
+                    for (int l = 0; l < 9; l++) {
+                        if (array[j][l] == 1) {
                             Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level, 0.5F);
                             danmaku.setOwner(player);
-                            danmaku.moveTo(living.getX(), living.getY() + 1, living.getZ());
-                            danmaku.shootFromRotation(living, living.getXRot(), living.getYRot() + angle, 0, f * multi, 1);
+                            danmaku.moveTo(getX, getY + 1, getZ);
+                            danmaku.shootFromRotation((getXRot - 16 + j * 4), (getYRot - 16 + l * 4), 0, multi, 1);
                             level.addFreshEntity(danmaku);
-                        }
-                    } else {
-                        String distribution = String.valueOf(item.getOrCreateTag().get("crystal_distribution"));
-                        int[][] array = String2Int(distribution);
-                        int num = countOccurrences(array);
-                        int repeat = amount / num;
-                        if (num > amount) {
-                            randomizeArray(array, num - amount);
-                            repeat = 1;
-                        }
-                        for (int m = 0; m < repeat; m++) {
-                            for (int j = 0; j < 9; j++) {
-                                for (int l = 0; l < 9; l++) {
-                                    if (array[j][l] == 1) {
-                                        Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level, 0.5F);
-                                        danmaku.setOwner(player);
-                                        danmaku.moveTo(living.getX(), living.getY() + 1, living.getZ());
-                                        danmaku.shootFromRotation(living, (living.getXRot() - 16 + j * 4), (living.getYRot() - 16 + l * 4), 0, f * multi, 1);
-                                        level.addFreshEntity(danmaku);
-                                    } else if (array[j][l] == 2) {
-                                        StarDanmaku danmaku = new StarDanmaku(EntityTypeRegistry.STAR_DANMAKU.get(), level);
-                                        danmaku.setOwner(player);
-                                        danmaku.moveTo(living.getX(), living.getY() + 1, living.getZ());
-                                        danmaku.shootFromRotation(living, (living.getXRot() - 16 + j * 4), (living.getYRot() - 16 + l * 4), 0, f * multi, 1);
-                                        level.addFreshEntity(danmaku);
-                                    }
-                                }
-                            }
+                        } else if (array[j][l] == 2) {
+                            StarDanmaku danmaku = new StarDanmaku(EntityTypeRegistry.STAR_DANMAKU.get(), level);
+                            danmaku.setOwner(player);
+                            danmaku.moveTo(getX, getY + 1, getZ);
+                            danmaku.shootFromRotation((getXRot - 16 + j * 4), (getYRot - 16 + l * 4), 0, multi, 1);
+                            level.addFreshEntity(danmaku);
                         }
                     }
                 }

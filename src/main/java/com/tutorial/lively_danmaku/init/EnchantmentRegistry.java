@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.init;
 
-import com.tutorial.lively_danmaku.Enchantment.DanmakuResistance;
+import com.tutorial.lively_danmaku.enchantment.DanmakuResistance;
 import com.tutorial.lively_danmaku.Utils;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraftforge.registries.DeferredRegister;
