@@ -28,9 +28,10 @@
 
   "ui.danmaku_table": "弹幕工作台",
   "ui.advanced_danmaku_table": "高级弹幕工作台",
+  "ui.danmaku_emitter": "弹幕发射台",
   "hakurei_gohei.speed": "速度",
   "hakurei_gohei.amount": "数量",
   "headdress.describe": "在天空飞翔程度的能力",
 
-  "itemGroup.lively_danmaku": "缤纷弹幕"
+  "itemGroup.lively_danmaku": "缤纷弹幕",
 }

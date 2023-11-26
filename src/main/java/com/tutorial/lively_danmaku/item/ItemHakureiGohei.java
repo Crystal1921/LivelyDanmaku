@@ -97,7 +97,6 @@ public class ItemHakureiGohei extends BowItem {
         return InteractionResultHolder.consume(itemstack);
     }
     @Override
-    @SuppressWarnings("all")
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> list, @NotNull TooltipFlag flags) {
         super.appendHoverText(stack, level, list, flags);

@@ -76,9 +76,8 @@ public class FumoTableTE extends BlockEntity implements MenuProvider {
         itemStackHandler.deserializeNBT(nbt.getCompound("inventory"));
     }
 
-    @SuppressWarnings("all")
     @Override
-    public Component getDisplayName() {
+    public @NotNull Component getDisplayName() {
         return Component.translatable("ui.fumo_table");
     }
 

@@ -30,7 +30,6 @@ public class ReimuHeaddress extends ArmorItem {
         super(material, type, properties);
     }
     @Override
-    @SuppressWarnings("all")
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> list, @NotNull TooltipFlag flags) {
         super.appendHoverText(stack, level, list, flags);

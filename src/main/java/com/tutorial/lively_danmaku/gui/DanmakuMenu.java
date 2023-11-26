@@ -3,6 +3,7 @@ package com.tutorial.lively_danmaku.gui;
 import com.tutorial.lively_danmaku.init.BlockRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import com.tutorial.lively_danmaku.init.MenuRegistry;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -23,8 +24,9 @@ public class DanmakuMenu extends AbstractContainerMenu {
             DanmakuMenu.this.slotsChanged(this);
         }
     };
-    public DanmakuMenu(int id, Inventory inventory) {
-        this(id, inventory, ContainerLevelAccess.NULL);
+
+    public DanmakuMenu(int id, Inventory inventory, FriendlyByteBuf buf) {
+        this(id,inventory,ContainerLevelAccess.NULL);
     }
 
     public DanmakuMenu(int id, Inventory inventory,ContainerLevelAccess access) {
@@ -71,6 +73,7 @@ public class DanmakuMenu extends AbstractContainerMenu {
         }
         this.addDataSlot(DataSlot.shared(isFull,0));
     }
+
     @Override
     public boolean clickMenuButton(@NotNull Player player, int i) {
         ItemStack itemstack = this.container.getItem(0);

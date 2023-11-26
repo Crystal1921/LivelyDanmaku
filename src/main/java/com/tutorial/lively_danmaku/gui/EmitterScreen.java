@@ -7,9 +7,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
-public class FumoTableScreen extends AbstractContainerScreen<FumoTableMenu> {
+public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
     private static final ResourceLocation FUMO_TABLE = new ResourceLocation("lively_danmaku", "textures/gui/fumo_table.png");
-    public FumoTableScreen(FumoTableMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public EmitterScreen(EmitterMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 

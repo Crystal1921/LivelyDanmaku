@@ -41,6 +41,7 @@ public class DanmakuScreen extends AbstractContainerScreen<DanmakuMenu> {
         }
     }
 
+    @Override
     public void render(@NotNull GuiGraphics guiGraphics, int p_282491_, int p_281953_, float p_282182_) {
         this.renderBackground(guiGraphics);
         super.render(guiGraphics, p_282491_, p_281953_, p_282182_);

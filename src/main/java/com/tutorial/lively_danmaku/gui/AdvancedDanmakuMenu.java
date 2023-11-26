@@ -3,14 +3,12 @@ package com.tutorial.lively_danmaku.gui;
 import com.tutorial.lively_danmaku.init.BlockRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import com.tutorial.lively_danmaku.init.MenuRegistry;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.DataSlot;
-import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,8 +27,9 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
             AdvancedDanmakuMenu.this.slotsChanged(this);
         }
     };
-    public AdvancedDanmakuMenu(int id, Inventory inventory) {
-        this(id, inventory, ContainerLevelAccess.NULL);
+
+    public AdvancedDanmakuMenu(int id, Inventory inventory, FriendlyByteBuf buf) {
+        this(id,inventory,ContainerLevelAccess.NULL);
     }
 
     public AdvancedDanmakuMenu(int id, Inventory inventory, ContainerLevelAccess access) {
@@ -68,6 +67,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
         this.addDataSlot(DataSlot.shared(isPaint,0));
         this.addDataSlot(DataSlot.shared(isGrid,0));
     }
+
     @Override
     public boolean clickMenuButton(@NotNull Player player, int i) {
         if ( i == 0) {

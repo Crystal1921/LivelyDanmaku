@@ -17,8 +17,8 @@ public class FumoTableMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
     private final ContainerData container;
     public final FumoTableTE entityBlock;
-    public FumoTableMenu(int id, Inventory inventory, FriendlyByteBuf extraData) {
-        this(id,inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()),new SimpleContainerData(2));
+    public FumoTableMenu(int id, Inventory inventory, FriendlyByteBuf buf) {
+        this(id,inventory, inventory.player.level().getBlockEntity(buf.readBlockPos()),new SimpleContainerData(2));
     }
 
     public FumoTableMenu(int id, Inventory inventory, BlockEntity entity, ContainerData data) {
@@ -44,7 +44,7 @@ public class FumoTableMenu extends AbstractContainerMenu {
     public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(pIndex);
-        if (slot != null && slot.hasItem()) {
+        if (slot.hasItem()) {
             ItemStack itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
             if (pIndex == 0) {
