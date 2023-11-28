@@ -31,7 +31,7 @@ public class DanmakuScreen extends AbstractContainerScreen<DanmakuMenu> {
     }
 
     @Override
-    protected void renderBg(GuiGraphics guiGraphics, float p_97788_, int p_97789_, int p_97790_) {
+    protected void renderBg(GuiGraphics guiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
         guiGraphics.blit(DANMAKU_TABLE, i - 80 , j, 0, 0, this.imageWidth, this.imageHeight);
@@ -42,10 +42,10 @@ public class DanmakuScreen extends AbstractContainerScreen<DanmakuMenu> {
     }
 
     @Override
-    public void render(@NotNull GuiGraphics guiGraphics, int p_282491_, int p_281953_, float p_282182_) {
+    public void render(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(guiGraphics);
-        super.render(guiGraphics, p_282491_, p_281953_, p_282182_);
-        this.renderTooltip(guiGraphics, p_282491_, p_281953_);
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        this.renderTooltip(guiGraphics, pMouseX, pMouseY);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.tutorial.lively_danmaku.gui;
 
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -9,8 +10,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
     private static final ResourceLocation FUMO_TABLE = new ResourceLocation("lively_danmaku", "textures/gui/fumo_table.png");
+    protected EditBox commandEdit;
     public EmitterScreen(EmitterMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
+        this.commandEdit = new EditBox(this.font, this.width / 2 - 150, 50, 300, 20, Component.translatable("advMode.command"));
     }
 
     @Override
