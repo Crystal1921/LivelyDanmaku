@@ -1,11 +1,15 @@
 package com.tutorial.lively_danmaku.gui;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
+
+import java.awt.*;
+import java.util.ArrayList;
 
 public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanmakuMenu> {
     private static final ResourceLocation DANMAKU_TABLE = new ResourceLocation("lively_danmaku", "textures/gui/danmaku_table.png");
@@ -75,5 +79,10 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
         this.renderBackground(guiGraphics);
         super.render(guiGraphics, p_282491_, p_281953_, p_282182_);
         this.renderTooltip(guiGraphics, p_282491_, p_281953_);
+    }
+    public void resize(Minecraft pMinecraft, int pWidth, int pHeight) {
+        ArrayList<ArrayList<Point>> pointList = paintWidget.getPointList();
+        this.init(pMinecraft, pWidth, pHeight);
+        this.paintWidget.setPointList(pointList);
     }
 }

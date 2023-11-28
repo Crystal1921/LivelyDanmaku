@@ -73,6 +73,6 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
 
     @Override
     public int getContainerSize() {
-        return 1;
+        return 27;
     }
 }

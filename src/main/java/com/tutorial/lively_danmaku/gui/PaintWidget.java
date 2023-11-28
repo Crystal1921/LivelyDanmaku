@@ -13,7 +13,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class PaintWidget extends AbstractWidget {
-    private final ArrayList<ArrayList<Point>> pointList = new ArrayList<>();
+    private ArrayList<ArrayList<Point>> pointList = new ArrayList<>();
     private int number = 0;
     private final int gridSize = 8;
     private static final int TRANSLUCENT_BLACK = FastColor.ARGB32.color(24,256,256,256);
@@ -71,5 +71,13 @@ public class PaintWidget extends AbstractWidget {
     public void addList () {
         this.pointList.add(new ArrayList<>());
         this.number++;
+    }
+
+    public void setPointList (ArrayList<ArrayList<Point>> pointList) {
+        this.pointList = pointList;
+    }
+
+    public ArrayList<ArrayList<Point>> getPointList () {
+        return this.pointList;
     }
 }

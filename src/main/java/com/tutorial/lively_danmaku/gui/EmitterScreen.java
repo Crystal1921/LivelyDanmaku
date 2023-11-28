@@ -1,6 +1,8 @@
 package com.tutorial.lively_danmaku.gui;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.CommandSuggestions;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -10,10 +12,26 @@ import org.jetbrains.annotations.NotNull;
 
 public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
     private static final ResourceLocation FUMO_TABLE = new ResourceLocation("lively_danmaku", "textures/gui/fumo_table.png");
-    protected EditBox commandEdit;
+    protected EditBox editBox;
     public EmitterScreen(EmitterMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
-        this.commandEdit = new EditBox(this.font, this.width / 2 - 150, 50, 300, 20, Component.translatable("advMode.command"));
+    }
+
+
+    protected void init() {
+        this.leftPos = (this.width - this.imageWidth) / 2;
+        this.topPos = (this.height - this.imageHeight) / 2;
+        int i = (this.width - this.imageWidth) / 2;
+        int j = (this.height - this.imageHeight) / 2;
+        this.editBox = new EditBox(this.font, this.width / 2 - 72, 80, 80, 20, Component.translatable("structure_block.position.y"));
+        this.editBox.setMaxLength(15);
+        this.editBox.setVisible(true);
+        this.addWidget(this.editBox);
+    }
+
+    public void resize(Minecraft pMinecraft, int pWidth, int pHeight) {
+        String s1 = this.editBox.getValue();
+        this.editBox.setValue(s1);
     }
 
     @Override
@@ -24,9 +42,10 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
     }
 
     @Override
-    public void render(@NotNull GuiGraphics guiGraphics, int p_282491_, int p_281953_, float p_282182_) {
+    public void render(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(guiGraphics);
-        super.render(guiGraphics, p_282491_, p_281953_, p_282182_);
-        this.renderTooltip(guiGraphics, p_282491_, p_281953_);
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        this.renderTooltip(guiGraphics, pMouseX, pMouseY);
+        this.editBox.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 }
