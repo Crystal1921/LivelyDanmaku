@@ -8,7 +8,7 @@ import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-public class Group {
+public class LiveLyDanmakuGroup {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Utils.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> BLOCKS = TABS.register("blocks", () -> CreativeModeTab.builder()
@@ -29,6 +29,7 @@ public class Group {
                     output.accept(ItemRegistry.DanmakuTableItem.get());
                     output.accept(ItemRegistry.AdvancedDanmakuTableItem.get());
                     output.accept(ItemRegistry.FumoTable.get());
+                    output.accept(ItemRegistry.DanmakuEmitter.get());
                     output.accept(ItemRegistry.Player.get());
                     output.accept(ItemRegistry.HakureiReimu.get());
                     output.accept(ItemRegistry.Broomstick.get());

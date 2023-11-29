@@ -2,6 +2,7 @@ package com.tutorial.lively_danmaku.gui;
 
 import com.tutorial.lively_danmaku.mixin.mixinInterface.GuiGraphicsInterface;
 import com.tutorial.lively_danmaku.network.DanmakuNetwork;
+import com.tutorial.lively_danmaku.network.PointPacket;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
@@ -63,7 +64,7 @@ public class PaintWidget extends AbstractWidget {
                 y = Math.round(y / gridSize) * gridSize;
             }
             pointList.get(number).add(new Point((int)x,(int)y));
-            DanmakuNetwork.PointPacket packet = new DanmakuNetwork.PointPacket(screen.getMenu().containerId, (short) (x - 360.5) ,(short) (y - 125.5) ,(byte) number);
+            PointPacket packet = new PointPacket(screen.getMenu().containerId, (short) (x - 360.5) ,(short) (y - 125.5) ,(byte) number);
             DanmakuNetwork.CHANNEL_POINT.sendToServer(packet);
         }
     }

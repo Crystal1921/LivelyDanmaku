@@ -85,4 +85,8 @@ public class EmitterMenu extends AbstractContainerMenu {
     public boolean stillValid(Player pPlayer) {
         return stillValid(this.access, pPlayer, BlockRegistry.DANMAKU_EMITTER.get());
     }
+
+    public DanmakuEmitterTE getDanmakuEmitterTE () {
+        return this.danmakuEmitterTE;
+    }
 }

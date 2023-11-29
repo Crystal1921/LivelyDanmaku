@@ -5,7 +5,7 @@ import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.data.worldgen.BootstapContext;
 
-import static com.tutorial.lively_danmaku.lively_danmaku.prefix;
+import static com.tutorial.lively_danmaku.LivelyDanmaku.prefix;
 
 public class DamageTypeRegistry {
     public static final ResourceKey<DamageType> DANMAKU_SHOOT =

@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku;
 
 import com.tutorial.lively_danmaku.init.EnchantmentRegistry;
-import com.tutorial.lively_danmaku.group.Group;
+import com.tutorial.lively_danmaku.group.LiveLyDanmakuGroup;
 import com.tutorial.lively_danmaku.init.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -12,8 +12,8 @@ import java.util.Locale;
 
 
 @Mod(Utils.MOD_ID)
-public class lively_danmaku {
-    public lively_danmaku() {
+public class LivelyDanmaku {
+    public LivelyDanmaku() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ItemRegistry.ITEMS.register(eventBus);
         EntityTypeRegistry.ENTITY_TYPE.register(eventBus);
@@ -22,8 +22,7 @@ public class lively_danmaku {
         BlockEntityTypeRegistry.BLOCK_ENTITY_TYPES.register(eventBus);
         MenuRegistry.CONTAINERS.register(eventBus);
         eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
-        Group.TABS.register(eventBus);
-        //TODO:做一个fumo台
+        LiveLyDanmakuGroup.TABS.register(eventBus);
     }
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(Utils.MOD_ID, name.toLowerCase(Locale.ROOT));
