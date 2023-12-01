@@ -1,15 +1,8 @@
 package com.tutorial.lively_danmaku.network;
 
 import com.tutorial.lively_danmaku.blockEntity.DanmakuEmitterTE;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.PacketListener;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.Objects;
@@ -18,20 +11,23 @@ import java.util.function.Supplier;
 public class EmitterPacket{
     float XRot;
     float YRot;
+    int freq;
     BlockPos blockPos;
-    public EmitterPacket(float XRot, float YRot, BlockPos blockPos) {
+    public EmitterPacket(float XRot, float YRot, int freq, BlockPos blockPos) {
         this.XRot = XRot;
         this.YRot = YRot;
+        this.freq = freq;
         this.blockPos = blockPos;
     }
 
     public static EmitterPacket decode(FriendlyByteBuf friendlyByteBuf) {
-        return new EmitterPacket(friendlyByteBuf.readFloat(),friendlyByteBuf.readFloat(),friendlyByteBuf.readBlockPos());
+        return new EmitterPacket(friendlyByteBuf.readFloat(),friendlyByteBuf.readFloat(),friendlyByteBuf.readInt(),friendlyByteBuf.readBlockPos());
     }
 
     public void encode(FriendlyByteBuf friendlyByteBuf) {
     friendlyByteBuf.writeFloat(XRot);
     friendlyByteBuf.writeFloat(YRot);
+    friendlyByteBuf.writeInt(freq);
     friendlyByteBuf.writeBlockPos(blockPos);
     }
 
@@ -40,7 +36,9 @@ public class EmitterPacket{
         context.enqueueWork(() -> {
             var level = Objects.requireNonNull(context.getSender()).level();
             if (level.getExistingBlockEntity(blockPos) instanceof DanmakuEmitterTE blockEntity) {
-                blockEntity.setRotation(XRot,YRot);
+                blockEntity.XRot = XRot;
+                blockEntity.YRot = YRot;
+                blockEntity.freq = freq;
             }
         });
     }

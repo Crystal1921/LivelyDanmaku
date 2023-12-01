@@ -3,7 +3,6 @@ package com.tutorial.lively_danmaku.blockEntity;
 import com.tutorial.lively_danmaku.gui.EmitterMenu;
 import com.tutorial.lively_danmaku.init.BlockEntityTypeRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
-import com.tutorial.lively_danmaku.item.HakureiDanmakuItem;
 import com.tutorial.lively_danmaku.item.ItemHakureiGohei;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -14,14 +13,14 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
 public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
-    private float XRot;
-    private float YRot;
+    public float XRot;
+    public float YRot;
+    public int freq = 20;
     private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
     private int countTick = 0;
     public DanmakuEmitterTE(BlockPos pPos, BlockState pBlockState) {
@@ -40,25 +39,23 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
         }
     }
 
-    public void load(CompoundTag pTag) {
+    public void load(@NotNull CompoundTag pTag) {
         super.load(pTag);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         if (!this.tryLoadLootTable(pTag)) {
             ContainerHelper.loadAllItems(pTag, this.items);
         }
+        this.XRot = pTag.getFloat("XRot");
+        this.YRot = pTag.getFloat("YRot");
     }
 
-    protected void saveAdditional(CompoundTag pTag) {
+    protected void saveAdditional(@NotNull CompoundTag pTag) {
         super.saveAdditional(pTag);
         if (!this.trySaveLootTable(pTag)) {
             ContainerHelper.saveAllItems(pTag, this.items);
         }
-
-    }
-
-    public void setRotation (float XRot, float YRot) {
-        this.XRot = XRot;
-        this.YRot = YRot;
+        pTag.putFloat("XRot",XRot);
+        pTag.putFloat("YRot",YRot);
     }
 
     @Override

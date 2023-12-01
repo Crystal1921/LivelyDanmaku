@@ -16,6 +16,9 @@
 
   "block.lively_danmaku.danmaku_table": "弹幕工作台",
   "block.lively_danmaku.reimu_block": "博丽灵梦手办",
+  "block.danmaku_emitter.position_x": "X",
+  "block.danmaku_emitter.position_y": "Y",
+  "block.danmaku_emitter.position_freq": "频率",
 
   "entity.lively_danmaku.danmaku": "弹幕",
   "entity.lively_danmaku.reimu": "博丽灵梦",
@@ -27,6 +30,7 @@
   "chat.lively_danmaku.welcome": "请赛钱",
 
   "ui.danmaku_table": "弹幕工作台",
+  "ui.fumo_table": "Fumo Table",
   "ui.advanced_danmaku_table": "高级弹幕工作台",
   "ui.danmaku_emitter": "弹幕发射台",
   "hakurei_gohei.speed": "速度",
