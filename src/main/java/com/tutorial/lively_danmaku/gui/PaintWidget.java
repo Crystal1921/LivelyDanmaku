@@ -21,6 +21,7 @@ public class PaintWidget extends AbstractWidget {
     private static final int TRANSLUCENT_BROWN = FastColor.ARGB32.color(128,225,190,150);
     private final AdvancedDanmakuScreen screen;
     public boolean isGrid = true;
+    public boolean isPaint = true;
 
     public PaintWidget(int pX, int pY, AdvancedDanmakuScreen screen) {
         super(pX, pY, 175,175, Component.empty());
@@ -58,7 +59,7 @@ public class PaintWidget extends AbstractWidget {
 
     @Override
     public void onClick(double x, double y) {
-        if (screen.getMenu().isPaint[0] == 0) {
+        if (isPaint) {
             if (isGrid) {
                 x = Math.round(x / gridSize) * gridSize;
                 y = Math.round(y / gridSize) * gridSize;

@@ -19,8 +19,6 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
     public ArrayList<ArrayList<Point>> pointList = new ArrayList<>();
     public final int[] isFull = new int[1];
-    public final int[] isPaint = new int[1];
-    public final int[] isGrid = new int[1];
     private final Container container = new SimpleContainer(120) {
         public void setChanged() {
             super.setChanged();
@@ -64,8 +62,6 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
             this.addSlot(new Slot(inventory, k, -72 + k * 18, 142));
         }
         this.addDataSlot(DataSlot.shared(isFull,0));
-        this.addDataSlot(DataSlot.shared(isPaint,0));
-        this.addDataSlot(DataSlot.shared(isGrid,0));
     }
 
     @Override
@@ -96,12 +92,6 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
                 });
                 return true;
             }
-        } else if (i == 1) {
-            isPaint[0] = isPaint[0] == 1 ? 0 : 1;
-            return true;
-        } else if (i == 2) {
-            isGrid[0] = isGrid[0] == 1 ? 0 : 1;
-            return true;
         }
         return false;
     }

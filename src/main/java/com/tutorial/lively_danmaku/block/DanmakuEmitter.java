@@ -2,17 +2,24 @@ package com.tutorial.lively_danmaku.block;
 
 import com.tutorial.lively_danmaku.blockEntity.DanmakuEmitterTE;
 import com.tutorial.lively_danmaku.init.BlockEntityTypeRegistry;
+import com.tutorial.lively_danmaku.init.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -33,6 +40,14 @@ public class DanmakuEmitter extends BaseEntityBlock {
             }
             return InteractionResult.CONSUME;
         }
+    }
+
+    public @NotNull VoxelShape getShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, CollisionContext pContext) {
+        return pContext.isHoldingItem(ItemRegistry.DanmakuEmitter.get()) ? Shapes.block() : Shapes.empty();
+    }
+
+    public @NotNull RenderShape getRenderShape(BlockState pState) {
+        return RenderShape.INVISIBLE;
     }
 
     @javax.annotation.Nullable

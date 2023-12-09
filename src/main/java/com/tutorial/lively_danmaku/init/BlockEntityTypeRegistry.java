@@ -13,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class BlockEntityTypeRegistry {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, "lively_danmaku");
-    public static final RegistryObject<BlockEntityType<ReimuEntityTE>> REIMU_ENTITY_BLOCK = BLOCK_ENTITY_TYPES.register("reimu_block",
+    public static final RegistryObject<BlockEntityType<ReimuEntityTE>> REIMU_ENTITY_BLOCK = BLOCK_ENTITY_TYPES.register("reimu_block.json",
             () -> BlockEntityType.Builder.of(ReimuEntityTE::new, BlockRegistry.REIMU_BLOCK.get()).build(null));
     public static final RegistryObject<BlockEntityType<DanmakuTableTE>> DANMAKU_TABLE_ENTITY = BLOCK_ENTITY_TYPES.register("danmaku_table",
             () -> BlockEntityType.Builder.of(DanmakuTableTE::new, BlockRegistry.DANMAKU_TABLE.get()).build(null));
@@ -25,7 +25,7 @@ public class BlockEntityTypeRegistry {
             () -> BlockEntityType.Builder.of(DanmakuEmitterTE::new, BlockRegistry.DANMAKU_EMITTER.get()).build(null));
     @OnlyIn(Dist.CLIENT)
     public static void registerTileEntityRenders() {
-        BlockEntityRenderers.register(REIMU_ENTITY_BLOCK.get(),ReimuTileEntityRenderer::new);
+        BlockEntityRenderers.register(REIMU_ENTITY_BLOCK.get(), ReimuTileEntityRenderer::new);
         BlockEntityRenderers.register(FUMO_TABLE.get(), FumoTableRender::new);
     }
 }

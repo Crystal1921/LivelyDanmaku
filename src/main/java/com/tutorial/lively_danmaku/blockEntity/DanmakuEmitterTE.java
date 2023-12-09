@@ -4,6 +4,7 @@ import com.tutorial.lively_danmaku.gui.EmitterMenu;
 import com.tutorial.lively_danmaku.init.BlockEntityTypeRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import com.tutorial.lively_danmaku.item.ItemHakureiGohei;
+import com.tutorial.lively_danmaku.item.ItemSanaeGohei;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -21,6 +22,9 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
     public float XRot;
     public float YRot;
     public int freq = 20;
+    public double posX;
+    public double posY;
+    public double posZ;
     private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
     private int countTick = 0;
     public DanmakuEmitterTE(BlockPos pPos, BlockState pBlockState) {
@@ -30,11 +34,14 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
     public static void tick(Level level, BlockPos pos, BlockState state,DanmakuEmitterTE danmakuEmitterTE){
         danmakuEmitterTE.countTick ++;
         ItemStack itemStack = danmakuEmitterTE.items.get(0);
-        if (danmakuEmitterTE.countTick == 20){
+        if (danmakuEmitterTE.countTick >= danmakuEmitterTE.freq){
             danmakuEmitterTE.countTick = 0;
             if (itemStack.is(ItemRegistry.HakureiGohei.get())) {
                 ItemHakureiGohei item = (ItemHakureiGohei) itemStack.getItem();
-                item.HakureiShoot(itemStack, level, null, danmakuEmitterTE.getBlockPos().getX(), danmakuEmitterTE.getBlockPos().getY(), danmakuEmitterTE.getBlockPos().getZ(), danmakuEmitterTE.XRot, danmakuEmitterTE.YRot);
+                item.HakureiShoot(itemStack, level, null, pos.getX(),pos.getY(),pos.getZ(), danmakuEmitterTE.XRot, danmakuEmitterTE.YRot,false);
+            } else if (itemStack.is(ItemRegistry.SanaeGohei.get())) {
+                ItemSanaeGohei item = (ItemSanaeGohei) itemStack.getItem();
+                item.SanaeShoot(level,itemStack,danmakuEmitterTE.XRot,danmakuEmitterTE.YRot,pos.getX(),pos.getY(),pos.getZ());
             }
         }
     }
@@ -47,6 +54,10 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
         }
         this.XRot = pTag.getFloat("XRot");
         this.YRot = pTag.getFloat("YRot");
+        this.freq = pTag.getInt("Freq");
+        this.posX = pTag.getDouble("posX");
+        this.posY = pTag.getDouble("posY");
+        this.posZ = pTag.getDouble("posZ");
     }
 
     protected void saveAdditional(@NotNull CompoundTag pTag) {
@@ -56,6 +67,10 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
         }
         pTag.putFloat("XRot",XRot);
         pTag.putFloat("YRot",YRot);
+        pTag.putInt("Freq",freq);
+        pTag.putDouble("posX",posX);
+        pTag.putDouble("posY",posY);
+        pTag.putDouble("posZ",posZ);
     }
 
     @Override

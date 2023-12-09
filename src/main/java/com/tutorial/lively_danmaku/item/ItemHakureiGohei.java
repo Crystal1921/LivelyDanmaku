@@ -43,17 +43,17 @@ public class ItemHakureiGohei extends BowItem {
     }
 
     private void HakureiShoot(@NotNull ItemStack item, Level level, Player player) {
-        this.HakureiShoot(item,level,player,player.getX(),player.getY(),player.getZ(),player.getXRot(),player.getYRot());
+        this.HakureiShoot(item,level,player,player.getX(),player.getY(),player.getZ(),player.getXRot(),player.getYRot(),true);
     }
 
-    public void HakureiShoot(@NotNull ItemStack item, Level level, Player player,double getX,double getY, double getZ, float getXRot, float getYRot) {
+    public void HakureiShoot(@NotNull ItemStack item, Level level, Player player,double getX,double getY, double getZ, float getXRot, float getYRot, boolean isWiggle) {
         if (item.getOrCreateTag().get("crystal_distribution") == null) {
             for (int j = 0; j < 9; j++) {
                 int angle = 8 * j - 32;
                 Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level, 0.5F);
                 danmaku.setOwner(player);
                 danmaku.moveTo(getX, getY + 1, getZ);
-                danmaku.shootFromRotation(getXRot, getYRot + angle, 0, 1, 1);
+                danmaku.shootFromRotation(getXRot, getYRot + angle, 0, 1, 1,isWiggle);
                 level.addFreshEntity(danmaku);
             }
         } else {
@@ -75,13 +75,13 @@ public class ItemHakureiGohei extends BowItem {
                             Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level, 0.5F);
                             danmaku.setOwner(player);
                             danmaku.moveTo(getX, getY + 1, getZ);
-                            danmaku.shootFromRotation((getXRot - 16 + j * 4), (getYRot - 16 + l * 4), 0, multi, 1);
+                            danmaku.shootFromRotation((getXRot - 16 + j * 4), (getYRot - 16 + l * 4), 0, multi, 1, isWiggle);
                             level.addFreshEntity(danmaku);
                         } else if (array[j][l] == 2) {
                             StarDanmaku danmaku = new StarDanmaku(EntityTypeRegistry.STAR_DANMAKU.get(), level);
                             danmaku.setOwner(player);
                             danmaku.moveTo(getX, getY + 1, getZ);
-                            danmaku.shootFromRotation((getXRot - 16 + j * 4), (getYRot - 16 + l * 4), 0, multi, 1);
+                            danmaku.shootFromRotation((getXRot - 16 + j * 4), (getYRot - 16 + l * 4), 0, multi, 1, isWiggle);
                             level.addFreshEntity(danmaku);
                         }
                     }

@@ -3,7 +3,6 @@ package com.tutorial.lively_danmaku.entity;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import com.tutorial.lively_danmaku.item.ItemSanaeGohei;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 
@@ -14,7 +13,8 @@ public class FiveStarEmitter extends Projectile {
     private int num = 0;
     public boolean isDrawStar = false;
     public boolean isShoot = false;
-    private Player player;
+    private float XRot;
+    private float YRot;
     private String type;
     private ArrayList<ItemSanaeGohei.DoublePoint> arrayList = new ArrayList<>();
     private final ArrayList<AbstractDanmaku> danmakuArrayList = new ArrayList<>();
@@ -22,17 +22,12 @@ public class FiveStarEmitter extends Projectile {
         super(entityType, level);
     }
 
-    public FiveStarEmitter(EntityType<? extends Projectile> entityType, Level level, ArrayList<ItemSanaeGohei.DoublePoint> arrayList, Player player) {
+    public FiveStarEmitter(EntityType<? extends Projectile> entityType, Level level, ArrayList<ItemSanaeGohei.DoublePoint> arrayList, float XRot, float YRot, String string) {
         super(entityType, level);
         this.arrayList = arrayList;
         this.isDrawStar = true;
-        this.player = player;
-    }
-    public FiveStarEmitter(EntityType<? extends Projectile> entityType, Level level, ArrayList<ItemSanaeGohei.DoublePoint> arrayList, Player player,String string) {
-        super(entityType, level);
-        this.arrayList = arrayList;
-        this.isDrawStar = true;
-        this.player = player;
+        this.XRot = XRot;
+        this.YRot = YRot;
         this.type = string;
     }
 
@@ -54,7 +49,7 @@ public class FiveStarEmitter extends Projectile {
                 level().addFreshEntity(danmaku);
             }
             if (isShoot) {
-                danmakuArrayList.forEach((danmaku -> danmaku.shootFromRotation(player,player.getXRot(),player.getYRot(),0, 1,0)));
+                danmakuArrayList.forEach((danmaku -> danmaku.shootFromRotation(XRot,YRot,0, 1,0,false)));
                 isDrawStar = false;
                 this.discard();
             }

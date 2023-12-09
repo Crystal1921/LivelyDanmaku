@@ -53,23 +53,27 @@ public class ItemSanaeGohei extends BowItem {
         ItemStack itemstack = player.getItemInHand(hand);
         player.startUsingItem(hand);
         if (!level.isClientSide) {
-            ArrayList<DoublePoint> list;
-            String type;
-            if (itemstack.getOrCreateTag().get("crystal_point") != null){
-                list = ViewTransform(stringToPointList(String.valueOf(itemstack.getOrCreateTag().get("crystal_point"))),player);
-            }   else {
-                list = ViewTransform(five_star,player);
-            }
-            if (itemstack.getOrCreateTag().get("crystal_type") != null) {
-                type = Objects.requireNonNull(itemstack.getOrCreateTag().get("crystal_type")).getAsString();
-            }   else {
-                type = "danmaku";
-            }
-                emitter = new FiveStarEmitter(EntityTypeRegistry.FIVE_STAR_EMITTER.get(), level, list, player,type);
-                emitter.moveTo(player.getX(), player.getY(), player.getZ());
-                level.addFreshEntity(emitter);
+            SanaeShoot(level,itemstack,player.getXRot(),player.getYRot(),player.getX(),player.getY(),player.getZ());
         }
         return InteractionResultHolder.consume(itemstack);
+    }
+
+    public void SanaeShoot(@NotNull Level level, ItemStack itemstack, float XRot, float YRot, double positionX, double positionY, double positionZ) {
+        ArrayList<DoublePoint> list;
+        String type;
+        if (itemstack.getOrCreateTag().get("crystal_point") != null){
+            list = ViewTransform(stringToPointList(String.valueOf(itemstack.getOrCreateTag().get("crystal_point"))), XRot, YRot);
+        }   else {
+            list = ViewTransform(five_star, XRot, YRot);
+        }
+        if (itemstack.getOrCreateTag().get("crystal_type") != null) {
+            type = Objects.requireNonNull(itemstack.getOrCreateTag().get("crystal_type")).getAsString();
+        }   else {
+            type = "danmaku";
+        }
+        emitter = new FiveStarEmitter(EntityTypeRegistry.FIVE_STAR_EMITTER.get(), level, list, XRot, YRot, type);
+        emitter.moveTo(positionX, positionY, positionZ);
+        level.addFreshEntity(emitter);
     }
 
     public static ArrayList<DoublePoint> getEquallySpacedPoints(DoublePoint point1, DoublePoint point2, int numPoints) {
@@ -99,27 +103,25 @@ public class ItemSanaeGohei extends BowItem {
         return points;
     }
 
-    private ArrayList<DoublePoint> ViewTransform (ArrayList<DoublePoint> origin, Player player) {
+    private ArrayList<DoublePoint> ViewTransform (ArrayList<DoublePoint> origin, float XRot, float YRot) {
         return origin.stream()
                 .map(point -> { //XoZ平面旋转
                     double x = point.x;
                     double y = point.y;
-                    double theta = toRadians(player.getXRot());
+                    double theta = toRadians(XRot);
                     return new DoublePoint(x, y * sin(theta), y * cos(theta));
                 })
                 .map(point -> { //XoY平面旋转
                     double x = point.x;
                     double y = point.y;
-                    double theta = toRadians(player.getYRot());
+                    double theta = toRadians(YRot);
                     return new DoublePoint((x * cos(theta) - y * sin(theta)), (x * sin(theta) + y * cos(theta)), point.z);
                 })
                 .map(point -> { //全部按视角平移
-                    float rotationX = player.getXRot();
-                    float rotationY = player.getYRot();
                     float distance = 6F;
-                    double offsetX = -sin(toRadians(rotationY)) * cos(toRadians(rotationX)) * distance;
-                    double offsetY = -sin(toRadians(rotationX)) * distance + 0.8;
-                    double offsetZ = cos(toRadians(rotationY)) * cos(toRadians(rotationX)) * distance;
+                    double offsetX = -sin(toRadians(YRot)) * cos(toRadians(XRot)) * distance;
+                    double offsetY = -sin(toRadians(XRot)) * distance + 0.8;
+                    double offsetZ = cos(toRadians(YRot)) * cos(toRadians(XRot)) * distance;
                     return new DoublePoint(point.x + offsetX, point.y + offsetZ, point.z + offsetY);
                 })
                 .collect(Collectors.toCollection(ArrayList::new));
