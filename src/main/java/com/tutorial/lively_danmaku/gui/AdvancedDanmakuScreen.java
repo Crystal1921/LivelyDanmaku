@@ -2,7 +2,6 @@ package com.tutorial.lively_danmaku.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.StateSwitchingButton;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -68,7 +67,7 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
         this.renderTooltip(guiGraphics, p_282491_, p_281953_);
     }
 
-    public void resize(Minecraft pMinecraft, int pWidth, int pHeight) {
+    public void resize(@NotNull Minecraft pMinecraft, int pWidth, int pHeight) {
         ArrayList<ArrayList<Point>> pointList = paintWidget.getPointList();
         this.init(pMinecraft, pWidth, pHeight);
         this.paintWidget.setPointList(pointList);

@@ -9,10 +9,10 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class ReimuEntityTE extends BlockEntity {
+    private int count = 0;
     public ReimuEntityTE(BlockPos worldPosition, BlockState blockState) {
         super(BlockEntityTypeRegistry.REIMU_ENTITY_BLOCK.get(), worldPosition, blockState);
     }
-    private int count = 0;
 
     public static void tick(Level level, BlockPos pos, BlockState state, ReimuEntityTE entity) {
         entity.count += 1;
