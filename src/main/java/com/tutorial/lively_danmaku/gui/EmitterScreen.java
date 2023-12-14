@@ -29,7 +29,8 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
     protected void init() {
         this.leftPos = (this.width - this.imageWidth) / 2;
         this.topPos = (this.height - this.imageHeight) / 2;
-        this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, (p_99460_) -> this.onDone()).bounds(this.width / 2 - 4 - 150, 210, 150, 20).build());
+        this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, (button) ->
+                this.onDone()).bounds(this.width / 2 - 4 - 150, 210, 150, 20).build());
         this.XeditBox = new EditBox(this.font, this.width / 2 - 72, 95, 40, 10, Component.translatable("block.danmaku_emitter.position_x"));
         this.XeditBox.setMaxLength(15);
         this.XeditBox.setVisible(true);

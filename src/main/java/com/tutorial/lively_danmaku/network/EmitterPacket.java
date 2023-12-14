@@ -39,6 +39,7 @@ public class EmitterPacket{
                 blockEntity.XRot = XRot;
                 blockEntity.YRot = YRot;
                 blockEntity.freq = freq;
+                blockEntity.refresh();
             }
         });
     }

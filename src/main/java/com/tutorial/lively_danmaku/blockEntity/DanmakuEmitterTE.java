@@ -9,14 +9,20 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nullable;
 
 public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
     public float XRot;
@@ -52,12 +58,12 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
         if (!this.tryLoadLootTable(pTag)) {
             ContainerHelper.loadAllItems(pTag, this.items);
         }
-        this.XRot = pTag.getFloat("XRot");
-        this.YRot = pTag.getFloat("YRot");
-        this.freq = pTag.getInt("Freq");
-        this.posX = pTag.getDouble("posX");
-        this.posY = pTag.getDouble("posY");
-        this.posZ = pTag.getDouble("posZ");
+        this.XRot = getPersistentData().getFloat("XRot");
+        this.YRot = getPersistentData().getFloat("YRot");
+        this.freq = getPersistentData().getInt("Freq");
+        this.posX = getPersistentData().getDouble("posX");
+        this.posY = getPersistentData().getDouble("posY");
+        this.posZ = getPersistentData().getDouble("posZ");
     }
 
     protected void saveAdditional(@NotNull CompoundTag pTag) {
@@ -65,12 +71,31 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
         if (!this.trySaveLootTable(pTag)) {
             ContainerHelper.saveAllItems(pTag, this.items);
         }
-        pTag.putFloat("XRot",XRot);
-        pTag.putFloat("YRot",YRot);
-        pTag.putInt("Freq",freq);
-        pTag.putDouble("posX",posX);
-        pTag.putDouble("posY",posY);
-        pTag.putDouble("posZ",posZ);
+        getPersistentData().putFloat("XRot",XRot);
+        getPersistentData().putFloat("YRot",YRot);
+        getPersistentData().putInt("Freq",freq);
+        getPersistentData().putDouble("posX",posX);
+        getPersistentData().putDouble("posY",posY);
+        getPersistentData().putDouble("posZ",posZ);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag() {
+        return this.saveWithoutMetadata();
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    public void refresh() {
+        this.setChanged();
+        if (level != null) {
+            BlockState state = level.getBlockState(worldPosition);
+            level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_ALL);
+        }
     }
 
     @Override
@@ -96,4 +121,6 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
     public int getContainerSize() {
         return 27;
     }
+
+
 }

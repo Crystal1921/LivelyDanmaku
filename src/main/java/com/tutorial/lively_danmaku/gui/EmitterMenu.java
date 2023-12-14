@@ -17,7 +17,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class EmitterMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
-    private final Container container;
     private final DanmakuEmitterTE danmakuEmitterTE;
     public EmitterMenu(int id, Inventory inventory, FriendlyByteBuf buf) {
         this(id,inventory, inventory.player.level().getBlockEntity(buf.readBlockPos()),new SimpleContainer(2));
@@ -26,7 +25,6 @@ public class EmitterMenu extends AbstractContainerMenu {
     public EmitterMenu(int id, Inventory inventory, BlockEntity blockEntity, Container container) {
         super(MenuRegistry.EMITTER_MENU.get(),id);
         this.access = ContainerLevelAccess.NULL;
-        this.container = container;
         this.danmakuEmitterTE = (DanmakuEmitterTE) blockEntity;
         this.addSlot(new Slot(container,0,25,27));
         for(int i = 0; i < 3; ++i) {
@@ -82,7 +80,7 @@ public class EmitterMenu extends AbstractContainerMenu {
         return itemstack;
     }
     @Override
-    public boolean stillValid(Player pPlayer) {
+    public boolean stillValid(@NotNull Player pPlayer) {
         return stillValid(this.access, pPlayer, BlockRegistry.DANMAKU_EMITTER.get());
     }
 
