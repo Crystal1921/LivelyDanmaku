@@ -36,10 +36,7 @@ public class EmitterPacket{
         context.enqueueWork(() -> {
             var level = Objects.requireNonNull(context.getSender()).level();
             if (level.getExistingBlockEntity(blockPos) instanceof DanmakuEmitterTE blockEntity) {
-                blockEntity.XRot = XRot;
-                blockEntity.YRot = YRot;
-                blockEntity.freq = freq;
-                blockEntity.refresh();
+                blockEntity.setEmitter(XRot,YRot,freq);
             }
         });
     }

@@ -49,10 +49,12 @@ minecraft {
 
         client {
             property 'forge.enabledGameTestNamespaces', mod_id
+            jvmArgs "-XX:+AllowEnhancedClassRedefinition"
         }
 
         server {
             property 'forge.enabledGameTestNamespaces', mod_id
+            jvmArgs "-XX:+AllowEnhancedClassRedefinition"
             args '--nogui'
         }
         gameTestServer {

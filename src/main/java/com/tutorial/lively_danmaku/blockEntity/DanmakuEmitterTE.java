@@ -67,7 +67,6 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
     }
 
     protected void saveAdditional(@NotNull CompoundTag pTag) {
-        super.saveAdditional(pTag);
         if (!this.trySaveLootTable(pTag)) {
             ContainerHelper.saveAllItems(pTag, this.items);
         }
@@ -77,6 +76,7 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
         getPersistentData().putDouble("posX",posX);
         getPersistentData().putDouble("posY",posY);
         getPersistentData().putDouble("posZ",posZ);
+        super.saveAdditional(pTag);
     }
 
     @Override
@@ -96,6 +96,13 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
             BlockState state = level.getBlockState(worldPosition);
             level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_ALL);
         }
+    }
+
+    public void setEmitter (float XRot, float YRot, int freq) {
+        this.XRot = XRot;
+        this.YRot = YRot;
+        this.freq = freq;
+        this.refresh();
     }
 
     @Override

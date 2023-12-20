@@ -64,11 +64,8 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
             float XRot = parseIntegrity(this.XeditBox.getValue());
             float YRot = parseIntegrity(this.YeditBox.getValue());
             int freq = (int)parseIntegrity(this.FreqBox.getValue());
-            EmitterPacket emitterPacket = new EmitterPacket(XRot,YRot,freq,this.getMenu().getDanmakuEmitterTE().getBlockPos());
+            EmitterPacket emitterPacket = new EmitterPacket(XRot,YRot,freq,this.danmakuEmitterTE.getBlockPos());
             DanmakuNetwork.CHANNEL_POINT.sendToServer(emitterPacket);
-            this.danmakuEmitterTE.XRot = XRot;
-            this.danmakuEmitterTE.YRot = YRot;
-            this.danmakuEmitterTE.freq = freq;
             this.minecraft.setScreen(null);
         }
     }
