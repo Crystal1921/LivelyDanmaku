@@ -7,7 +7,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
@@ -32,9 +31,8 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         this.topPos = (this.height - this.imageHeight) / 2;
         this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, (button) ->
                 this.onDone()).bounds(this.width / 2 - 4 - 150, 210, 150, 20).build());
-        this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, (p_99457_) -> {
-            this.onCancel();
-        }).bounds(this.width / 2 + 4, 210, 150, 20).build());
+        this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, (p_99457_) ->
+                this.onCancel()).bounds(this.width / 2 + 4, 210, 150, 20).build());
         this.XeditBox = new EditBox(this.font, this.width / 2 - 12, 55, 40, 10, Component.translatable("block.danmaku_emitter.pitch"));
         this.XeditBox.setMaxLength(15);
         this.XeditBox.setVisible(true);
