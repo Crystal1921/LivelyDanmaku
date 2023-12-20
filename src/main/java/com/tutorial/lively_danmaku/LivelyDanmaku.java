@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku;
 
 import com.tutorial.lively_danmaku.init.EnchantmentRegistry;
-import com.tutorial.lively_danmaku.group.LiveLyDanmakuGroup;
+import com.tutorial.lively_danmaku.group.LivelyDanmakuGroup;
 import com.tutorial.lively_danmaku.init.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,7 +22,7 @@ public class LivelyDanmaku {
         BlockEntityTypeRegistry.BLOCK_ENTITY_TYPES.register(eventBus);
         MenuRegistry.CONTAINERS.register(eventBus);
         eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
-        LiveLyDanmakuGroup.TABS.register(eventBus);
+        LivelyDanmakuGroup.TABS.register(eventBus);
     }
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(Utils.MOD_ID, name.toLowerCase(Locale.ROOT));

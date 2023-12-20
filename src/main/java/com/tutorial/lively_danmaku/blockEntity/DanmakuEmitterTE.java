@@ -80,7 +80,7 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
     }
 
     @Override
-    public CompoundTag getUpdateTag() {
+    public @NotNull CompoundTag getUpdateTag() {
         return this.saveWithoutMetadata();
     }
 

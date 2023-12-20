@@ -16,9 +16,11 @@
 
   "block.lively_danmaku.danmaku_table": "Danmaku Table",
   "block.lively_danmaku.reimu_block": "Reimu Handmade",
-  "block.danmaku_emitter.position_x": "X",
-  "block.danmaku_emitter.position_y": "Y",
-  "block.danmaku_emitter.position_freq": "Freq",
+  "block.lively_danmaku.danmaku_emitter": "Danmaku Emitter",
+  "block.danmaku_emitter.pitch": "Pitch",
+  "block.danmaku_emitter.yaw": "Yaw",
+  "block.danmaku_emitter.position": "Position",
+  "block.danmaku_emitter.freq": "Freq",
 
   "entity.lively_danmaku.danmaku": "Danmaku",
   "entity.lively_danmaku.reimu": "Hakurei Reimu",

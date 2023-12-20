@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
@@ -31,17 +32,20 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         this.topPos = (this.height - this.imageHeight) / 2;
         this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, (button) ->
                 this.onDone()).bounds(this.width / 2 - 4 - 150, 210, 150, 20).build());
-        this.XeditBox = new EditBox(this.font, this.width / 2 - 72, 95, 40, 10, Component.translatable("block.danmaku_emitter.position_x"));
+        this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, (p_99457_) -> {
+            this.onCancel();
+        }).bounds(this.width / 2 + 4, 210, 150, 20).build());
+        this.XeditBox = new EditBox(this.font, this.width / 2 - 12, 55, 40, 10, Component.translatable("block.danmaku_emitter.pitch"));
         this.XeditBox.setMaxLength(15);
         this.XeditBox.setVisible(true);
         this.XeditBox.setValue(Float.toString(this.danmakuEmitterTE.XRot));
         this.addWidget(this.XeditBox);
-        this.YeditBox = new EditBox(this.font, this.width / 2 - 32, 95, 40, 10, Component.translatable("block.danmaku_emitter.position_y"));
+        this.YeditBox = new EditBox(this.font, this.width / 2 + 32, 55, 40, 10, Component.translatable("block.danmaku_emitter.yaw"));
         this.YeditBox.setMaxLength(15);
         this.YeditBox.setVisible(true);
         this.YeditBox.setValue(Float.toString(this.danmakuEmitterTE.YRot));
         this.addWidget(this.YeditBox);
-        this.FreqBox = new EditBox(this.font, this.width / 2 + 22, 95, 40, 10, Component.translatable("block.danmaku_emitter.position_freq"));
+        this.FreqBox = new EditBox(this.font, this.width / 2 - 12, 75, 40, 10, Component.translatable("block.danmaku_emitter.freq"));
         this.FreqBox.setMaxLength(15);
         this.FreqBox.setVisible(true);
         this.FreqBox.setValue(Integer.toString(this.danmakuEmitterTE.freq));
@@ -70,6 +74,10 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         }
     }
 
+    private void onCancel() {
+        this.minecraft.setScreen(null);
+    }
+
     private float parseIntegrity(String pIntegrity) {
         try {
             return Float.parseFloat(pIntegrity);
@@ -85,12 +93,19 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         pGuiGraphics.blit(DANMAKU_EMITTER, i , j, 0, 0, this.imageWidth, this.imageHeight);
     }
 
+    private void renderText (GuiGraphics guiGraphics) {
+        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.yaw"),this.width / 2 - 12, 45,10526880);
+        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.pitch"),this.width / 2 + 32, 45, 10526880);
+        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.freq"),this.width / 2 - 12, 65, 10526880);
+    }
+
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(guiGraphics);
         super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
         this.renderTooltip(guiGraphics, pMouseX, pMouseY);
-        this.XeditBox.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        this.renderText(guiGraphics);
+        this.XeditBox.render(guiGraphics,pMouseX,pMouseY,pPartialTick);
         this.YeditBox.render(guiGraphics,pMouseX,pMouseY,pPartialTick);
         this.FreqBox.render(guiGraphics,pMouseX,pMouseY,pPartialTick);
     }
