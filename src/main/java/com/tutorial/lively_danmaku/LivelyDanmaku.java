@@ -21,8 +21,8 @@ public class LivelyDanmaku {
         BlockRegistry.BLOCKS.register(eventBus);
         BlockEntityTypeRegistry.BLOCK_ENTITY_TYPES.register(eventBus);
         MenuRegistry.CONTAINERS.register(eventBus);
-        eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
         LivelyDanmakuGroup.TABS.register(eventBus);
+        eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
     }
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(Utils.MOD_ID, name.toLowerCase(Locale.ROOT));

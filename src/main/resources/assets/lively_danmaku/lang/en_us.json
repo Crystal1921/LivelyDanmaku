@@ -21,6 +21,10 @@
   "block.danmaku_emitter.yaw": "Yaw",
   "block.danmaku_emitter.position": "Position",
   "block.danmaku_emitter.freq": "Freq",
+  "block.danmaku_emitter.deltaX": "DeltaX",
+  "block.danmaku_emitter.deltaY": "DeltaY",
+  "block.danmaku_emitter.deltaZ": "DeltaZ",
+  "block.danmaku_emitter.isRender": "Render",
 
   "entity.lively_danmaku.danmaku": "Danmaku",
   "entity.lively_danmaku.reimu": "Hakurei Reimu",

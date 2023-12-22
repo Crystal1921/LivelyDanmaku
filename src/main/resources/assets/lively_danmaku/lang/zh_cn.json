@@ -21,6 +21,10 @@
   "block.danmaku_emitter.yaw": "俯仰",
   "block.danmaku_emitter.position": "位置偏移",
   "block.danmaku_emitter.freq": "频率",
+  "block.danmaku_emitter.deltaX": "X偏移",
+  "block.danmaku_emitter.deltaY": "Y偏移",
+  "block.danmaku_emitter.deltaZ": "Z偏移",
+  "block.danmaku_emitter.isRender": "渲染",
 
   "entity.lively_danmaku.danmaku": "弹幕",
   "entity.lively_danmaku.reimu": "博丽灵梦",

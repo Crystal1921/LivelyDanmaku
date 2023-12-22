@@ -6,6 +6,7 @@ import com.tutorial.lively_danmaku.network.EmitterPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.CycleButton;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.CommonComponents;
@@ -19,6 +20,10 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
     protected EditBox XeditBox;
     protected EditBox YeditBox;
     protected EditBox FreqBox;
+    protected EditBox deltaX;
+    protected EditBox deltaY;
+    protected EditBox deltaZ;
+    protected CycleButton<Boolean> isRender;
     private final DanmakuEmitterTE danmakuEmitterTE;
     public EmitterScreen(EmitterMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -33,6 +38,9 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
                 this.onDone()).bounds(this.width / 2 - 4 - 150, 210, 150, 20).build());
         this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, (p_99457_) ->
                 this.onCancel()).bounds(this.width / 2 + 4, 210, 150, 20).build());
+        this.isRender = this.addRenderableWidget(CycleButton.onOffBuilder(this.danmakuEmitterTE.isRender).create(this.width / 2 - 80,90,40,20,Component.translatable("block.danmaku_emitter.isRender"),((pCycleButton, pValue) -> {
+            this.danmakuEmitterTE.isRender = pValue;
+        })));
         this.XeditBox = new EditBox(this.font, this.width / 2 - 12, 55, 40, 10, Component.translatable("block.danmaku_emitter.pitch"));
         this.XeditBox.setMaxLength(15);
         this.XeditBox.setVisible(true);
@@ -48,6 +56,21 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         this.FreqBox.setVisible(true);
         this.FreqBox.setValue(Integer.toString(this.danmakuEmitterTE.freq));
         this.addWidget(this.FreqBox);
+        this.deltaX = new EditBox(this.font, this.width / 2 - 32, 95, 30, 10, Component.translatable("block.danmaku_emitter.deltaX"));
+        this.deltaX.setMaxLength(15);
+        this.deltaX.setVisible(true);
+        this.deltaX.setValue(Double.toString(this.danmakuEmitterTE.deltaX));
+        this.addWidget(this.deltaX);
+        this.deltaY = new EditBox(this.font, this.width / 2 + 3, 95, 30, 10, Component.translatable("block.danmaku_emitter.deltaY"));
+        this.deltaY.setMaxLength(15);
+        this.deltaY.setVisible(true);
+        this.deltaY.setValue(Double.toString(this.danmakuEmitterTE.deltaY));
+        this.addWidget(this.deltaY);
+        this.deltaZ = new EditBox(this.font, this.width / 2 + 38, 95, 30, 10, Component.translatable("block.danmaku_emitter.deltaZ"));
+        this.deltaZ.setMaxLength(15);
+        this.deltaZ.setVisible(true);
+        this.deltaZ.setValue(Double.toString(this.danmakuEmitterTE.deltaZ));
+        this.addWidget(this.deltaZ);
     }
 
     @Override
@@ -55,18 +78,27 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         String s1 = this.XeditBox.getValue();
         String s2 = this.YeditBox.getValue();
         String s3 = this.FreqBox.getValue();
+        String s4 = this.deltaX.getValue();
+        String s5 = this.deltaY.getValue();
+        String s6 = this.deltaZ.getValue();
         this.init(pMinecraft, pWidth, pHeight);
         this.XeditBox.setValue(s1);
         this.YeditBox.setValue(s2);
         this.FreqBox.setValue(s3);
+        this.deltaX.setValue(s4);
+        this.deltaY.setValue(s5);
+        this.deltaZ.setValue(s6);
     }
 
     private void onDone() {
         if (this.minecraft != null) {
-            float XRot = parseIntegrity(this.XeditBox.getValue());
-            float YRot = parseIntegrity(this.YeditBox.getValue());
-            int freq = (int)parseIntegrity(this.FreqBox.getValue());
-            EmitterPacket emitterPacket = new EmitterPacket(XRot,YRot,freq,this.danmakuEmitterTE.getBlockPos());
+            float XRot = parseFloat(this.XeditBox.getValue());
+            float YRot = parseFloat(this.YeditBox.getValue());
+            int freq = (int) parseFloat(this.FreqBox.getValue());
+            float deltaX = parseFloat(this.deltaX.getValue());
+            float deltaY = parseFloat(this.deltaY.getValue());
+            float deltaZ = parseFloat(this.deltaZ.getValue());
+            EmitterPacket emitterPacket = new EmitterPacket(XRot,YRot,freq,this.danmakuEmitterTE.getBlockPos(),deltaX,deltaY,deltaZ);
             DanmakuNetwork.CHANNEL_POINT.sendToServer(emitterPacket);
             this.minecraft.setScreen(null);
         }
@@ -76,7 +108,7 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         this.minecraft.setScreen(null);
     }
 
-    private float parseIntegrity(String pIntegrity) {
+    private float parseFloat(String pIntegrity) {
         try {
             return Float.parseFloat(pIntegrity);
         } catch (NumberFormatException numberformatexception) {
@@ -95,6 +127,9 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.yaw"),this.width / 2 - 12, 45,10526880);
         guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.pitch"),this.width / 2 + 32, 45, 10526880);
         guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.freq"),this.width / 2 - 12, 65, 10526880);
+        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.deltaX"),this.width / 2 - 32, 85, 10526880);
+        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.deltaY"),this.width / 2 + 3, 85, 10526880);
+        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.deltaZ"),this.width / 2 + 38, 85, 10526880);
     }
 
     @Override
@@ -106,5 +141,8 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         this.XeditBox.render(guiGraphics,pMouseX,pMouseY,pPartialTick);
         this.YeditBox.render(guiGraphics,pMouseX,pMouseY,pPartialTick);
         this.FreqBox.render(guiGraphics,pMouseX,pMouseY,pPartialTick);
+        this.deltaX.render(guiGraphics,pMouseX,pMouseY,pPartialTick);
+        this.deltaY.render(guiGraphics,pMouseX,pMouseY,pPartialTick);
+        this.deltaZ.render(guiGraphics,pMouseX,pMouseY,pPartialTick);
     }
 }

@@ -28,9 +28,10 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
     public float XRot;
     public float YRot;
     public int freq = 20;
-    public double posX;
-    public double posY;
-    public double posZ;
+    public double deltaX;
+    public double deltaY;
+    public double deltaZ;
+    public boolean isRender;
     private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
     private int countTick = 0;
     public DanmakuEmitterTE(BlockPos pPos, BlockState pBlockState) {
@@ -44,7 +45,7 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
             danmakuEmitterTE.countTick = 0;
             if (itemStack.is(ItemRegistry.HakureiGohei.get())) {
                 ItemHakureiGohei item = (ItemHakureiGohei) itemStack.getItem();
-                item.HakureiShoot(itemStack, level, null, pos.getX(),pos.getY(),pos.getZ(), danmakuEmitterTE.XRot, danmakuEmitterTE.YRot,false);
+                item.HakureiShoot(itemStack, level, null, pos.getX() + danmakuEmitterTE.deltaX,pos.getY() + danmakuEmitterTE.deltaY,pos.getZ() + danmakuEmitterTE.deltaZ, danmakuEmitterTE.XRot, danmakuEmitterTE.YRot,false);
             } else if (itemStack.is(ItemRegistry.SanaeGohei.get())) {
                 ItemSanaeGohei item = (ItemSanaeGohei) itemStack.getItem();
                 item.SanaeShoot(level,itemStack,danmakuEmitterTE.XRot,danmakuEmitterTE.YRot,pos.getX(),pos.getY(),pos.getZ());
@@ -61,9 +62,9 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
         this.XRot = getPersistentData().getFloat("XRot");
         this.YRot = getPersistentData().getFloat("YRot");
         this.freq = getPersistentData().getInt("Freq");
-        this.posX = getPersistentData().getDouble("posX");
-        this.posY = getPersistentData().getDouble("posY");
-        this.posZ = getPersistentData().getDouble("posZ");
+        this.deltaX = getPersistentData().getDouble("posX");
+        this.deltaY = getPersistentData().getDouble("posY");
+        this.deltaZ = getPersistentData().getDouble("posZ");
     }
 
     protected void saveAdditional(@NotNull CompoundTag pTag) {
@@ -73,9 +74,9 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
         getPersistentData().putFloat("XRot",XRot);
         getPersistentData().putFloat("YRot",YRot);
         getPersistentData().putInt("Freq",freq);
-        getPersistentData().putDouble("posX",posX);
-        getPersistentData().putDouble("posY",posY);
-        getPersistentData().putDouble("posZ",posZ);
+        getPersistentData().putDouble("posX", deltaX);
+        getPersistentData().putDouble("posY", deltaY);
+        getPersistentData().putDouble("posZ", deltaZ);
         super.saveAdditional(pTag);
     }
 
@@ -98,10 +99,13 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
         }
     }
 
-    public void setEmitter (float XRot, float YRot, int freq) {
+    public void setEmitter (float XRot, float YRot, int freq, float deltaX, float deltaY, float deltaZ) {
         this.XRot = XRot;
         this.YRot = YRot;
         this.freq = freq;
+        this.deltaX = deltaX;
+        this.deltaY = deltaY;
+        this.deltaZ = deltaZ;
         this.refresh();
     }
 
