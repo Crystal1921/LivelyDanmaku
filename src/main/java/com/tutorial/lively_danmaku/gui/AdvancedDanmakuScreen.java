@@ -89,6 +89,9 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
             @Override
             public void onClick(double mouseX, double mouseY) {
                 paintWidget.isPaint = !paintWidget.isPaint;
+                if (paintWidget.isPaint) {
+                    paintWidget.addList();
+                }
                 this.isStateTriggered = !this.isStateTriggered;
             }
         };

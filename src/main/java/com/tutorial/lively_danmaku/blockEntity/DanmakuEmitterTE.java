@@ -24,6 +24,8 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
+import static com.tutorial.lively_danmaku.block.DanmakuEmitter.RENDER;
+
 public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
     public float XRot;
     public float YRot;
@@ -31,7 +33,6 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
     public double deltaX;
     public double deltaY;
     public double deltaZ;
-    public boolean isRender;
     private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
     private int countTick = 0;
     public DanmakuEmitterTE(BlockPos pPos, BlockState pBlockState) {

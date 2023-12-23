@@ -7,15 +7,19 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.HopperBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -25,8 +29,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class DanmakuEmitter extends BaseEntityBlock {
+    public static final BooleanProperty RENDER = BlockStateProperties.LIT;
     public DanmakuEmitter(Properties pProperties) {
         super(pProperties);
+        this.registerDefaultState(this.stateDefinition.any().setValue(RENDER, Boolean.FALSE));
     }
 
     public @NotNull InteractionResult use(@NotNull BlockState state, Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
@@ -55,11 +61,13 @@ public class DanmakuEmitter extends BaseEntityBlock {
     }
 
     public @NotNull VoxelShape getShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, CollisionContext pContext) {
-        return pContext.isHoldingItem(ItemRegistry.DanmakuEmitter.get()) ? Shapes.block() : Shapes.empty();
+        boolean isRender = pState.getValue(RENDER);
+        return (pContext.isHoldingItem(ItemRegistry.DanmakuEmitter.get()) || isRender) ? Shapes.block() : Shapes.empty();
     }
 
     public @NotNull RenderShape getRenderShape(@NotNull BlockState pState) {
-        return RenderShape.INVISIBLE;
+        boolean isRender = pState.getValue(RENDER);
+        return (isRender)? RenderShape.MODEL : RenderShape.INVISIBLE;
     }
 
     @javax.annotation.Nullable
@@ -72,5 +80,13 @@ public class DanmakuEmitter extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(@NotNull BlockPos pPos, @NotNull BlockState pState) {
         return new DanmakuEmitterTE(pPos,pState);
+    }
+
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext pContext) {
+        return this.defaultBlockState().setValue(RENDER, false);
+    }
+
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(RENDER);
     }
 }

@@ -15,6 +15,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
+import static com.tutorial.lively_danmaku.block.DanmakuEmitter.RENDER;
+
 public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
     private static final ResourceLocation DANMAKU_EMITTER = new ResourceLocation("lively_danmaku", "textures/gui/fumo_table.png");
     protected EditBox XeditBox;
@@ -23,8 +25,9 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
     protected EditBox deltaX;
     protected EditBox deltaY;
     protected EditBox deltaZ;
-    protected CycleButton<Boolean> isRender;
+    protected CycleButton<Boolean> isRenderButton;
     private final DanmakuEmitterTE danmakuEmitterTE;
+    private boolean isRender;
     public EmitterScreen(EmitterMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         this.danmakuEmitterTE = pMenu.getDanmakuEmitterTE();
@@ -32,15 +35,15 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
 
     @Override
     protected void init() {
+        this.isRender = this.danmakuEmitterTE.getBlockState().getValue(RENDER);
         this.leftPos = (this.width - this.imageWidth) / 2;
         this.topPos = (this.height - this.imageHeight) / 2;
         this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, (button) ->
                 this.onDone()).bounds(this.width / 2 - 4 - 150, 210, 150, 20).build());
         this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, (p_99457_) ->
                 this.onCancel()).bounds(this.width / 2 + 4, 210, 150, 20).build());
-        this.isRender = this.addRenderableWidget(CycleButton.onOffBuilder(this.danmakuEmitterTE.isRender).create(this.width / 2 - 80,90,40,20,Component.translatable("block.danmaku_emitter.isRender"),((pCycleButton, pValue) -> {
-            this.danmakuEmitterTE.isRender = pValue;
-        })));
+        this.isRenderButton = this.addRenderableWidget(CycleButton.onOffBuilder(isRender).create(this.width / 2 - 80,90,40,20,Component.translatable("block.danmaku_emitter.isRender"),
+                ((pCycleButton, pValue) -> this.isRender = pValue)));
         this.XeditBox = new EditBox(this.font, this.width / 2 - 12, 55, 40, 10, Component.translatable("block.danmaku_emitter.pitch"));
         this.XeditBox.setMaxLength(15);
         this.XeditBox.setVisible(true);
@@ -51,22 +54,22 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         this.YeditBox.setVisible(true);
         this.YeditBox.setValue(Float.toString(this.danmakuEmitterTE.YRot));
         this.addWidget(this.YeditBox);
-        this.FreqBox = new EditBox(this.font, this.width / 2 - 12, 75, 40, 10, Component.translatable("block.danmaku_emitter.freq"));
+        this.FreqBox = new EditBox(this.font, this.width / 2 - 12, 80, 40, 10, Component.translatable("block.danmaku_emitter.freq"));
         this.FreqBox.setMaxLength(15);
         this.FreqBox.setVisible(true);
         this.FreqBox.setValue(Integer.toString(this.danmakuEmitterTE.freq));
         this.addWidget(this.FreqBox);
-        this.deltaX = new EditBox(this.font, this.width / 2 - 32, 95, 30, 10, Component.translatable("block.danmaku_emitter.deltaX"));
+        this.deltaX = new EditBox(this.font, this.width / 2 - 32, 105, 30, 10, Component.translatable("block.danmaku_emitter.deltaX"));
         this.deltaX.setMaxLength(15);
         this.deltaX.setVisible(true);
         this.deltaX.setValue(Double.toString(this.danmakuEmitterTE.deltaX));
         this.addWidget(this.deltaX);
-        this.deltaY = new EditBox(this.font, this.width / 2 + 3, 95, 30, 10, Component.translatable("block.danmaku_emitter.deltaY"));
+        this.deltaY = new EditBox(this.font, this.width / 2 + 3, 105, 30, 10, Component.translatable("block.danmaku_emitter.deltaY"));
         this.deltaY.setMaxLength(15);
         this.deltaY.setVisible(true);
         this.deltaY.setValue(Double.toString(this.danmakuEmitterTE.deltaY));
         this.addWidget(this.deltaY);
-        this.deltaZ = new EditBox(this.font, this.width / 2 + 38, 95, 30, 10, Component.translatable("block.danmaku_emitter.deltaZ"));
+        this.deltaZ = new EditBox(this.font, this.width / 2 + 38, 105, 30, 10, Component.translatable("block.danmaku_emitter.deltaZ"));
         this.deltaZ.setMaxLength(15);
         this.deltaZ.setVisible(true);
         this.deltaZ.setValue(Double.toString(this.danmakuEmitterTE.deltaZ));
@@ -98,7 +101,7 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
             float deltaX = parseFloat(this.deltaX.getValue());
             float deltaY = parseFloat(this.deltaY.getValue());
             float deltaZ = parseFloat(this.deltaZ.getValue());
-            EmitterPacket emitterPacket = new EmitterPacket(XRot,YRot,freq,this.danmakuEmitterTE.getBlockPos(),deltaX,deltaY,deltaZ);
+            EmitterPacket emitterPacket = new EmitterPacket(XRot,YRot,freq,this.danmakuEmitterTE.getBlockPos(),deltaX,deltaY,deltaZ,isRender);
             DanmakuNetwork.CHANNEL_POINT.sendToServer(emitterPacket);
             this.minecraft.setScreen(null);
         }
@@ -126,10 +129,10 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
     private void renderText (GuiGraphics guiGraphics) {
         guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.yaw"),this.width / 2 - 12, 45,10526880);
         guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.pitch"),this.width / 2 + 32, 45, 10526880);
-        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.freq"),this.width / 2 - 12, 65, 10526880);
-        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.deltaX"),this.width / 2 - 32, 85, 10526880);
-        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.deltaY"),this.width / 2 + 3, 85, 10526880);
-        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.deltaZ"),this.width / 2 + 38, 85, 10526880);
+        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.freq"),this.width / 2 - 12, 70, 10526880);
+        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.deltaX"),this.width / 2 - 32, 95, 10526880);
+        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.deltaY"),this.width / 2 + 3, 95, 10526880);
+        guiGraphics.drawString(this.font,Component.translatable("block.danmaku_emitter.deltaZ"),this.width / 2 + 38, 95, 10526880);
     }
 
     @Override
