@@ -40,21 +40,24 @@ public class FiveStarEmitter extends Projectile {
                 num++;
                 AbstractDanmaku danmaku;
                 if (type.equals("danmaku")) {
-                    danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level(), 0.25F);
+                    danmaku = new NormalDanmaku(EntityTypeRegistry.DANMAKU.get(), level(), 0.25F);
                 }   else {
                     danmaku = new StarDanmaku(EntityTypeRegistry.STAR_DANMAKU.get(), level());
                 }
+                danmaku.setIsTick(false);
                 danmakuArrayList.add(danmaku);
                 danmaku.moveTo(this.getX() + arrayList.get(num).x,this.getY() + arrayList.get(num).z,this.getZ() + arrayList.get(num).y);
                 level().addFreshEntity(danmaku);
+                if (num == arrayList.size() - 2) isShoot = true;
             }
             if (isShoot) {
                 danmakuArrayList.forEach((danmaku -> danmaku.shootFromRotation(XRot,YRot,0, 1,0,false)));
+                danmakuArrayList.forEach((danmaku -> danmaku.setIsTick(true)));
                 isDrawStar = false;
                 this.discard();
             }
         }
-        if (this.tickCount >= 200) this.discard();
+        if (this.tickCount >= 300) this.discard();
     }
 
     @Override

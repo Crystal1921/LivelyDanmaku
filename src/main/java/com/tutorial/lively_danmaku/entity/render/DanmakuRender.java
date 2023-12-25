@@ -3,7 +3,7 @@ package com.tutorial.lively_danmaku.entity.render;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import com.tutorial.lively_danmaku.entity.Danmaku;
+import com.tutorial.lively_danmaku.entity.NormalDanmaku;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
-public class DanmakuRender extends EntityRenderer<Danmaku> {
+public class DanmakuRender extends EntityRenderer<NormalDanmaku> {
     public static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation("lively_danmaku", "textures/entity/danmaku.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
     public DanmakuRender(EntityRendererProvider.Context context) {
@@ -22,11 +22,11 @@ public class DanmakuRender extends EntityRenderer<Danmaku> {
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(@NotNull Danmaku entity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull NormalDanmaku entity) {
         return TEXTURE_LOCATION;
     }
     @Override
-    public void render(@NotNull Danmaku danmaku, float p_114081_, float p_114082_, PoseStack poseStack, MultiBufferSource p_114084_, int p_114085_) {
+    public void render(@NotNull NormalDanmaku danmaku, float p_114081_, float p_114082_, PoseStack poseStack, MultiBufferSource p_114084_, int p_114085_) {
         poseStack.pushPose();
         poseStack.scale(1.0F, 1.0F, 1.0F);
         poseStack.mulPose(this.entityRenderDispatcher.cameraOrientation());

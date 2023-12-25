@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.item;
 
-import com.tutorial.lively_danmaku.entity.Danmaku;
+import com.tutorial.lively_danmaku.entity.NormalDanmaku;
 import com.tutorial.lively_danmaku.entity.StarDanmaku;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import net.minecraft.ChatFormatting;
@@ -50,7 +50,7 @@ public class ItemHakureiGohei extends BowItem {
         if (item.getOrCreateTag().get("crystal_distribution") == null) {
             for (int j = 0; j < 9; j++) {
                 int angle = 8 * j - 32;
-                Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level, 0.5F);
+                NormalDanmaku danmaku = new NormalDanmaku(EntityTypeRegistry.DANMAKU.get(), level, 0.5F);
                 danmaku.setOwner(player);
                 danmaku.moveTo(getX, getY + 1, getZ);
                 danmaku.shootFromRotation(getXRot, getYRot + angle, 0, 1, 1,isWiggle);
@@ -72,7 +72,7 @@ public class ItemHakureiGohei extends BowItem {
                 for (int j = 0; j < 9; j++) {
                     for (int l = 0; l < 9; l++) {
                         if (array[j][l] == 1) {
-                            Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level, 0.5F);
+                            NormalDanmaku danmaku = new NormalDanmaku(EntityTypeRegistry.DANMAKU.get(), level, 0.5F);
                             danmaku.setOwner(player);
                             danmaku.moveTo(getX, getY + 1, getZ);
                             danmaku.shootFromRotation((getXRot - 16 + j * 4), (getYRot - 16 + l * 4), 0, multi, 1, isWiggle);

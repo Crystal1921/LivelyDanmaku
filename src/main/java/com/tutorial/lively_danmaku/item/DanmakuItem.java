@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.item;
 
-import com.tutorial.lively_danmaku.entity.Danmaku;
+import com.tutorial.lively_danmaku.entity.NormalDanmaku;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -17,7 +17,7 @@ public class DanmakuItem extends Item {
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, @NotNull InteractionHand interactionHand) {
         ItemStack itemstack = player.getItemInHand(interactionHand);
         if (!level.isClientSide) {
-            Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(),level,0.5F);
+            NormalDanmaku danmaku = new NormalDanmaku(EntityTypeRegistry.DANMAKU.get(),level,0.5F);
             danmaku.moveTo(player.getX(),player.getY() + 0.6,player.getZ());
             danmaku.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
             level.addFreshEntity(danmaku);

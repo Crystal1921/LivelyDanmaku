@@ -11,8 +11,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 public class EntityTypeRegistry {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPE = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Utils.MOD_ID);
-    public static final RegistryObject<EntityType<Danmaku>> DANMAKU = ENTITY_TYPE.register("danmaku", () ->
-            EntityType.Builder.of((EntityType<Danmaku> type, Level level) -> new Danmaku(type, level), MobCategory.MISC)
+    public static final RegistryObject<EntityType<NormalDanmaku>> DANMAKU = ENTITY_TYPE.register("danmaku", () ->
+            EntityType.Builder.of((EntityType<NormalDanmaku> type, Level level) -> new NormalDanmaku(type, level), MobCategory.MISC)
                     .sized(0.6F, 0.6F)
                     .build("danmaku")
     );

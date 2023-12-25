@@ -39,10 +39,10 @@ public class HakureiDanmaku extends AbstractDanmaku {
         this.isPlayerShoot = isPlayerShoot;
     }
 
-    public HakureiDanmaku(EntityType<? extends ThrowableItemProjectile> entityType, Level level, int x_rot, int y_rot, int lifetime) {
+    public HakureiDanmaku(EntityType<? extends ThrowableItemProjectile> entityType, Level level, int xRot, int yRot, int lifetime) {
         super(entityType, level);
-        this.setXRot(x_rot);
-        this.setYRot(y_rot);
+        this.setXRot(xRot);
+        this.setYRot(yRot);
         this.tickCount = lifetime;
     }
 
@@ -88,12 +88,14 @@ public class HakureiDanmaku extends AbstractDanmaku {
             this.discard();
         }
     }
+
     public double getVelocity(double time) {
         double exponentialTerm = Math.exp(-dampingFactor * time);
         return  1 / (initialVelocity * exponentialTerm +
                 (initialPosition * dampingFactor + initialVelocity) *
                         (1 - exponentialTerm) / dampingFactor);
     }
+
     // 获取最近的实体
     public LivingEntity getNearestEntity(ServerLevel world, Entity sourceEntity, double maxDistance) {
         AABB searchRange = sourceEntity.getBoundingBox().inflate(maxDistance);

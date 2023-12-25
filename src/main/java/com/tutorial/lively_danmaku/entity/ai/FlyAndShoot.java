@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.entity.ai;
 
-import com.tutorial.lively_danmaku.entity.Danmaku;
+import com.tutorial.lively_danmaku.entity.NormalDanmaku;
 import com.tutorial.lively_danmaku.entity.HakureiDanmaku;
 import com.tutorial.lively_danmaku.entity.Reimu;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
@@ -55,7 +55,7 @@ public class FlyAndShoot extends Goal {
             if (this.attackTime <= 0) {
                 attackTime = 10;
                 if (reimu.getEntityData().get(Reimu.REIMU_STAGE) == 3) {    //一般弹幕射击
-                    Danmaku danmaku = new Danmaku(EntityTypeRegistry.DANMAKU.get(), level);
+                    NormalDanmaku danmaku = new NormalDanmaku(EntityTypeRegistry.DANMAKU.get(), level);
                     danmaku.setOwner(reimu);
                     danmaku.moveTo(reimu.getX(), reimu.getY(0.5), reimu.getZ());
                     ShootFromEntityToEntity(reimu,living,danmaku,1);

@@ -38,11 +38,6 @@ public abstract class AbstractDanmaku extends ThrowableItemProjectile {
         this.xRotO = this.getXRot();
     }
     @Override
-    protected float getGravity() {
-        return 0.00F;
-    }
-
-    @Override
     protected void onHitEntity(@NotNull EntityHitResult entityHitResult) {
         super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
@@ -50,5 +45,14 @@ public abstract class AbstractDanmaku extends ThrowableItemProjectile {
         if (!(entity instanceof Reimu)) {
             entity.hurt(getIndirectEntityDamageSource(this.level(), DamageTypeRegistry.DANMAKU_SHOOT, this.getOwner(), this), (float)i);
         }
+    }
+
+    @Override
+    protected float getGravity() {
+        return 0.00F;
+    }
+
+    public void setIsTick(boolean isTick) {
+
     }
 }
