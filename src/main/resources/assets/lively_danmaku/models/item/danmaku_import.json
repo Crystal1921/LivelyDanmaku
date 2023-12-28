@@ -1,5 +1,5 @@
 {
-  "parent": "lively_danmaku:block/advanced_danmaku_table",
+  "parent": "lively_danmaku:block/danmaku_import",
   "display": {
     "gui": {
       "rotation": [ 30, 45, 0 ],

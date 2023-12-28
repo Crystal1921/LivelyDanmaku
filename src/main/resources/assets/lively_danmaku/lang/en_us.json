@@ -18,6 +18,8 @@
   "block.lively_danmaku.advanced_danmaku_table": "Advanced Danmaku Table",
   "block.lively_danmaku.reimu_block": "Reimu Handmade",
   "block.lively_danmaku.danmaku_emitter": "Danmaku Emitter",
+  "block.lively_danmaku.danmaku_import": "Danmaku Import",
+
   "block.danmaku_emitter.pitch": "Pitch",
   "block.danmaku_emitter.yaw": "Yaw",
   "block.danmaku_emitter.position": "Position",
@@ -40,6 +42,9 @@
   "ui.fumo_table": "Fumo Table",
   "ui.advanced_danmaku_table": "Advanced Danmaku Table",
   "ui.danmaku_emitter": "Danmaku Emitter",
+
+  "ui.danmaku_import.npe": "Null Pointer Exception",
+
   "hakurei_gohei.speed": "Speed",
   "hakurei_gohei.amount": "Amount",
   "headdress.describe": "The ability to Fly",

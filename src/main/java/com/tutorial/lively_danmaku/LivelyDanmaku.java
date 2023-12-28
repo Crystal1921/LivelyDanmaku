@@ -10,7 +10,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import java.util.Locale;
 
-
 @Mod(Utils.MOD_ID)
 public class LivelyDanmaku {
     public LivelyDanmaku() {

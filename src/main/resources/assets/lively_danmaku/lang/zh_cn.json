@@ -18,6 +18,8 @@
   "block.lively_danmaku.advanced_danmaku_table": "增强弹幕工作台",
   "block.lively_danmaku.reimu_block": "博丽灵梦手办",
   "block.lively_danmaku.danmaku_emitter": "弹幕发射台",
+  "block.lively_danmaku.danmaku_import": "弹幕导入台",
+
   "block.danmaku_emitter.pitch": "偏航",
   "block.danmaku_emitter.yaw": "俯仰",
   "block.danmaku_emitter.position": "位置偏移",

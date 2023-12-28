@@ -33,7 +33,7 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
     public double deltaX;
     public double deltaY;
     public double deltaZ;
-    private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
+    private NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
     private int countTick = 0;
     public DanmakuEmitterTE(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityTypeRegistry.DANMAKU_EMITTER.get(), pPos, pBlockState);
@@ -131,8 +131,6 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
 
     @Override
     public int getContainerSize() {
-        return 27;
+        return 1;
     }
-
-
 }
