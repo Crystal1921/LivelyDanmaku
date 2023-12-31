@@ -1,11 +1,15 @@
 package com.tutorial.lively_danmaku.block;
 
+import com.tutorial.lively_danmaku.blockEntity.AdvancedDanmakuTableTE;
 import com.tutorial.lively_danmaku.blockEntity.DanmakuImportTE;
+import com.tutorial.lively_danmaku.gui.AdvancedDanmakuMenu;
+import com.tutorial.lively_danmaku.gui.DanmakuImportMenu;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
@@ -25,12 +29,20 @@ public class DanmakuImport extends BaseEntityBlock {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
-            ServerPlayer serverPlayer = (ServerPlayer) player;
-            BlockEntity blockEntity = level.getBlockEntity(blockPos);
-            if (blockEntity instanceof DanmakuImportTE danmakuImportTE) {
-                NetworkHooks.openScreen(serverPlayer,danmakuImportTE,blockPos);
-            }
+            player.openMenu(state.getMenuProvider(level, blockPos));
             return InteractionResult.CONSUME;
+        }
+    }
+
+    @javax.annotation.Nullable
+    @Override
+    public MenuProvider getMenuProvider(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos) {
+        BlockEntity blockentity = level.getBlockEntity(blockPos);
+        if (blockentity instanceof DanmakuImportTE) {
+            Component component = ((Nameable)blockentity).getDisplayName();
+            return new SimpleMenuProvider((id, inventory, player) -> new DanmakuImportMenu(id,inventory,ContainerLevelAccess.create(level, blockPos)), component);
+        } else {
+            return null;
         }
     }
 

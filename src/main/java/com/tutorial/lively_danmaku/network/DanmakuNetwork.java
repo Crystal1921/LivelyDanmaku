@@ -14,12 +14,14 @@ import java.util.Optional;
 public class DanmakuNetwork {
     private static final String NETWORK_VERSION = "1";
     private static final ResourceLocation CHANNEL_POSITION = new ResourceLocation("lively_danmaku", "network_point");
-    public static final SimpleChannel CHANNEL_POINT = NetworkRegistry.newSimpleChannel(CHANNEL_POSITION, () -> NETWORK_VERSION, NETWORK_VERSION::equals, NETWORK_VERSION::equals);
+    public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(CHANNEL_POSITION, () -> NETWORK_VERSION, NETWORK_VERSION::equals, NETWORK_VERSION::equals);
     @SubscribeEvent
     public static void onCommonSetup(FMLCommonSetupEvent event) {
-        CHANNEL_POINT.registerMessage(0, PointPacket.class, PointPacket::encode, PointPacket::decode, PointPacket::handleOnServer,
+        CHANNEL.registerMessage(0, PointPacket.class, PointPacket::encode, PointPacket::decode, PointPacket::handleOnServer,
                 Optional.of(NetworkDirection.PLAY_TO_SERVER));
-        CHANNEL_POINT.registerMessage(1, EmitterPacket.class, EmitterPacket::encode, EmitterPacket::decode, EmitterPacket::handleOnServer,
+        CHANNEL.registerMessage(1, EmitterPacket.class, EmitterPacket::encode, EmitterPacket::decode, EmitterPacket::handleOnServer,
+                Optional.of(NetworkDirection.PLAY_TO_SERVER));
+        CHANNEL.registerMessage(2,PointListPacket.class, PointListPacket::encode, PointListPacket::decode, PointListPacket::handleOnServer,
                 Optional.of(NetworkDirection.PLAY_TO_SERVER));
     }
 }

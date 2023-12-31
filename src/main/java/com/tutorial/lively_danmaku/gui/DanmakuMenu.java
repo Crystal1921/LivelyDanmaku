@@ -113,9 +113,9 @@ public class DanmakuMenu extends AbstractContainerMenu {
     public void slotsChanged(@NotNull Container container) {
         if (container == this.container) {
             ItemStack itemstack = this.container.getItem(0);
-            ItemStack itemstack1 = this.container.getItem(1);
+            ItemStack itemStack1 = this.container.getItem(1);
             ItemStack itemStack2 = this.container.getItem(2);
-            if (!itemstack.isEmpty() && !itemstack1.isEmpty() && !itemStack2.isEmpty()) {
+            if (!itemstack.isEmpty() && !itemStack1.isEmpty() && !itemStack2.isEmpty()) {
                 this.access.execute((level, blockPos) -> this.isFull[0] = 1);
             }   else {
                 this.access.execute((level, blockPos) -> this.isFull[0] = 0);
@@ -169,6 +169,7 @@ public class DanmakuMenu extends AbstractContainerMenu {
     public boolean stillValid(@NotNull Player player) {
         return stillValid(this.access, player, BlockRegistry.DANMAKU_TABLE.get());
     }
+
     public void removed(@NotNull Player player) {
         super.removed(player);
         this.access.execute((level, blockPos) -> this.clearContainer(player, this.container));

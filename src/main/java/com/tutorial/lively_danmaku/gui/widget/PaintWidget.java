@@ -1,5 +1,6 @@
-package com.tutorial.lively_danmaku.gui;
+package com.tutorial.lively_danmaku.gui.widget;
 
+import com.tutorial.lively_danmaku.gui.AdvancedDanmakuScreen;
 import com.tutorial.lively_danmaku.mixin.mixinInterface.GuiGraphicsInterface;
 import com.tutorial.lively_danmaku.network.DanmakuNetwork;
 import com.tutorial.lively_danmaku.network.PointPacket;
@@ -66,7 +67,7 @@ public class PaintWidget extends AbstractWidget {
             }
             pointList.get(number).add(new Point((int)x,(int)y));
             PointPacket packet = new PointPacket(screen.getMenu().containerId, (short) (x - 360.5) ,(short) (y - 125.5) ,(byte) number);
-            DanmakuNetwork.CHANNEL_POINT.sendToServer(packet);
+            DanmakuNetwork.CHANNEL.sendToServer(packet);
         }
     }
 

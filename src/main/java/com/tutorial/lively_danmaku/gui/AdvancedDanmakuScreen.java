@@ -1,5 +1,6 @@
 package com.tutorial.lively_danmaku.gui;
 
+import com.tutorial.lively_danmaku.gui.widget.PaintWidget;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.StateSwitchingButton;
@@ -61,10 +62,10 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
         pGuiGraphics.drawString(this.font, this.playerInventoryTitle, this.inventoryLabelX - 80, this.inventoryLabelY, 4210752, false);
     }
 
-    public void render(@NotNull GuiGraphics guiGraphics, int p_282491_, int p_281953_, float p_282182_) {
+    public void render(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(guiGraphics);
-        super.render(guiGraphics, p_282491_, p_281953_, p_282182_);
-        this.renderTooltip(guiGraphics, p_282491_, p_281953_);
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        this.renderTooltip(guiGraphics, pMouseX, pMouseY);
     }
 
     public void resize(@NotNull Minecraft pMinecraft, int pWidth, int pHeight) {

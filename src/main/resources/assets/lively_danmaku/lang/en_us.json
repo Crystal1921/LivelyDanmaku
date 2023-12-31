@@ -44,6 +44,7 @@
   "ui.danmaku_emitter": "Danmaku Emitter",
 
   "ui.danmaku_import.npe": "Null Pointer Exception",
+  "ui.danmaku_import.import": "Import",
 
   "hakurei_gohei.speed": "Speed",
   "hakurei_gohei.amount": "Amount",

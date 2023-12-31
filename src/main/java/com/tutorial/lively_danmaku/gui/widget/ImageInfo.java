@@ -1,4 +1,4 @@
-package com.tutorial.lively_danmaku.gui;
+package com.tutorial.lively_danmaku.gui.widget;
 
 import java.awt.image.BufferedImage;
 import java.io.InputStream;

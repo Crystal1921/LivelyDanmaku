@@ -39,7 +39,7 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         this.leftPos = (this.width - this.imageWidth) / 2;
         this.topPos = (this.height - this.imageHeight) / 2;
         this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, (button) ->
-                this.onDone()).bounds(this.width / 2 - 4 - 150, 210, 150, 20).build());
+                this.onDone()).bounds(this.width / 2 - 154, 210, 150, 20).build());
         this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, (p_99457_) ->
                 this.onCancel()).bounds(this.width / 2 + 4, 210, 150, 20).build());
         this.isRenderButton = this.addRenderableWidget(CycleButton.onOffBuilder(isRender).create(this.width / 2 - 80,90,40,20,Component.translatable("block.danmaku_emitter.isRender"),
@@ -102,7 +102,7 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
             float deltaY = parseFloat(this.deltaY.getValue());
             float deltaZ = parseFloat(this.deltaZ.getValue());
             EmitterPacket emitterPacket = new EmitterPacket(XRot,YRot,freq,this.danmakuEmitterTE.getBlockPos(),deltaX,deltaY,deltaZ,isRender);
-            DanmakuNetwork.CHANNEL_POINT.sendToServer(emitterPacket);
+            DanmakuNetwork.CHANNEL.sendToServer(emitterPacket);
             this.minecraft.setScreen(null);
         }
     }

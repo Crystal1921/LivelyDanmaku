@@ -30,6 +30,7 @@ public class AdvancedDanmakuTable extends BaseEntityBlock {
             return InteractionResult.CONSUME;
         }
     }
+
     @Nullable
     @Override
     public MenuProvider getMenuProvider(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos) {

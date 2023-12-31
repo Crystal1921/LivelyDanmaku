@@ -11,10 +11,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractDanmakuMenu extends AbstractContainerMenu {
-    private final ContainerLevelAccess access;
     protected AbstractDanmakuMenu(@Nullable MenuType<?> pMenuType, int pContainerId) {
         super(pMenuType, pContainerId);
-        this.access = ContainerLevelAccess.NULL;
     }
 
     @Override
@@ -57,10 +55,5 @@ public abstract class AbstractDanmakuMenu extends AbstractContainerMenu {
         }
 
         return itemstack;
-    }
-
-    @Override
-    public boolean stillValid(@NotNull Player pPlayer) {
-        return stillValid(this.access, pPlayer, BlockRegistry.DANMAKU_EMITTER.get());
     }
 }

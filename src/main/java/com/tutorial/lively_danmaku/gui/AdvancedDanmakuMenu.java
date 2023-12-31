@@ -67,28 +67,28 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
     @Override
     public boolean clickMenuButton(@NotNull Player player, int i) {
         if ( i == 0) {
-            ItemStack itemstack = this.container.getItem(0);
-            ItemStack itemstack1 = this.container.getItem(1);
+            ItemStack itemStack = this.container.getItem(0);
+            ItemStack itemStack1 = this.container.getItem(1);
             ItemStack itemStack2 = this.container.getItem(2);
-            if (itemstack1.isEmpty() || itemStack2.isEmpty()) {
+            if (itemStack1.isEmpty() || itemStack2.isEmpty()) {
                 return false;
             } else {
                 this.access.execute((level, blockPos) -> {
-                    if (!itemstack1.isEmpty()) {
-                        itemstack.getOrCreateTag().putInt("crystal_amount",itemstack1.getCount());
-                        if (itemstack1.is(ItemRegistry.ItemDanmaku.get())) {
-                            itemstack.getOrCreateTag().putString("crystal_type","danmaku");
+                    if (!itemStack1.isEmpty()) {
+                        itemStack.getOrCreateTag().putInt("crystal_amount",itemStack1.getCount());
+                        if (itemStack1.is(ItemRegistry.ItemDanmaku.get())) {
+                            itemStack.getOrCreateTag().putString("crystal_type","danmaku");
                         }   else {
-                            itemstack.getOrCreateTag().putString("crystal_type","star");
+                            itemStack.getOrCreateTag().putString("crystal_type","star");
                         }
-                        itemstack1.setCount(0);
+                        itemStack1.setCount(0);
                     }
                     if(!itemStack2.isEmpty()) {
-                        itemstack.getOrCreateTag().putInt("crystal_speed",itemStack2.getCount());
+                        itemStack.getOrCreateTag().putInt("crystal_speed",itemStack2.getCount());
                         itemStack2.setCount(0);
                     }
-                    itemstack.getOrCreateTag().putString("crystal_point",PointList(GenerateList(pointList)));
-                    this.container.setItem(0, itemstack);
+                    itemStack.getOrCreateTag().putString("crystal_point",PointList(GenerateList(pointList)));
+                    this.container.setItem(0, itemStack);
                 });
                 return true;
             }
@@ -161,7 +161,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
         this.access.execute((level, blockPos) -> this.clearContainer(player, this.container));
     }
 
-    private String PointList (ArrayList<Point> pointArrayList) {
+    public static String PointList (ArrayList<Point> pointArrayList) {
         StringBuilder stringBuilder = new StringBuilder();
         pointArrayList.forEach(point -> stringBuilder.append("*").append(point.x).append("+").append(point.y));
         return stringBuilder.toString();
