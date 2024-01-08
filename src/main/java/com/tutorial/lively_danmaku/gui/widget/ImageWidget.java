@@ -20,7 +20,7 @@ public class ImageWidget extends AbstractWidget {
         if (this.resourceLocation == null) {
             pGuiGraphics.drawString(screen.getFontRenderer(),Component.translatable("ui.danmaku_import.npe"),this.getX() + 55,this.getY() + 25,0xFFFFFF);
         }   else {
-            pGuiGraphics.blit(resourceLocation,this.getX() + 60,this.getY() + 25,0,0,0,40,40,40,40);
+            pGuiGraphics.blit(resourceLocation,this.getX() + 60,this.getY() + 10,0,0,0,40,40,40,40);
         }
     }
 

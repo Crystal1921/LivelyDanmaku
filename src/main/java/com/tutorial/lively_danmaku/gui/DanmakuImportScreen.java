@@ -11,6 +11,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -18,6 +19,7 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraftforge.fml.loading.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -38,19 +40,25 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMenu> {
-    private final int PADDING = 6;
     public int listWidth = 125;
     private int gridNum = 20;
+    private int red = 0;
+    private int green = 0;
+    private int blue = 0;
     private final Logger logger = LogManager.getLogger(DanmakuImportScreen.class);
-    private final List<ImageInfo> images;
+    private final List<ImageInfo> unsortedImages;
+    private List<ImageInfo> images;
+    private String lastFilterText = "";
     private ImageEntry selected = null;
     private ImageListWidget imageListWidget;
     private ImageWidget imageWidget;
+    private EditBox search;
     private static final Path path = Paths.get("danmaku_image");
     private static final ResourceLocation DANMAKU_EMITTER = new ResourceLocation("lively_danmaku", "textures/gui/fumo_table.png");
     public DanmakuImportScreen(DanmakuImportMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         this.images = Collections.unmodifiableList(getImages());
+        this.unsortedImages = this.images;
     }
 
     @Override
@@ -60,6 +68,7 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         int j = (this.height - this.imageHeight) / 2;
         this.leftPos = (this.width - this.imageWidth) / 2;
         this.topPos = (this.height - this.imageHeight) / 2;
+        int PADDING = 6;
         int y = this.height - 20 - PADDING;
         int fullButtonHeight = PADDING + 20 + PADDING;
         this.imageListWidget = new ImageListWidget(this, listWidth, fullButtonHeight, y - PADDING - getFontRenderer().lineHeight - PADDING);
@@ -69,13 +78,22 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         this.addRenderableWidget(imageWidget);
         this.addRenderableWidget(Button.builder(Component.translatable("ui.danmaku_import.import"), (button) ->
                 this.importImage()).bounds(this.width / 2 - 75, 90, 40, 20).build());
+        this.search = new EditBox(getFontRenderer(), PADDING, 15, listWidth, 15, Component.translatable("fml.menu.mods.search"));
+        this.search.setFocused(false);
+        this.addRenderableWidget(search);
         updateCache();
     }
 
     @Override
     public void tick() {
         super.tick();
+        search.tick();
         imageListWidget.setSelected(selected);
+        if (!search.getValue().equals(lastFilterText))
+        {
+            reloadImage();
+            imageListWidget.refreshList();
+        }
     }
 
     private void importImage() {
@@ -86,6 +104,13 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
                 this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, 0);
             }
         }
+    }
+
+    private void reloadImage () {
+        this.images = unsortedImages.stream()
+                .filter(imageInfo -> StringUtils.toLowerCase(imageInfo.name).contains(StringUtils.toLowerCase(search.getValue())))
+                .toList();
+        lastFilterText = search.getValue();
     }
 
     private void updateCache()
@@ -109,6 +134,15 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         } catch (IOException e) {
             // 处理读取图片时的异常
             logger.error(e);
+        }
+    }
+
+    @Override
+    public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
+        if (this.search.keyPressed(pKeyCode, pScanCode, pModifiers)) {
+            return true;
+        } else {
+            return this.search.isFocused() && this.search.isVisible() && pKeyCode != 256 || super.keyPressed(pKeyCode, pScanCode, pModifiers);
         }
     }
 
@@ -145,7 +179,7 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         ArrayList<Point> pointList = new ArrayList<>();
         for (int i = 0; i < width; i += width / gridNum) {
             for (int j = 0; j < height; j += height / gridNum) {
-                if (isBlack(image.getRGB(i,j))) {
+                if (isColor(image.getRGB(i,j))) {
                     pointList.add(new Point(i,j));
                 }
             }
@@ -161,9 +195,9 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         return merged;
     }
 
-    public static ArrayList<Point> extractPoint (ArrayList<Long> arrayList) {
+    public static ArrayList<Point> extractPoint (ArrayList<Long> longs) {
         ArrayList<Point> pointArrayList = new ArrayList<>();
-        for (Long value : arrayList) {
+        for (Long value : longs) {
             pointArrayList.add(extract(value));
         }
         return pointArrayList;
@@ -198,12 +232,12 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         return images;
     }
 
-    private boolean isBlack(int rgb) {
+    private boolean isColor(int rgb) {
         int red = (rgb >> 16) & 0xFF;
         int green = (rgb >> 8) & 0xFF;
         int blue = rgb & 0xFF;
 
-        return red == 0 && green == 0 && blue == 0;
+        return red == this.red && green == this.green && blue == this.blue;
     }
 
     public static long merge(int value1, int value2) {
@@ -232,7 +266,8 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         this.imageListWidget.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
-        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        this.search.render(guiGraphics, pMouseX , pMouseY, pPartialTick);
         this.renderTooltip(guiGraphics, pMouseX, pMouseY);
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 }
