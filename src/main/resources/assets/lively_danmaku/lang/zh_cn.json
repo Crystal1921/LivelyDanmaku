@@ -13,6 +13,7 @@
   "item.lively_danmaku.reimu_headdress": "灵梦蝴蝶结",
   "item.lively_danmaku.broomstick": "扫帚",
   "item.lively_danmaku.hakurei_danmaku": "符札",
+  "item.lively_danmaku.creative_item": "创造专属",
 
   "block.lively_danmaku.danmaku_table": "弹幕工作台",
   "block.lively_danmaku.advanced_danmaku_table": "增强弹幕工作台",
@@ -28,6 +29,10 @@
   "block.danmaku_emitter.deltaY": "Y偏移",
   "block.danmaku_emitter.deltaZ": "Z偏移",
   "block.danmaku_emitter.isRender": "渲染",
+  "block.danmaku_import.red": "红",
+  "block.danmaku_import.green": "绿",
+  "block.danmaku_import.blue": "蓝",
+  "block.danmaku_import.rgb": "RGB",
 
   "entity.lively_danmaku.danmaku": "弹幕",
   "entity.lively_danmaku.reimu": "博丽灵梦",
@@ -42,6 +47,10 @@
   "ui.fumo_table": "Fumo Table",
   "ui.advanced_danmaku_table": "高级弹幕工作台",
   "ui.danmaku_emitter": "弹幕发射台",
+
+  "ui.danmaku_import.npe": "Null Pointer Exception",
+  "ui.danmaku_import.import": "导入",
+
   "hakurei_gohei.speed": "速度",
   "hakurei_gohei.amount": "数量",
   "headdress.describe": "在天空飞翔程度的能力",

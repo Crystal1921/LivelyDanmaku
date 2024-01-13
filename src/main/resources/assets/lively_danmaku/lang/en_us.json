@@ -13,6 +13,7 @@
   "item.lively_danmaku.reimu_headdress": "Reimu Headdress",
   "item.lively_danmaku.broomstick": "Broomstick",
   "item.lively_danmaku.hakurei_danmaku": "Self-propelled Sniper",
+  "item.lively_danmaku.creative_item": "Creative Only",
 
   "block.lively_danmaku.danmaku_table": "Danmaku Table",
   "block.lively_danmaku.advanced_danmaku_table": "Advanced Danmaku Table",
@@ -28,6 +29,10 @@
   "block.danmaku_emitter.deltaY": "DeltaY",
   "block.danmaku_emitter.deltaZ": "DeltaZ",
   "block.danmaku_emitter.isRender": "Render",
+  "block.danmaku_import.red": "Red",
+  "block.danmaku_import.green": "Green",
+  "block.danmaku_import.blue": "Blue",
+  "block.danmaku_import.rgb": "RGB",
 
   "entity.lively_danmaku.danmaku": "Danmaku",
   "entity.lively_danmaku.reimu": "Hakurei Reimu",

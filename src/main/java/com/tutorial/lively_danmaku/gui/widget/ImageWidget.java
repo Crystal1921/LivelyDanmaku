@@ -6,6 +6,7 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class ImageWidget extends AbstractWidget {
     private ResourceLocation resourceLocation;
@@ -16,11 +17,11 @@ public class ImageWidget extends AbstractWidget {
     }
 
     @Override
-    protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+    protected void renderWidget(@NotNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         if (this.resourceLocation == null) {
             pGuiGraphics.drawString(screen.getFontRenderer(),Component.translatable("ui.danmaku_import.npe"),this.getX() + 55,this.getY() + 25,0xFFFFFF);
         }   else {
-            pGuiGraphics.blit(resourceLocation,this.getX() + 60,this.getY() + 10,0,0,0,40,40,40,40);
+            pGuiGraphics.blit(resourceLocation,this.getX() + 60, this.getY() + 5,0,0,0,40,40,40,40);
         }
     }
 
@@ -29,6 +30,6 @@ public class ImageWidget extends AbstractWidget {
     }
 
     @Override
-    protected void updateWidgetNarration(NarrationElementOutput pNarrationElementOutput) {
+    protected void updateWidgetNarration(@NotNull NarrationElementOutput pNarrationElementOutput) {
     }
 }
