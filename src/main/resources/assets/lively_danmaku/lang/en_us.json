@@ -55,5 +55,8 @@
   "hakurei_gohei.amount": "Amount",
   "headdress.describe": "The ability to Fly",
 
-  "itemGroup.lively_danmaku": "Lively Danmaku"
+  "group.lively_danmaku": "Lively Danmaku",
+
+  "patchouli.lively_danmaku.book.name": "Danmaku Guide",
+  "patchouli.lively_danmaku.book.landing_text": "A mod about more danmaku"
 }

@@ -1,0 +1,10 @@
+{
+  "name": "patchouli.lively_danmaku.book.name",
+  "landing_text": "patchouli.lively_danmaku.book.landing_text",
+  "model": "lively_danmaku:danmaku_guide",
+  "creative_tab": "group.lively_danmaku",
+  "show_progress": false,
+  "i18n": true,
+  "use_resource_pack": true,
+  "version": 1
+}

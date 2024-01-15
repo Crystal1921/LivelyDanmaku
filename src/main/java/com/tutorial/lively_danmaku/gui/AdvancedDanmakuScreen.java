@@ -73,6 +73,7 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
         this.init(pMinecraft, pWidth, pHeight);
         this.paintWidget.setPointList(pointList);
     }
+
     private void addGridButton() {
         StateSwitchingButton grid = new StateSwitchingButton(this.leftPos + 60, this.topPos + 45, 30, 30, this.paintWidget.isGrid) {
             @Override

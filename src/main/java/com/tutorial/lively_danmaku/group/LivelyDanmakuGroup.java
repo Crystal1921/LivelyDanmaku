@@ -4,18 +4,24 @@ import com.tutorial.lively_danmaku.Utils;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import vazkii.patchouli.common.item.ItemModBook;
 
 public class LivelyDanmakuGroup {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Utils.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> BLOCKS = TABS.register("blocks", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
-            .title(Component.translatable("itemGroup.lively_danmaku"))
+            .title(Component.translatable("group.lively_danmaku"))
             .icon(() -> new ItemStack(ItemRegistry.ReimuItem.get()))
             .displayItems((parameters, output) -> {
+                if (ModList.get().isLoaded("patchouli")) {
+                    output.accept(ItemModBook.forBook(new ResourceLocation(Utils.MOD_ID, "danmaku_guide")));
+                }
                     output.accept(ItemRegistry.HakureiGohei.get());
                     output.accept(ItemRegistry.SanaeGohei.get());
                     output.accept(ItemRegistry.ItemMiniHakkero.get());

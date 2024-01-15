@@ -55,5 +55,8 @@
   "hakurei_gohei.amount": "数量",
   "headdress.describe": "在天空飞翔程度的能力",
 
-  "itemGroup.lively_danmaku": "缤纷弹幕"
+  "group.lively_danmaku": "缤纷弹幕",
+
+  "patchouli.lively_danmaku.book.name": "弹幕指南",
+  "patchouli.lively_danmaku.book.landing_text": "一个允许你制作更多多样性的弹幕的模组"
 }
