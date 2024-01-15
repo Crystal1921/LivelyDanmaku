@@ -1,25 +1,26 @@
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
-        maven {
-            url = 'https://repo.spongepowered.org/repository/maven-public/'
-            content { includeGroup "org.spongepowered" }
-        }
+        maven { url = 'https://maven.parchmentmc.org' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         mavenCentral()
+        gradlePluginPortal()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+', changing: true
+        classpath 'org.parchmentmc:librarian:1.+'
+        classpath 'gradle.plugin.com.github.johnrengelman:shadow:7.1.2'
+        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
     }
 }
-plugins {
-    id 'eclipse'
-    id 'idea'
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
-    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
-}
+
+apply plugin: 'eclipse'
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'maven-publish'
+apply plugin: 'java'
+
 version = mod_version
 group = mod_group_id
 
@@ -81,10 +82,42 @@ repositories {
         name = 'Sponge / Mixin'
         url = 'https://repo.spongepowered.org/repository/maven-public/'
     }
+    maven {
+        // location of the maven that hosts JEI files since January 2023
+        // Patchouli
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
+    maven {
+        name = "Curse Maven"
+        url = "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+    maven {
+        url "https://maven.shedaniel.me/"
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+
+    // compile against the JEI API but do not include it at runtime
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
+    // at runtime, use the full JEI jar for Forge
+    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
@@ -120,13 +153,13 @@ tasks.named('jar', Jar).configure {
 }
 publishing {
     publications {
-        register('mavenJava', MavenPublication) {
-            artifact jar
+        mavenJava(MavenPublication) {
+            from components.java
         }
     }
     repositories {
         maven {
-            url "file://${project.projectDir}/mcmodsrepo"
+            url = uri("file://${project.projectDir}/mcmodsrepo")
         }
     }
 }
