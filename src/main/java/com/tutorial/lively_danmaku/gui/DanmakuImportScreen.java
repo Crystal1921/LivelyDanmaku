@@ -35,9 +35,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
+
+import static com.tutorial.lively_danmaku.gui.EmitterScreen.parseFloat;
 
 public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMenu> {
     public int listWidth = 125;
@@ -84,14 +87,17 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         this.search = new EditBox(getFontRenderer(), PADDING, 15, listWidth, 15, Component.translatable("fml.menu.mods.search"));
         this.search.setFocused(false);
         this.addRenderableWidget(search);
-        this.redEditBox = new EditBox(getFontRenderer(), this.width / 2 - 25, this.height / 2 - 30, 30, 10, Component.translatable("block.danmaku_import.red"));
+        this.redEditBox = new EditBox(getFontRenderer(), this.width / 2 - 25, this.height / 2 - 14, 30, 10, Component.translatable("block.danmaku_import.red"));
         this.redEditBox.setVisible(true);
+        this.redEditBox.setValue("0");
         this.addRenderableWidget(redEditBox);
-        this.greenEditBox = new EditBox(getFontRenderer(), this.width / 2 + 5, this.height / 2 - 30, 30, 10, Component.translatable("block.danmaku_import.green"));
+        this.greenEditBox = new EditBox(getFontRenderer(), this.width / 2 + 5, this.height / 2 - 14, 30, 10, Component.translatable("block.danmaku_import.green"));
         this.greenEditBox.setVisible(true);
+        this.greenEditBox.setValue("0");
         this.addRenderableWidget(greenEditBox);
-        this.blueEditBox = new EditBox(getFontRenderer(), this.width / 2 + 35, this.height / 2 - 30, 30, 10, Component.translatable("block.danmaku_import.green"));
+        this.blueEditBox = new EditBox(getFontRenderer(), this.width / 2 + 35, this.height / 2 - 14, 30, 10, Component.translatable("block.danmaku_import.green"));
         this.blueEditBox.setVisible(true);
+        this.blueEditBox.setValue("0");
         this.addRenderableWidget(blueEditBox);
         updateCache();
     }
@@ -110,10 +116,16 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
 
     private void importImage() {
         if (this.minecraft != null && this.minecraft.player != null && this.minecraft.gameMode != null && this.selected != null) {
-            ArrayList<Point> pointList = pointList();
-            DanmakuNetwork.CHANNEL.sendToServer(new PointListPacket(mergePoint(pointList)));
-            if (this.menu.clickMenuButton(this.minecraft.player, 0)) {
-                this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, 0);
+            this.red = (int) parseFloat(this.redEditBox.getValue());
+            this.green = (int) parseFloat(this.greenEditBox.getValue());
+            this.blue = (int) parseFloat(this.blueEditBox.getValue());
+            ArrayList<Point> pointList = getPointList();
+            if (pointList != null && !pointList.isEmpty()){
+                this.imageWidget.pointList = pointList;
+                DanmakuNetwork.CHANNEL.sendToServer(new PointListPacket(mergePoint(pointList)));
+                if (this.menu.clickMenuButton(this.minecraft.player, 0)) {
+                    this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, 0);
+                }
             }
         }
     }
@@ -139,7 +151,7 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
                 public void upload() {
                     this.bind();
                     NativeImage imageData = this.getPixels();
-                    this.getPixels().upload(0, 0, 0, 0, 0, imageData.getWidth(), imageData.getHeight(), false, false, false, false);
+                    Objects.requireNonNull(this.getPixels()).upload(0, 0, 0, 0, 0, imageData.getWidth(), imageData.getHeight(), false, false, false, false);
                 }
             });
             this.imageWidget.setResourceLocation(resourceLocation);
@@ -184,11 +196,12 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         return this.imageListWidget;
     }
 
-    private ArrayList<Point> pointList() {
+    private ArrayList<Point> getPointList() {
         int width = this.selected.getImageInfo().width;
         int height = this.selected.getImageInfo().height;
         BufferedImage image = this.selected.getImageInfo().bufferedImage;
         ArrayList<Point> pointList = new ArrayList<>();
+        if (width <= gridNum) return null;
         for (int i = 0; i < width; i += width / gridNum) {
             for (int j = 0; j < height; j += height / gridNum) {
                 if (isColor(image.getRGB(i,j))) {
@@ -268,8 +281,11 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         return new Point(x, y);
     }
 
-    public void renderText (@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        guiGraphics.drawString(getFontRenderer(),Component.translatable("block.danmaku_import.rgb"),this.width / 2 + 35, this.height / 2 - 40, Color.WHITE.getRGB());
+    @Override
+    protected void renderLabels(@NotNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {}
+
+    public void renderText (@NotNull GuiGraphics guiGraphics) {
+        guiGraphics.drawString(getFontRenderer(),Component.translatable("block.danmaku_import.rgb"),this.width / 2 - 25, this.height / 2 - 24, Color.WHITE.getRGB());
     }
 
     @Override
@@ -287,7 +303,7 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         this.greenEditBox.render(guiGraphics, pMouseX , pMouseY, pPartialTick);
         this.blueEditBox.render(guiGraphics, pMouseX , pMouseY, pPartialTick);
         this.renderTooltip(guiGraphics, pMouseX, pMouseY);
-        this.renderText(guiGraphics,pMouseX,pMouseY,pPartialTick);
+        this.renderText(guiGraphics);
         super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 }

@@ -111,7 +111,7 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         this.minecraft.setScreen(null);
     }
 
-    private float parseFloat(String pIntegrity) {
+    public static float parseFloat(String pIntegrity) {
         try {
             return Float.parseFloat(pIntegrity);
         } catch (NumberFormatException numberformatexception) {
