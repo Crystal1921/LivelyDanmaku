@@ -1,0 +1,12 @@
+{
+  "name": "patchouli.lively_danmaku.danmaku_import",
+  "icon": "lively_danmaku:danmaku_import",
+  "category": "lively_danmaku:danmaku_facilities",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "lively_danmaku:danmaku_import",
+      "text": "patchouli.lively_danmaku.danmaku_import.describe"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "patchouli.lively_danmaku.star_danmaku",
+  "icon": "lively_danmaku:star_danmaku",
+  "category": "lively_danmaku:danmaku_type",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "lively_danmaku:star_danmaku",
+      "text": "patchouli.lively_danmaku.star_danmaku.describe"
+    }
+  ]
+}

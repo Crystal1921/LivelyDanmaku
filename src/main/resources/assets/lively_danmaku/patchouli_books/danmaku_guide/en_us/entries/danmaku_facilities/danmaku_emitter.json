@@ -1,0 +1,12 @@
+{
+  "name": "patchouli.lively_danmaku.danmaku_emitter",
+  "icon": "lively_danmaku:danmaku_emitter",
+  "category": "lively_danmaku:danmaku_facilities",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "lively_danmaku:danmaku_table",
+      "text": "patchouli.lively_danmaku.danmaku_emitter.describe"
+    }
+  ]
+}

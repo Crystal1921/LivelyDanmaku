@@ -58,5 +58,25 @@
   "group.lively_danmaku": "缤纷弹幕",
 
   "patchouli.lively_danmaku.book.name": "弹幕指南",
-  "patchouli.lively_danmaku.book.landing_text": "一个允许你制作更多多样性的弹幕的模组"
+  "patchouli.lively_danmaku.book.landing_text": "一个允许你制作更多多样性的弹幕的模组",
+  "patchouli.lively_danmaku.danmaku_type": "弹幕类型",
+  "patchouli.lively_danmaku.danmaku_type.describe": "这里是本模组的所有弹幕类型",
+  "patchouli.lively_danmaku.danmaku_facilities": "弹幕方块",
+  "patchouli.lively_danmaku.danmaku_facilities.describe": "这是用来制作各种多彩弹幕的方块",
+
+  "patchouli.lively_danmaku.normal_danmaku": "普通弹幕",
+  "patchouli.lively_danmaku.normal_danmaku.describe": "只是一个普通的弹幕，笔直的飞行并造成正比于速度的伤害",
+  "patchouli.lively_danmaku.star_danmaku": "星星弹幕",
+  "patchouli.lively_danmaku.star_danmaku.describe": "跟普通弹幕差不多，会产生爆炸威力为1的爆炸",
+  "patchouli.lively_danmaku.hakurei_danmaku": "博丽弹幕",
+  "patchouli.lively_danmaku.hakurei_danmaku.describe": "速度慢，但是在发射2秒后会自动指向最近的实体",
+
+  "patchouli.lively_danmaku.danmaku_table": "弹幕工作台",
+  "patchouli.lively_danmaku.danmaku_table.describe": "这是一个很普通的弹幕工作台",
+  "patchouli.lively_danmaku.advanced_danmaku_table": "高级弹幕工作台",
+  "patchouli.lively_danmaku.advanced_danmaku_table.describe": "",
+  "patchouli.lively_danmaku.danmaku_emitter": "弹幕发射台",
+  "patchouli.lively_danmaku.danmaku_emitter.describe": "",
+  "patchouli.lively_danmaku.danmaku_import": "弹幕导入台",
+  "patchouli.lively_danmaku.danmaku_import.describe": ""
 }

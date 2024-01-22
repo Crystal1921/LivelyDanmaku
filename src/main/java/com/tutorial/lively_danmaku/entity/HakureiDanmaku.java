@@ -79,7 +79,7 @@ public class HakureiDanmaku extends AbstractDanmaku {
                     target = getNearestEntity((ServerLevel) this.level(), this, 24);
                 }
                 if (target != null) {
-                    ShootFromEntityToEntity(this, target, this, 0.4F);
+                    ShootFromEntityToEntity(this, target, this, 0.6F);
                 }
             }
             this.getEntityData().set(BULLET_STAGE, 2);

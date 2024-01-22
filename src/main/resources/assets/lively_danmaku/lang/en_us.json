@@ -58,5 +58,25 @@
   "group.lively_danmaku": "Lively Danmaku",
 
   "patchouli.lively_danmaku.book.name": "Danmaku Guide",
-  "patchouli.lively_danmaku.book.landing_text": "A mod about more danmaku"
+  "patchouli.lively_danmaku.book.landing_text": "A mod about more danmaku",
+  "patchouli.lively_danmaku.danmaku_type": "Danmaku Type",
+  "patchouli.lively_danmaku.danmaku_type.describe": "This is about all kinds of danmaku in this mod",
+  "patchouli.lively_danmaku.danmaku_facilities":"Danmaku Facilities",
+  "patchouli.lively_danmaku.danmaku_facilities.describe": "This is about the different blocks you can use to personalize your danmaku",
+
+  "patchouli.lively_danmaku.normal_danmaku": "Normal Danmaku",
+  "patchouli.lively_danmaku.normal_danmaku.describe": "Just a normal danmaku.It can fly straightly without gravity,causing damage proportional to speed",
+  "patchouli.lively_danmaku.star_danmaku": "Star Danmaku",
+  "patchouli.lively_danmaku.star_danmaku.describe": "Just like normal danmaku.It will create a small explosion which power is only 1.",
+  "patchouli.lively_danmaku.hakurei_danmaku": "Hakurei Danmaku",
+  "patchouli.lively_danmaku.hakurei_danmaku.describe": "It move slowly,but will track the nearest entity after 2 seconds",
+
+  "patchouli.lively_danmaku.danmaku_table": "Danmaku Table",
+  "patchouli.lively_danmaku.danmaku_table.describe": "",
+  "patchouli.lively_danmaku.advanced_danmaku_table": "Advanced Danmaku Table",
+  "patchouli.lively_danmaku.advanced_danmaku_table.describe": "",
+  "patchouli.lively_danmaku.danmaku_emitter": "Danmaku Emitter",
+  "patchouli.lively_danmaku.danmaku_emitter.describe": "",
+  "patchouli.lively_danmaku.danmaku_import": "Danmaku Import",
+  "patchouli.lively_danmaku.danmaku_import.describe": ""
 }
