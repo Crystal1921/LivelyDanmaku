@@ -11,19 +11,24 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
+
 public class NormalDanmaku extends AbstractDanmaku {
     private static final EntityDataAccessor<Float> SIZE = SynchedEntityData.defineId(NormalDanmaku.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(NormalDanmaku.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> IS_TICK = SynchedEntityData.defineId(NormalDanmaku.class, EntityDataSerializers.BOOLEAN);
     private int tickTime;
     public NormalDanmaku(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
         super(entityType, level);
         this.getEntityData().set(IS_TICK,true);
+        this.getEntityData().set(COLOR, Color.red.getRGB());
     }
 
     public NormalDanmaku(EntityType<? extends ThrowableItemProjectile> type, Level level, float size) {
         super(type, level);
         this.getEntityData().set(SIZE,size);
         this.getEntityData().set(IS_TICK,true);
+        this.getEntityData().set(COLOR, Color.red.getRGB());
     }
 
     protected void onHit(@NotNull HitResult hitResult) {
@@ -51,10 +56,15 @@ public class NormalDanmaku extends AbstractDanmaku {
         super.defineSynchedData();
         this.getEntityData().define(SIZE, 0.5F);
         this.getEntityData().define(IS_TICK, true);
+        this.getEntityData().define(COLOR, Color.red.getRGB());
     }
 
     public float getSize() {
         return this.getEntityData().get(SIZE);
+    }
+
+    public int getColor() {
+        return this.getEntityData().get(COLOR);
     }
 
     @Override

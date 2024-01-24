@@ -72,7 +72,7 @@
   "patchouli.lively_danmaku.hakurei_danmaku.describe": "速度慢，但是在发射2秒后会自动指向最近的实体",
 
   "patchouli.lively_danmaku.danmaku_table": "弹幕工作台",
-  "patchouli.lively_danmaku.danmaku_table.describe": "这是一个很普通的弹幕工作台",
+  "patchouli.lively_danmaku.danmaku_table.describe": "这是一个很普通的弹幕工作台，你可以在中间主位摆放博丽御币，在左右两侧分别摆放大P点和小P点，",
   "patchouli.lively_danmaku.advanced_danmaku_table": "高级弹幕工作台",
   "patchouli.lively_danmaku.advanced_danmaku_table.describe": "",
   "patchouli.lively_danmaku.danmaku_emitter": "弹幕发射台",
