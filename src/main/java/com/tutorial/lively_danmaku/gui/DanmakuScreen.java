@@ -53,4 +53,9 @@ public class DanmakuScreen extends AbstractContainerScreen<DanmakuMenu> {
         pGuiGraphics.drawString(this.font, this.title, this.titleLabelX - 80, this.titleLabelY, 4210752, false);
         pGuiGraphics.drawString(this.font, this.playerInventoryTitle, this.inventoryLabelX - 80, this.inventoryLabelY, 4210752, false);
     }
+
+    @Override
+    public int getGuiLeft() {
+        return leftPos + 80;
+    }
 }

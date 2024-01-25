@@ -53,6 +53,5 @@ public abstract class AbstractDanmaku extends ThrowableItemProjectile {
     }
 
     public void setIsTick(boolean isTick) {
-
     }
 }

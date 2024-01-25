@@ -100,4 +100,9 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
         paint.initTextureValues(175,60,30,30,DANMAKU_TABLE);
         this.addRenderableWidget(paint);
     }
+
+    @Override
+    public int getGuiLeft() {
+        return leftPos + 80;
+    }
 }

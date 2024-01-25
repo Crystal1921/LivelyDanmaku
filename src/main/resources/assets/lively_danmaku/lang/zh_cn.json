@@ -62,7 +62,7 @@
   "patchouli.lively_danmaku.danmaku_type": "弹幕类型",
   "patchouli.lively_danmaku.danmaku_type.describe": "这里是本模组的所有弹幕类型",
   "patchouli.lively_danmaku.danmaku_facilities": "弹幕方块",
-  "patchouli.lively_danmaku.danmaku_facilities.describe": "这是用来制作各种多彩弹幕的方块",
+  "patchouli.lively_danmaku.danmaku_facilities.describe": "这是用来制作各种多彩弹幕的方块，如果你同时装了jei，可以按ctrl+O隐藏侧边列表",
 
   "patchouli.lively_danmaku.normal_danmaku": "普通弹幕",
   "patchouli.lively_danmaku.normal_danmaku.describe": "只是一个普通的弹幕，笔直的飞行并造成正比于速度的伤害",
@@ -72,11 +72,11 @@
   "patchouli.lively_danmaku.hakurei_danmaku.describe": "速度慢，但是在发射2秒后会自动指向最近的实体",
 
   "patchouli.lively_danmaku.danmaku_table": "弹幕工作台",
-  "patchouli.lively_danmaku.danmaku_table.describe": "这是一个很普通的弹幕工作台，你可以在中间主位摆放博丽御币，在左右两侧分别摆放大P点和小P点，",
+  "patchouli.lively_danmaku.danmaku_table.describe": "这是一个很普通的弹幕工作台，你可以在中间主位摆放博丽御币，在左右两侧分别摆放大P点和小P点，分别对应速度值和最大弹幕数量，是的，最大64。当数量大于右侧弹幕总数时，单个点位会发射（数量值/弹幕总数）向下取整后个数量的弹幕。如果你在右侧放了多过64的弹幕，发射时会随机缺失。最后按下中间的按钮完成制作。",
   "patchouli.lively_danmaku.advanced_danmaku_table": "高级弹幕工作台",
-  "patchouli.lively_danmaku.advanced_danmaku_table.describe": "",
+  "patchouli.lively_danmaku.advanced_danmaku_table.describe": "顾名思义，它很高级，相应的，主位需要摆放早苗御币，左右侧分别摆放弹幕类型（普通/星型）和大P点，在右侧默认是网格模式，你可以直接手动绘制弹幕形状，默认连笔。在左侧界面的右上有两个按钮分别是开启绘制和开启网格吸附，可以通过关掉绘制再开启来实现提笔落笔。",
   "patchouli.lively_danmaku.danmaku_emitter": "弹幕发射台",
-  "patchouli.lively_danmaku.danmaku_emitter.describe": "",
+  "patchouli.lively_danmaku.danmaku_emitter.describe": "给热爱炸服的玩家准备的（大雾）。非常简单易懂的弹幕发射台，只需把御币放到发射台中，即可定时发射弹幕。频率意思为多少游戏刻进行一次发射。",
   "patchouli.lively_danmaku.danmaku_import": "弹幕导入台",
-  "patchouli.lively_danmaku.danmaku_import.describe": ""
+  "patchouli.lively_danmaku.danmaku_import.describe": "可以在本地根目录的danmaku_image文件夹中放入你想要的文件，然后放入早苗御币后可以将图片将某一颜色取样后形成弹幕点阵导入进御币中。"
 }

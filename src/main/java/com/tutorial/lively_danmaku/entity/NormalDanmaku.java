@@ -19,16 +19,18 @@ public class NormalDanmaku extends AbstractDanmaku {
     private static final EntityDataAccessor<Boolean> IS_TICK = SynchedEntityData.defineId(NormalDanmaku.class, EntityDataSerializers.BOOLEAN);
     private int tickTime;
     public NormalDanmaku(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
-        super(entityType, level);
-        this.getEntityData().set(IS_TICK,true);
-        this.getEntityData().set(COLOR, Color.red.getRGB());
+        this(entityType, level,0.5F);
     }
 
     public NormalDanmaku(EntityType<? extends ThrowableItemProjectile> type, Level level, float size) {
-        super(type, level);
+        this(type, level, size, Color.RED);
+    }
+
+    public NormalDanmaku(EntityType<? extends ThrowableItemProjectile> type, Level level, float size, Color color) {
+        super(type,level);
         this.getEntityData().set(SIZE,size);
         this.getEntityData().set(IS_TICK,true);
-        this.getEntityData().set(COLOR, Color.red.getRGB());
+        this.getEntityData().set(COLOR, color.getRGB());
     }
 
     protected void onHit(@NotNull HitResult hitResult) {
