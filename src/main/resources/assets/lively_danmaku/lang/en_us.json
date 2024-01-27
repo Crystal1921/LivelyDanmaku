@@ -8,7 +8,6 @@
   "item.lively_danmaku.red_point": "Little Point",
   "item.lively_danmaku.blue_point": "Blue Point",
   "item.lively_danmaku.fake_player": "Fake Player",
-  "item.lively_danmaku.danmaku": "Normal Danmaku",
   "item.lively_danmaku.star_danmaku": "Star Danmaku",
   "item.lively_danmaku.reimu_headdress": "Reimu Headdress",
   "item.lively_danmaku.broomstick": "Broomstick",
@@ -16,6 +15,8 @@
   "item.lively_danmaku.creative_item": "Creative Only",
 
   "block.lively_danmaku.danmaku_table": "Danmaku Table",
+  "block.lively_danmaku.fumo_table": "Fumo Table",
+  "item.lively_danmaku.danmaku": "Normal Danmaku",
   "block.lively_danmaku.advanced_danmaku_table": "Advanced Danmaku Table",
   "block.lively_danmaku.reimu_block": "Reimu Handmade",
   "block.lively_danmaku.danmaku_emitter": "Danmaku Emitter",

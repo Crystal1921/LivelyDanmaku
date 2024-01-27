@@ -3,6 +3,7 @@ package com.tutorial.lively_danmaku.gui;
 import com.tutorial.lively_danmaku.init.BlockRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import com.tutorial.lively_danmaku.init.MenuRegistry;
+import com.tutorial.lively_danmaku.util.MathMethod;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -87,7 +88,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
                         itemStack.getOrCreateTag().putInt("crystal_speed",itemStack2.getCount());
                         itemStack2.setCount(0);
                     }
-                    itemStack.getOrCreateTag().putString("crystal_point",PointList(GenerateList(pointList)));
+                    itemStack.getOrCreateTag().putString("crystal_point", MathMethod.PointList(GenerateList(pointList)));
                     this.container.setItem(0, itemStack);
                 });
                 return true;
@@ -159,12 +160,6 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
     public void removed(@NotNull Player player) {
         super.removed(player);
         this.access.execute((level, blockPos) -> this.clearContainer(player, this.container));
-    }
-
-    public static String PointList (ArrayList<Point> pointArrayList) {
-        StringBuilder stringBuilder = new StringBuilder();
-        pointArrayList.forEach(point -> stringBuilder.append("*").append(point.x).append("+").append(point.y));
-        return stringBuilder.toString();
     }
 
     private ArrayList<Point> GenerateList(ArrayList<ArrayList<Point>> pointList) {

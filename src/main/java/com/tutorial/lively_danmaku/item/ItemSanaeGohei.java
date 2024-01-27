@@ -76,7 +76,7 @@ public class ItemSanaeGohei extends BowItem {
         level.addFreshEntity(emitter);
     }
 
-    public static ArrayList<DoublePoint> getEquallySpacedPoints(DoublePoint point1, DoublePoint point2, int numPoints) {
+    private static ArrayList<DoublePoint> getEquallySpacedPoints(DoublePoint point1, DoublePoint point2, int numPoints) {
         ArrayList<DoublePoint> points = new ArrayList<>();
         double deltaX = (point2.x - point1.x) / (numPoints + 1.0);
         double deltaY = (point2.y - point1.y) / (numPoints + 1.0);

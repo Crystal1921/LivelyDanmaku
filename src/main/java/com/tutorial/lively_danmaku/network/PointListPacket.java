@@ -37,6 +37,5 @@ public class PointListPacket {
                 context.enqueueWork(() -> menu.setImageString(list));
             }
         }
-        context.setPacketHandled(true);
     }
 }

@@ -23,7 +23,7 @@ public class FumoTableRender implements BlockEntityRenderer<FumoTableTE> {
     public FumoTableRender(BlockEntityRendererProvider.Context renderer) {
     }
     @Override
-    public void render(@NotNull FumoTableTE fumoTable, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
+    public void render(@NotNull FumoTableTE fumoTable, float partialTicks, PoseStack ms, @NotNull MultiBufferSource buffer, int light, int overlay) {
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
         AtomicReference<ItemStack> itemStack = new AtomicReference<>(ItemStack.EMPTY);
         fumoTable.getCapability(ForgeCapabilities.ITEM_HANDLER)
@@ -31,7 +31,7 @@ public class FumoTableRender implements BlockEntityRenderer<FumoTableTE> {
         BakedModel bakedmodel = itemRenderer.getModel(itemStack.get(), fumoTable.getLevel(), null, 1);
         float tick = Objects.requireNonNull(fumoTable.getLevel()).getGameTime() * 4;
         ms.pushPose();
-        ms.translate(0.5, 0.35 + Math.sin(Math.toRadians((double) tick * 0.5)) * 0.15,0.5);
+        ms.translate(0.5, 1 + Math.sin(Math.toRadians((double) tick * 0.5)) * 0.15,0.5);
         ms.mulPose(Axis.YP.rotationDegrees(tick));
         itemRenderer.render(itemStack.get(), ItemDisplayContext.GROUND, false, ms, buffer, LightTexture.pack(15, 15), OverlayTexture.NO_OVERLAY, bakedmodel);
         ms.popPose();

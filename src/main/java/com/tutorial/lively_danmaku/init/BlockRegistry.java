@@ -17,7 +17,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> DANMAKU_TABLE = BLOCKS.register("danmaku_table",
             () -> new DanmakuTable(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.FIRE).sound(SoundType.WOOD).strength(2.5F).noOcclusion()));
     public static final RegistryObject<Block> FUMO_TABLE = BLOCKS.register("fumo_table",
-            () -> new FumoTable(BlockBehaviour.Properties.of().strength(2.5F).noCollission()));
+            () -> new FumoTable(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion()));
     public static final RegistryObject<Block> ADVANCED_DANMAKU_TABLE = BLOCKS.register("advanced_danmaku_table",
             () -> new AdvancedDanmakuTable(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.FIRE).sound(SoundType.WOOD).strength(2.5F).noOcclusion()));
     public static final RegistryObject<Block> DANMAKU_EMITTER = BLOCKS.register("danmaku_emitter",
