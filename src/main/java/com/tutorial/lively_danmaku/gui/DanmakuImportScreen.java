@@ -60,7 +60,7 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
     private EditBox redEditBox;
     private EditBox greenEditBox;
     private EditBox blueEditBox;
-    private static final Path path = Paths.get("danmaku_image");
+    public static final Path DANMAKU_IMAGE = Paths.get("danmaku_image");
     private static final ResourceLocation DANMAKU_EMITTER = new ResourceLocation("lively_danmaku", "textures/gui/fumo_table.png");
     public DanmakuImportScreen(DanmakuImportMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -217,11 +217,11 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         List<ImageInfo> images = new ArrayList<>();
 
         try {
-            if (!Files.exists(path)) {
-                Files.createDirectories(path);
+            if (!Files.exists(DANMAKU_IMAGE)) {
+                Files.createDirectories(DANMAKU_IMAGE);
             }
 
-            try (Stream<Path> paths = Files.walk(path)) {
+            try (Stream<Path> paths = Files.walk(DANMAKU_IMAGE)) {
                 paths.filter(p -> p.toString().toLowerCase().endsWith(".png"))
                         .forEach(p -> {
                             try {

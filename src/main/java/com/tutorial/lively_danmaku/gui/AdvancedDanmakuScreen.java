@@ -30,6 +30,8 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
         this.paintWidget = this.addRenderableWidget(new PaintWidget(i + 120,j - 5,this));
         this.addPaintButton();
         this.addGridButton();
+        this.addWithdrawButton();
+        this.addExportButton();
     }
 
     public boolean mouseClicked(double mouseX, double mouseY, int mouseButton) {
@@ -74,20 +76,8 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
         this.paintWidget.setPointList(pointList);
     }
 
-    private void addGridButton() {
-        StateSwitchingButton grid = new StateSwitchingButton(this.leftPos + 60, this.topPos + 45, 30, 30, this.paintWidget.isGrid) {
-            @Override
-            public void onClick(double mouseX, double mouseY) {
-                paintWidget.isGrid = !paintWidget.isGrid;
-                this.isStateTriggered = !this.isStateTriggered;
-            }
-        };
-        grid.initTextureValues(175,120,30,30,DANMAKU_TABLE);
-        this.addRenderableWidget(grid);
-    }
-
     private void addPaintButton() {
-        StateSwitchingButton paint = new StateSwitchingButton(this.leftPos + 60, this.topPos + 10, 30, 30, this.paintWidget.isPaint) {
+        StateSwitchingButton paint = new StateSwitchingButton(this.leftPos + 60, this.topPos + 6, 16, 16, this.paintWidget.isPaint) {
             @Override
             public void onClick(double mouseX, double mouseY) {
                 paintWidget.isPaint = !paintWidget.isPaint;
@@ -97,8 +87,42 @@ public class AdvancedDanmakuScreen extends AbstractContainerScreen<AdvancedDanma
                 this.isStateTriggered = !this.isStateTriggered;
             }
         };
-        paint.initTextureValues(175,60,30,30,DANMAKU_TABLE);
+        paint.initTextureValues(176,60,16,16,DANMAKU_TABLE);
         this.addRenderableWidget(paint);
+    }
+
+    private void addGridButton() {
+        StateSwitchingButton grid = new StateSwitchingButton(this.leftPos + 60, this.topPos + 24, 16, 16, this.paintWidget.isGrid) {
+            @Override
+            public void onClick(double mouseX, double mouseY) {
+                paintWidget.isGrid = !paintWidget.isGrid;
+                this.isStateTriggered = !this.isStateTriggered;
+            }
+        };
+        grid.initTextureValues(176,92,16,16,DANMAKU_TABLE);
+        this.addRenderableWidget(grid);
+    }
+
+    private void addWithdrawButton() {
+        StateSwitchingButton withdraw = new StateSwitchingButton(this.leftPos + 60, this.topPos + 42,16, 16, this.paintWidget.isWithdraw) {
+            @Override
+            public void onClick(double mouseX, double mouseY) {
+                paintWidget.withdraw();
+            }
+        };
+        withdraw.initTextureValues(176,124,16,16,DANMAKU_TABLE);
+        this.addRenderableWidget(withdraw);
+    }
+
+    private void addExportButton() {
+        StateSwitchingButton export = new StateSwitchingButton(this.leftPos + 60, this.topPos + 60, 16, 16, this.paintWidget.isExport) {
+            @Override
+            public void onClick(double mouseX, double mouseY) {
+                paintWidget.export();
+            }
+        };
+        export.initTextureValues(176,156,16,16,DANMAKU_TABLE);
+        this.addRenderableWidget(export);
     }
 
     @Override

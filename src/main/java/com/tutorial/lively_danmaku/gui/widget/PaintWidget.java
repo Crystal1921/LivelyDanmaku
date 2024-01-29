@@ -14,6 +14,8 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.util.ArrayList;
 
+import static com.tutorial.lively_danmaku.util.MathMethod.exportImage;
+
 public class PaintWidget extends AbstractWidget {
     private ArrayList<ArrayList<Point>> pointList = new ArrayList<>();
     private int number = 0;
@@ -23,6 +25,8 @@ public class PaintWidget extends AbstractWidget {
     private final AdvancedDanmakuScreen screen;
     public boolean isGrid = true;
     public boolean isPaint = true;
+    public boolean isWithdraw = true;
+    public boolean isExport = true;
 
     public PaintWidget(int pX, int pY, AdvancedDanmakuScreen screen) {
         super(pX, pY, 175,175, Component.empty());
@@ -55,8 +59,7 @@ public class PaintWidget extends AbstractWidget {
     }
 
     @Override
-    protected void updateWidgetNarration(@NotNull NarrationElementOutput pNarrationElementOutput) {
-    }
+    protected void updateWidgetNarration(@NotNull NarrationElementOutput pNarrationElementOutput) {}
 
     @Override
     public void onClick(double x, double y) {
@@ -82,5 +85,20 @@ public class PaintWidget extends AbstractWidget {
 
     public ArrayList<ArrayList<Point>> getPointList () {
         return this.pointList;
+    }
+
+    public void withdraw() {
+        int index = this.pointList.size() - 1;
+        if (pointList.get(0).isEmpty()) return;
+        if (!this.pointList.get(index).isEmpty()) {
+            this.pointList.get(index).remove(this.pointList.get(index).size() - 1);
+        } else {
+            this.pointList.remove(index);
+            number--;
+        }
+    }
+
+    public void export() {
+        exportImage(pointList);
     }
 }
