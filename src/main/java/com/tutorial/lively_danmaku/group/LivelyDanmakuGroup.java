@@ -32,11 +32,12 @@ public class LivelyDanmakuGroup {
                     output.accept(ItemRegistry.HakureiBulletDanmaku.get());
                     output.accept(ItemRegistry.red_Point.get());
                     output.accept(ItemRegistry.ReimuItem.get());
+                    output.accept(ItemRegistry.FumoTable.get());
                     output.accept(ItemRegistry.DanmakuTableItem.get());
                     output.accept(ItemRegistry.AdvancedDanmakuTableItem.get());
-                    output.accept(ItemRegistry.FumoTable.get());
                     output.accept(ItemRegistry.DanmakuEmitter.get());
                     output.accept(ItemRegistry.DanmakuImport.get());
+                    output.accept(ItemRegistry.TH08_10_love_color.get());
                     output.accept(ItemRegistry.Player.get());
                     output.accept(ItemRegistry.HakureiReimu.get());
                     output.accept(ItemRegistry.Broomstick.get());

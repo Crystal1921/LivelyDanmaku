@@ -1,0 +1,12 @@
+{
+  "th08_10_love_color": {
+    "category": "record",
+    "sounds": [
+      {
+        "volume": 0.5,
+        "name": "lively_danmaku:th08_10_love_color",
+        "stream": true
+      }
+    ]
+  }
+}

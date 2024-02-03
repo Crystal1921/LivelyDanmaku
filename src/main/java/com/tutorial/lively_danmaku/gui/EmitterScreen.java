@@ -87,7 +87,11 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         this.init(pMinecraft, pWidth, pHeight);
         this.XeditBox.setValue(s1);
         this.YeditBox.setValue(s2);
+        if (parseFloat(s3) <= 5) {
+            this.FreqBox.setValue("5");
+        } else{
         this.FreqBox.setValue(s3);
+        }
         this.deltaX.setValue(s4);
         this.deltaY.setValue(s5);
         this.deltaZ.setValue(s6);
@@ -101,6 +105,7 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
             float deltaX = parseFloat(this.deltaX.getValue());
             float deltaY = parseFloat(this.deltaY.getValue());
             float deltaZ = parseFloat(this.deltaZ.getValue());
+            if (freq <= 5) freq = 5;
             EmitterPacket emitterPacket = new EmitterPacket(XRot,YRot,freq,this.danmakuEmitterTE.getBlockPos(),deltaX,deltaY,deltaZ,isRender);
             DanmakuNetwork.CHANNEL.sendToServer(emitterPacket);
             this.minecraft.setScreen(null);

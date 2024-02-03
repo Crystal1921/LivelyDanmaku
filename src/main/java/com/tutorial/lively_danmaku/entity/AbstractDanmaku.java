@@ -10,7 +10,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-import static com.tutorial.lively_danmaku.data.RegistryDataGenerator.getIndirectEntityDamageSource;
+import static com.tutorial.lively_danmaku.init.DamageTypeRegistry.getIndirectEntityDamageSource;
 
 public abstract class AbstractDanmaku extends ThrowableItemProjectile {
     public AbstractDanmaku(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {

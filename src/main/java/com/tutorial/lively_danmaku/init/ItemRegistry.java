@@ -28,6 +28,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> FumoTable = ITEMS.register("fumo_table", () -> new BlockItem(FUMO_TABLE.get(), new Item.Properties()));
     public static final RegistryObject<Item> DanmakuEmitter = ITEMS.register("danmaku_emitter", () -> new ColorBlockItem(DANMAKU_EMITTER.get(), new Item.Properties()));
     public static final RegistryObject<Item> DanmakuImport = ITEMS.register("danmaku_import", () -> new BlockItem(DANMAKU_IMPORT.get(), new Item.Properties()));
+    public static final RegistryObject<Item> TH08_10_love_color = ITEMS.register("th08_10_love_color", () -> new RecordItem(15,SoundRegistry.th08_10_love_color,new Item.Properties().stacksTo(1),119 * 20));
     public static final RegistryObject<Item> Player = ITEMS.register("fake_player", () -> new ForgeSpawnEggItem(EntityTypeRegistry.FAKE_PLAYER,0xFFFFFF, 0xFFFFFF,new Item.Properties()));
     public static final RegistryObject<Item> HakureiReimu = ITEMS.register("hakurei_reimu", () -> new ForgeSpawnEggItem(EntityTypeRegistry.REIMU, 0xFFFFFF, 0xFFFFFF,new Item.Properties()));
     public static final RegistryObject<Item> Broomstick = ITEMS.register("broomstick", () -> new ForgeSpawnEggItem(EntityTypeRegistry.BROOMSTICK,0xFFFFFF, 0xFFFFFF,new Item.Properties()));

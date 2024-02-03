@@ -5,4 +5,6 @@
 
 也是第一次参加TeaCon2023的参赛作品，希望大家玩的开心，热闹
 
+材质协力：Big_black大黑, LibeccioEA 西南风
+
 --Crystal1921

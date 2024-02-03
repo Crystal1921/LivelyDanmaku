@@ -3,12 +3,18 @@ package com.tutorial.lively_danmaku;
 import com.tutorial.lively_danmaku.init.EnchantmentRegistry;
 import com.tutorial.lively_danmaku.group.LivelyDanmakuGroup;
 import com.tutorial.lively_danmaku.init.*;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.RegisterEvent;
 
 import java.util.Locale;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 @Mod(Utils.MOD_ID)
 public class LivelyDanmaku {
@@ -22,9 +28,17 @@ public class LivelyDanmaku {
         MenuRegistry.CONTAINERS.register(eventBus);
         LivelyDanmakuGroup.TABS.register(eventBus);
         eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
+        bind(Registries.SOUND_EVENT,SoundRegistry::init);
     }
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(Utils.MOD_ID, name.toLowerCase(Locale.ROOT));
+    }
+    private static <T> void bind(ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {
+        FMLJavaModLoadingContext.get().getModEventBus().addListener((RegisterEvent event) -> {
+            if (registry.equals(event.getRegistryKey())) {
+                source.accept((t, rl) -> event.register(registry, rl, () -> t));
+            }
+        });
     }
 }
 
