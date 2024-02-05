@@ -91,7 +91,7 @@ public class ItemSanaeGohei extends BowItem {
     private static ArrayList<DoublePoint> stringToPointList(String pointString) {
         ArrayList<DoublePoint> points = new ArrayList<>();
         String newString = pointString.replace("\"","");
-        String[] parts = newString.split("\\*");
+        String[] parts = newString.split("#");
         for (String part : parts) {
             String[] coordinates = part.split("\\+");
             if (coordinates.length == 2) {

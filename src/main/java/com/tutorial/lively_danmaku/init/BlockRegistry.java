@@ -24,4 +24,6 @@ public class BlockRegistry {
             () -> new DanmakuEmitter(BlockBehaviour.Properties.of().strength(-1.0F, 3600000.8F).noLootTable().noOcclusion().noCollission().noParticlesOnBreak().pushReaction(PushReaction.BLOCK)));
     public static final RegistryObject<Block> DANMAKU_IMPORT = BLOCKS.register("danmaku_import",
             () -> new DanmakuImport(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion()));
+    public static final RegistryObject<Block> DANMAKU_COLOR = BLOCKS.register("danmaku_color",
+            () -> new DanmakuColor(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion()));
 }

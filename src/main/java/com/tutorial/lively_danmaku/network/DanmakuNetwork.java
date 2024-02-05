@@ -21,7 +21,9 @@ public class DanmakuNetwork {
                 Optional.of(NetworkDirection.PLAY_TO_SERVER));
         CHANNEL.registerMessage(1, EmitterPacket.class, EmitterPacket::encode, EmitterPacket::decode, EmitterPacket::handleOnServer,
                 Optional.of(NetworkDirection.PLAY_TO_SERVER));
-        CHANNEL.registerMessage(2,PointListPacket.class, PointListPacket::encode, PointListPacket::decode, PointListPacket::handleOnServer,
+        CHANNEL.registerMessage(2, PointListPacket.class, PointListPacket::encode, PointListPacket::decode, PointListPacket::handleOnServer,
+                Optional.of(NetworkDirection.PLAY_TO_SERVER));
+        CHANNEL.registerMessage(3, ColorPacket.class, ColorPacket::encode, ColorPacket::decode, ColorPacket::handleOnServer,
                 Optional.of(NetworkDirection.PLAY_TO_SERVER));
     }
 }

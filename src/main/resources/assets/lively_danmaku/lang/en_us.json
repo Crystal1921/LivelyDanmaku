@@ -13,6 +13,9 @@
   "item.lively_danmaku.broomstick": "Broomstick",
   "item.lively_danmaku.hakurei_danmaku": "Self-propelled Sniper",
   "item.lively_danmaku.creative_item": "Creative Only",
+  "item.lively_danmaku.th08_10_love_color": "永夜抄-恋色マスタースパーク",
+
+  "item.lively_danmaku.th08_10_love_color.desc": "恋色マスタースパーク",
 
   "block.lively_danmaku.danmaku_table": "Danmaku Table",
   "block.lively_danmaku.fumo_table": "Fumo Table",
@@ -21,6 +24,7 @@
   "block.lively_danmaku.reimu_block": "Reimu Handmade",
   "block.lively_danmaku.danmaku_emitter": "Danmaku Emitter",
   "block.lively_danmaku.danmaku_import": "Danmaku Import",
+  "block.lively_danmaku.danmaku_color": "Danmaku Color Table",
 
   "block.danmaku_emitter.pitch": "Pitch",
   "block.danmaku_emitter.yaw": "Yaw",

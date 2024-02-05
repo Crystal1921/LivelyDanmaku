@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku.block;
 
 import com.tutorial.lively_danmaku.blockEntity.DanmakuColorTE;
-import com.tutorial.lively_danmaku.blockEntity.DanmakuImportTE;
+import com.tutorial.lively_danmaku.gui.DanmakuColorMenu;
 import com.tutorial.lively_danmaku.gui.DanmakuImportMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -17,8 +17,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class DanmakuImport extends BaseEntityBlock {
-    public DanmakuImport(Properties pProperties) {
+public class DanmakuColor extends BaseEntityBlock {
+    public DanmakuColor(Properties pProperties) {
         super(pProperties);
     }
 
@@ -35,9 +35,9 @@ public class DanmakuImport extends BaseEntityBlock {
     @Override
     public MenuProvider getMenuProvider(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos) {
         BlockEntity blockentity = level.getBlockEntity(blockPos);
-        if (blockentity instanceof DanmakuImportTE) {
+        if (blockentity instanceof DanmakuColorTE) {
             Component component = ((Nameable)blockentity).getDisplayName();
-            return new SimpleMenuProvider((id, inventory, player) -> new DanmakuImportMenu(id,inventory,ContainerLevelAccess.create(level, blockPos)), component);
+            return new SimpleMenuProvider((id, inventory, player) -> new DanmakuColorMenu(id,inventory, ContainerLevelAccess.create(level, blockPos)), component);
         } else {
             return null;
         }
@@ -45,8 +45,8 @@ public class DanmakuImport extends BaseEntityBlock {
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new DanmakuImportTE(pPos,pState);
+    public BlockEntity newBlockEntity(@NotNull BlockPos pPos, @NotNull BlockState pState) {
+        return new DanmakuColorTE(pPos,pState);
     }
 
     @Override

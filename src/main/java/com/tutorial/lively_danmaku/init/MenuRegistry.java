@@ -20,6 +20,7 @@ public class MenuRegistry {
     public static final RegistryObject<MenuType<FumoTableMenu>> FUMO_TABLE = registerMenuType(FumoTableMenu::new, "fumo_table");
     public static final RegistryObject<MenuType<EmitterMenu>> EMITTER_MENU = registerMenuType(EmitterMenu::new, "danmaku_emitter");
     public static final RegistryObject<MenuType<DanmakuImportMenu>> IMPORT_MENU = registerMenuType(DanmakuImportMenu::new, "danmaku_import");
+    public static final RegistryObject<MenuType<DanmakuColorMenu>> COLOR_MENU = registerMenuType(DanmakuColorMenu::new,"danmaku_color");
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name){
         return CONTAINERS.register(name,()-> IForgeMenuType.create(factory));
     }
@@ -30,5 +31,6 @@ public class MenuRegistry {
         MenuScreens.register(ADVANCED_DANMAKU_TABLE.get(), AdvancedDanmakuScreen::new);
         MenuScreens.register(EMITTER_MENU.get(), EmitterScreen::new);
         MenuScreens.register(IMPORT_MENU.get(), DanmakuImportScreen::new);
+        MenuScreens.register(COLOR_MENU.get(), DanmakuColorScreen::new);
     }
 }

@@ -35,9 +35,8 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
 
     @Override
     protected void init() {
+        super.init();
         this.isRender = this.danmakuEmitterTE.getBlockState().getValue(RENDER);
-        this.leftPos = (this.width - this.imageWidth) / 2;
-        this.topPos = (this.height - this.imageHeight) / 2;
         this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, (button) ->
                 this.onDone()).bounds(this.width / 2 - 154, 210, 150, 20).build());
         this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, (p_99457_) ->

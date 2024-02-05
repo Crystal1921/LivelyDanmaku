@@ -25,6 +25,8 @@ public class BlockEntityTypeRegistry {
             () -> BlockEntityType.Builder.of(DanmakuEmitterTE::new, BlockRegistry.DANMAKU_EMITTER.get()).build(null));
     public static final RegistryObject<BlockEntityType<DanmakuImportTE>> DANMAKU_IMPORT = BLOCK_ENTITY_TYPES.register("danmaku_import",
             () -> BlockEntityType.Builder.of(DanmakuImportTE::new, BlockRegistry.DANMAKU_IMPORT.get()).build(null));
+    public static final RegistryObject<BlockEntityType<DanmakuColorTE>> DANMAKU_COLOR = BLOCK_ENTITY_TYPES.register("danmaku_color",
+            () -> BlockEntityType.Builder.of(DanmakuColorTE::new, BlockRegistry.DANMAKU_COLOR.get()).build(null));
     @OnlyIn(Dist.CLIENT)
     public static void registerTileEntityRenders() {
         BlockEntityRenderers.register(REIMU_ENTITY_BLOCK.get(), ReimuTileEntityRenderer::new);

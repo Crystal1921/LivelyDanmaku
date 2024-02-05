@@ -18,6 +18,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import java.awt.*;
 import java.util.List;
 import java.util.Random;
 
@@ -58,26 +59,30 @@ public class ItemHakureiGohei extends BowItem {
             }
         } else {
             String distribution = String.valueOf(item.getOrCreateTag().get("crystal_distribution"));
+            String rgb = String.valueOf(item.getOrCreateTag().get("crystal_color"));
             int amount = item.getOrCreateTag().getInt("crystal_amount");
             int speed = item.getOrCreateTag().getInt("crystal_speed");
             float multi = 1 + (float) log((float) speed / 5 + 1);
-            int[][] array = String2Int(distribution);
-            int num = countOccurrences(array);
+            int[][] position = String2Int(distribution);
+            int[] color = String2Color(rgb);
+            int num = countOccurrences(position);
             int repeat = amount / num;
             if (num > amount) {
-                randomizeArray(array, num - amount);
+                randomizeArray(position, num - amount);
                 repeat = 1;
             }
             for (int m = 0; m < repeat; m++) {
+                int count = 0;
                 for (int j = 0; j < 9; j++) {
                     for (int l = 0; l < 9; l++) {
-                        if (array[j][l] == 1) {
-                            NormalDanmaku danmaku = new NormalDanmaku(EntityTypeRegistry.DANMAKU.get(), level);
+                        if (position[j][l] == 1) {
+                            NormalDanmaku danmaku = new NormalDanmaku(EntityTypeRegistry.DANMAKU.get(), level, 0.5F, new Color(color[count]));
                             danmaku.setOwner(player);
                             danmaku.moveTo(getX, getY + 1, getZ);
                             danmaku.shootFromRotation((getXRot - 16 + j * 4), (getYRot - 16 + l * 4), 0, multi, 1, isWiggle);
                             level.addFreshEntity(danmaku);
-                        } else if (array[j][l] == 2) {
+                            count++;
+                        } else if (position[j][l] == 2) {
                             StarDanmaku danmaku = new StarDanmaku(EntityTypeRegistry.STAR_DANMAKU.get(), level);
                             danmaku.setOwner(player);
                             danmaku.moveTo(getX, getY + 1, getZ);
@@ -117,6 +122,17 @@ public class ItemHakureiGohei extends BowItem {
                     array[i][j] = 1;
                 } else if (charAt == '2') array[i][j] = 2;
             }
+        }
+        return array;
+    }
+
+    public static int[] String2Color(String string) {
+        int[] array = new int[81];
+        String newString = string.replace("\"", "");
+        String[] parts = newString.split("#");
+
+        for (int i = 0; i < parts.length && i < array.length; i++) {
+            array[i] = Integer.parseInt(parts[i]);
         }
         return array;
     }

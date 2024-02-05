@@ -47,7 +47,7 @@ public class MathMethod {
 
     public static String PointList (ArrayList<Point> pointArrayList) {
         StringBuilder stringBuilder = new StringBuilder();
-        pointArrayList.forEach(point -> stringBuilder.append("*").append(point.x).append("+").append(point.y));
+        pointArrayList.forEach(point -> stringBuilder.append("#").append(point.x).append("+").append(point.y));
         return stringBuilder.toString();
     }
 

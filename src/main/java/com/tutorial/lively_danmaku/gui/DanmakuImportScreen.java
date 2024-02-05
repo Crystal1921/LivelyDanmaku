@@ -71,10 +71,9 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
     @Override
     public void init()
     {
+        super.init();
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
-        this.leftPos = (this.width - this.imageWidth) / 2;
-        this.topPos = (this.height - this.imageHeight) / 2;
         int PADDING = 6;
         int y = this.height - 20 - PADDING;
         int fullButtonHeight = PADDING + 20 + PADDING;

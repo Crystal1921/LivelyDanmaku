@@ -25,7 +25,7 @@ public abstract class MixinGuiGraphics implements GuiGraphicsInterface {
     public void livelyDanmaku$drawLine(int x1, int y1, int x2, int y2, int pZ, int pColor, int width) {
         Matrix4f matrix4f = this.pose.last().pose();
 
-        float f3 = (float) FastColor.ARGB32.alpha(pColor) / 255.0F;
+        float f3 = (float)FastColor.ARGB32.alpha(pColor) / 255.0F;
         float f = (float)FastColor.ARGB32.red(pColor) / 255.0F;
         float f1 = (float)FastColor.ARGB32.green(pColor) / 255.0F;
         float f2 = (float)FastColor.ARGB32.blue(pColor) / 255.0F;

@@ -15,6 +15,8 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
+
 public class DanmakuMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
     public final int[] isFull = new int[3];
@@ -83,15 +85,21 @@ public class DanmakuMenu extends AbstractContainerMenu {
             return false;
         }   else {
             this.access.execute((level,blockPos) -> {
-                StringBuilder string = new StringBuilder(81);
+                StringBuilder postion = new StringBuilder(81);
+                StringBuffer color = new StringBuffer();
                 for (int j = 39; j < 120; j++) {
-                    if(this.container.getItem(j).is(ItemRegistry.ItemDanmaku.get())) {
-                        string.append("1");
-                    }   else if(this.container.getItem(j).is(ItemRegistry.ItemStarDanmaku.get())) {
-                        string.append("2");
+                    ItemStack item = this.container.getItem(j);
+                    if (item.is(ItemRegistry.ItemDanmaku.get())) {
+                        postion.append("1");
+                        if (item.getOrCreateTag().get("danmaku_color") != null) {
+                            color.append(item.getOrCreateTag().get("danmaku_color"));
+                        } else color.append(Color.RED.getRGB());
+                        color.append("#");
+                    }   else if(item.is(ItemRegistry.ItemStarDanmaku.get())) {
+                        postion.append("2");
                     }   else
                     {
-                        string.append("#");
+                        postion.append("#");
                     }
                     this.container.setItem(j,ItemStack.EMPTY);
                 }
@@ -103,7 +111,8 @@ public class DanmakuMenu extends AbstractContainerMenu {
                     itemstack.getOrCreateTag().putInt("crystal_speed",itemStack2.getCount());
                     itemStack2.setCount(0);
                 }
-                itemstack.getOrCreateTag().putString("crystal_distribution",string.toString());
+                itemstack.getOrCreateTag().putString("crystal_distribution",postion.toString());
+                itemstack.getOrCreateTag().putString("crystal_color",color.toString());
                 this.container.setItem(0, itemstack);
             });
             return true;

@@ -28,17 +28,13 @@ public class LivelyDanmaku {
         MenuRegistry.CONTAINERS.register(eventBus);
         LivelyDanmakuGroup.TABS.register(eventBus);
         eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
-        bind(Registries.SOUND_EVENT,SoundRegistry::init);
+        bind(eventBus,Registries.SOUND_EVENT,SoundRegistry::init);
     }
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(Utils.MOD_ID, name.toLowerCase(Locale.ROOT));
     }
-    private static <T> void bind(ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener((RegisterEvent event) -> {
-            if (registry.equals(event.getRegistryKey())) {
-                source.accept((t, rl) -> event.register(registry, rl, () -> t));
-            }
-        });
+    private static <T> void bind(IEventBus eventBus, ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {
+        eventBus.addListener((RegisterEvent event) -> source.accept((t, rl) -> event.register(registry, rl, () -> t)));
     }
 }
 
