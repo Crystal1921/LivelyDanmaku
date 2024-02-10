@@ -1,7 +1,8 @@
 package com.tutorial.lively_danmaku.init;
 
-import com.tutorial.lively_danmaku.gui.*;
 import com.tutorial.lively_danmaku.Utils;
+import com.tutorial.lively_danmaku.gui.menu.*;
+import com.tutorial.lively_danmaku.gui.screen.*;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;

@@ -1,6 +1,7 @@
-package com.tutorial.lively_danmaku.gui;
+package com.tutorial.lively_danmaku.gui.screen;
 
 import com.mojang.blaze3d.platform.NativeImage;
+import com.tutorial.lively_danmaku.gui.menu.DanmakuImportMenu;
 import com.tutorial.lively_danmaku.gui.widget.ImageEntry;
 import com.tutorial.lively_danmaku.gui.widget.ImageInfo;
 import com.tutorial.lively_danmaku.gui.widget.ImageListWidget;
@@ -41,7 +42,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import static com.tutorial.lively_danmaku.gui.EmitterScreen.parseFloat;
+import static com.tutorial.lively_danmaku.gui.screen.EmitterScreen.parseFloat;
 
 public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMenu> {
     public int listWidth = 125;

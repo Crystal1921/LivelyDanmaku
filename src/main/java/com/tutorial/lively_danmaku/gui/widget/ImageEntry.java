@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.gui.widget;
 
-import com.tutorial.lively_danmaku.gui.DanmakuImportScreen;
+import com.tutorial.lively_danmaku.gui.screen.DanmakuImportScreen;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ObjectSelectionList;

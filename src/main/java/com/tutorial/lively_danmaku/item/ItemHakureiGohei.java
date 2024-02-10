@@ -68,7 +68,6 @@ public class ItemHakureiGohei extends BowItem {
             int num = countOccurrences(position);
             int repeat = amount / num;
             if (num > amount) {
-                randomizeArray(position, num - amount);
                 repeat = 1;
             }
             for (int m = 0; m < repeat; m++) {
@@ -147,23 +146,6 @@ public class ItemHakureiGohei extends BowItem {
             }
         }
         return count;
-    }
-
-    public static void randomizeArray(int[][] array, int numOfOnesToChange) {
-        int count = 0;
-        int rows = array.length;
-        int columns = array[0].length;
-        Random random = new Random();
-
-        while (count < numOfOnesToChange) {
-            int randomRow = random.nextInt(rows);
-            int randomColumn = random.nextInt(columns);
-
-            if (array[randomRow][randomColumn] == 1 || array[randomRow][randomColumn] == 2) {
-                array[randomRow][randomColumn] = 0;
-                count++;
-            }
-        }
     }
 
     public String format_NBT(String string) {

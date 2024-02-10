@@ -1,5 +1,6 @@
-package com.tutorial.lively_danmaku.gui;
+package com.tutorial.lively_danmaku.gui.screen;
 
+import com.tutorial.lively_danmaku.gui.menu.DanmakuMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;

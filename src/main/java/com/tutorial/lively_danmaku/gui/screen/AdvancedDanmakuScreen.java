@@ -1,5 +1,6 @@
-package com.tutorial.lively_danmaku.gui;
+package com.tutorial.lively_danmaku.gui.screen;
 
+import com.tutorial.lively_danmaku.gui.menu.AdvancedDanmakuMenu;
 import com.tutorial.lively_danmaku.gui.widget.PaintWidget;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;

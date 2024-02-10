@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.gui.widget;
 
-import com.tutorial.lively_danmaku.gui.AdvancedDanmakuScreen;
+import com.tutorial.lively_danmaku.gui.screen.AdvancedDanmakuScreen;
 import com.tutorial.lively_danmaku.mixin.mixinInterface.GuiGraphicsInterface;
 import com.tutorial.lively_danmaku.network.DanmakuNetwork;
 import com.tutorial.lively_danmaku.network.PointPacket;

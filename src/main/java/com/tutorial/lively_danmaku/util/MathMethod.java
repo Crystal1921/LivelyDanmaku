@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import static com.tutorial.lively_danmaku.gui.DanmakuImportScreen.DANMAKU_IMAGE;
+import static com.tutorial.lively_danmaku.gui.screen.DanmakuImportScreen.DANMAKU_IMAGE;
 
 public class MathMethod {
 

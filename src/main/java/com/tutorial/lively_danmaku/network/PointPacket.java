@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.network;
 
-import com.tutorial.lively_danmaku.gui.AdvancedDanmakuMenu;
+import com.tutorial.lively_danmaku.gui.menu.AdvancedDanmakuMenu;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.inventory.AbstractContainerMenu;

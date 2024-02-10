@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku.block;
 
 import com.tutorial.lively_danmaku.blockEntity.DanmakuTableTE;
-import com.tutorial.lively_danmaku.gui.DanmakuMenu;
+import com.tutorial.lively_danmaku.gui.menu.DanmakuMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.*;

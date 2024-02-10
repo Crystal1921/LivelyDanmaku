@@ -17,6 +17,8 @@ public class NormalDanmaku extends AbstractDanmaku {
     private static final EntityDataAccessor<Float> SIZE = SynchedEntityData.defineId(NormalDanmaku.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(NormalDanmaku.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> IS_TICK = SynchedEntityData.defineId(NormalDanmaku.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> POSITION_X = SynchedEntityData.defineId(NormalDanmaku.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> POSITION_Y = SynchedEntityData.defineId(NormalDanmaku.class, EntityDataSerializers.INT);
     private int tickTime;
     public NormalDanmaku(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
         this(entityType, level,0.5F);
@@ -59,6 +61,8 @@ public class NormalDanmaku extends AbstractDanmaku {
         this.getEntityData().define(SIZE, 0.5F);
         this.getEntityData().define(IS_TICK, true);
         this.getEntityData().define(COLOR, Color.red.getRGB());
+        this.getEntityData().define(POSITION_X,0);
+        this.getEntityData().define(POSITION_Y,0);
     }
 
     public float getSize() {

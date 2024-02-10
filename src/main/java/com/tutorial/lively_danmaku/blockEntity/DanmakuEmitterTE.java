@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.blockEntity;
 
-import com.tutorial.lively_danmaku.gui.EmitterMenu;
+import com.tutorial.lively_danmaku.gui.menu.EmitterMenu;
 import com.tutorial.lively_danmaku.init.BlockEntityTypeRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import com.tutorial.lively_danmaku.item.ItemHakureiGohei;
@@ -23,8 +23,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
-
-import static com.tutorial.lively_danmaku.block.DanmakuEmitter.RENDER;
 
 public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
     public float XRot;

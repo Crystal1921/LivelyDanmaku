@@ -1,4 +1,4 @@
-package com.tutorial.lively_danmaku.gui;
+package com.tutorial.lively_danmaku.gui.menu;
 
 import com.tutorial.lively_danmaku.blockEntity.DanmakuEmitterTE;
 import com.tutorial.lively_danmaku.init.BlockRegistry;
@@ -9,11 +9,7 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.items.SlotItemHandler;
-import org.jetbrains.annotations.NotNull;
 
 public class EmitterMenu extends AbstractDanmakuMenu {
     private final DanmakuEmitterTE danmakuEmitterTE;

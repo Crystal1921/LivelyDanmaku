@@ -1,4 +1,4 @@
-package com.tutorial.lively_danmaku.gui;
+package com.tutorial.lively_danmaku.gui.menu;
 
 import com.tutorial.lively_danmaku.blockEntity.FumoTableTE;
 import com.tutorial.lively_danmaku.init.BlockRegistry;

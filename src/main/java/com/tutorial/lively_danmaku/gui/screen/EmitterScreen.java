@@ -1,6 +1,7 @@
-package com.tutorial.lively_danmaku.gui;
+package com.tutorial.lively_danmaku.gui.screen;
 
 import com.tutorial.lively_danmaku.blockEntity.DanmakuEmitterTE;
+import com.tutorial.lively_danmaku.gui.menu.EmitterMenu;
 import com.tutorial.lively_danmaku.network.DanmakuNetwork;
 import com.tutorial.lively_danmaku.network.EmitterPacket;
 import net.minecraft.client.Minecraft;
