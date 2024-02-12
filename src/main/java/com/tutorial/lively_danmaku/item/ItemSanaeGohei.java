@@ -2,6 +2,7 @@ package com.tutorial.lively_danmaku.item;
 
 import com.tutorial.lively_danmaku.entity.FiveStarEmitter;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
+import com.tutorial.lively_danmaku.util.ColorPoint;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,7 +20,7 @@ import static java.lang.Math.*;
 
 public class ItemSanaeGohei extends BowItem {
     private FiveStarEmitter emitter;
-    private final ArrayList<DoublePoint> five_star = new ArrayList<>();
+    private final ArrayList<ColorPoint> five_star = new ArrayList<>();
     private static final int NUM_POINTS = 5;
     private static final int RADIUS = 5;
     public ItemSanaeGohei() {
@@ -31,13 +32,13 @@ public class ItemSanaeGohei extends BowItem {
         double y1 = - RADIUS * sin(angle);
         double x2 = RADIUS * cos(angle + deltaAngle);
         double y2 = - RADIUS * sin(angle + deltaAngle);
-        ArrayList<DoublePoint> points = getEquallySpacedPoints(new DoublePoint(x1,y1,0), new DoublePoint(x2,y2,0), 15);
+        ArrayList<ColorPoint> points = getEquallySpacedPoints(new ColorPoint(x1,y1,0), new ColorPoint(x2,y2,0), 15);
         for (int i = 0; i < NUM_POINTS; i++) {
-            for (DoublePoint point : points) {
+            for (ColorPoint point : points) {
                 double x = point.x;
                 double y = point.y;
                 double theta = toRadians(216 * i);
-                five_star.add(new DoublePoint((x * cos(theta) - y * sin(theta)),(x * sin(theta) + y * cos(theta)),0));
+                five_star.add(new ColorPoint((x * cos(theta) - y * sin(theta)),(x * sin(theta) + y * cos(theta)),0));
             }
         }
     }
@@ -59,12 +60,12 @@ public class ItemSanaeGohei extends BowItem {
     }
 
     public void SanaeShoot(@NotNull Level level, ItemStack itemstack, float XRot, float YRot, double positionX, double positionY, double positionZ) {
-        ArrayList<DoublePoint> list;
+        ArrayList<ColorPoint> list;
         String type;
         if (itemstack.getOrCreateTag().get("crystal_point") != null){
-            list = ViewTransform(stringToPointList(String.valueOf(itemstack.getOrCreateTag().get("crystal_point"))), XRot, YRot);
+            list = viewTransform(stringToPointList(String.valueOf(itemstack.getOrCreateTag().get("crystal_point"))), XRot, YRot);
         }   else {
-            list = ViewTransform(five_star, XRot, YRot);
+            list = viewTransform(five_star, XRot, YRot);
         }
         if (itemstack.getOrCreateTag().get("crystal_type") != null) {
             type = Objects.requireNonNull(itemstack.getOrCreateTag().get("crystal_type")).getAsString();
@@ -76,20 +77,20 @@ public class ItemSanaeGohei extends BowItem {
         level.addFreshEntity(emitter);
     }
 
-    private static ArrayList<DoublePoint> getEquallySpacedPoints(DoublePoint point1, DoublePoint point2, int numPoints) {
-        ArrayList<DoublePoint> points = new ArrayList<>();
+    private static ArrayList<ColorPoint> getEquallySpacedPoints(ColorPoint point1, ColorPoint point2, int numPoints) {
+        ArrayList<ColorPoint> points = new ArrayList<>();
         double deltaX = (point2.x - point1.x) / (numPoints + 1.0);
         double deltaY = (point2.y - point1.y) / (numPoints + 1.0);
         for (int i = 1; i <= numPoints; i++) {
             double x = point1.x + i * deltaX;
             double y = point1.y + i * deltaY;
-            points.add(new DoublePoint(x, y, 0));
+            points.add(new ColorPoint(x, y, 0));
         }
         return points;
     }
 
-    private static ArrayList<DoublePoint> stringToPointList(String pointString) {
-        ArrayList<DoublePoint> points = new ArrayList<>();
+    private static ArrayList<ColorPoint> stringToPointList(String pointString) {
+        ArrayList<ColorPoint> points = new ArrayList<>();
         String newString = pointString.replace("\"","");
         String[] parts = newString.split("#");
         for (String part : parts) {
@@ -97,44 +98,15 @@ public class ItemSanaeGohei extends BowItem {
             if (coordinates.length == 2) {
                 double x = Integer.parseInt(coordinates[0]);
                 double y = Integer.parseInt(coordinates[1]);
-                points.add(new DoublePoint(-x / 10, -y / 10, 0));
+                points.add(new ColorPoint(-x / 10, -y / 10, 0));
             }
         }
         return points;
     }
 
-    private ArrayList<DoublePoint> ViewTransform (ArrayList<DoublePoint> origin, float XRot, float YRot) {
+    private ArrayList<ColorPoint> viewTransform(ArrayList<ColorPoint> origin, float XRot, float YRot) {
         return origin.stream()
-                .map(point -> { //XoZ平面旋转
-                    double x = point.x;
-                    double y = point.y;
-                    double theta = toRadians(XRot);
-                    return new DoublePoint(x, y * sin(theta), y * cos(theta));
-                })
-                .map(point -> { //XoY平面旋转
-                    double x = point.x;
-                    double y = point.y;
-                    double theta = toRadians(YRot);
-                    return new DoublePoint((x * cos(theta) - y * sin(theta)), (x * sin(theta) + y * cos(theta)), point.z);
-                })
-                .map(point -> { //全部按视角平移
-                    float distance = 6F;
-                    double offsetX = -sin(toRadians(YRot)) * cos(toRadians(XRot)) * distance;
-                    double offsetY = -sin(toRadians(XRot)) * distance + 0.8;
-                    double offsetZ = cos(toRadians(YRot)) * cos(toRadians(XRot)) * distance;
-                    return new DoublePoint(point.x + offsetX, point.y + offsetZ, point.z + offsetY);
-                })
+                .map(point -> point.transform(XRot,YRot,6))
                 .collect(Collectors.toCollection(ArrayList::new));
-    }
-
-    public static class DoublePoint {
-        public double x;
-        public double y;
-        public double z;
-        protected DoublePoint (double x, double y, double z) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
     }
 }

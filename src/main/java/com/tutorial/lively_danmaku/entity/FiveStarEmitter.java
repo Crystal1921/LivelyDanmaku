@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku.entity;
 
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
-import com.tutorial.lively_danmaku.item.ItemSanaeGohei;
+import com.tutorial.lively_danmaku.util.ColorPoint;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
@@ -16,13 +16,13 @@ public class FiveStarEmitter extends Projectile {
     private float XRot;
     private float YRot;
     private String type;
-    private ArrayList<ItemSanaeGohei.DoublePoint> arrayList = new ArrayList<>();
+    private ArrayList<ColorPoint> arrayList = new ArrayList<>();
     private final ArrayList<AbstractDanmaku> danmakuArrayList = new ArrayList<>();
     public FiveStarEmitter(EntityType<? extends Projectile> entityType, Level level) {
         super(entityType, level);
     }
 
-    public FiveStarEmitter(EntityType<? extends Projectile> entityType, Level level, ArrayList<ItemSanaeGohei.DoublePoint> arrayList, float XRot, float YRot, String string) {
+    public FiveStarEmitter(EntityType<? extends Projectile> entityType, Level level, ArrayList<ColorPoint> arrayList, float XRot, float YRot, String string) {
         super(entityType, level);
         this.arrayList = arrayList;
         this.isDrawStar = true;
@@ -57,7 +57,7 @@ public class FiveStarEmitter extends Projectile {
                 this.discard();
             }
         }
-        if (this.tickCount >= 300) this.discard();
+        if (this.tickCount >= arrayList.size()) this.discard();
     }
 
     @Override

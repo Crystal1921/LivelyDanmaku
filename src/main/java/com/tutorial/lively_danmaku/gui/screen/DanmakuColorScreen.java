@@ -63,10 +63,16 @@ public class DanmakuColorScreen extends AbstractContainerScreen<DanmakuColorMenu
         String s1 = this.redEditBox.getValue();
         String s2 = this.greenEditBox.getValue();
         String s3 = this.blueEditBox.getValue();
+        int i1 = this.redSlider.number;
+        int i2 = this.greenSlider.number;
+        int i3 = this.blueSlider.number;
         this.init(pMinecraft, pWidth, pHeight);
         this.redEditBox.setValue(s1);
         this.greenEditBox.setValue(s2);
         this.blueEditBox.setValue(s3);
+        this.redSlider.number = i1;
+        this.greenSlider.number = i2;
+        this.blueSlider.number = i3;
     }
 
     private void ColorChange() {

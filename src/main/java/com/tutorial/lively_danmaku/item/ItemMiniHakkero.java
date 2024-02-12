@@ -2,6 +2,8 @@ package com.tutorial.lively_danmaku.item;
 
 import com.tutorial.lively_danmaku.entity.StarDanmaku;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -35,18 +37,25 @@ public class ItemMiniHakkero extends BowItem {
                         float speed = f + random.nextFloat(1);
                         star.shootFromRotation(living, living.getXRot() + random.nextInt(41) - 20, living.getYRot() + random.nextInt(41) - 20, 0, speed, 1);
                         level.addFreshEntity(star);
-                        //double distance = j + 0.5; // 距离玩家的距离
-
-                        //float rotationX = player.getXRot();
-                        //float rotationY = player.getYRot();
-
-                        //double offsetX = -Math.sin(Math.toRadians(rotationY)) * Math.cos(Math.toRadians(rotationX)) * distance;
-                        //double offsetY = -Math.sin(Math.toRadians(rotationX)) * distance + 1.75;
-                        //double offsetZ = Math.cos(Math.toRadians(rotationY)) * Math.cos(Math.toRadians(rotationX)) * distance;
-
-                        //level.explode(player, player.getX() + offsetX, player.getY() + offsetY, player.getZ() + offsetZ, 1.0F, Level.ExplosionInteraction.BLOCK);
                     }
                 }
+            }
+        }
+    }
+
+    public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pRemainingUseDuration) {
+        if (pLevel instanceof ClientLevel){
+            for (int i = 0; i < 10; i++) {
+                double distance = i + 1.5; // 距离玩家的距离
+
+                float rotationX = pLivingEntity.getXRot();
+                float rotationY = pLivingEntity.getYRot();
+
+                double offsetX = -Math.sin(Math.toRadians(rotationY)) * Math.cos(Math.toRadians(rotationX)) * distance;
+                double offsetY = -Math.sin(Math.toRadians(rotationX)) * distance + 1.75;
+                double offsetZ = Math.cos(Math.toRadians(rotationY)) * Math.cos(Math.toRadians(rotationX)) * distance;
+
+                pLevel.addParticle(ParticleTypes.END_ROD,pLivingEntity.getX() + offsetX,pLivingEntity.getY() + offsetY,pLivingEntity.getZ() + offsetZ,0,0,0);
             }
         }
     }

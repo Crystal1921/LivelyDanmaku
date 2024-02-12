@@ -34,8 +34,9 @@ public class PointListPacket {
         AbstractContainerMenu containerMenu = player.containerMenu;
         if (containerMenu instanceof DanmakuImportMenu menu) {
             if (menu.stillValid(player) && !player.isSpectator()) {
-                context.enqueueWork(() -> menu.setImageString(list));
+                context.enqueueWork(() -> menu.setItem(list));
             }
         }
+        context.setPacketHandled(true);
     }
 }

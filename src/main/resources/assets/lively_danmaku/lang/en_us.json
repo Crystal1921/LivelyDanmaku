@@ -55,6 +55,8 @@
 
   "ui.danmaku_import.npe": "Null Pointer Exception",
   "ui.danmaku_import.import": "Import",
+  "ui.danmaku_import.simple": "Simple",
+  "ui.danmaku_import.colorful": "Colorful",
 
   "hakurei_gohei.speed": "Speed",
   "hakurei_gohei.amount": "Amount",

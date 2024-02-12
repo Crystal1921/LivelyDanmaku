@@ -20,7 +20,6 @@ import static com.tutorial.lively_danmaku.util.MathMethod.extractPoint;
 
 public class DanmakuImportMenu extends AbstractDanmakuMenu {
     private final ContainerLevelAccess access;
-    private String imageString;
     private final Container container = new SimpleContainer(1) {
         public void setChanged() {
             super.setChanged();
@@ -46,23 +45,16 @@ public class DanmakuImportMenu extends AbstractDanmakuMenu {
         }
     }
 
-    @Override
-    public boolean clickMenuButton(@NotNull Player player, int i) {
-        if (i == 0) {
-            ItemStack itemStack = this.container.getItem(0);
-            if (itemStack.is(ItemRegistry.SanaeGohei.get()) && imageString != null) {
-                this.access.execute((level, blockPos) -> {
-                    itemStack.getOrCreateTag().putString("crystal_point",imageString);
-                    this.container.setItem(0,itemStack);
-                });
-                return true;
-            }
+    public void setItem(ArrayList<Long> arrayList) {
+        String imageString = PointList(extractPoint(arrayList));
+        ItemStack itemStack = this.container.getItem(0);
+        if (itemStack.is(ItemRegistry.SanaeGohei.get())) {
+            this.access.execute((level, blockPos) -> {
+                itemStack.getOrCreateTag().putString("crystal_point",imageString);
+                this.container.setItem(0,itemStack);
+            });
         }
-        return false;
-    }
 
-    public void setImageString(ArrayList<Long> arrayList) {
-        this.imageString = PointList(extractPoint(arrayList));
     }
 
     @Override

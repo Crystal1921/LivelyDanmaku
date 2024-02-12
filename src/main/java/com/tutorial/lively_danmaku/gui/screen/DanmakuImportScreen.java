@@ -1,5 +1,6 @@
 package com.tutorial.lively_danmaku.gui.screen;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.platform.NativeImage;
 import com.tutorial.lively_danmaku.gui.menu.DanmakuImportMenu;
 import com.tutorial.lively_danmaku.gui.widget.ImageEntry;
@@ -8,11 +9,13 @@ import com.tutorial.lively_danmaku.gui.widget.ImageListWidget;
 import com.tutorial.lively_danmaku.gui.widget.ImageWidget;
 import com.tutorial.lively_danmaku.network.DanmakuNetwork;
 import com.tutorial.lively_danmaku.network.PointListPacket;
+import com.tutorial.lively_danmaku.util.ImportColorMode;
 import com.tutorial.lively_danmaku.util.MathMethod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.CycleButton;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -21,6 +24,7 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.level.block.state.properties.StructureMode;
 import net.minecraftforge.fml.loading.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -46,10 +50,12 @@ import static com.tutorial.lively_danmaku.gui.screen.EmitterScreen.parseFloat;
 
 public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMenu> {
     public int listWidth = 125;
-    private int gridNum = 20;
+    private int gridNum = 32;
     private int red = 0;
     private int green = 0;
     private int blue = 0;
+    private ImportColorMode colorMode = ImportColorMode.SIMPLE;
+    private static final ImmutableList<ImportColorMode> MODE_IMMUTABLE_LIST = ImmutableList.copyOf(ImportColorMode.values());
     private final Logger logger = LogManager.getLogger(DanmakuImportScreen.class);
     private final List<ImageInfo> unsortedImages;
     private List<ImageInfo> images;
@@ -88,6 +94,11 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         this.search = new EditBox(getFontRenderer(), PADDING, 15, listWidth, 15, Component.translatable("fml.menu.mods.search"));
         this.search.setFocused(false);
         this.addRenderableWidget(search);
+        this.addRenderableWidget(CycleButton.<ImportColorMode>builder((serializedName) -> Component.translatable("ui.danmaku_import." + serializedName.getSerializedName()))
+                .withValues(MODE_IMMUTABLE_LIST)
+                .displayOnlyValue()
+                .withInitialValue(this.colorMode)
+                .create(this.width / 2 - 80, this.height / 2 - 80, 50, 20, Component.literal("MODE"), (colorModeCycleButton, updatedMode) -> this.updateMode(updatedMode)));
         this.redEditBox = new EditBox(getFontRenderer(), this.width / 2 - 25, this.height / 2 - 14, 30, 10, Component.translatable("block.danmaku_import.red"));
         this.redEditBox.setVisible(true);
         this.redEditBox.setValue("0");
@@ -101,6 +112,23 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         this.blueEditBox.setValue("0");
         this.addRenderableWidget(blueEditBox);
         updateCache();
+    }
+
+    private void updateMode(ImportColorMode mode) {
+        this.colorMode = mode;
+        this.redEditBox.setVisible(false);
+        this.greenEditBox.setVisible(false);
+        this.blueEditBox.setVisible(false);
+        switch (mode){
+            case SIMPLE ->{
+                this.redEditBox.setVisible(true);
+                this.greenEditBox.setVisible(true);
+                this.blueEditBox.setVisible(true);
+            }
+            case COLORFUL -> {
+
+            }
+        }
     }
 
     @Override
@@ -124,9 +152,6 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
             if (pointList != null && !pointList.isEmpty()){
                 this.imageWidget.pointList = pointList;
                 DanmakuNetwork.CHANNEL.sendToServer(new PointListPacket(MathMethod.mergePoint(pointList)));
-                if (this.menu.clickMenuButton(this.minecraft.player, 0)) {
-                    this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, 0);
-                }
             }
         }
     }
@@ -206,7 +231,7 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         for (int i = 0; i < width; i += width / gridNum) {
             for (int j = 0; j < height; j += height / gridNum) {
                 if (isColor(image.getRGB(i,j))) {
-                    pointList.add(new Point(i,j));
+                    pointList.add(new Point(i * 4,j * 4));
                 }
             }
         }
@@ -254,7 +279,9 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
     protected void renderLabels(@NotNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {}
 
     public void renderText (@NotNull GuiGraphics guiGraphics) {
-        guiGraphics.drawString(getFontRenderer(),Component.translatable("block.danmaku_import.rgb"),this.width / 2 - 25, this.height / 2 - 24, Color.WHITE.getRGB());
+        if (colorMode == ImportColorMode.SIMPLE) {
+            guiGraphics.drawString(getFontRenderer(),Component.translatable("block.danmaku_import.rgb"),this.width / 2 - 25, this.height / 2 - 24, Color.WHITE.getRGB());
+        }
     }
 
     @Override
