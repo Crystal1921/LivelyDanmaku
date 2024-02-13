@@ -21,6 +21,10 @@ public class ColorPoint {
         this(x, y, z, Color.RED.getRGB());
     }
 
+    public Point getPoint () {
+        return new Point((int) this.x, (int) this.y);
+    }
+
     public ColorPoint transform(double XRot, double YRot, float distance) {
         double thetaX = toRadians(XRot);
         double thetaY = toRadians(YRot);

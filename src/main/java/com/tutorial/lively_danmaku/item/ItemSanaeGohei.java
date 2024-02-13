@@ -95,10 +95,11 @@ public class ItemSanaeGohei extends BowItem {
         String[] parts = newString.split("#");
         for (String part : parts) {
             String[] coordinates = part.split("\\+");
-            if (coordinates.length == 2) {
-                double x = Integer.parseInt(coordinates[0]);
-                double y = Integer.parseInt(coordinates[1]);
-                points.add(new ColorPoint(-x / 10, -y / 10, 0));
+            if (coordinates.length == 3) {
+                double x = Double.parseDouble(coordinates[0]);
+                double y = Double.parseDouble(coordinates[1]);
+                int color = (int) Double.parseDouble(coordinates[2]);
+                points.add(new ColorPoint(-x / 10, -y / 10, 0,color));
             }
         }
         return points;

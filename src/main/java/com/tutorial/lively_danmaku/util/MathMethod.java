@@ -13,41 +13,44 @@ import static com.tutorial.lively_danmaku.gui.screen.DanmakuImportScreen.DANMAKU
 
 public class MathMethod {
 
-    public static ArrayList<Point> extractPoint (ArrayList<Long> longs) {
-        ArrayList<Point> pointArrayList = new ArrayList<>();
+    public static ArrayList<ColorPoint> extractPoint (ArrayList<Long> longs) {
+        ArrayList<ColorPoint> pointArrayList = new ArrayList<>();
         for (Long value : longs) {
             pointArrayList.add(extract(value));
         }
         return pointArrayList;
     }
 
-    public static ArrayList<Long> mergePoint (ArrayList<Point> pointArrayList) {
+    public static ArrayList<Long> mergePoint (ArrayList<ColorPoint> pointArrayList) {
         ArrayList<Long> merged = new ArrayList<>();
-        for (Point point : pointArrayList) {
-            merged.add(merge(point.x,point.y));
+        for (ColorPoint point : pointArrayList) {
+            merged.add(merge((int) point.x, (int) point.y,point.color));
         }
         return merged;
     }
 
-    public static long merge(int value1, int value2) {
-        value1 &= 0b1111111111; // 确保 value1 在 0 到 1023 之间
-        value2 &= 0b1111111111; // 确保 value2 在 0 到 1023 之间
+    public static long merge(int value1, int value2, int color) {
+        value1 &= 0xFFF; // 确保 value1 在 0 到 4095 之间
+        value2 &= 0xFFF; // 确保 value2 在 0 到 4095 之间
 
-        long result = 0L;
-        result |= (long) value1 << 10;
-        result |= value2;
-        return result;
+        long pos = 0;
+        pos |= ((long) value1 << 12);
+        pos |= value2;
+        return (pos << 32) | (color & 0xFFFFFFFFL);
     }
 
-    public static Point extract(long value) {
-        int y = (int) (value & 0b1111111111); // 获取低 10 位作为 y 值
-        int x = (int) ((value >> 10) & 0b1111111111); // 获取高 10 位作为 x 值
-        return new Point(x, y);
+    public static ColorPoint extract(long value) {
+        long pos = (value & 0xFFFFFFFF00000000L) >>> 32;
+        int color = (int) (value & 0xFFFFFFFF);
+        short y = (short) (pos & 0xFFF); // 获取低 12 位作为 y 值
+        short x = (short) ((pos >> 12) & 0xFFF); // 获取高 12 位作为 x 值
+        return new ColorPoint(x, y, 0, color);
     }
 
-    public static String PointList (ArrayList<Point> pointArrayList) {
+
+    public static String PointList (ArrayList<ColorPoint> pointArrayList) {
         StringBuilder stringBuilder = new StringBuilder();
-        pointArrayList.forEach(point -> stringBuilder.append("#").append(point.x).append("+").append(point.y));
+        pointArrayList.forEach(point -> stringBuilder.append("#").append(point.x).append("+").append(point.y).append("+").append(point.color));
         return stringBuilder.toString();
     }
 

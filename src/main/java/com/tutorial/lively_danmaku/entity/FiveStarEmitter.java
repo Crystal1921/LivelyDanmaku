@@ -6,6 +6,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class FiveStarEmitter extends Projectile {
@@ -40,7 +41,7 @@ public class FiveStarEmitter extends Projectile {
                 num++;
                 AbstractDanmaku danmaku;
                 if (type.equals("danmaku")) {
-                    danmaku = new NormalDanmaku(EntityTypeRegistry.DANMAKU.get(), level(), 0.25F);
+                    danmaku = new NormalDanmaku(EntityTypeRegistry.DANMAKU.get(), level(), 0.25F, new Color(arrayList.get(num).color));
                 }   else {
                     danmaku = new StarDanmaku(EntityTypeRegistry.STAR_DANMAKU.get(), level());
                 }

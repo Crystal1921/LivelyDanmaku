@@ -9,6 +9,7 @@ import com.tutorial.lively_danmaku.gui.widget.ImageListWidget;
 import com.tutorial.lively_danmaku.gui.widget.ImageWidget;
 import com.tutorial.lively_danmaku.network.DanmakuNetwork;
 import com.tutorial.lively_danmaku.network.PointListPacket;
+import com.tutorial.lively_danmaku.util.ColorPoint;
 import com.tutorial.lively_danmaku.util.ImportColorMode;
 import com.tutorial.lively_danmaku.util.MathMethod;
 import net.minecraft.client.Minecraft;
@@ -44,13 +45,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.tutorial.lively_danmaku.gui.screen.EmitterScreen.parseFloat;
 
 public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMenu> {
     public int listWidth = 125;
-    private int gridNum = 32;
+    private int gridNum = 20;
     private int red = 0;
     private int green = 0;
     private int blue = 0;
@@ -148,9 +150,9 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
             this.red = (int) parseFloat(this.redEditBox.getValue());
             this.green = (int) parseFloat(this.greenEditBox.getValue());
             this.blue = (int) parseFloat(this.blueEditBox.getValue());
-            ArrayList<Point> pointList = getPointList();
+            ArrayList<ColorPoint> pointList = getPointList();
             if (pointList != null && !pointList.isEmpty()){
-                this.imageWidget.pointList = pointList;
+                this.imageWidget.pointList = pointList.stream().map(ColorPoint::getPoint).collect(Collectors.toCollection(ArrayList::new));
                 DanmakuNetwork.CHANNEL.sendToServer(new PointListPacket(MathMethod.mergePoint(pointList)));
             }
         }
@@ -222,16 +224,18 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         return this.imageListWidget;
     }
 
-    private ArrayList<Point> getPointList() {
+    private ArrayList<ColorPoint> getPointList() {
         int width = this.selected.getImageInfo().width;
         int height = this.selected.getImageInfo().height;
+        int widthNum = width / gridNum;
+        int heightNum = height / gridNum;
         BufferedImage image = this.selected.getImageInfo().bufferedImage;
-        ArrayList<Point> pointList = new ArrayList<>();
+        ArrayList<ColorPoint> pointList = new ArrayList<>();
         if (width <= gridNum) return null;
-        for (int i = 0; i < width; i += width / gridNum) {
-            for (int j = 0; j < height; j += height / gridNum) {
-                if (isColor(image.getRGB(i,j))) {
-                    pointList.add(new Point(i * 4,j * 4));
+        for (int i = 0; i < width; i += widthNum) {
+            for (int j = 0; j < height; j += heightNum) {
+                if (isColor(image.getRGB(i,j)) || colorMode == ImportColorMode.COLORFUL) {
+                    pointList.add(new ColorPoint((double) i / widthNum * 4, (double) j / heightNum * 4,0,image.getRGB(i,j)));
                 }
             }
         }

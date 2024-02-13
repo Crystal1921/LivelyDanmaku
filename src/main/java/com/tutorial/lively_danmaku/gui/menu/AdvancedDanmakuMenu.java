@@ -3,6 +3,8 @@ package com.tutorial.lively_danmaku.gui.menu;
 import com.tutorial.lively_danmaku.init.BlockRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import com.tutorial.lively_danmaku.init.MenuRegistry;
+import com.tutorial.lively_danmaku.item.DanmakuItem;
+import com.tutorial.lively_danmaku.util.ColorPoint;
 import com.tutorial.lively_danmaku.util.MathMethod;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
@@ -162,8 +164,15 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
         this.access.execute((level, blockPos) -> this.clearContainer(player, this.container));
     }
 
-    private ArrayList<Point> GenerateList(ArrayList<ArrayList<Point>> pointList) {
-        ArrayList<Point> arrayList = new ArrayList<>();
+    private ArrayList<ColorPoint> GenerateList(ArrayList<ArrayList<Point>> pointList) {
+        ArrayList<ColorPoint> arrayList = new ArrayList<>();
+        int color;
+        ItemStack itemStack = this.container.getItem(1);
+        if (itemStack.is(ItemRegistry.ItemDanmaku.get())) {
+            color = Integer.parseInt(String.valueOf(itemStack.getOrCreateTag().get("danmaku_color")));
+        }else {
+            color = Color.RED.getRGB();
+        }
         pointList.stream()
                 .filter(innerList -> innerList.size() > 1)
                 .forEach(innerList -> {
@@ -176,7 +185,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
                         for (int j = 1; j <= numPoints; j++) {
                             double x = p1.x + j * deltaX;
                             double y = p1.y + j * deltaY;
-                            arrayList.add(new Point((int) x, (int) y));
+                            arrayList.add(new ColorPoint((int) x, (int) y, color));
                         }
                     }
                 });
