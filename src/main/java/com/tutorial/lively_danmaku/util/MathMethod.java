@@ -13,14 +13,6 @@ import static com.tutorial.lively_danmaku.gui.screen.DanmakuImportScreen.DANMAKU
 
 public class MathMethod {
 
-    public static ArrayList<ColorPoint> extractPoint (ArrayList<Long> longs) {
-        ArrayList<ColorPoint> pointArrayList = new ArrayList<>();
-        for (Long value : longs) {
-            pointArrayList.add(extract(value));
-        }
-        return pointArrayList;
-    }
-
     public static ArrayList<Long> mergePoint (ArrayList<ColorPoint> pointArrayList) {
         ArrayList<Long> merged = new ArrayList<>();
         for (ColorPoint point : pointArrayList) {
@@ -40,28 +32,22 @@ public class MathMethod {
     }
 
     public static ColorPoint extract(long value) {
+        int scale = -10;
         long pos = (value & 0xFFFFFFFF00000000L) >>> 32;
-        int color = (int) (value & 0xFFFFFFFF);
+        int color = (int) (value & 0xFFFFFFFFL);
         short y = (short) (pos & 0xFFF); // 获取低 12 位作为 y 值
         short x = (short) ((pos >> 12) & 0xFFF); // 获取高 12 位作为 x 值
-        return new ColorPoint(x, y, 0, color);
-    }
-
-
-    public static String PointList (ArrayList<ColorPoint> pointArrayList) {
-        StringBuilder stringBuilder = new StringBuilder();
-        pointArrayList.forEach(point -> stringBuilder.append("#").append(point.x).append("+").append(point.y).append("+").append(point.color));
-        return stringBuilder.toString();
+        return new ColorPoint((double) x / scale, (double) y / scale, 0, color);
     }
 
     public static void exportImage(ArrayList<ArrayList<Point>> arrayList) {
         ArrayList<Point> flattenedList = arrayList.stream()
                 .flatMap(ArrayList::stream)
                 .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
-        int maxX = flattenedList.stream().max(Comparator.comparingInt(point -> point.x)).map(point -> point.x).orElse(0);
+        int maxX = flattenedList.stream().max(Comparator.comparingInt(point -> point.x)).map(point -> point.x).orElse(64);
         int maxY = flattenedList.stream().max(Comparator.comparingInt(point -> point.y)).map(point -> point.y).orElse(64);
         int minX = flattenedList.stream().min(Comparator.comparingInt(point -> point.x)).map(point -> point.x).orElse(0);
-        int minY = flattenedList.stream().min(Comparator.comparingInt(point -> point.y)).map(point -> point.y).orElse(64);
+        int minY = flattenedList.stream().min(Comparator.comparingInt(point -> point.y)).map(point -> point.y).orElse(0);
         arrayList.forEach(pointArrayList -> pointArrayList.forEach(point -> {
             point.x -= minX;
             point.y -= minY;

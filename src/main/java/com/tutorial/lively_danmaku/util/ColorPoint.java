@@ -25,7 +25,12 @@ public class ColorPoint {
         return new Point((int) this.x, (int) this.y);
     }
 
-    public ColorPoint transform(double XRot, double YRot, float distance) {
+    public void transformPos(int x, int y) {
+        this.x += x;
+        this.y += y;
+    }
+
+    public ColorPoint transformRot(double XRot, double YRot, float distance) {
         double thetaX = toRadians(XRot);
         double thetaY = toRadians(YRot);
 

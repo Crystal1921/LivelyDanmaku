@@ -3,9 +3,6 @@ package com.tutorial.lively_danmaku.gui.menu;
 import com.tutorial.lively_danmaku.init.BlockRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import com.tutorial.lively_danmaku.init.MenuRegistry;
-import com.tutorial.lively_danmaku.item.DanmakuItem;
-import com.tutorial.lively_danmaku.util.ColorPoint;
-import com.tutorial.lively_danmaku.util.MathMethod;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -17,6 +14,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Comparator;
+
+import static com.tutorial.lively_danmaku.util.MathMethod.merge;
 
 public class AdvancedDanmakuMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
@@ -90,7 +90,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
                         itemStack.getOrCreateTag().putInt("crystal_speed",itemStack2.getCount());
                         itemStack2.setCount(0);
                     }
-                    itemStack.getOrCreateTag().putString("crystal_point", MathMethod.PointList(GenerateList(pointList)));
+                    itemStack.getOrCreateTag().putLongArray("crystal_point", GenerateList(pointList));
                     this.container.setItem(0, itemStack);
                 });
                 return true;
@@ -164,8 +164,8 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
         this.access.execute((level, blockPos) -> this.clearContainer(player, this.container));
     }
 
-    private ArrayList<ColorPoint> GenerateList(ArrayList<ArrayList<Point>> pointList) {
-        ArrayList<ColorPoint> arrayList = new ArrayList<>();
+    private ArrayList<Long> GenerateList(ArrayList<ArrayList<Point>> pointList) {
+        ArrayList<Long> arrayList = new ArrayList<>();
         int color;
         ItemStack itemStack = this.container.getItem(1);
         if (itemStack.is(ItemRegistry.ItemDanmaku.get())) {
@@ -173,6 +173,15 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
         }else {
             color = Color.RED.getRGB();
         }
+        ArrayList<Point> flattenedList = pointList.stream()
+                .flatMap(ArrayList::stream)
+                .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+        int minX = flattenedList.stream().min(Comparator.comparingInt(point -> point.x)).map(point -> point.x).orElse(0);
+        int minY = flattenedList.stream().min(Comparator.comparingInt(point -> point.y)).map(point -> point.y).orElse(0);
+        pointList.forEach(pointArrayList -> pointArrayList.forEach(point -> {
+            point.x -= minX;
+            point.y -= minY;
+        }));
         pointList.stream()
                 .filter(innerList -> innerList.size() > 1)
                 .forEach(innerList -> {
@@ -185,7 +194,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
                         for (int j = 1; j <= numPoints; j++) {
                             double x = p1.x + j * deltaX;
                             double y = p1.y + j * deltaY;
-                            arrayList.add(new ColorPoint((int) x, (int) y, color));
+                            arrayList.add(merge((int) x, (int) y, color));
                         }
                     }
                 });

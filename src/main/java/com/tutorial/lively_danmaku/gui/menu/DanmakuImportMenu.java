@@ -15,9 +15,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-import static com.tutorial.lively_danmaku.util.MathMethod.PointList;
-import static com.tutorial.lively_danmaku.util.MathMethod.extractPoint;
-
 public class DanmakuImportMenu extends AbstractDanmakuMenu {
     private final ContainerLevelAccess access;
     private final Container container = new SimpleContainer(1) {
@@ -46,11 +43,10 @@ public class DanmakuImportMenu extends AbstractDanmakuMenu {
     }
 
     public void setItem(ArrayList<Long> arrayList) {
-        String imageString = PointList(extractPoint(arrayList));
         ItemStack itemStack = this.container.getItem(0);
         if (itemStack.is(ItemRegistry.SanaeGohei.get())) {
             this.access.execute((level, blockPos) -> {
-                itemStack.getOrCreateTag().putString("crystal_point",imageString);
+                itemStack.getOrCreateTag().putLongArray("crystal_point", arrayList);
                 this.container.setItem(0,itemStack);
             });
         }

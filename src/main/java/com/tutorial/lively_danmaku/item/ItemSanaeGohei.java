@@ -3,6 +3,7 @@ package com.tutorial.lively_danmaku.item;
 import com.tutorial.lively_danmaku.entity.FiveStarEmitter;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import com.tutorial.lively_danmaku.util.ColorPoint;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -13,9 +14,13 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Objects;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import static com.tutorial.lively_danmaku.util.MathMethod.extract;
 import static java.lang.Math.*;
 
 public class ItemSanaeGohei extends BowItem {
@@ -63,7 +68,8 @@ public class ItemSanaeGohei extends BowItem {
         ArrayList<ColorPoint> list;
         String type;
         if (itemstack.getOrCreateTag().get("crystal_point") != null){
-            list = viewTransform(stringToPointList(String.valueOf(itemstack.getOrCreateTag().get("crystal_point"))), XRot, YRot);
+            CompoundTag tag = itemstack.getOrCreateTag();
+            list = viewTransform(Long2ColorPoint(tag.getLongArray("crystal_point")), XRot, YRot);
         }   else {
             list = viewTransform(five_star, XRot, YRot);
         }
@@ -89,25 +95,22 @@ public class ItemSanaeGohei extends BowItem {
         return points;
     }
 
-    private static ArrayList<ColorPoint> stringToPointList(String pointString) {
+    private static ArrayList<ColorPoint> Long2ColorPoint(long[] longs) {
         ArrayList<ColorPoint> points = new ArrayList<>();
-        String newString = pointString.replace("\"","");
-        String[] parts = newString.split("#");
-        for (String part : parts) {
-            String[] coordinates = part.split("\\+");
-            if (coordinates.length == 3) {
-                double x = Double.parseDouble(coordinates[0]);
-                double y = Double.parseDouble(coordinates[1]);
-                int color = (int) Double.parseDouble(coordinates[2]);
-                points.add(new ColorPoint(-x / 10, -y / 10, 0,color));
-            }
-        }
+        Arrays.stream(longs).forEach(aLong -> points.add(extract(aLong)));
         return points;
     }
 
     private ArrayList<ColorPoint> viewTransform(ArrayList<ColorPoint> origin, float XRot, float YRot) {
+        Double maxX = origin.stream().max(Comparator.comparingInt(point -> (int) point.x)).map(point -> point.x).orElse(64D);
+        Double maxY = origin.stream().max(Comparator.comparingInt(point -> (int) point.y)).map(point -> point.y).orElse(64D);
+        Double minX = origin.stream().min(Comparator.comparingInt(point -> (int) point.x)).map(point -> point.x).orElse(0D);
+        Double minY = origin.stream().min(Comparator.comparingInt(point -> (int) point.y)).map(point -> point.y).orElse(0D);
+        double width = maxX + minX;
+        double height = maxY + minY;
+        origin.forEach(colorPoint -> colorPoint.transformPos((int) ( - width / 2), (int) ( - height / 2)));
         return origin.stream()
-                .map(point -> point.transform(XRot,YRot,6))
+                .map(point -> point.transformRot(XRot,YRot,6))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 }

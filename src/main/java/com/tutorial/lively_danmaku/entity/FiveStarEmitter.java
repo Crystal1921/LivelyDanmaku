@@ -10,7 +10,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class FiveStarEmitter extends Projectile {
-    private int Time = 0;
+    private int cycleNum = 4;
     private int num = 0;
     public boolean isDrawStar = false;
     public boolean isShoot = false;
@@ -35,21 +35,21 @@ public class FiveStarEmitter extends Projectile {
     @Override
     public void tick() {
         if (isDrawStar) {
-            Time++;
-            if(Time == 1 && num <= arrayList.size() - 2) {
-                Time = 0;
-                num++;
-                AbstractDanmaku danmaku;
-                if (type.equals("danmaku")) {
-                    danmaku = new NormalDanmaku(EntityTypeRegistry.DANMAKU.get(), level(), 0.25F, new Color(arrayList.get(num).color));
-                }   else {
-                    danmaku = new StarDanmaku(EntityTypeRegistry.STAR_DANMAKU.get(), level());
+            if(num <= arrayList.size() - 2 - cycleNum) {
+                for (int i = 0; i < cycleNum; i++) {
+                    num++;
+                    AbstractDanmaku danmaku;
+                    if (type.equals("danmaku")) {
+                        danmaku = new NormalDanmaku(EntityTypeRegistry.DANMAKU.get(), level(), 0.25F, new Color(arrayList.get(num).color));
+                    }   else {
+                        danmaku = new StarDanmaku(EntityTypeRegistry.STAR_DANMAKU.get(), level());
+                    }
+                    danmaku.setIsTick(false);
+                    danmakuArrayList.add(danmaku);
+                    danmaku.moveTo(this.getX() + arrayList.get(num).x,this.getY() + arrayList.get(num).z,this.getZ() + arrayList.get(num).y);
+                    level().addFreshEntity(danmaku);
+                    if (num == arrayList.size() - 2) isShoot = true;
                 }
-                danmaku.setIsTick(false);
-                danmakuArrayList.add(danmaku);
-                danmaku.moveTo(this.getX() + arrayList.get(num).x,this.getY() + arrayList.get(num).z,this.getZ() + arrayList.get(num).y);
-                level().addFreshEntity(danmaku);
-                if (num == arrayList.size() - 2) isShoot = true;
             }
             if (isShoot) {
                 danmakuArrayList.forEach((danmaku -> danmaku.shootFromRotation(XRot,YRot,0, 1,0,false)));
