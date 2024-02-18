@@ -4,6 +4,7 @@ on:
     paths:
       - 'src/**'
       - 'build.gradle'
+      - 'gradle.properties'
 jobs:
   build:
     runs-on: ubuntu-22.04
