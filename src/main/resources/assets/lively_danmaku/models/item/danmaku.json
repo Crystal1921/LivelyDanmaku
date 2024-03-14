@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "lively_danmaku:item/danmaku"
+    "layer0": "lively_danmaku:item/danmaku_in",
+    "layer1": "lively_danmaku:item/danmaku_out"
   }
 }

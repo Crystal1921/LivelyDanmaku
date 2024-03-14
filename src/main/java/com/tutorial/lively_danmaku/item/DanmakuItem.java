@@ -47,6 +47,13 @@ public class DanmakuItem extends Item {
         return InteractionResultHolder.sidedSuccess(itemstack, level.isClientSide());
     }
 
+    public int getColor(ItemStack itemStack) {
+        if (itemStack.getOrCreateTag().get("danmaku_color") != null) {
+            return Integer.parseInt(String.valueOf(itemStack.getOrCreateTag().get("danmaku_color")));
+        }
+        else return Color.WHITE.getRGB();
+    }
+
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> list, @NotNull TooltipFlag flags) {
