@@ -23,17 +23,16 @@ public class FumoTableRender implements BlockEntityRenderer<FumoTableTE> {
     public FumoTableRender(BlockEntityRendererProvider.Context renderer) {
     }
     @Override
-    public void render(@NotNull FumoTableTE fumoTable, float partialTicks, PoseStack ms, @NotNull MultiBufferSource buffer, int light, int overlay) {
-        ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-        AtomicReference<ItemStack> itemStack = new AtomicReference<>(ItemStack.EMPTY);
-        fumoTable.getCapability(ForgeCapabilities.ITEM_HANDLER)
-                .ifPresent(iItemHandler -> itemStack.set(iItemHandler.getStackInSlot(0)));
-        BakedModel bakedmodel = itemRenderer.getModel(itemStack.get(), fumoTable.getLevel(), null, 1);
-        float tick = Objects.requireNonNull(fumoTable.getLevel()).getGameTime() * 4;
-        ms.pushPose();
-        ms.translate(0.5, 1 + Math.sin(Math.toRadians((double) tick * 0.5)) * 0.15,0.5);
-        ms.mulPose(Axis.YP.rotationDegrees(tick));
-        itemRenderer.render(itemStack.get(), ItemDisplayContext.GROUND, false, ms, buffer, LightTexture.pack(15, 15), OverlayTexture.NO_OVERLAY, bakedmodel);
-        ms.popPose();
+    public void render(@NotNull FumoTableTE pBlockEntity, float pPartialTick, PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int light, int pPackedOverlay) {
+        ItemStack theItem = pBlockEntity.theItem;
+        if (!theItem.isEmpty()) {
+            float rotation = pBlockEntity.getLevel().getGameTime() % 360 + pPartialTick;
+            pPoseStack.pushPose();
+            pPoseStack.translate(0.5, 1, 0.5);
+            pPoseStack.scale(0.625F, 0.625F, 0.625F);
+            pPoseStack.mulPose(Axis.YP.rotationDegrees(rotation * 2));
+            Minecraft.getInstance().getItemRenderer().renderStatic(pBlockEntity.theItem, ItemDisplayContext.FIXED, LightTexture.FULL_BRIGHT, pPackedOverlay, pPoseStack, pBuffer, pBlockEntity.getLevel (), (int) pBlockEntity.getBlockPos().asLong());
+            pPoseStack.popPose();
+        }
     }
 }

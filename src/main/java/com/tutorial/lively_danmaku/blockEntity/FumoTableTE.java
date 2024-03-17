@@ -5,7 +5,11 @@ import com.tutorial.lively_danmaku.init.BlockEntityTypeRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -23,67 +27,97 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class FumoTableTE extends BlockEntity implements MenuProvider {
+public class FumoTableTE extends BlockEntity{
     protected final ContainerData data;
-    private final ItemStackHandler itemStackHandler = new ItemStackHandler(1);
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
-
+    public ItemStack theItem = ItemStack.EMPTY;
     public FumoTableTE(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityTypeRegistry.FUMO_TABLE.get(), pPos, pBlockState);
         this.data = new SimpleContainerData(1);
     }
 
-    public void setItem(ItemStack item) {
-        this.itemStackHandler.setStackInSlot(0,item);
+    final LazyOptional<IItemHandler> itemStackHandler = LazyOptional.of(() -> new IItemHandler() {
+        @Override
+        public int getSlots() {
+            return 1;
+        }
+
+        @NotNull
+        @Override
+        public ItemStack getStackInSlot(int slot) {
+            return theItem;
+        }
+
+        @NotNull
+        @Override
+        public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
+            return stack;
+        }
+
+        @NotNull
+        @Override
+        public ItemStack extractItem(int slot, int amount, boolean simulate) {
+            ItemStack copy = theItem.copy();
+            copy.setCount(amount);
+            return copy;
+        }
+
+        @Override
+        public int getSlotLimit(int slot) {
+            return 1;
+        }
+
+        @Override
+        public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+            return false;
+        }
+    });
+
+    @Override
+    protected void saveAdditional(CompoundTag tag) {
+        tag.put("item", this.theItem.save(new CompoundTag()));
+        super.saveAdditional(tag);
     }
 
-    public ItemStack getItem () {
-        return this.itemStackHandler.getStackInSlot(0);
-    }
     @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemStackHandler);
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        this.theItem = ItemStack.of(tag.getCompound("item"));
     }
+
     @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        lazyItemHandler.invalidate();
+    public CompoundTag getUpdateTag() {
+        var tag = new CompoundTag();
+        tag.put("item", this.theItem.save(new CompoundTag()));
+        return tag;
     }
+
     @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+    public void handleUpdateTag(CompoundTag tag) {
+        this.theItem = ItemStack.of(tag.getCompound("item"));
+    }
+
+    @javax.annotation.Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
+        super.onDataPacket(net, pkt);
+        this.handleUpdateTag(pkt.getTag());
+    }
+
+    @Override
+    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @org.jetbrains.annotations.Nullable Direction side) {
         if (cap == ForgeCapabilities.ITEM_HANDLER) {
-            return lazyItemHandler.cast();
+            return itemStackHandler.cast();
         }
         return super.getCapability(cap, side);
     }
-
-    public void setHandler(ItemStackHandler itemStackHandler){
-        for(int i=0;i<itemStackHandler.getSlots();i++){
-            itemStackHandler.setStackInSlot(i,itemStackHandler.getStackInSlot(i));
-        }
-    }
-
     @Override
-    protected void saveAdditional(CompoundTag nbt) {
-        nbt.put("inventory",itemStackHandler.serializeNBT());
-        super.saveAdditional(nbt);
-    }
-
-    @Override
-    public void load(CompoundTag nbt) {
-        super.load(nbt);
-        itemStackHandler.deserializeNBT(nbt.getCompound("inventory"));
-    }
-
-    @Override
-    public @NotNull Component getDisplayName() {
-        return Component.translatable("ui.fumo_table");
-    }
-
-    @Nullable
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
-        return new FumoTableMenu(pContainerId,pPlayerInventory,this,this.data);
+    public void invalidateCaps() {
+        this.itemStackHandler.invalidate();
+        super.invalidateCaps();
     }
 }

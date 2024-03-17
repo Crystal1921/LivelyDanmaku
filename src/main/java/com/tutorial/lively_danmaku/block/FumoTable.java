@@ -35,37 +35,38 @@ public class FumoTable extends BaseEntityBlock {
     }
 
     public @NotNull InteractionResult use(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult result) {
-        if (level.isClientSide) {
-            return InteractionResult.SUCCESS;
-        } else {
-            ServerPlayer serverPlayer = (ServerPlayer) player;
-            BlockEntity blockEntity = level.getBlockEntity(blockPos);
-            if (blockEntity instanceof FumoTableTE fumoTable) {
-                if (player.isCreative() && player.isCrouching()) {
-                    NetworkHooks.openScreen(serverPlayer, fumoTable, blockPos );
-                } else if (fumoTable.getItem() != null) {
-                    ItemStack itemstack1 = fumoTable.getItem();
-                    boolean flag = serverPlayer.getInventory().add(itemstack1);
-                    if (flag && itemstack1.isEmpty()) {
-                        itemstack1.setCount(1);
-                        ItemEntity itemEntity1 = serverPlayer.drop(itemstack1, false);
-                        if (itemEntity1 != null) {
-                            itemEntity1.makeFakeItem();
-                        }
+        BlockEntity blockEntity = level.getBlockEntity(blockPos);
+        if (blockEntity instanceof FumoTableTE itemSupplier) {
+            if (itemSupplier.theItem.isEmpty() && player.getAbilities().instabuild) {
+                itemSupplier.theItem = player.getItemInHand(interactionHand).copy();
+                if (!level.isClientSide) {
+                    itemSupplier.setChanged();
+                    level.sendBlockUpdated(blockPos, blockState, blockState, Block.UPDATE_CLIENTS);
+                }
+            }   else if (!itemSupplier.theItem.isEmpty() && !player.isCrouching() && !level.isClientSide) {
+                ServerPlayer serverPlayer = (ServerPlayer) player;
+                ItemStack itemstack1 = itemSupplier.theItem;
+                boolean flag = serverPlayer.getInventory().add(itemstack1);
+                if (flag && itemstack1.isEmpty()) {
+                    itemstack1.setCount(1);
+                    ItemEntity itemEntity1 = serverPlayer.drop(itemstack1, false);
+                    if (itemEntity1 != null) {
+                        itemEntity1.makeFakeItem();
+                    }
 
-                        serverPlayer.level().playSound((Player)null, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.2F, ((serverPlayer.getRandom().nextFloat() - serverPlayer.getRandom().nextFloat()) * 0.7F + 1.0F) * 2.0F);
-                        serverPlayer.containerMenu.broadcastChanges();
-                    } else {
-                        ItemEntity itementity = serverPlayer.drop(itemstack1, false);
-                        if (itementity != null) {
-                            itementity.setNoPickUpDelay();
-                            itementity.setTarget(serverPlayer.getUUID());
-                        }
+                    serverPlayer.level().playSound(null, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.2F, ((serverPlayer.getRandom().nextFloat() - serverPlayer.getRandom().nextFloat()) * 0.7F + 1.0F) * 2.0F);
+                    serverPlayer.containerMenu.broadcastChanges();
+                } else {
+                    ItemEntity itementity = serverPlayer.drop(itemstack1, false);
+                    if (itementity != null) {
+                        itementity.setNoPickUpDelay();
+                        itementity.setTarget(serverPlayer.getUUID());
                     }
                 }
-            }   else throw new IllegalStateException("Our Container provider is missing");
-            return InteractionResult.CONSUME;
+            }
+            return InteractionResult.SUCCESS;
         }
+        return InteractionResult.PASS;
     }
 
     @Nullable
