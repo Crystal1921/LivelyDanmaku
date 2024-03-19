@@ -23,7 +23,7 @@ public class FumoTableRender implements BlockEntityRenderer<FumoTableTE> {
     public FumoTableRender(BlockEntityRendererProvider.Context renderer) {
     }
     @Override
-    public void render(@NotNull FumoTableTE pBlockEntity, float pPartialTick, PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int light, int pPackedOverlay) {
+    public void render(@NotNull FumoTableTE pBlockEntity, float pPartialTick, @NotNull PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int light, int pPackedOverlay) {
         ItemStack theItem = pBlockEntity.theItem;
         if (!theItem.isEmpty()) {
             float rotation = pBlockEntity.getLevel().getGameTime() % 360 + pPartialTick;

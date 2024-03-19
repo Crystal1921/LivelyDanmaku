@@ -17,7 +17,6 @@ public class player extends PathfinderMob {
     public static final EntityDataAccessor<Boolean> EASTER_EGG = SynchedEntityData.defineId(player.class, EntityDataSerializers.BOOLEAN);
     public player(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
-        this.fixupDimensions();
     }
     public static AttributeSupplier.Builder registerAttributes() {
         return Mob.createMobAttributes()

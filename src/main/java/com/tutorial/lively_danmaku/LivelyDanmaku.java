@@ -29,6 +29,8 @@ public class LivelyDanmaku {
         LivelyDanmakuGroup.TABS.register(eventBus);
         eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
         bind(eventBus,Registries.SOUND_EVENT,SoundRegistry::init);
+        //TODO 完善合成配方
+        //TODO 配套原作音效
     }
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(Utils.MOD_ID, name.toLowerCase(Locale.ROOT));
