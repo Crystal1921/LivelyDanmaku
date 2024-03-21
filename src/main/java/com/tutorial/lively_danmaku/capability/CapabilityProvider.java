@@ -14,22 +14,22 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 
 public class CapabilityProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-    public static Capability<FlyCapability> FLY = CapabilityManager.get(new CapabilityToken<>() {});
-    private FlyCapability flyCapability = null;
+    public static Capability<PowerCapability> POWER = CapabilityManager.get(new CapabilityToken<>() {});
+    private PowerCapability powerCapability = null;
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction direction) {
-        if (capability == FLY) {
+        if (capability == POWER) {
             return LazyOptional.of(this::createCapability).cast();
         }
         return LazyOptional.empty();
     }
 
     @Nonnull
-    private FlyCapability createCapability() {
-        if (flyCapability == null) {
-            this.flyCapability = new FlyCapability();
+    private PowerCapability createCapability() {
+        if (powerCapability == null) {
+            this.powerCapability = new PowerCapability();
         }
-        return flyCapability;
+        return powerCapability;
     }
 
     @Override
