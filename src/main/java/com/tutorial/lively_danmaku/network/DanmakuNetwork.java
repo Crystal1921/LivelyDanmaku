@@ -1,11 +1,14 @@
 package com.tutorial.lively_danmaku.network;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 import java.util.Optional;
@@ -25,5 +28,13 @@ public class DanmakuNetwork {
                 Optional.of(NetworkDirection.PLAY_TO_SERVER));
         CHANNEL.registerMessage(3, ColorPacket.class, ColorPacket::encode, ColorPacket::decode, ColorPacket::handleOnServer,
                 Optional.of(NetworkDirection.PLAY_TO_SERVER));
+        CHANNEL.registerMessage(4, CapabilityC2SPacket.class, CapabilityC2SPacket::encode, CapabilityC2SPacket::decode, CapabilityC2SPacket::handleOnServer,
+                Optional.of(NetworkDirection.PLAY_TO_SERVER));
+        CHANNEL.registerMessage(5, CapabilityS2CPacket.class, CapabilityS2CPacket::encode, CapabilityS2CPacket::decode, CapabilityS2CPacket::handleOnClient,
+                Optional.of(NetworkDirection.PLAY_TO_CLIENT));
+    }
+
+    public static void sendToClient(Object message, Player player) {
+        CHANNEL.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), message);
     }
 }

@@ -6,6 +6,9 @@ import com.tutorial.lively_danmaku.capability.PowerCapability;
 import com.tutorial.lively_danmaku.init.DamageTypeRegistry;
 import com.tutorial.lively_danmaku.init.EnchantmentRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
+import com.tutorial.lively_danmaku.network.CapabilityS2CPacket;
+import com.tutorial.lively_danmaku.network.DanmakuNetwork;
+import com.tutorial.lively_danmaku.network.CapabilityC2SPacket;
 import net.minecraft.network.protocol.game.ClientboundPlayerAbilitiesPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -14,11 +17,15 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber
@@ -32,6 +39,37 @@ public class EventListener {
             if (level >= 0) {
                 event.setAmount(event.getAmount() * Math.max((1 - level * 0.25F),0));
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerCloned(PlayerEvent.Clone event) {
+        Player original = event.getOriginal();
+        Player newPlayer = event.getEntity();
+        original.reviveCaps();
+        LazyOptional<PowerCapability> oldCap = original.getCapability(CapabilityProvider.POWER);
+        LazyOptional<PowerCapability> newCap = newPlayer.getCapability(CapabilityProvider.POWER);
+        newCap.ifPresent((newPower) -> oldCap.ifPresent((oldPower) -> {
+            if (event.isWasDeath()) {
+                newPower.setPower(oldPower.getPower() - 1);
+            } else {
+                newPower.copyFrom(oldPower);
+            }
+        }));
+        original.invalidateCaps();
+    }
+
+    @SubscribeEvent
+    public static void playerTickEvent(TickEvent.PlayerTickEvent event) {
+        Player player = event.player;
+        if (event.side == LogicalSide.SERVER && event.phase == TickEvent.Phase.END) {
+            LazyOptional<PowerCapability> Cap = player.getCapability(CapabilityProvider.POWER);
+            Cap.ifPresent(powerCapability -> {
+                if(powerCapability.isChanged()) {
+                    DanmakuNetwork.sendToClient(new CapabilityS2CPacket(powerCapability.getPower()),player);
+                    powerCapability.setChanged(false);
+                }
+            });
         }
     }
 
@@ -59,7 +97,7 @@ public class EventListener {
     public static void onAttachment (AttachCapabilitiesEvent<Entity> event) {
         if(event.getObject() instanceof Player player) {
             if(!player.getCapability(CapabilityProvider.POWER).isPresent()) {
-                event.addCapability(new ResourceLocation(Utils.MOD_ID,"fly"),new CapabilityProvider());
+                event.addCapability(new ResourceLocation(Utils.MOD_ID,"power"),new CapabilityProvider());
             }
         }
     }

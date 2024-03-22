@@ -107,8 +107,9 @@ public class ItemHakureiGohei extends BowItem {
         list.add(Component.translatable("hakurei_gohei.speed").withStyle(ChatFormatting.YELLOW).append(" : " + stack.getOrCreateTag().getInt("crystal_speed")));
         list.add(Component.translatable("hakurei_gohei.amount").withStyle(ChatFormatting.GOLD).append(" : " + stack.getOrCreateTag().getInt("crystal_amount")));
         if (stack.getOrCreateTag().get("crystal_distribution") != null) {
+            String string = stack.getOrCreateTag().get("crystal_distribution").toString();
             for (int i = 0; i < 9; i++) {
-                list.add(Component.translatable(Component.EMPTY.getString()).append(format_NBT(stack.getOrCreateTag().get("crystal_distribution").toString().substring(i * 9 + 1, i * 9 + 10))));
+                list.add(Component.translatable(Component.EMPTY.getString()).append(format_NBT(string.substring(i * 9 + 1, i * 9 + 10))));
             }
         }
     }
