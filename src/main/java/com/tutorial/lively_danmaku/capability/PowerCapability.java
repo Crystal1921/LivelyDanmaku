@@ -10,16 +10,13 @@ public class PowerCapability {
     public float getPower() {
         return this.power;
     }
-    public void addPower(float add) {
-        this.power += add;
-        markChanged();
-    }
+
     public void setPower(float power) {
         this.power = Mth.clamp(power, 0, MAX_POWER);
         markChanged();
     }
 
-    private void markChanged() {
+    public void markChanged() {
         this.isChanged = true;
     }
 

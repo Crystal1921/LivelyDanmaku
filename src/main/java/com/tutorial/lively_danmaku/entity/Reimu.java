@@ -63,7 +63,7 @@ public class Reimu extends PathfinderMob {
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, player.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, FakePlayer.class, true));
     }
     @Override
     public void tick() {

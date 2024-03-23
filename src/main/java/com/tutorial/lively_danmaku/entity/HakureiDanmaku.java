@@ -1,6 +1,8 @@
 package com.tutorial.lively_danmaku.entity;
 
 import com.tutorial.lively_danmaku.init.ItemRegistry;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -67,6 +69,9 @@ public class HakureiDanmaku extends AbstractDanmaku {
     @Override
     public void tick() {
         super.tick();
+        if (this.level() instanceof ClientLevel clientLevel) {
+            clientLevel.addParticle(ParticleTypes.END_ROD,this.getX(),this.getY(),this.getZ(),0,0,0);
+        }
         if (this.getEntityData().get(BULLET_STAGE) == 1) {
             time++;
             if (!isPlayerShoot) {

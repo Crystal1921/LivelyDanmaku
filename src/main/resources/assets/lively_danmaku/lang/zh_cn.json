@@ -83,5 +83,8 @@
   "patchouli.lively_danmaku.danmaku_emitter": "弹幕发射台",
   "patchouli.lively_danmaku.danmaku_emitter.describe": "给热爱炸服的玩家准备的（大雾）。非常简单易懂的弹幕发射台，只需把御币放到发射台中，即可定时发射弹幕。频率意思为多少游戏刻进行一次发射。",
   "patchouli.lively_danmaku.danmaku_import": "弹幕导入台",
-  "patchouli.lively_danmaku.danmaku_import.describe": "可以在本地根目录的danmaku_image文件夹中放入你想要的文件，然后放入早苗御币后可以将图片将某一颜色取样后形成弹幕点阵导入进御币中。"
+  "patchouli.lively_danmaku.danmaku_import.describe": "可以在本地根目录的danmaku_image文件夹中放入你想要的文件，然后放入早苗御币后可以将图片将某一颜色取样后形成弹幕点阵导入进御币中。",
+  "chat.lively_danmaku.easter_egg": "你找到了彩蛋，这是米斯蒂娅·萝蕾拉（Mystia Lorelei），由鸫鸟师傅（armadillo_core_）绘制",
+  "ui.danmaku_import.simple": "单色提取",
+  "ui.danmaku_import.colorful": "彩色"
 }

@@ -3,7 +3,7 @@ package com.tutorial.lively_danmaku.entity.model;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.tutorial.lively_danmaku.entity.player;
+import com.tutorial.lively_danmaku.entity.FakePlayer;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -12,7 +12,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.HumanoidArm;
 import org.jetbrains.annotations.NotNull;
 
-public class PlayerModel<T extends player> extends HumanoidModel<T> {
+public class PlayerModel<T extends FakePlayer> extends HumanoidModel<T> {
     public final ModelPart leftSleeve;
     public final ModelPart rightSleeve;
     public final ModelPart leftPants;
