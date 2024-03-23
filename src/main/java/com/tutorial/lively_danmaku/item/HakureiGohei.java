@@ -1,5 +1,6 @@
 package com.tutorial.lively_danmaku.item;
 
+import com.tutorial.lively_danmaku.capability.CapabilityProvider;
 import com.tutorial.lively_danmaku.entity.NormalDanmaku;
 import com.tutorial.lively_danmaku.entity.StarDanmaku;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
@@ -20,12 +21,11 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.List;
-import java.util.Random;
 
 import static java.lang.Math.log;
 
-public class ItemHakureiGohei extends BowItem {
-    public ItemHakureiGohei() {
+public class HakureiGohei extends BowItem {
+    public HakureiGohei() {
         super(new Properties()
                 .durability(500));
     }
@@ -98,6 +98,7 @@ public class ItemHakureiGohei extends BowItem {
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         player.startUsingItem(hand);
+        player.getCapability(CapabilityProvider.POWER).ifPresent(powerCapability -> powerCapability.setPower(powerCapability.getPower() - 0.02F));
         return InteractionResultHolder.consume(itemstack);
     }
     @Override

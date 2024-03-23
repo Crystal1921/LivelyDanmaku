@@ -23,13 +23,14 @@ public class FiveStarEmitter extends Projectile {
         super(entityType, level);
     }
 
-    public FiveStarEmitter(EntityType<? extends Projectile> entityType, Level level, ArrayList<ColorPoint> arrayList, float XRot, float YRot, String string) {
+    public FiveStarEmitter(EntityType<? extends Projectile> entityType, Level level, ArrayList<ColorPoint> arrayList, float XRot, float YRot, String string,int cycleNum) {
         super(entityType, level);
         this.arrayList = arrayList;
         this.isDrawStar = true;
         this.XRot = XRot;
         this.YRot = YRot;
         this.type = string;
+        this.cycleNum = cycleNum;
     }
 
     @Override

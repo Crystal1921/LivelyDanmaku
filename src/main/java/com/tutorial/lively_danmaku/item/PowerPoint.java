@@ -13,10 +13,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Supplier;
-
-public class P_Point extends Item {
-    public P_Point(Properties properties,int nutrition) {
+public class PowerPoint extends Item {
+    public PowerPoint(Properties properties, int nutrition) {
         super(properties.food(new FoodProperties.Builder()
                         .nutrition(nutrition)
                         .saturationMod(0.3F)
@@ -29,10 +27,17 @@ public class P_Point extends Item {
     @Override
     public @NotNull ItemStack finishUsingItem(@NotNull ItemStack pStack, @NotNull Level pLevel, @NotNull LivingEntity pEntityLiving) {
         if (pEntityLiving instanceof Player player && pLevel.isClientSide) {
-            float nutrition = this.getFoodProperties().getNutrition();
+            float nutrition;
+            FoodProperties foodProperties = this.getFoodProperties();
+            if (foodProperties != null) {
+                nutrition = foodProperties.getNutrition();
+            } else {
+                nutrition = 1;
+            }
+
             player.getCapability(CapabilityProvider.POWER)
                     .ifPresent(powerCapability
-                            -> DanmakuNetwork.CHANNEL.sendToServer(new CapabilityC2SPacket(powerCapability.getPower() + nutrition * 0.1F)));
+                            -> DanmakuNetwork.CHANNEL.sendToServer(new CapabilityC2SPacket(powerCapability.getPower() + nutrition * 0.05F)));
         }
         return super.finishUsingItem(pStack,pLevel,pEntityLiving);
     }

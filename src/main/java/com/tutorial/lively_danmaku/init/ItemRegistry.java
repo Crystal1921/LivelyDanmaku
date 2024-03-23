@@ -13,15 +13,15 @@ import static com.tutorial.lively_danmaku.init.BlockRegistry.*;
 
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Utils.MOD_ID);
-    public static final RegistryObject<Item> HakureiGohei = ITEMS.register("hakurei_gohei", ItemHakureiGohei::new);
-    public static final RegistryObject<Item> SanaeGohei = ITEMS.register("sanae_gohei", ItemSanaeGohei::new);
-    public static final RegistryObject<Item> ItemMiniHakkero = ITEMS.register("mini_hakkero", ItemMiniHakkero::new);
+    public static final RegistryObject<Item> HakureiGohei = ITEMS.register("hakurei_gohei", com.tutorial.lively_danmaku.item.HakureiGohei::new);
+    public static final RegistryObject<Item> SanaeGohei = ITEMS.register("sanae_gohei", com.tutorial.lively_danmaku.item.SanaeGohei::new);
+    public static final RegistryObject<Item> ItemMiniHakkero = ITEMS.register("mini_hakkero", MiniHakkero::new);
     public static final RegistryObject<Item> ReimuHeaddress = ITEMS.register("reimu_headdress", () -> new ReimuHeaddress(ArmorMaterials.IRON, ArmorItem.Type.HELMET , new Item.Properties()));
     public static final RegistryObject<Item> ItemDanmaku = ITEMS.register("danmaku", () -> new DanmakuItem(new Item.Properties()));
     public static final RegistryObject<Item> ItemStarDanmaku = ITEMS.register("star_danmaku", () -> new StarDanmakuItem(new Item.Properties()));
     public static final RegistryObject<Item> HakureiBulletDanmaku = ITEMS.register("hakurei_danmaku", () -> new HakureiDanmakuItem(new Item.Properties()));
-    public static final RegistryObject<Item> P_Point = ITEMS.register("p_point", () -> new P_Point(new Item.Properties(),6));
-    public static final RegistryObject<Item> red_Point = ITEMS.register("red_point", () -> new P_Point(new Item.Properties(),3));
+    public static final RegistryObject<Item> P_Point = ITEMS.register("p_point", () -> new PowerPoint(new Item.Properties(),6));
+    public static final RegistryObject<Item> red_Point = ITEMS.register("red_point", () -> new PowerPoint(new Item.Properties(),3));
     public static final RegistryObject<Item> ReimuItem = ITEMS.register("reimu_item", () -> new BlockItem(REIMU_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> DanmakuTableItem = ITEMS.register("danmaku_table", () -> new BlockItem(DANMAKU_TABLE.get(), new Item.Properties()));
     public static final RegistryObject<Item> AdvancedDanmakuTableItem = ITEMS.register("advanced_danmaku_table", () -> new BlockItem(ADVANCED_DANMAKU_TABLE.get(), new Item.Properties()));

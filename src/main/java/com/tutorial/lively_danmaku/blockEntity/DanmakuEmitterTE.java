@@ -3,8 +3,8 @@ package com.tutorial.lively_danmaku.blockEntity;
 import com.tutorial.lively_danmaku.gui.menu.EmitterMenu;
 import com.tutorial.lively_danmaku.init.BlockEntityTypeRegistry;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
-import com.tutorial.lively_danmaku.item.ItemHakureiGohei;
-import com.tutorial.lively_danmaku.item.ItemSanaeGohei;
+import com.tutorial.lively_danmaku.item.HakureiGohei;
+import com.tutorial.lively_danmaku.item.SanaeGohei;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -43,11 +43,11 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
         if (danmakuEmitterTE.countTick >= danmakuEmitterTE.freq){
             danmakuEmitterTE.countTick = 0;
             if (itemStack.is(ItemRegistry.HakureiGohei.get())) {
-                ItemHakureiGohei item = (ItemHakureiGohei) itemStack.getItem();
+                HakureiGohei item = (HakureiGohei) itemStack.getItem();
                 item.HakureiShoot(itemStack, level, null, pos.getX() + danmakuEmitterTE.deltaX,pos.getY() + danmakuEmitterTE.deltaY,pos.getZ() + danmakuEmitterTE.deltaZ, danmakuEmitterTE.XRot, danmakuEmitterTE.YRot,false);
             } else if (itemStack.is(ItemRegistry.SanaeGohei.get())) {
-                ItemSanaeGohei item = (ItemSanaeGohei) itemStack.getItem();
-                item.SanaeShoot(level,itemStack,danmakuEmitterTE.XRot,danmakuEmitterTE.YRot,pos.getX(),pos.getY(),pos.getZ());
+                SanaeGohei item = (SanaeGohei) itemStack.getItem();
+                item.SanaeShoot(level,itemStack,danmakuEmitterTE.XRot,danmakuEmitterTE.YRot,pos.getX(),pos.getY(),pos.getZ(),2);
             }
         }
     }

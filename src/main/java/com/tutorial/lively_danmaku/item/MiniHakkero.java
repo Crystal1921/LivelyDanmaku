@@ -15,9 +15,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
-public class ItemMiniHakkero extends BowItem {
+public class MiniHakkero extends BowItem {
     Random random = new Random();
-    public ItemMiniHakkero() {
+    public MiniHakkero() {
         super(new Properties()
                 .durability(500));
     }
@@ -43,7 +43,7 @@ public class ItemMiniHakkero extends BowItem {
         }
     }
 
-    public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pRemainingUseDuration) {
+    public void onUseTick(@NotNull Level pLevel, @NotNull LivingEntity pLivingEntity, @NotNull ItemStack pStack, int pRemainingUseDuration) {
         if (pLevel instanceof ClientLevel){
             for (int i = 0; i < 10; i++) {
                 double distance = i + 1.5; // 距离玩家的距离
