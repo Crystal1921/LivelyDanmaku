@@ -18,7 +18,6 @@ public class MenuRegistry {
     public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, Utils.MOD_ID);
     public static final RegistryObject<MenuType<DanmakuMenu>> DANMAKU_CRAFT = registerMenuType(DanmakuMenu::new, "danmaku_craft");
     public static final RegistryObject<MenuType<AdvancedDanmakuMenu>> ADVANCED_DANMAKU_TABLE = registerMenuType(AdvancedDanmakuMenu::new,"advanced_danmaku_craft" );
-    public static final RegistryObject<MenuType<FumoTableMenu>> FUMO_TABLE = registerMenuType(FumoTableMenu::new, "fumo_table");
     public static final RegistryObject<MenuType<EmitterMenu>> EMITTER_MENU = registerMenuType(EmitterMenu::new, "danmaku_emitter");
     public static final RegistryObject<MenuType<DanmakuImportMenu>> IMPORT_MENU = registerMenuType(DanmakuImportMenu::new, "danmaku_import");
     public static final RegistryObject<MenuType<DanmakuColorMenu>> COLOR_MENU = registerMenuType(DanmakuColorMenu::new,"danmaku_color");
@@ -28,7 +27,6 @@ public class MenuRegistry {
     @OnlyIn(Dist.CLIENT)
     public static void renderScreens() {
         MenuScreens.register(DANMAKU_CRAFT.get(), DanmakuScreen::new);
-        MenuScreens.register(FUMO_TABLE.get(), FumoTableScreen::new);
         MenuScreens.register(ADVANCED_DANMAKU_TABLE.get(), AdvancedDanmakuScreen::new);
         MenuScreens.register(EMITTER_MENU.get(), EmitterScreen::new);
         MenuScreens.register(IMPORT_MENU.get(), DanmakuImportScreen::new);

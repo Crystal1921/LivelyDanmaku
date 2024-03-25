@@ -10,36 +10,23 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import org.jetbrains.annotations.NotNull;
 
-public class EmitterMenu extends AbstractDanmakuMenu {
-    private final DanmakuEmitterTE danmakuEmitterTE;
+public class EmitterMenu extends AbstractTEBaseMenu<DanmakuEmitterTE> {
     private final ContainerLevelAccess access;
     public EmitterMenu(int id, Inventory inventory, FriendlyByteBuf buf) {
         this(id,inventory, inventory.player.level().getBlockEntity(buf.readBlockPos()),new SimpleContainer(2));
     }
 
     public EmitterMenu(int id, Inventory inventory, BlockEntity blockEntity, Container container) {
-        super(MenuRegistry.EMITTER_MENU.get(),id);
+        super(MenuRegistry.EMITTER_MENU.get(),(DanmakuEmitterTE) blockEntity,id,1);
         this.access = ContainerLevelAccess.NULL;
-        this.danmakuEmitterTE = (DanmakuEmitterTE) blockEntity;
         this.addSlot(new Slot(container,0,25,27));
-        for(int i = 0; i < 3; ++i) {
-            for(int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-            }
-        }
-
-        for(int k = 0; k < 9; ++k) {
-            this.addSlot(new Slot(inventory, k, 8 + k * 18, 142));
-        }
-    }
-
-    public DanmakuEmitterTE getDanmakuEmitterTE () {
-        return this.danmakuEmitterTE;
+        addPlayerInventory(inventory,8,84,142);
     }
 
     @Override
-    public boolean stillValid(Player pPlayer) {
+    public boolean stillValid(@NotNull Player pPlayer) {
         return stillValid(this.access, pPlayer, BlockRegistry.DANMAKU_EMITTER.get());
     }
 }

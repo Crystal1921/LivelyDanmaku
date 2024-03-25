@@ -13,7 +13,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-public class DanmakuColorMenu extends AbstractDanmakuMenu{
+public class DanmakuColorMenu extends AbstractBaseMenu{
     private final ContainerLevelAccess access;
     private int rgb;
     private final Container container = new SimpleContainer(1) {
@@ -26,7 +26,7 @@ public class DanmakuColorMenu extends AbstractDanmakuMenu{
         this(id,inventory,ContainerLevelAccess.NULL);
     }
     public DanmakuColorMenu(int id, Inventory inventory, ContainerLevelAccess access) {
-        super(MenuRegistry.COLOR_MENU.get(),id);
+        super(MenuRegistry.COLOR_MENU.get(),id,1);
         this.access = access;
         this.addSlot(new Slot(container,0,25,27){
             public boolean mayPlace(@NotNull ItemStack itemStack) {

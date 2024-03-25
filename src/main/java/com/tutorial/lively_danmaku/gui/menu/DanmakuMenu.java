@@ -8,7 +8,6 @@ import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
@@ -17,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 
-public class DanmakuMenu extends AbstractContainerMenu {
+public class DanmakuMenu extends AbstractBaseMenu {
     private final ContainerLevelAccess access;
     public final int[] isFull = new int[3];
     private final Container container = new SimpleContainer(120) {
@@ -32,7 +31,7 @@ public class DanmakuMenu extends AbstractContainerMenu {
     }
 
     public DanmakuMenu(int id, Inventory inventory,ContainerLevelAccess access) {
-        super(MenuRegistry.DANMAKU_CRAFT.get(),id);
+        super(MenuRegistry.DANMAKU_CRAFT.get(),id,4);
         this.access = access;
         this.addSlot(new Slot(this.container, 0, 0, 19) {
             public boolean mayPlace(@NotNull ItemStack itemStack) {
@@ -53,15 +52,7 @@ public class DanmakuMenu extends AbstractContainerMenu {
                 return itemStack.is(ItemRegistry.P_Point.get());
             }
         });
-        for(int i = 0; i < 3; ++i) {
-            for(int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(inventory, j + i * 9 + 9, -72 + j * 18, 84 + i * 18));
-            }
-        }
-
-        for(int k = 0; k < 9; ++k) {
-            this.addSlot(new Slot(inventory, k, -72 + k * 18, 142));
-        }
+        addPlayerInventory(inventory,-72,84,142);
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -85,21 +76,21 @@ public class DanmakuMenu extends AbstractContainerMenu {
             return false;
         }   else {
             this.access.execute((level,blockPos) -> {
-                StringBuilder postion = new StringBuilder(81);
-                StringBuffer color = new StringBuffer();
+                StringBuilder position = new StringBuilder(81);
+                StringBuilder color = new StringBuilder();
                 for (int j = 39; j < 120; j++) {
                     ItemStack item = this.container.getItem(j);
                     if (item.is(ItemRegistry.ItemDanmaku.get())) {
-                        postion.append("1");
+                        position.append("1");
                         if (item.getOrCreateTag().get("danmaku_color") != null) {
                             color.append(item.getOrCreateTag().get("danmaku_color"));
                         } else color.append(Color.RED.getRGB());
                         color.append("#");
                     }   else if(item.is(ItemRegistry.ItemStarDanmaku.get())) {
-                        postion.append("2");
+                        position.append("2");
                     }   else
                     {
-                        postion.append("#");
+                        position.append("#");
                     }
                     this.container.setItem(j,ItemStack.EMPTY);
                 }
@@ -111,7 +102,7 @@ public class DanmakuMenu extends AbstractContainerMenu {
                     itemstack.getOrCreateTag().putInt("crystal_speed",itemStack2.getCount());
                     itemStack2.setCount(0);
                 }
-                itemstack.getOrCreateTag().putString("crystal_distribution",postion.toString());
+                itemstack.getOrCreateTag().putString("crystal_distribution",position.toString());
                 itemstack.getOrCreateTag().putString("crystal_color",color.toString());
                 this.container.setItem(0, itemstack);
             });
@@ -130,48 +121,6 @@ public class DanmakuMenu extends AbstractContainerMenu {
                 this.access.execute((level, blockPos) -> this.isFull[0] = 0);
             }
         }
-    }
-
-    @Override
-    public @NotNull ItemStack quickMoveStack(@NotNull Player player, int i) {
-        ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(i);
-        if (slot.hasItem()) {
-            ItemStack itemstack1 = slot.getItem();
-            itemstack = itemstack1.copy();
-            if (i >= 0 && i <= 3) {
-                if (!this.moveItemStackTo(itemstack1, 3, 39, true)) {
-                    return ItemStack.EMPTY;
-                }
-            } else if (itemstack1.is(ItemRegistry.P_Point.get()) || itemstack1.is(ItemRegistry.red_Point.get())) {
-                if (!this.moveItemStackTo(itemstack1, 1, 3, true)) {
-                    return ItemStack.EMPTY;
-                }
-            }
-            else {
-                if (this.slots.get(0).hasItem() || !this.slots.get(0).mayPlace(itemstack1)) {
-                    return ItemStack.EMPTY;
-                }
-
-                ItemStack itemstack2 = itemstack1.copyWithCount(1);
-                itemstack1.shrink(1);
-                this.slots.get(0).setByPlayer(itemstack2);
-            }
-
-            if (itemstack1.isEmpty()) {
-                slot.setByPlayer(ItemStack.EMPTY);
-            } else {
-                slot.setChanged();
-            }
-
-            if (itemstack1.getCount() == itemstack.getCount()) {
-                return ItemStack.EMPTY;
-            }
-
-            slot.onTake(player, itemstack1);
-        }
-
-        return itemstack;
     }
 
     @Override

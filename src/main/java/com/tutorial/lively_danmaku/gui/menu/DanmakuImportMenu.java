@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class DanmakuImportMenu extends AbstractDanmakuMenu {
+public class DanmakuImportMenu extends AbstractBaseMenu {
     private final ContainerLevelAccess access;
     private final Container container = new SimpleContainer(1) {
         public void setChanged() {
@@ -28,18 +28,10 @@ public class DanmakuImportMenu extends AbstractDanmakuMenu {
     }
 
     public DanmakuImportMenu(int id, Inventory inventory, ContainerLevelAccess access) {
-        super(MenuRegistry.IMPORT_MENU.get(),id);
+        super(MenuRegistry.IMPORT_MENU.get(),id,1);
         this.access = access;
         this.addSlot(new Slot(container,0,25,27));
-        for(int i = 0; i < 3; ++i) {
-            for(int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-            }
-        }
-
-        for(int k = 0; k < 9; ++k) {
-            this.addSlot(new Slot(inventory, k, 8 + k * 18, 142));
-        }
+        addPlayerInventory(inventory,8,84,142);
     }
 
     public void setItem(ArrayList<Long> arrayList) {

@@ -31,7 +31,7 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
     private boolean isRender;
     public EmitterScreen(EmitterMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
-        this.danmakuEmitterTE = pMenu.getDanmakuEmitterTE();
+        this.danmakuEmitterTE = pMenu.getBlock();
     }
 
     @Override

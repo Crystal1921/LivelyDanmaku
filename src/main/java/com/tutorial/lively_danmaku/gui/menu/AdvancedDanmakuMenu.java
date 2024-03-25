@@ -18,7 +18,7 @@ import java.util.Comparator;
 
 import static com.tutorial.lively_danmaku.util.MathMethod.merge;
 
-public class AdvancedDanmakuMenu extends AbstractContainerMenu {
+public class AdvancedDanmakuMenu extends AbstractBaseMenu {
     private final ContainerLevelAccess access;
     public ArrayList<ArrayList<Point>> pointList = new ArrayList<>();
     public final int[] isFull = new int[1];
@@ -34,7 +34,7 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
     }
 
     public AdvancedDanmakuMenu(int id, Inventory inventory, ContainerLevelAccess access) {
-        super(MenuRegistry.ADVANCED_DANMAKU_TABLE.get(),id);
+        super(MenuRegistry.ADVANCED_DANMAKU_TABLE.get(),id,4);
         this.access = access;
         this.addSlot(new Slot(this.container, 0, 0, 19) {
             public boolean mayPlace(@NotNull ItemStack itemStack) {
@@ -55,15 +55,9 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
                 return itemStack.is(ItemRegistry.P_Point.get());
             }
         });
-        for(int i = 0; i < 3; ++i) {
-            for(int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(inventory, j + i * 9 + 9, -72 + j * 18, 84 + i * 18));
-            }
-        }
 
-        for(int k = 0; k < 9; ++k) {
-            this.addSlot(new Slot(inventory, k, -72 + k * 18, 142));
-        }
+        addPlayerInventory(inventory,-72,84,142);
+
         this.addDataSlot(DataSlot.shared(isFull,0));
     }
 
@@ -110,48 +104,6 @@ public class AdvancedDanmakuMenu extends AbstractContainerMenu {
                 this.access.execute((level, blockPos) -> this.isFull[0] = 0);
             }
         }
-    }
-
-    @Override
-    public @NotNull ItemStack quickMoveStack(@NotNull Player player, int i) {
-        ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(i);
-        if (slot.hasItem()) {
-            ItemStack itemstack1 = slot.getItem();
-            itemstack = itemstack1.copy();
-            if (i >= 0 && i <= 3) {
-                if (!this.moveItemStackTo(itemstack1, 3, 39, true)) {
-                    return ItemStack.EMPTY;
-                }
-            } else if (itemstack1.is(ItemRegistry.P_Point.get()) || itemstack1.is(ItemRegistry.red_Point.get())) {
-                if (!this.moveItemStackTo(itemstack1, 1, 3, true)) {
-                    return ItemStack.EMPTY;
-                }
-            }
-            else {
-                if (this.slots.get(0).hasItem() || !this.slots.get(0).mayPlace(itemstack1)) {
-                    return ItemStack.EMPTY;
-                }
-
-                ItemStack itemstack2 = itemstack1.copyWithCount(1);
-                itemstack1.shrink(1);
-                this.slots.get(0).setByPlayer(itemstack2);
-            }
-
-            if (itemstack1.isEmpty()) {
-                slot.setByPlayer(ItemStack.EMPTY);
-            } else {
-                slot.setChanged();
-            }
-
-            if (itemstack1.getCount() == itemstack.getCount()) {
-                return ItemStack.EMPTY;
-            }
-
-            slot.onTake(player, itemstack1);
-        }
-
-        return itemstack;
     }
 
     @Override
