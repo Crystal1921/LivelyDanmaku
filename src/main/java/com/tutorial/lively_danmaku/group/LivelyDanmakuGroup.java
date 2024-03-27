@@ -28,9 +28,9 @@ public class LivelyDanmakuGroup {
                     output.accept(ItemRegistry.ReimuHeaddress.get());
                     output.accept(ItemRegistry.ItemDanmaku.get());
                     output.accept(ItemRegistry.ItemStarDanmaku.get());
-                    output.accept(ItemRegistry.P_Point.get());
+                    output.accept(ItemRegistry.BigPoint.get());
                     output.accept(ItemRegistry.HakureiBulletDanmaku.get());
-                    output.accept(ItemRegistry.red_Point.get());
+                    output.accept(ItemRegistry.SmallPoint.get());
                     output.accept(ItemRegistry.ReimuItem.get());
                     output.accept(ItemRegistry.FumoTable.get());
                     output.accept(ItemRegistry.DanmakuTableItem.get());

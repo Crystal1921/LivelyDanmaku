@@ -20,8 +20,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> ItemDanmaku = ITEMS.register("danmaku", () -> new DanmakuItem(new Item.Properties()));
     public static final RegistryObject<Item> ItemStarDanmaku = ITEMS.register("star_danmaku", () -> new StarDanmakuItem(new Item.Properties()));
     public static final RegistryObject<Item> HakureiBulletDanmaku = ITEMS.register("hakurei_danmaku", () -> new HakureiDanmakuItem(new Item.Properties()));
-    public static final RegistryObject<Item> P_Point = ITEMS.register("p_point", () -> new PowerPoint(new Item.Properties(),6));
-    public static final RegistryObject<Item> red_Point = ITEMS.register("red_point", () -> new PowerPoint(new Item.Properties(),3));
+    public static final RegistryObject<Item> BigPoint = ITEMS.register("big_point", () -> new PowerPoint(new Item.Properties(),6));
+    public static final RegistryObject<Item> SmallPoint = ITEMS.register("small_point", () -> new PowerPoint(new Item.Properties(),3));
     public static final RegistryObject<Item> ReimuItem = ITEMS.register("reimu_item", () -> new BlockItem(REIMU_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> DanmakuTableItem = ITEMS.register("danmaku_table", () -> new BlockItem(DANMAKU_TABLE.get(), new Item.Properties()));
     public static final RegistryObject<Item> AdvancedDanmakuTableItem = ITEMS.register("advanced_danmaku_table", () -> new BlockItem(ADVANCED_DANMAKU_TABLE.get(), new Item.Properties()));

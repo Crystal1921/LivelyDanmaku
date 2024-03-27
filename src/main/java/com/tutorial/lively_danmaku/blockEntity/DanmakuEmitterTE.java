@@ -37,7 +37,7 @@ public class DanmakuEmitterTE extends RandomizableContainerBlockEntity{
         super(BlockEntityTypeRegistry.DANMAKU_EMITTER.get(), pPos, pBlockState);
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state,DanmakuEmitterTE danmakuEmitterTE){
+    public static void tick(Level level, BlockPos pos, BlockState state, DanmakuEmitterTE danmakuEmitterTE){
         danmakuEmitterTE.countTick ++;
         ItemStack itemStack = danmakuEmitterTE.items.get(0);
         if (danmakuEmitterTE.countTick >= danmakuEmitterTE.freq){

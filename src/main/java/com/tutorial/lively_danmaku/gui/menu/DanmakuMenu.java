@@ -43,13 +43,13 @@ public class DanmakuMenu extends AbstractBaseMenu {
         });
         this.addSlot(new Slot(this.container, 1, -30, 49) {
             public boolean mayPlace(@NotNull ItemStack itemStack) {
-                return itemStack.is(ItemRegistry.red_Point.get());
+                return itemStack.is(ItemRegistry.SmallPoint.get());
             }
         });
         this.addSlot(new Slot(this.container, 2, 30, 49) {
             public int getMaxStackSize() { return 16;}
             public boolean mayPlace(@NotNull ItemStack itemStack) {
-                return itemStack.is(ItemRegistry.P_Point.get());
+                return itemStack.is(ItemRegistry.BigPoint.get());
             }
         });
         addPlayerInventory(inventory,-72,84,142);
@@ -78,7 +78,7 @@ public class DanmakuMenu extends AbstractBaseMenu {
             this.access.execute((level,blockPos) -> {
                 StringBuilder position = new StringBuilder(81);
                 StringBuilder color = new StringBuilder();
-                for (int j = 39; j < 120; j++) {
+                for (int j = 0; j < 82; j++) {
                     ItemStack item = this.container.getItem(j);
                     if (item.is(ItemRegistry.ItemDanmaku.get())) {
                         position.append("1");

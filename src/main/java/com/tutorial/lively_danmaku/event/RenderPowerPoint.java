@@ -30,13 +30,13 @@ public class RenderPowerPoint {
             }
             ItemStack stack = player.getMainHandItem();
             ItemStack helmet = player.getInventory().getArmor(3);
-            if (!(stack.is(ItemRegistry.HakureiGohei.get()) || stack.is(ItemRegistry.SanaeGohei.get()) || stack.is(ItemRegistry.P_Point.get()) || helmet.is(ItemRegistry.ReimuHeaddress.get()))) {
+            if (!(stack.is(ItemRegistry.HakureiGohei.get()) || stack.is(ItemRegistry.SanaeGohei.get()) || stack.is(ItemRegistry.BigPoint.get()) || helmet.is(ItemRegistry.ReimuHeaddress.get()))) {
                 return;
             }
             GuiGraphics graphics = event.getGuiGraphics();
             Font font = Minecraft.getInstance().font;
             if (POWER_POINT == null) {
-                POWER_POINT = ItemRegistry.P_Point.get().getDefaultInstance();
+                POWER_POINT = ItemRegistry.BigPoint.get().getDefaultInstance();
             }
             graphics.renderItem(POWER_POINT, 5, 5);
             player.getCapability(CapabilityProvider.POWER).ifPresent(cap -> graphics.drawString(font, String.format("%s×%.2f", ChatFormatting.BOLD, cap.getPower()), 20, 10, 0xffffff));

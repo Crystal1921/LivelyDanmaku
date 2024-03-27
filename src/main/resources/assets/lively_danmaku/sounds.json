@@ -8,5 +8,15 @@
         "stream": true
       }
     ]
+  },
+  "touhou_dead": {
+    "category": "player",
+    "sounds": [
+      {
+        "volume": 0.5,
+        "name": "lively_danmaku:touhou_dead",
+        "stream": true
+      }
+    ]
   }
 }

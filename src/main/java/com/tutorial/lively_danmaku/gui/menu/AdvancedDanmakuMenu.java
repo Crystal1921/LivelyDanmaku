@@ -52,7 +52,7 @@ public class AdvancedDanmakuMenu extends AbstractBaseMenu {
         this.addSlot(new Slot(this.container, 2, 30, 49) {
             public int getMaxStackSize() { return 16;}
             public boolean mayPlace(@NotNull ItemStack itemStack) {
-                return itemStack.is(ItemRegistry.P_Point.get());
+                return itemStack.is(ItemRegistry.BigPoint.get());
             }
         });
 
