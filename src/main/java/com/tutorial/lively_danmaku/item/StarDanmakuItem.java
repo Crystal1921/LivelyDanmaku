@@ -4,14 +4,22 @@ import com.tutorial.lively_danmaku.entity.StarDanmaku;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class StarDanmakuItem extends Item {
-    public StarDanmakuItem(Properties p_41383_) {
-        super(p_41383_);
+    public StarDanmakuItem(Properties properties) {
+        super(properties.food(new FoodProperties.Builder()
+                .nutrition(1)
+                .saturationMod(0.3F)
+                .fast()
+                .alwaysEat()
+                .build()));//儚月抄说魔理沙的星星弹幕是甜的
     }
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack itemstack = player.getItemInHand(interactionHand);

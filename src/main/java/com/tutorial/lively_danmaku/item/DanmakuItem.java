@@ -51,7 +51,7 @@ public class DanmakuItem extends Item {
         if (itemStack.getOrCreateTag().get("danmaku_color") != null) {
             return Integer.parseInt(String.valueOf(itemStack.getOrCreateTag().get("danmaku_color")));
         }
-        else return Color.WHITE.getRGB();
+        else return Color.PINK.getRGB();
     }
 
     @Override

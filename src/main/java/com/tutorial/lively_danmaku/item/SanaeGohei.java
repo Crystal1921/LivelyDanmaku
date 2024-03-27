@@ -31,7 +31,7 @@ public class SanaeGohei extends BowItem {
     private static final int RADIUS = 5;
     public SanaeGohei() {
         super(new Properties()
-                .durability(500));
+                .durability(817));//东风谷早苗第一次登场于东方风神录中，发售于2007年8月17日
         double angle = PI / 2.0;
         double deltaAngle = 4.0 * PI / NUM_POINTS;
         double x1 = RADIUS * cos(angle);
@@ -51,6 +51,7 @@ public class SanaeGohei extends BowItem {
     @Override
     public void releaseUsing(@NotNull ItemStack item, @NotNull Level level, @NotNull LivingEntity living, int i) {
         if (emitter != null) {
+            item.hurtAndBreak(1, living, (player1) -> player1.broadcastBreakEvent(living.getUsedItemHand()));
             emitter.isShoot = true;
         }
     }

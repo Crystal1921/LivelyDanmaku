@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "%%%",
+    "%#%",
+    "$$$"
+  ],
+  "key": {
+    "#": {
+      "item": "lively_danmaku:danmaku_table"
+    },
+    "%": {
+      "item": "lively_danmaku:danmaku"
+    },
+    "$": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "lively_danmaku:advanced_danmaku_table",
+    "count": 1
+  }
+}

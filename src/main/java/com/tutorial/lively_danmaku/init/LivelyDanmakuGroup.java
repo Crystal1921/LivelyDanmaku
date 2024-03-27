@@ -1,4 +1,4 @@
-package com.tutorial.lively_danmaku.group;
+package com.tutorial.lively_danmaku.init;
 
 import com.tutorial.lively_danmaku.Utils;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
@@ -29,8 +29,8 @@ public class LivelyDanmakuGroup {
                     output.accept(ItemRegistry.ItemDanmaku.get());
                     output.accept(ItemRegistry.ItemStarDanmaku.get());
                     output.accept(ItemRegistry.BigPoint.get());
-                    output.accept(ItemRegistry.HakureiBulletDanmaku.get());
                     output.accept(ItemRegistry.SmallPoint.get());
+                    output.accept(ItemRegistry.HakureiBulletDanmaku.get());
                     output.accept(ItemRegistry.ReimuItem.get());
                     output.accept(ItemRegistry.FumoTable.get());
                     output.accept(ItemRegistry.DanmakuTableItem.get());

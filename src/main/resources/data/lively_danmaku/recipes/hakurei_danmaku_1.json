@@ -1,0 +1,15 @@
+{
+  "result": {
+    "count": 1,
+    "item": "lively_danmaku:hakurei_danmaku"
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "lively_danmaku:small_point"
+    },
+    {
+      "item": "lively_danmaku:danmaku"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "%#%",
+    "#$#",
+    "%#%"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:black_dye"
+    },
+    "%": {
+      "item": "minecraft:white_dye"
+    },
+    "$": {
+      "item": "minecraft:note_block"
+    }
+  },
+  "result": {
+    "item": "lively_danmaku:th08_10_love_color",
+    "count": 1
+  }
+}

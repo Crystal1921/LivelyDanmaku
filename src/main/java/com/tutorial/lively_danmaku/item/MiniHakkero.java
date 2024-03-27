@@ -19,7 +19,7 @@ public class MiniHakkero extends BowItem {
     Random random = new Random();
     public MiniHakkero() {
         super(new Properties()
-                .durability(500));
+                .durability(811));//新作魔理沙第一次登场于东方红魔乡中，发售于2002年8月11日
     }
 
     @Override
@@ -38,6 +38,7 @@ public class MiniHakkero extends BowItem {
                         star.shootFromRotation(living, living.getXRot() + random.nextInt(41) - 20, living.getYRot() + random.nextInt(41) - 20, 0, speed, 1);
                         level.addFreshEntity(star);
                     }
+                    item.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(player.getUsedItemHand()));
                 }
             }
         }

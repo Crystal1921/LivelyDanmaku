@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku;
 
 import com.tutorial.lively_danmaku.init.EnchantmentRegistry;
-import com.tutorial.lively_danmaku.group.LivelyDanmakuGroup;
+import com.tutorial.lively_danmaku.init.LivelyDanmakuGroup;
 import com.tutorial.lively_danmaku.init.*;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;

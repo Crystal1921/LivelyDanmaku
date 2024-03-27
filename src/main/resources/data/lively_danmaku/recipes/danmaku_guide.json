@@ -1,0 +1,18 @@
+{
+  "result": {
+    "count": 1,
+    "item": "patchouli:guide_book",
+    "nbt": {
+      "patchouli:book": "lively_danmaku:danmaku_guide"
+    }
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "lively_danmaku:hakurei_gohei"
+    }
+  ]
+}

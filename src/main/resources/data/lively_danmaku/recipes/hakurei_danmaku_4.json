@@ -1,15 +1,15 @@
 {
   "result": {
     "count": 4,
-    "item": "lively_danmaku:danmaku"
+    "item": "lively_danmaku:hakurei_danmaku"
   },
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:gold_nugget"
+      "item": "lively_danmaku:big_point"
     },
     {
-      "item": "minecraft:gunpowder"
+      "item": "lively_danmaku:danmaku"
     }
   ]
 }

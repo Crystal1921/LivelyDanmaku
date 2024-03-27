@@ -27,7 +27,7 @@ import static java.lang.Math.log;
 public class HakureiGohei extends BowItem {
     public HakureiGohei() {
         super(new Properties()
-                .durability(500));
+                .durability(815));//博丽灵梦第一次登场于东方灵异传中，发售于1997年8月15日
     }
 
     @Override
@@ -45,6 +45,7 @@ public class HakureiGohei extends BowItem {
 
     private void HakureiShoot(@NotNull ItemStack item, Level level, Player player) {
         this.HakureiShoot(item,level,player,player.getX(),player.getY(),player.getZ(),player.getXRot(),player.getYRot(),true);
+        item.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(player.getUsedItemHand()));
     }
 
     public void HakureiShoot(@NotNull ItemStack item, Level level, Player player,double getX,double getY, double getZ, float getXRot, float getYRot, boolean isWiggle) {

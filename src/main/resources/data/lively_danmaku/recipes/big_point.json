@@ -1,6 +1,6 @@
 {
   "result": {
-    "item": "lively_danmaku:p_point"
+    "item": "lively_danmaku:big_point"
   },
   "pattern": [
     "##",
@@ -9,7 +9,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "lively_danmaku:red_point"
+      "item": "lively_danmaku:small_point"
     }
   }
 }

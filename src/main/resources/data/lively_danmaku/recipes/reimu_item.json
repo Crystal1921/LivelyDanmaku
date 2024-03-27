@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#%#",
+    "#$#",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "lively_danmaku:hakurei_danmaku"
+    },
+    "$": {
+      "item": "minecraft:armor_stand"
+    },
+    "%": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "lively_danmaku:reimu_item",
+    "count": 1
+  }
+}

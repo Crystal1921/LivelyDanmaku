@@ -7,14 +7,14 @@
   ],
   "key": {
     "#": {
-      "item": "lively_danmaku:star_danmaku"
+      "item": "minecraft:stick"
     },
     "$": {
-      "item": "minecraft:stick"
+      "item": "lively_danmaku:star_danmaku"
     }
   },
   "result": {
-    "item": "lively_danmaku:sanae_gohei",
+    "item": "lively_danmaku:broomstick",
     "count": 1
   }
 }

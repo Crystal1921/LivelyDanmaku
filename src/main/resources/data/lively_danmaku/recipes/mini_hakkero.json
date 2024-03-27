@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  #",
-    " # ",
-    "$  "
+    "###",
+    "#$#",
+    "###"
   ],
   "key": {
     "#": {
       "item": "lively_danmaku:star_danmaku"
     },
     "$": {
-      "item": "minecraft:stick"
+      "item": "minecraft:diamond"
     }
   },
   "result": {
-    "item": "lively_danmaku:sanae_gohei",
+    "item": "lively_danmaku:mini_hakkero",
     "count": 1
   }
 }
