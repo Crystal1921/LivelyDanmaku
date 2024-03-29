@@ -29,6 +29,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> DanmakuEmitter = ITEMS.register("danmaku_emitter", () -> new ColorBlockItem(DANMAKU_EMITTER.get(), new Item.Properties()));
     public static final RegistryObject<Item> DanmakuImport = ITEMS.register("danmaku_import", () -> new BlockItem(DANMAKU_IMPORT.get(), new Item.Properties()));
     public static final RegistryObject<Item> DanmakuColor = ITEMS.register("danmaku_color", () -> new BlockItem(DANMAKU_COLOR.get(), new Item.Properties()));
+    public static final RegistryObject<Item> DanmakuTrace = ITEMS.register("danmaku_trace",() -> new BlockItem(DANMAKU_TRACE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> DanmakuFunction = ITEMS.register("danmaku_function",() -> new BlockItem(DANMAKU_FUNCTION.get(), new Item.Properties()));
     public static final RegistryObject<Item> TH08_10_love_color = ITEMS.register("th08_10_love_color", () -> new RecordItem(15,SoundRegistry.th08_10_love_color,new Item.Properties().stacksTo(1),119 * 20));
     public static final RegistryObject<Item> Player = ITEMS.register("fake_player", () -> new ForgeSpawnEggItem(EntityTypeRegistry.FAKE_PLAYER,0xFFFFFF, 0xFFFFFF,new Item.Properties()));
     public static final RegistryObject<Item> HakureiReimu = ITEMS.register("hakurei_reimu", () -> new ForgeSpawnEggItem(EntityTypeRegistry.REIMU, 0xFFFFFF, 0xFFFFFF,new Item.Properties()));

@@ -25,6 +25,8 @@
   "block.lively_danmaku.danmaku_emitter": "弹幕发射台",
   "block.lively_danmaku.danmaku_import": "弹幕导入台",
   "block.lively_danmaku.danmaku_color": "弹幕染色台",
+  "block.lively_danmaku.danmaku_trace": "弹幕踪迹台",
+  "block.lively_danmaku.danmaku_function": "弹幕函数台",
 
   "block.danmaku_emitter.pitch": "偏航",
   "block.danmaku_emitter.yaw": "俯仰",
@@ -47,6 +49,7 @@
   "death.attack.lively_danmaku.danmaku_shoot": "死于弹幕",
 
   "chat.lively_danmaku.welcome": "请赛钱",
+  "chat.lively_danmaku.easter_egg": "你找到了彩蛋，这是米斯蒂娅·萝蕾拉（Mystia Lorelei），由鸫鸟师傅（armadillo_core_）绘制",
 
   "ui.danmaku_table": "弹幕工作台",
   "ui.fumo_table": "Fumo Table",
@@ -55,6 +58,8 @@
 
   "ui.danmaku_import.npe": "Null Pointer Exception",
   "ui.danmaku_import.import": "导入",
+  "ui.danmaku_import.simple": "单色提取",
+  "ui.danmaku_import.colorful": "彩色",
 
   "hakurei_gohei.speed": "速度",
   "hakurei_gohei.amount": "数量",
@@ -83,8 +88,5 @@
   "patchouli.lively_danmaku.danmaku_emitter": "弹幕发射台",
   "patchouli.lively_danmaku.danmaku_emitter.describe": "给热爱炸服的玩家准备的（大雾）。非常简单易懂的弹幕发射台，只需把御币放到发射台中，即可定时发射弹幕。频率意思为多少游戏刻进行一次发射。",
   "patchouli.lively_danmaku.danmaku_import": "弹幕导入台",
-  "patchouli.lively_danmaku.danmaku_import.describe": "可以在本地根目录的danmaku_image文件夹中放入你想要的文件，然后放入早苗御币后可以将图片将某一颜色取样后形成弹幕点阵导入进御币中。",
-  "chat.lively_danmaku.easter_egg": "你找到了彩蛋，这是米斯蒂娅·萝蕾拉（Mystia Lorelei），由鸫鸟师傅（armadillo_core_）绘制",
-  "ui.danmaku_import.simple": "单色提取",
-  "ui.danmaku_import.colorful": "彩色"
+  "patchouli.lively_danmaku.danmaku_import.describe": "可以在本地根目录的danmaku_image文件夹中放入你想要的文件，然后放入早苗御币后可以将图片将某一颜色取样后形成弹幕点阵导入进御币中。"
 }

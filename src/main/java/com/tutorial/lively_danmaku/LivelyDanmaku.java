@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku;
 
 import com.tutorial.lively_danmaku.init.EnchantmentRegistry;
-import com.tutorial.lively_danmaku.init.LivelyDanmakuGroup;
+import com.tutorial.lively_danmaku.init.GroupInit;
 import com.tutorial.lively_danmaku.init.*;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
@@ -26,10 +26,12 @@ public class LivelyDanmaku {
         BlockRegistry.BLOCKS.register(eventBus);
         BlockEntityTypeRegistry.BLOCK_ENTITY_TYPES.register(eventBus);
         MenuRegistry.CONTAINERS.register(eventBus);
-        LivelyDanmakuGroup.TABS.register(eventBus);
+        GroupInit.TABS.register(eventBus);
         eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
         bind(eventBus,Registries.SOUND_EVENT,SoundRegistry::init);
-        //TODO 完善合成配方
+        //TODO 符卡制作台
+        //TODO 弹幕函数台
+        //TODO 弹幕踪迹台
         //TODO 配套原作音效
         //TODO 完善教程--帕秋莉手册
     }

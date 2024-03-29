@@ -26,4 +26,8 @@ public class BlockRegistry {
             () -> new DanmakuImport(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion()));
     public static final RegistryObject<Block> DANMAKU_COLOR = BLOCKS.register("danmaku_color",
             () -> new DanmakuColor(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion()));
+    public static final RegistryObject<Block> DANMAKU_TRACE = BLOCKS.register("danmaku_trace",
+            () -> new DanmakuTrace(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion()));
+    public static final RegistryObject<Block> DANMAKU_FUNCTION = BLOCKS.register("danmaku_function",
+            () -> new DanmakuFunction(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion()));
 }

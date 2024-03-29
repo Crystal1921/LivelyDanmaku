@@ -1,7 +1,9 @@
 package com.tutorial.lively_danmaku.entity;
 
 import com.tutorial.lively_danmaku.init.DamageTypeRegistry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
@@ -9,8 +11,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
-
-import static com.tutorial.lively_danmaku.init.DamageTypeRegistry.getIndirectEntityDamageSource;
 
 public abstract class AbstractDanmaku extends ThrowableItemProjectile {
     public AbstractDanmaku(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
@@ -41,9 +41,9 @@ public abstract class AbstractDanmaku extends ThrowableItemProjectile {
     protected void onHitEntity(@NotNull EntityHitResult entityHitResult) {
         super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        double i = Math.sqrt(this.distanceToSqr(this.getDeltaMovement())) / 20;
+        float i = (float) (Math.sqrt(this.distanceToSqr(this.getDeltaMovement())) / 20);
         if (!(entity instanceof Reimu)) {
-            entity.hurt(getIndirectEntityDamageSource(this.level(), DamageTypeRegistry.DANMAKU_SHOOT, this.getOwner(), this), (float)i);
+            entity.hurt(new DamageSource(this.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypeRegistry.DANMAKU_SHOOT), this, this.getOwner()),i);
         }
     }
 

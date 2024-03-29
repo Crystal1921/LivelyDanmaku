@@ -16,7 +16,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import static com.tutorial.lively_danmaku.util.MathMethod.merge;
+import static com.tutorial.lively_danmaku.util.MathUtils.merge;
 
 public class AdvancedDanmakuMenu extends AbstractBaseMenu {
     private final ContainerLevelAccess access;

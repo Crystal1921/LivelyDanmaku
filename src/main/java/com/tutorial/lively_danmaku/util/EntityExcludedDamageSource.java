@@ -19,19 +19,4 @@ public class EntityExcludedDamageSource extends DamageSource {
         super(type);
         this.entities = Arrays.stream(entities).toList();
     }
-
-    @Override
-    public @NotNull Component getLocalizedDeathMessage(LivingEntity living) {
-        LivingEntity livingentity = living.getKillCredit();
-        String s = "death.attack." + this.type().msgId();
-        String s1 = s + ".lively_danmaku";
-        if (livingentity != null) {
-            for (EntityType<?> entity : entities) {
-                if (livingentity.getType() == entity) {
-                    return Component.translatable(s, living.getDisplayName());
-                }
-            }
-        }
-        return livingentity != null ? Component.translatable(s1, living.getDisplayName(), livingentity.getDisplayName()) : Component.translatable(s, living.getDisplayName());
-    }
 }

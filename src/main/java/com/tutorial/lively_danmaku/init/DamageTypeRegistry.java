@@ -16,10 +16,5 @@ import javax.annotation.Nullable;
 import static com.tutorial.lively_danmaku.LivelyDanmaku.prefix;
 
 public class DamageTypeRegistry {
-    public static final ResourceKey<DamageType> DANMAKU_SHOOT =
-            ResourceKey.create(Registries.DAMAGE_TYPE, prefix("danmaku_shoot"));
-
-    public static DamageSource getIndirectEntityDamageSource(Level level, ResourceKey<DamageType> type, @Nullable Entity attacker, @Nullable Entity indirectAttacker, EntityType<?>... toIgnore) {
-        return toIgnore.length > 0 ? new EntityExcludedDamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(type), toIgnore) : new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(type), attacker, indirectAttacker);
-    }
+    public static final ResourceKey<DamageType> DANMAKU_SHOOT = ResourceKey.create(Registries.DAMAGE_TYPE, prefix("danmaku_shoot"));
 }

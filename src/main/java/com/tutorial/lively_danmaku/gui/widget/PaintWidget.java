@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.util.ArrayList;
 
-import static com.tutorial.lively_danmaku.util.MathMethod.exportImage;
+import static com.tutorial.lively_danmaku.util.ImageUtils.exportImage;
 
 public class PaintWidget extends AbstractWidget {
     private ArrayList<ArrayList<Point>> pointList = new ArrayList<>();

@@ -21,7 +21,7 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
-import static com.tutorial.lively_danmaku.util.MathMethod.extract;
+import static com.tutorial.lively_danmaku.util.MathUtils.extract;
 import static java.lang.Math.*;
 
 public class SanaeGohei extends BowItem {

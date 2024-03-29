@@ -1,7 +1,6 @@
 package com.tutorial.lively_danmaku.init;
 
 import com.tutorial.lively_danmaku.Utils;
-import com.tutorial.lively_danmaku.init.ItemRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -11,7 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import vazkii.patchouli.common.item.ItemModBook;
 
-public class LivelyDanmakuGroup {
+public class GroupInit {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Utils.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> BLOCKS = TABS.register("blocks", () -> CreativeModeTab.builder()
@@ -35,12 +34,14 @@ public class LivelyDanmakuGroup {
                     output.accept(ItemRegistry.FumoTable.get());
                     output.accept(ItemRegistry.DanmakuTableItem.get());
                     output.accept(ItemRegistry.AdvancedDanmakuTableItem.get());
-                    output.accept(ItemRegistry.DanmakuEmitter.get());
                     output.accept(ItemRegistry.DanmakuImport.get());
                     output.accept(ItemRegistry.DanmakuColor.get());
+                    output.accept(ItemRegistry.DanmakuTrace.get());
+                    output.accept(ItemRegistry.DanmakuFunction.get());
                     output.accept(ItemRegistry.TH08_10_love_color.get());
                     output.accept(ItemRegistry.Player.get());
                     output.accept(ItemRegistry.HakureiReimu.get());
                     output.accept(ItemRegistry.Broomstick.get());
+                    output.accept(ItemRegistry.DanmakuEmitter.get());
                 }).build());
     }

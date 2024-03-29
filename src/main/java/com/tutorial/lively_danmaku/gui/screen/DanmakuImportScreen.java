@@ -11,7 +11,7 @@ import com.tutorial.lively_danmaku.network.DanmakuNetwork;
 import com.tutorial.lively_danmaku.network.PointListPacket;
 import com.tutorial.lively_danmaku.util.ColorPoint;
 import com.tutorial.lively_danmaku.util.ImportColorMode;
-import com.tutorial.lively_danmaku.util.MathMethod;
+import com.tutorial.lively_danmaku.util.MathUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -25,7 +25,6 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.level.block.state.properties.StructureMode;
 import net.minecraftforge.fml.loading.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -153,7 +152,7 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
             ArrayList<ColorPoint> pointList = getPointList();
             if (pointList != null && !pointList.isEmpty()){
                 this.imageWidget.pointList = pointList.stream().map(ColorPoint::getPoint).collect(Collectors.toCollection(ArrayList::new));
-                DanmakuNetwork.CHANNEL.sendToServer(new PointListPacket(MathMethod.mergePoint(pointList)));
+                DanmakuNetwork.CHANNEL.sendToServer(new PointListPacket(MathUtils.mergePoint(pointList)));
             }
         }
     }

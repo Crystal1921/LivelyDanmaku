@@ -25,6 +25,8 @@
   "block.lively_danmaku.danmaku_emitter": "Danmaku Emitter",
   "block.lively_danmaku.danmaku_import": "Danmaku Import",
   "block.lively_danmaku.danmaku_color": "Danmaku Color Table",
+  "block.lively_danmaku.danmaku_trace": "Danmaku Trace Table",
+  "block.lively_danmaku.danmaku_function": "Danmaku Function Table",
 
   "block.danmaku_emitter.pitch": "Pitch",
   "block.danmaku_emitter.yaw": "Yaw",
