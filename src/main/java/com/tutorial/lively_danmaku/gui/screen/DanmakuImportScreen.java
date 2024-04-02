@@ -12,14 +12,11 @@ import com.tutorial.lively_danmaku.network.PointListPacket;
 import com.tutorial.lively_danmaku.util.ColorPoint;
 import com.tutorial.lively_danmaku.util.ImportColorMode;
 import com.tutorial.lively_danmaku.util.MathUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.CycleButton;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.ObjectSelectionList;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.network.chat.Component;
@@ -49,8 +46,7 @@ import java.util.stream.Stream;
 
 import static com.tutorial.lively_danmaku.gui.screen.EmitterScreen.parseFloat;
 
-public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMenu> {
-    public int listWidth = 125;
+public class DanmakuImportScreen extends AbstractSelectionScreen<DanmakuImportMenu> {
     private int gridNum = 20;
     private int red = 0;
     private int green = 0;
@@ -60,11 +56,9 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
     private final Logger logger = LogManager.getLogger(DanmakuImportScreen.class);
     private final List<ImageInfo> unsortedImages;
     private List<ImageInfo> images;
-    private String lastFilterText = "";
     private ImageEntry selected = null;
     private ImageListWidget imageListWidget;
     private ImageWidget imageWidget;
-    private EditBox search;
     private EditBox redEditBox;
     private EditBox greenEditBox;
     private EditBox blueEditBox;
@@ -82,19 +76,13 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         super.init();
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
-        int PADDING = 6;
         int y = this.height - 20 - PADDING;
-        int fullButtonHeight = PADDING + 20 + PADDING;
         this.imageListWidget = new ImageListWidget(this, listWidth, fullButtonHeight, y - PADDING - getFontRenderer().lineHeight - PADDING);
         this.imageListWidget.setLeftPos(6);
+        this.imageListWidget.setRenderTopAndBottom(false);
         this.addRenderableWidget(imageListWidget);
         this.imageWidget = new ImageWidget(i,j,this);
         this.addRenderableWidget(imageWidget);
-        this.addRenderableWidget(Button.builder(Component.translatable("ui.danmaku_import.import"), (button) ->
-                this.importImage()).bounds(this.width / 2 - 75, 90, 40, 20).build());
-        this.search = new EditBox(getFontRenderer(), PADDING, 15, listWidth, 15, Component.translatable("fml.menu.mods.search"));
-        this.search.setFocused(false);
-        this.addRenderableWidget(search);
         this.addRenderableWidget(CycleButton.<ImportColorMode>builder((serializedName) -> Component.translatable("ui.danmaku_import." + serializedName.getSerializedName()))
                 .withValues(MODE_IMMUTABLE_LIST)
                 .displayOnlyValue()
@@ -144,7 +132,8 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         }
     }
 
-    private void importImage() {
+    @Override
+    protected void importEvent() {
         if (this.minecraft != null && this.minecraft.player != null && this.minecraft.gameMode != null && this.selected != null) {
             this.red = (int) parseFloat(this.redEditBox.getValue());
             this.green = (int) parseFloat(this.greenEditBox.getValue());
@@ -188,15 +177,6 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
         }
     }
 
-    @Override
-    public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
-        if (this.search.keyPressed(pKeyCode, pScanCode, pModifiers)) {
-            return true;
-        } else {
-            return this.search.isFocused() && this.search.isVisible() && pKeyCode != 256 || super.keyPressed(pKeyCode, pScanCode, pModifiers);
-        }
-    }
-
     public void setSelected(ImageEntry entry)
     {
         this.selected = entry == this.selected ? null : entry;
@@ -206,17 +186,6 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
     public <T extends ObjectSelectionList.Entry<T>> void buildImageList(Consumer<T> modListViewConsumer, Function<ImageInfo, T> newEntry)
     {
         images.forEach(image->modListViewConsumer.accept(newEntry.apply(image)));
-    }
-
-    @NotNull
-    public Minecraft getMinecraftInstance()
-    {
-        return minecraft;
-    }
-
-    public Font getFontRenderer()
-    {
-        return font;
     }
 
     public ImageListWidget getImageListWidget() {
@@ -277,9 +246,6 @@ public class DanmakuImportScreen extends AbstractContainerScreen<DanmakuImportMe
 
         return red == this.red && green == this.green && blue == this.blue;
     }
-
-    @Override
-    protected void renderLabels(@NotNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {}
 
     public void renderText (@NotNull GuiGraphics guiGraphics) {
         if (colorMode == ImportColorMode.SIMPLE) {

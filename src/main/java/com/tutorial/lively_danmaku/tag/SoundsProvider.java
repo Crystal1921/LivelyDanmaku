@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.tag;
 
-import com.tutorial.lively_danmaku.Utils;
+import com.tutorial.lively_danmaku.LivelyDanmaku;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -11,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class SoundsProvider extends SoundDefinitionsProvider {
     public SoundsProvider(PackOutput output, ExistingFileHelper helper) {
-        super(output, Utils.MOD_ID, helper);
+        super(output, LivelyDanmaku.MOD_ID, helper);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class SoundsProvider extends SoundDefinitionsProvider {
 
     public void makeMusicDisc(RegistryObject<SoundEvent> event, String discName) {
         this.add(event, SoundDefinition.definition()
-                .with(SoundDefinition.Sound.sound(new ResourceLocation(Utils.MOD_ID, discName), SoundDefinition.SoundType.SOUND)
+                .with(SoundDefinition.Sound.sound(new ResourceLocation(LivelyDanmaku.MOD_ID, discName), SoundDefinition.SoundType.SOUND)
                         .stream()));
     }
 }

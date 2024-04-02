@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku.init;
 
+import com.tutorial.lively_danmaku.LivelyDanmaku;
 import com.tutorial.lively_danmaku.entity.*;
-import com.tutorial.lively_danmaku.Utils;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.Level;
@@ -10,7 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 public class EntityTypeRegistry {
-    public static final DeferredRegister<EntityType<?>> ENTITY_TYPE = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Utils.MOD_ID);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPE = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, LivelyDanmaku.MOD_ID);
     public static final RegistryObject<EntityType<NormalDanmaku>> DANMAKU = ENTITY_TYPE.register("danmaku", () ->
             EntityType.Builder.of((EntityType<NormalDanmaku> type, Level level) -> new NormalDanmaku(type, level), MobCategory.MISC)
                     .sized(0.6F, 0.6F)

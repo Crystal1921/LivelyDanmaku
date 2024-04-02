@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku.init;
 
+import com.tutorial.lively_danmaku.LivelyDanmaku;
 import com.tutorial.lively_danmaku.armor.ReimuHeaddress;
-import com.tutorial.lively_danmaku.Utils;
 import com.tutorial.lively_danmaku.item.*;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -12,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 import static com.tutorial.lively_danmaku.init.BlockRegistry.*;
 
 public class ItemRegistry {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Utils.MOD_ID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LivelyDanmaku.MOD_ID);
     public static final RegistryObject<Item> HakureiGohei = ITEMS.register("hakurei_gohei", com.tutorial.lively_danmaku.item.HakureiGohei::new);
     public static final RegistryObject<Item> SanaeGohei = ITEMS.register("sanae_gohei", com.tutorial.lively_danmaku.item.SanaeGohei::new);
     public static final RegistryObject<Item> ItemMiniHakkero = ITEMS.register("mini_hakkero", MiniHakkero::new);

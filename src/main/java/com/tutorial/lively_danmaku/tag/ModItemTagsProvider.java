@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.tag;
 
-import com.tutorial.lively_danmaku.Utils;
+import com.tutorial.lively_danmaku.LivelyDanmaku;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
     public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> future, CompletableFuture<TagLookup<Block>> provider, ExistingFileHelper helper) {
-        super(output, future, provider, Utils.MOD_ID, helper);
+        super(output, future, provider, LivelyDanmaku.MOD_ID, helper);
     }
 
     @Override

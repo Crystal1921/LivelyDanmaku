@@ -72,6 +72,7 @@ public class DanmakuMenu extends AbstractBaseMenu {
         ItemStack itemstack = this.container.getItem(0);
         ItemStack itemstack1 = this.container.getItem(1);
         ItemStack itemStack2 = this.container.getItem(2);
+
         if (itemstack1.isEmpty() || itemStack2.isEmpty()) {
             return false;
         }   else {

@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.event;
 
-import com.tutorial.lively_danmaku.Utils;
+import com.tutorial.lively_danmaku.LivelyDanmaku;
 import com.tutorial.lively_danmaku.capability.CapabilityProvider;
 import com.tutorial.lively_danmaku.capability.PowerCapability;
 import com.tutorial.lively_danmaku.network.CapabilityS2CPacket;
@@ -62,7 +62,7 @@ public class CapabilityEvent {
     public static void onAttachment (AttachCapabilitiesEvent<Entity> event) {
         if(event.getObject() instanceof Player player) {
             if(!player.getCapability(CapabilityProvider.POWER).isPresent()) {
-                event.addCapability(new ResourceLocation(Utils.MOD_ID,"power"),new CapabilityProvider());
+                event.addCapability(new ResourceLocation(LivelyDanmaku.MOD_ID,"power"),new CapabilityProvider());
             }
         }
     }

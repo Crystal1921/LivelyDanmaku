@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.init;
 
-import com.tutorial.lively_danmaku.Utils;
+import com.tutorial.lively_danmaku.LivelyDanmaku;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class BlockTagGenerator extends IntrinsicHolderTagsProvider<Block> {
     public BlockTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> future, ExistingFileHelper helper) {
-        super(output, Registries.BLOCK, future, block -> block.builtInRegistryHolder().key(), Utils.MOD_ID, helper);
+        super(output, Registries.BLOCK, future, block -> block.builtInRegistryHolder().key(), LivelyDanmaku.MOD_ID, helper);
     }
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {

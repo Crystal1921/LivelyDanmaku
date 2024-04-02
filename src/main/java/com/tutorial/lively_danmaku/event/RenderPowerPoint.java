@@ -1,7 +1,7 @@
 package com.tutorial.lively_danmaku.event;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.tutorial.lively_danmaku.Utils;
+import com.tutorial.lively_danmaku.LivelyDanmaku;
 import com.tutorial.lively_danmaku.capability.CapabilityProvider;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
 import net.minecraft.ChatFormatting;
@@ -18,7 +18,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @OnlyIn(Dist.CLIENT)
-@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = Utils.MOD_ID)
+@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = LivelyDanmaku.MOD_ID)
 public class RenderPowerPoint {
     private static ItemStack POWER_POINT;
     @SubscribeEvent

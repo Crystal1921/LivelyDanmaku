@@ -1,6 +1,6 @@
 package com.tutorial.lively_danmaku.init;
 
-import com.tutorial.lively_danmaku.Utils;
+import com.tutorial.lively_danmaku.LivelyDanmaku;
 import com.tutorial.lively_danmaku.tag.ModBlockTagsProvider;
 import com.tutorial.lively_danmaku.tag.ModItemTagsProvider;
 import com.tutorial.lively_danmaku.tag.SoundsProvider;
@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.concurrent.CompletableFuture;
 
-@Mod.EventBusSubscriber(modid = Utils.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = LivelyDanmaku.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
@@ -25,7 +25,7 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
         generator.addProvider(event.includeClient(),new SoundsProvider(output,helper));
-        BlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(output,provider,Utils.MOD_ID,helper);
+        BlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(output,provider, LivelyDanmaku.MOD_ID,helper);
 
         generator.addProvider(event.includeServer(),blockTagsProvider);
         generator.addProvider(event.includeServer(),new ModItemTagsProvider(output,provider,blockTagsProvider.contentsGetter(),helper));

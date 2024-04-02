@@ -42,7 +42,6 @@ public class DanmakuImportMenu extends AbstractBaseMenu {
                 this.container.setItem(0,itemStack);
             });
         }
-
     }
 
     @Override

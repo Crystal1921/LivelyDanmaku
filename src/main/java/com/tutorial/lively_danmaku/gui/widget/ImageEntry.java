@@ -12,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 public class ImageEntry extends ObjectSelectionList.Entry<ImageEntry>{
     private final ImageInfo imageInfo;
     private final DanmakuImportScreen importScreen;
-    private static String stripControlCodes(String value) { return net.minecraft.util.StringUtil.stripColor(value); }
     public ImageEntry (ImageInfo imageInfo, DanmakuImportScreen importScreen) {
         this.imageInfo = imageInfo;
         this.importScreen = importScreen;
@@ -36,6 +35,10 @@ public class ImageEntry extends ObjectSelectionList.Entry<ImageEntry>{
         Font font = this.importScreen.getFontRenderer();
         Component name = Component.literal(stripControlCodes(this.imageInfo.name));
         pGuiGraphics.drawString(font, Language.getInstance().getVisualOrder(FormattedText.composite(font.substrByWidth(name,this.importScreen.listWidth))), pLeft + 3, pTop + 2, 0xFFFFFF, false);
+    }
+
+    private static String stripControlCodes(String value) {
+        return net.minecraft.util.StringUtil.stripColor(value);
     }
 
     public ImageInfo getImageInfo() {

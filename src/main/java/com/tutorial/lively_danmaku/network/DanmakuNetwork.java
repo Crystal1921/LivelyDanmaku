@@ -32,6 +32,8 @@ public class DanmakuNetwork {
                 Optional.of(NetworkDirection.PLAY_TO_SERVER));
         CHANNEL.registerMessage(5, CapabilityS2CPacket.class, CapabilityS2CPacket::encode, CapabilityS2CPacket::decode, CapabilityS2CPacket::handleOnClient,
                 Optional.of(NetworkDirection.PLAY_TO_CLIENT));
+        CHANNEL.registerMessage(6, ParticleTypePacket.class, ParticleTypePacket::encode, ParticleTypePacket::decode, ParticleTypePacket::handleOnServer,
+                Optional.of(NetworkDirection.PLAY_TO_SERVER));
     }
 
     public static void sendToClient(Object message, Player player) {

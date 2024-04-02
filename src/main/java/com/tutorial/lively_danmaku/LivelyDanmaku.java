@@ -16,8 +16,10 @@ import java.util.Locale;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-@Mod(Utils.MOD_ID)
+@Mod(LivelyDanmaku.MOD_ID)
 public class LivelyDanmaku {
+    public static final String MOD_ID = "lively_danmaku";
+
     public LivelyDanmaku() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ItemRegistry.ITEMS.register(eventBus);
@@ -36,7 +38,7 @@ public class LivelyDanmaku {
         //TODO 完善教程--帕秋莉手册
     }
     public static ResourceLocation prefix(String name) {
-        return new ResourceLocation(Utils.MOD_ID, name.toLowerCase(Locale.ROOT));
+        return new ResourceLocation(MOD_ID, name.toLowerCase(Locale.ROOT));
     }
     private static <T> void bind(IEventBus eventBus, ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {
         eventBus.addListener((RegisterEvent event) -> source.accept((t, rl) -> event.register(registry, rl, () -> t)));
