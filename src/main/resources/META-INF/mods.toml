@@ -5,8 +5,9 @@ license="MIT"
 modId="lively_danmaku"
 version="${mod_version}"
 displayName="lively_danmaku"
-authors="crystal1921"
+authors="Crystal1921"
 logoFile="crystal_logo.jpg"
+credits = "TartaricAcid,ZUN"
 description='''
 This is crystal1921, the 1.20.1 Modding tutorial mod.
 我很可爱，请给我钱，给我star
