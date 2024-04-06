@@ -92,14 +92,6 @@ public class DanmakuTraceScreen extends AbstractSelectionScreen<DanmakuTraceMenu
         pGuiGraphics.blit(DANMAKU_TRACE, i , j, 0, 0, this.imageWidth, this.imageHeight);
     }
 
-    @Override
-    public void render(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        this.renderBackground(guiGraphics);
-        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
-        this.renderTooltip(guiGraphics, pMouseX, pMouseY);
-        this.search.render(guiGraphics, pMouseX , pMouseY, pPartialTick);
-    }
-
     @SuppressWarnings("deprecation")
     private List<ResourceKey<ParticleType<?>>> getParticle() {
         HolderLookup.RegistryLookup<ParticleType<?>> particle = BuiltInRegistries.PARTICLE_TYPE.asLookup();

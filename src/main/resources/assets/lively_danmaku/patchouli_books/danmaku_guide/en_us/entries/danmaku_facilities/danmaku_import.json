@@ -6,7 +6,11 @@
     {
       "type": "spotlight",
       "item": "lively_danmaku:danmaku_import",
-      "text": "patchouli.lively_danmaku.danmaku_import.describe"
+      "text": "patchouli.lively_danmaku.danmaku_import.describe.0"
+    },
+    {
+      "type": "text",
+      "text": "patchouli.lively_danmaku.danmaku_import.describe.1"
     }
   ]
 }

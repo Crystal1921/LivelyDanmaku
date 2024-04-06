@@ -27,7 +27,7 @@ public abstract class AbstractSelectionScreen<T extends AbstractContainerMenu> e
         this.search.setFocused(false);
         this.addRenderableWidget(search);
         this.addRenderableWidget(Button.builder(Component.translatable("ui.danmaku_import.import"), (button) ->
-                this.importEvent()).bounds(this.width / 2 - 75, 90, 40, 20).build());
+                this.importEvent()).bounds(this.width / 2 - 75, 86, 40, 20).build());
     }
 
     protected abstract void importEvent();
@@ -52,6 +52,13 @@ public abstract class AbstractSelectionScreen<T extends AbstractContainerMenu> e
     }
 
     @Override
-    protected void renderLabels(@NotNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {
+    protected void renderLabels(@NotNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {}
+
+    @Override
+    public void render(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        this.renderBackground(guiGraphics);
+        this.search.render(guiGraphics, pMouseX , pMouseY, pPartialTick);
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        this.renderTooltip(guiGraphics, pMouseX, pMouseY);
     }
 }

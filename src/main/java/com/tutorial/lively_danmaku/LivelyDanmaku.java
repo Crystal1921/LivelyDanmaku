@@ -33,9 +33,8 @@ public class LivelyDanmaku {
         bind(eventBus,Registries.SOUND_EVENT,SoundRegistry::init);
         //TODO 符卡制作台
         //TODO 弹幕函数台
-        //TODO 弹幕踪迹台
         //TODO 配套原作音效
-        //TODO 完善教程--帕秋莉手册
+        //TODO 完善教程--帕秋莉手册（英文未完成）
     }
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(MOD_ID, name.toLowerCase(Locale.ROOT));

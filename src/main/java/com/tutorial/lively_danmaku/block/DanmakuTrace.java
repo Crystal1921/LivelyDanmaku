@@ -6,7 +6,9 @@ import com.tutorial.lively_danmaku.gui.menu.DanmakuImportMenu;
 import com.tutorial.lively_danmaku.gui.menu.DanmakuTraceMenu;
 import com.tutorial.lively_danmaku.init.BlockEntityTypeRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -24,7 +26,7 @@ public class DanmakuTrace extends BaseEntityBlock {
         super(pProperties);
     }
 
-    public @NotNull InteractionResult use(@NotNull BlockState state, Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
@@ -43,6 +45,11 @@ public class DanmakuTrace extends BaseEntityBlock {
         } else {
             return null;
         }
+    }
+
+    public void animateTick(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
+        super.animateTick(pState, pLevel, pPos, pRandom);
+        pLevel.addParticle(ParticleTypes.ENCHANT, (double)pPos.getX() + 0.5D, (double)pPos.getY() + 2.0D, (double)pPos.getZ() + 0.5D, pRandom.nextFloat() - 0.5F,pRandom.nextFloat() - 0.5F,pRandom.nextFloat() - 0.5F);
     }
 
     @Nullable

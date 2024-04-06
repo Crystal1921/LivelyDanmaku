@@ -20,8 +20,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> ItemDanmaku = ITEMS.register("danmaku", () -> new DanmakuItem(new Item.Properties()));
     public static final RegistryObject<Item> ItemStarDanmaku = ITEMS.register("star_danmaku", () -> new StarDanmakuItem(new Item.Properties()));
     public static final RegistryObject<Item> HakureiBulletDanmaku = ITEMS.register("hakurei_danmaku", () -> new HakureiDanmakuItem(new Item.Properties()));
-    public static final RegistryObject<Item> BigPoint = ITEMS.register("big_point", () -> new PowerPoint(new Item.Properties(),6));
-    public static final RegistryObject<Item> SmallPoint = ITEMS.register("small_point", () -> new PowerPoint(new Item.Properties(),3));
+    public static final RegistryObject<Item> BigPoint = ITEMS.register("big_point", () -> new PowerPoint(new Item.Properties(),4));
+    public static final RegistryObject<Item> SmallPoint = ITEMS.register("small_point", () -> new PowerPoint(new Item.Properties(),1));
     public static final RegistryObject<Item> ReimuItem = ITEMS.register("reimu_item", () -> new BlockItem(REIMU_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> DanmakuTableItem = ITEMS.register("danmaku_table", () -> new BlockItem(DANMAKU_TABLE.get(), new Item.Properties()));
     public static final RegistryObject<Item> AdvancedDanmakuTableItem = ITEMS.register("advanced_danmaku_table", () -> new BlockItem(ADVANCED_DANMAKU_TABLE.get(), new Item.Properties()));
@@ -31,7 +31,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> DanmakuColor = ITEMS.register("danmaku_color", () -> new BlockItem(DANMAKU_COLOR.get(), new Item.Properties()));
     public static final RegistryObject<Item> DanmakuTrace = ITEMS.register("danmaku_trace",() -> new BlockItem(DANMAKU_TRACE.get(), new Item.Properties()));
     public static final RegistryObject<Item> DanmakuFunction = ITEMS.register("danmaku_function",() -> new BlockItem(DANMAKU_FUNCTION.get(), new Item.Properties()));
-    public static final RegistryObject<Item> TH08_10_love_color = ITEMS.register("th08_10_love_color", () -> new RecordItem(15,SoundRegistry.th08_10_love_color,new Item.Properties().stacksTo(1),119 * 20));
+    public static final RegistryObject<Item> TH08_10_love_color = ITEMS.register("love_color", () -> new RecordItem(15,SoundRegistry.th08_10_love_color,new Item.Properties().stacksTo(1),119 * 20));
     public static final RegistryObject<Item> Player = ITEMS.register("fake_player", () -> new ForgeSpawnEggItem(EntityTypeRegistry.FAKE_PLAYER,0xFFFFFF, 0xFFFFFF,new Item.Properties()));
     public static final RegistryObject<Item> HakureiReimu = ITEMS.register("hakurei_reimu", () -> new ForgeSpawnEggItem(EntityTypeRegistry.REIMU, 0xFFFFFF, 0xFFFFFF,new Item.Properties()));
     public static final RegistryObject<Item> Broomstick = ITEMS.register("broomstick", () -> new ForgeSpawnEggItem(EntityTypeRegistry.BROOMSTICK,0xFFFFFF, 0xFFFFFF,new Item.Properties()));

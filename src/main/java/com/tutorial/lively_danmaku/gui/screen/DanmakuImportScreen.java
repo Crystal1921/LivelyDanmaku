@@ -62,6 +62,7 @@ public class DanmakuImportScreen extends AbstractSelectionScreen<DanmakuImportMe
     private EditBox redEditBox;
     private EditBox greenEditBox;
     private EditBox blueEditBox;
+    private EditBox gridEditBox;
     public static final Path DANMAKU_IMAGE = Paths.get("danmaku_image");
     private static final ResourceLocation DANMAKU_EMITTER = new ResourceLocation("lively_danmaku", "textures/gui/fumo_table.png");
     public DanmakuImportScreen(DanmakuImportMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
@@ -96,10 +97,14 @@ public class DanmakuImportScreen extends AbstractSelectionScreen<DanmakuImportMe
         this.greenEditBox.setVisible(true);
         this.greenEditBox.setValue("0");
         this.addRenderableWidget(greenEditBox);
-        this.blueEditBox = new EditBox(getFontRenderer(), this.width / 2 + 35, this.height / 2 - 14, 30, 10, Component.translatable("block.danmaku_import.green"));
+        this.blueEditBox = new EditBox(getFontRenderer(), this.width / 2 + 35, this.height / 2 - 14, 30, 10, Component.translatable("block.danmaku_import.blue"));
         this.blueEditBox.setVisible(true);
         this.blueEditBox.setValue("0");
         this.addRenderableWidget(blueEditBox);
+        this.gridEditBox = new EditBox(getFontRenderer(), this.width / 2 - 60, this.height / 2 - 14, 25, 10,Component.translatable("block.danmaku_import.grid"));
+        this.gridEditBox.setVisible(true);
+        this.gridEditBox.setValue("20");
+        this.addRenderableWidget(gridEditBox);
         updateCache();
     }
 
@@ -195,6 +200,7 @@ public class DanmakuImportScreen extends AbstractSelectionScreen<DanmakuImportMe
     private ArrayList<ColorPoint> getPointList() {
         int width = this.selected.getImageInfo().width;
         int height = this.selected.getImageInfo().height;
+        this.gridNum = (int) parseFloat(this.gridEditBox.getValue());
         int widthNum = width / gridNum;
         int heightNum = height / gridNum;
         BufferedImage image = this.selected.getImageInfo().bufferedImage;
@@ -262,12 +268,10 @@ public class DanmakuImportScreen extends AbstractSelectionScreen<DanmakuImportMe
 
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        this.imageListWidget.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
-        this.search.render(guiGraphics, pMouseX , pMouseY, pPartialTick);
-        this.redEditBox.render(guiGraphics, pMouseX , pMouseY, pPartialTick);
-        this.greenEditBox.render(guiGraphics, pMouseX , pMouseY, pPartialTick);
-        this.blueEditBox.render(guiGraphics, pMouseX , pMouseY, pPartialTick);
-        this.renderTooltip(guiGraphics, pMouseX, pMouseY);
+        this.redEditBox.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        this.greenEditBox.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        this.blueEditBox.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        this.gridEditBox.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
         this.renderText(guiGraphics);
         super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }

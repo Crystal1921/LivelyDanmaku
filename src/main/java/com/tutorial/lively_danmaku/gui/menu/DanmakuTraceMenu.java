@@ -46,6 +46,11 @@ public class DanmakuTraceMenu extends AbstractBaseMenu {
         }
     }
 
+    public void removed(@NotNull Player player) {
+        super.removed(player);
+        this.access.execute((level, blockPos) -> this.clearContainer(player, this.container));
+    }
+
     @Override
     public boolean stillValid(@NotNull Player pPlayer) {
         return stillValid(this.access, pPlayer, BlockRegistry.DANMAKU_TRACE.get());

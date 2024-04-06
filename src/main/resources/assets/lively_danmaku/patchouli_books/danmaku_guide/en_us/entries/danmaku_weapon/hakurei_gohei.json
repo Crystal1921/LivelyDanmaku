@@ -1,0 +1,12 @@
+{
+  "name": "patchouli.lively_danmaku.hakurei_gohei",
+  "icon": "lively_danmaku:hakurei_gohei",
+  "category": "lively_danmaku:danmaku_weapon",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "lively_danmaku:hakurei_gohei",
+      "text": "patchouli.lively_danmaku.hakurei_gohei.describe"
+    }
+  ]
+}

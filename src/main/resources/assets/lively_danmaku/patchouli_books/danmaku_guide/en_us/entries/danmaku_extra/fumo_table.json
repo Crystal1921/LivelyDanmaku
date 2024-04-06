@@ -1,0 +1,12 @@
+{
+  "name": "patchouli.lively_danmaku.fumo_table",
+  "icon": "lively_danmaku:fumo_table",
+  "category": "lively_danmaku:danmaku_extra",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "lively_danmaku:fumo_table",
+      "text": "patchouli.lively_danmaku.fumo_table.describe"
+    }
+  ]
+}

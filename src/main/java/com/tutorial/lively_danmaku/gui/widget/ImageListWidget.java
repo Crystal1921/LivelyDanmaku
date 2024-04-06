@@ -21,10 +21,7 @@ public class ImageListWidget extends ObjectSelectionList<ImageEntry> {
     }
 
     @Override
-    protected void renderBackground(@NotNull GuiGraphics guiGraphics)
-    {
-        this.parent.renderBackground(guiGraphics);
-    }
+    protected void renderBackground(@NotNull GuiGraphics guiGraphics) {}
 
     @Override
     protected int getScrollbarPosition()

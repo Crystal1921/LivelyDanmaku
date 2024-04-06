@@ -1,0 +1,12 @@
+{
+  "name": "patchouli.lively_danmaku.broomstick",
+  "icon": "lively_danmaku:broomstick",
+  "category": "lively_danmaku:danmaku_extra",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "lively_danmaku:broomstick",
+      "text": "patchouli.lively_danmaku.broomstick.describe"
+    }
+  ]
+}

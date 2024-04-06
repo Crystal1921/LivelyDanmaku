@@ -30,7 +30,7 @@ public class RenderPowerPoint {
             }
             ItemStack stack = player.getMainHandItem();
             ItemStack helmet = player.getInventory().getArmor(3);
-            if (!(stack.is(ItemRegistry.HakureiGohei.get()) || stack.is(ItemRegistry.SanaeGohei.get()) || stack.is(ItemRegistry.BigPoint.get()) || helmet.is(ItemRegistry.ReimuHeaddress.get()))) {
+            if (!(stack.is(ItemRegistry.HakureiGohei.get()) || stack.is(ItemRegistry.SanaeGohei.get()) || stack.is(ItemRegistry.BigPoint.get()) || stack.is(ItemRegistry.SmallPoint.get()) || helmet.is(ItemRegistry.ReimuHeaddress.get()))) {
                 return;
             }
             GuiGraphics graphics = event.getGuiGraphics();

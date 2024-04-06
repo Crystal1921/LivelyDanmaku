@@ -1,0 +1,12 @@
+{
+  "name": "patchouli.lively_danmaku.love_color",
+  "icon": "lively_danmaku:love_color",
+  "category": "lively_danmaku:danmaku_extra",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "lively_danmaku:love_color",
+      "text": "patchouli.lively_danmaku.love_color.describe"
+    }
+  ]
+}

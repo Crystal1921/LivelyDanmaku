@@ -1,0 +1,12 @@
+{
+  "name": "patchouli.lively_danmaku.mini_hakkero",
+  "icon": "lively_danmaku:mini_hakkero",
+  "category": "lively_danmaku:danmaku_weapon",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "lively_danmaku:mini_hakkero",
+      "text": "patchouli.lively_danmaku.mini_hakkero.describe"
+    }
+  ]
+}

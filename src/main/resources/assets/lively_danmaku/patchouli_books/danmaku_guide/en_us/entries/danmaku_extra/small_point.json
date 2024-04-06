@@ -1,0 +1,12 @@
+{
+  "name": "patchouli.lively_danmaku.small_point",
+  "icon": "lively_danmaku:small_point",
+  "category": "lively_danmaku:danmaku_extra",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "lively_danmaku:small_point",
+      "text": "patchouli.lively_danmaku.small_point.describe"
+    }
+  ]
+}

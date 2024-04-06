@@ -6,7 +6,11 @@
     {
       "type": "spotlight",
       "item": "lively_danmaku:advanced_danmaku_table",
-      "text": "patchouli.lively_danmaku.advanced_danmaku_table.describe"
+      "text": "patchouli.lively_danmaku.advanced_danmaku_table.describe.0"
+    },
+    {
+      "type": "text",
+      "text": "patchouli.lively_danmaku.advanced_danmaku_table.describe.1"
     }
   ]
 }

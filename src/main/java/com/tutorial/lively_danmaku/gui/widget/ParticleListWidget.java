@@ -21,10 +21,7 @@ public class ParticleListWidget extends ObjectSelectionList<ParticleEntry> {
         parent.buildImageList(this::addEntry, particleType -> new ParticleEntry(particleType, this.parent));
     }
     @Override
-    protected void renderBackground(@NotNull GuiGraphics guiGraphics)
-    {
-        this.parent.renderBackground(guiGraphics);
-    }
+    protected void renderBackground(@NotNull GuiGraphics guiGraphics) {}
 
     @Override
     protected int getScrollbarPosition()
