@@ -17,6 +17,7 @@ import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
 import static com.tutorial.lively_danmaku.block.DanmakuEmitter.RENDER;
+import static com.tutorial.lively_danmaku.config.DanmakuConfig.EMITTER_FREQUENCY;
 
 public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
     private static final ResourceLocation DANMAKU_EMITTER = new ResourceLocation("lively_danmaku", "textures/gui/fumo_table.png");
@@ -87,8 +88,9 @@ public class EmitterScreen extends AbstractContainerScreen<EmitterMenu> {
         this.init(pMinecraft, pWidth, pHeight);
         this.XeditBox.setValue(s1);
         this.YeditBox.setValue(s2);
-        if (parseFloat(s3) <= 5) {
-            this.FreqBox.setValue("5");
+        int maxFreq = EMITTER_FREQUENCY.get();
+        if (parseFloat(s3) <= maxFreq) {
+            this.FreqBox.setValue(String.valueOf(maxFreq));
         } else{
         this.FreqBox.setValue(s3);
         }

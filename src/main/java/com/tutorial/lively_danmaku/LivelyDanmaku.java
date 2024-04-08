@@ -1,5 +1,6 @@
 package com.tutorial.lively_danmaku;
 
+import com.tutorial.lively_danmaku.config.DanmakuConfig;
 import com.tutorial.lively_danmaku.init.EnchantmentRegistry;
 import com.tutorial.lively_danmaku.init.GroupInit;
 import com.tutorial.lively_danmaku.init.*;
@@ -8,7 +9,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 
@@ -31,6 +34,7 @@ public class LivelyDanmaku {
         GroupInit.TABS.register(eventBus);
         eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
         bind(eventBus,Registries.SOUND_EVENT,SoundRegistry::init);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DanmakuConfig.init());
         //TODO 符卡制作台
         //TODO 弹幕函数台
         //TODO 配套原作音效

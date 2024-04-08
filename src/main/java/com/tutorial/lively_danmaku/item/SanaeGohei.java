@@ -5,6 +5,7 @@ import com.tutorial.lively_danmaku.entity.FiveStarEmitter;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
 import com.tutorial.lively_danmaku.util.ColorPoint;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,6 +22,7 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
+import static com.tutorial.lively_danmaku.config.DanmakuConfig.DANMAKU_NUM;
 import static com.tutorial.lively_danmaku.util.MathUtils.extract;
 import static java.lang.Math.*;
 
@@ -82,6 +84,14 @@ public class SanaeGohei extends BowItem {
             type = Objects.requireNonNull(itemstack.getOrCreateTag().get("crystal_type")).getAsString();
         }   else {
             type = "danmaku";
+        }
+        int maxNum = DANMAKU_NUM.get();
+        if (maxNum <= list.size()) {
+            Player player = level.getNearestPlayer(positionX,positionY,positionZ,1.0,false);
+            if (player != null) {
+                player.sendSystemMessage(Component.translatable("chat.lively_danmaku.warn.over_danmaku"));
+            }
+            return;
         }
         emitter = new FiveStarEmitter(EntityTypeRegistry.FIVE_STAR_EMITTER.get(), level, list, XRot, YRot, type,(int) cycleNum + 1);
         emitter.moveTo(positionX, positionY, positionZ);

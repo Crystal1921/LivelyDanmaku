@@ -19,7 +19,7 @@ public class ReimuEntityTE extends BlockEntity {
         if (entity.count > 100) {
             entity.count = 0;
             if (level != null && !level.isClientSide()) {
-                Player player = level.getNearestPlayer(pos.getX(), pos.getY(), pos.getZ(), 1.0, false);
+                Player player = level.getNearestPlayer(pos.getX(), pos.getY(), pos.getZ(), 2.0, false);
                 if (player != null) {
                     player.sendSystemMessage(Component.translatable("chat.lively_danmaku.welcome"));
                 }

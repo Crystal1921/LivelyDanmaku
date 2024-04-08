@@ -40,6 +40,7 @@
   "block.danmaku_import.green": "绿",
   "block.danmaku_import.blue": "蓝",
   "block.danmaku_import.rgb": "RGB",
+  "block.danmaku_import.grid": "网格",
 
   "entity.lively_danmaku.danmaku": "弹幕",
   "entity.lively_danmaku.reimu": "博丽灵梦",
@@ -50,6 +51,7 @@
 
   "chat.lively_danmaku.welcome": "请赛钱",
   "chat.lively_danmaku.easter_egg": "你找到了彩蛋，这是米斯蒂娅·萝蕾拉（Mystia Lorelei），由鸫鸟师傅（armadillo_core_）绘制",
+  "chat.lively_danmaku.warn.over_danmaku": "要发射的弹幕过多，拒绝发射，请在配置中修改",
 
   "ui.danmaku_table": "弹幕工作台",
   "ui.fumo_table": "Fumo Table",

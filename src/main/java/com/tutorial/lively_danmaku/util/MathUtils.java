@@ -1,10 +1,5 @@
 package com.tutorial.lively_danmaku.util;
 
-import com.ezylang.evalex.EvaluationException;
-import com.ezylang.evalex.Expression;
-import com.ezylang.evalex.data.EvaluationValue;
-import com.ezylang.evalex.parser.ParseException;
-
 import java.util.ArrayList;
 
 public class MathUtils {
@@ -34,13 +29,5 @@ public class MathUtils {
         short y = (short) (pos & 0xFFF); // 获取低 12 位作为 y 值
         short x = (short) ((pos >> 12) & 0xFFF); // 获取高 12 位作为 x 值
         return new ColorPoint((double) x / scale, (double) y / scale, 0, color);
-    }
-
-    public static void main(String[] args) throws EvaluationException, ParseException {
-        Expression expression = new Expression("1 + 2 / (4 * SQRT(4))");
-
-        EvaluationValue result = expression.evaluate();
-
-        System.out.println(result.getNumberValue()); // prints 1.25
     }
 }

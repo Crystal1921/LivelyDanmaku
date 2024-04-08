@@ -51,6 +51,7 @@
 
   "chat.lively_danmaku.welcome": "Please compete for money",
   "chat.lively_danmaku.easter_egg": "You find the Easter Egg-Mystia Lorelei,made by armadillo_core_",
+  "chat.lively_danmaku.warn.over_danmaku": "There are too many danmaku to be shot.This max number can be changed in config",
 
   "ui.danmaku_table": "Danmaku Table",
   "ui.fumo_table": "Fumo Table",
