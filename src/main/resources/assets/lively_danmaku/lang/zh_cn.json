@@ -69,6 +69,10 @@
 
   "group.lively_danmaku": "缤纷弹幕",
 
+  "message.lively_danmaku.missing_patchouli.title": "[缤纷弹幕]",
+  "message.lively_danmaku.missing_patchouli.url": "https://www.curseforge.com/minecraft/mc-mods/patchouli",
+  "message.lively_danmaku.missing_patchouli.click_here": "点击这里获取帕秋莉手册",
+
   "patchouli.lively_danmaku.book.name": "弹幕指南",
   "patchouli.lively_danmaku.book.landing_text": "一个允许你制作更多多样性的弹幕的模组",
   "patchouli.lively_danmaku.danmaku_type": "弹幕类型",

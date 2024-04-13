@@ -69,6 +69,10 @@
 
   "group.lively_danmaku": "Lively Danmaku",
 
+  "message.lively_danmaku.missing_patchouli.title": "[LivelyDanmaku]",
+  "message.lively_danmaku.missing_patchouli.url": "https://www.curseforge.com/minecraft/mc-mods/patchouli",
+  "message.lively_danmaku.missing_patchouli.click_here": "Click here to install Patchouli book",
+
   "patchouli.lively_danmaku.book.name": "Danmaku Guide",
   "patchouli.lively_danmaku.book.landing_text": "A mod about more danmaku",
   "patchouli.lively_danmaku.danmaku_type": "Danmaku Type",

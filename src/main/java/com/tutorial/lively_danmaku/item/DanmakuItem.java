@@ -21,8 +21,8 @@ import java.util.List;
 import java.util.Random;
 
 public class DanmakuItem extends Item {
-    public DanmakuItem(Properties p_41383_) {
-        super(p_41383_);
+    public DanmakuItem(Properties properties) {
+        super(properties);
     }
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, @NotNull InteractionHand interactionHand) {
         ItemStack itemstack = player.getItemInHand(interactionHand);
