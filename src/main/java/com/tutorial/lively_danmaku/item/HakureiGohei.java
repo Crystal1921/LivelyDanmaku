@@ -10,6 +10,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -21,6 +22,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.List;
+import java.util.Optional;
 
 import static java.lang.Math.log;
 
@@ -111,10 +113,16 @@ public class HakureiGohei extends BowItem {
         if (stack.getOrCreateTag().get("crystal_distribution") != null) {
             String string = stack.getOrCreateTag().get("crystal_distribution").toString();
             for (int i = 0; i < 9; i++) {
-                list.add(Component.translatable(Component.EMPTY.getString()).append(format_NBT(string.substring(i * 9 + 1, i * 9 + 10))));
+
             }
         }
     }
+
+    @Override
+    public @NotNull Optional<TooltipComponent> getTooltipImage(@NotNull ItemStack pStack) {
+        return Optional.empty();
+    }
+
     public static int[][] String2Int (String string) {
         int[][] array = new int[9][9];
         for (int i = 0; i < 9; i++) {
@@ -149,17 +157,5 @@ public class HakureiGohei extends BowItem {
             }
         }
         return count;
-    }
-
-    public String format_NBT(String string) {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < 9; i++) {
-            switch (string.charAt(i)){
-                case '#' -> result.append('\u3000');
-                case '1' -> result.append('●').append(' ');
-                case '2' -> result.append('★');
-            }
-        }
-        return result.toString();
     }
 }

@@ -1,6 +1,7 @@
 package com.tutorial.lively_danmaku.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MathUtils {
 
@@ -29,5 +30,11 @@ public class MathUtils {
         short y = (short) (pos & 0xFFF); // 获取低 12 位作为 y 值
         short x = (short) ((pos >> 12) & 0xFFF); // 获取高 12 位作为 x 值
         return new ColorPoint((double) x / scale, (double) y / scale, 0, color);
+    }
+
+    public static ArrayList<ColorPoint> Long2ColorPoint(long[] longs) {
+        ArrayList<ColorPoint> points = new ArrayList<>();
+        Arrays.stream(longs).forEach(aLong -> points.add(extract(aLong)));
+        return points;
     }
 }

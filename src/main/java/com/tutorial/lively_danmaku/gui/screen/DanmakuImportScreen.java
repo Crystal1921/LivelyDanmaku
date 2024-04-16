@@ -13,7 +13,6 @@ import com.tutorial.lively_danmaku.util.ColorPoint;
 import com.tutorial.lively_danmaku.util.ImportColorMode;
 import com.tutorial.lively_danmaku.util.MathUtils;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.CycleButton;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.ObjectSelectionList;
@@ -44,6 +43,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.tutorial.lively_danmaku.config.DanmakuConfig.SAMPLING_DENSITY;
 import static com.tutorial.lively_danmaku.gui.screen.EmitterScreen.parseFloat;
 
 public class DanmakuImportScreen extends AbstractSelectionScreen<DanmakuImportMenu> {
@@ -200,7 +200,7 @@ public class DanmakuImportScreen extends AbstractSelectionScreen<DanmakuImportMe
     private ArrayList<ColorPoint> getPointList() {
         int width = this.selected.getImageInfo().width;
         int height = this.selected.getImageInfo().height;
-        this.gridNum = (int) parseFloat(this.gridEditBox.getValue());
+        this.gridNum = Math.min((int) parseFloat(this.gridEditBox.getValue()),SAMPLING_DENSITY.get());
         int widthNum = width / gridNum;
         int heightNum = height / gridNum;
         BufferedImage image = this.selected.getImageInfo().bufferedImage;

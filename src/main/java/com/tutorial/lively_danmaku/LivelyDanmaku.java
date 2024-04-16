@@ -40,11 +40,12 @@ public class LivelyDanmaku {
         //TODO 配套原作音效
         //TODO 完善教程--帕秋莉手册（英文未完成）
     }
+
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(MOD_ID, name.toLowerCase(Locale.ROOT));
     }
+
     private static <T> void bind(IEventBus eventBus, ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {
         eventBus.addListener((RegisterEvent event) -> source.accept((t, rl) -> event.register(registry, rl, () -> t)));
     }
 }
-

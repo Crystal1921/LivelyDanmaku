@@ -3,6 +3,7 @@ package com.tutorial.lively_danmaku.item;
 import com.tutorial.lively_danmaku.capability.CapabilityProvider;
 import com.tutorial.lively_danmaku.entity.FiveStarEmitter;
 import com.tutorial.lively_danmaku.init.EntityTypeRegistry;
+import com.tutorial.lively_danmaku.item.tooltip.RecordDanmakuTooltip;
 import com.tutorial.lively_danmaku.util.ColorPoint;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -10,20 +11,18 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 import static com.tutorial.lively_danmaku.config.DanmakuConfig.DANMAKU_NUM;
-import static com.tutorial.lively_danmaku.util.MathUtils.extract;
+import static com.tutorial.lively_danmaku.util.MathUtils.Long2ColorPoint;
 import static java.lang.Math.*;
 
 public class SanaeGohei extends BowItem {
@@ -110,10 +109,14 @@ public class SanaeGohei extends BowItem {
         return points;
     }
 
-    private static ArrayList<ColorPoint> Long2ColorPoint(long[] longs) {
-        ArrayList<ColorPoint> points = new ArrayList<>();
-        Arrays.stream(longs).forEach(aLong -> points.add(extract(aLong)));
-        return points;
+    @Override
+    public @NotNull Optional<TooltipComponent> getTooltipImage(@NotNull ItemStack itemstack) {
+        if (itemstack.getOrCreateTag().get("crystal_point") != null){
+            CompoundTag tag = itemstack.getOrCreateTag();
+            ArrayList<ColorPoint> pointArrayList = Long2ColorPoint(tag.getLongArray("crystal_point"));
+            return Optional.of(new RecordDanmakuTooltip(pointArrayList));
+        }
+        return Optional.empty();
     }
 
     private ArrayList<ColorPoint> viewTransform(ArrayList<ColorPoint> origin, float XRot, float YRot) {
