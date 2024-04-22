@@ -1,0 +1,12 @@
+{
+  "name": "patchouli.lively_danmaku.config",
+  "icon": "minecraft:book",
+  "category": "lively_danmaku:danmaku_extra",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "minecraft:book",
+      "text": "patchouli.lively_danmaku.config.describe"
+    }
+  ]
+}

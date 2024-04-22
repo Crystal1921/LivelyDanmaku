@@ -105,6 +105,8 @@
   "patchouli.lively_danmaku.small_point.describe": "可以吃下去增加Power值0.05，最高5点",
   "patchouli.lively_danmaku.love_color": "恋色マスタースパーク",
   "patchouli.lively_danmaku.love_color.describe": "魔理莎的角色曲，可以放入音符盒听",
+  "patchouli.lively_danmaku.config": "配置文件",
+  "patchouli.lively_danmaku.config.describe": "可用于配置的属性：$(br)单次最高发射弹幕量$(br)弹幕发射器频率$(br)弹幕导入台取样密度",
 
   "patchouli.lively_danmaku.normal_danmaku": "普通弹幕",
   "patchouli.lively_danmaku.normal_danmaku.describe": "只是一个普通的弹幕，笔直的飞行并造成正比于速度的伤害。默认下外环颜色随机，需要在弹幕染色台内指定颜色",
@@ -115,7 +117,7 @@
 
   "patchouli.lively_danmaku.danmaku_table": "弹幕工作台",
   "patchouli.lively_danmaku.danmaku_table.describe.0": "  这是一个很普通的弹幕工作台，你可以在中间主位摆放博丽御币，在左右两侧分别摆放大P点和小P点，分别对应速度值和最大弹幕数量，是的，最大64。",
-  "patchouli.lively_danmaku.danmaku_table.describe.1": "    当数量大于右侧弹幕总数时，单个点位会发射（数量值/弹幕总数）向下取整后个数量的弹幕。如果你在右侧放了多过64的弹幕，发射时会随机缺失。最后按下中间的按钮完成制作。",
+  "patchouli.lively_danmaku.danmaku_table.describe.1": "  当数量大于右侧弹幕总数时，单个点位会发射（数量值/弹幕总数）向下取整后个数量的弹幕。如果你在右侧放了多过64的弹幕，发射时会随机缺失。最后按下中间的按钮完成制作。",
   "patchouli.lively_danmaku.advanced_danmaku_table": "高级弹幕工作台",
   "patchouli.lively_danmaku.advanced_danmaku_table.describe.0": "  顾名思义，它很高级，相应的，主位需要摆放早苗御币，左右侧分别摆放弹幕类型（普通/星型）和大P点，在右侧默认是网格模式，你可以直接手动绘制弹幕形状，默认连笔。",
   "patchouli.lively_danmaku.advanced_danmaku_table.describe.1": "  在左侧界面的右上有四个按钮分别是撤回上次操作，开关绘制，开关网格吸附，将图案以png形式，另存在danmaku_image文件夹中，可以通过关掉绘制再开启来实现提笔落笔。",

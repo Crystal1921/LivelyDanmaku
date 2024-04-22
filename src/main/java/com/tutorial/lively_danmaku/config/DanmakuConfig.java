@@ -11,13 +11,13 @@ public final class DanmakuConfig {
         builder.push("lively_danmaku");
 
         builder.comment("The max number of danmaku can be shot by gohei once");
-        DANMAKU_NUM = builder.defineInRange("DanmakuNum", 1024, 1, 4096);
+        DANMAKU_NUM = builder.defineInRange("DanmakuNum", 1024, 1, 8192);
 
         builder.comment("The max frequency of the danmaku emitter");
         EMITTER_FREQUENCY = builder.defineInRange("EmitterFrequency",5,1,1000);
 
         builder.comment("The max sampling density can danmaku import");
-        SAMPLING_DENSITY = builder.defineInRange("SamplingDensity",50,1,100);
+        SAMPLING_DENSITY = builder.defineInRange("SamplingDensity",40,1,100);
 
         builder.pop();
         return builder.build();

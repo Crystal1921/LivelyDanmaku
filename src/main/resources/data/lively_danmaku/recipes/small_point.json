@@ -1,0 +1,15 @@
+{
+  "result": {
+    "count": 4,
+    "item": "lively_danmaku:small_point"
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:red_dye"
+    }
+  ]
+}

@@ -11,10 +11,9 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.entity.PathfinderMob;
 import org.jetbrains.annotations.NotNull;
 
-public class ReimuModel<R extends PathfinderMob> extends EntityModel<Reimu> {
+public class ReimuModel extends EntityModel<Reimu> {
     public ReimuModel(ModelPart root) {
         super(RenderType::entityCutoutNoCull);
         this.head = root.getChild("head");

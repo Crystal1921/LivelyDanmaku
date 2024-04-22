@@ -38,7 +38,6 @@ public class LivelyDanmaku {
         //TODO 符卡制作台
         //TODO 弹幕函数台
         //TODO 配套原作音效
-        //TODO 完善教程--帕秋莉手册（英文未完成）
     }
 
     public static ResourceLocation prefix(String name) {

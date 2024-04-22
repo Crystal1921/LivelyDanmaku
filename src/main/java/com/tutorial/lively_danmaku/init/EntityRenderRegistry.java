@@ -18,7 +18,7 @@ public class EntityRenderRegistry {
         event.registerEntityRenderer(EntityTypeRegistry.HAKUREI_BULLET.get(), HakureiBulletRender::new);
         event.registerEntityRenderer(EntityTypeRegistry.YIN_YANG_ORB.get(), YinYangOrbRender::new);
         event.registerEntityRenderer(EntityTypeRegistry.FIVE_STAR_EMITTER.get(), FiveStarEmitterRender::new);
-        event.registerEntityRenderer(EntityTypeRegistry.REIMU.get(), m -> new ReimuRender(m, new ReimuModel<>(m.bakeLayer(ModelLayersRegistry.REIMU)), 0.3F));
+        event.registerEntityRenderer(EntityTypeRegistry.REIMU.get(), m -> new ReimuRender(m, new ReimuModel(m.bakeLayer(ModelLayersRegistry.REIMU)), 0.3F));
         event.registerEntityRenderer(EntityTypeRegistry.BROOMSTICK.get(), m -> new BroomstickRender(m, new BroomstickModel<>(m.bakeLayer(ModelLayersRegistry.BROOMSTICK)),0.6F));
         event.registerEntityRenderer(EntityTypeRegistry.FAKE_PLAYER.get(), m -> new PlayerRender(m, new PlayerModel<>(m.bakeLayer(ModelLayersRegistry.FAKE_PLAYER),true),0.3F));
     }

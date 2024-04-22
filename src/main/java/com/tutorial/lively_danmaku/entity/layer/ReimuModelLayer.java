@@ -11,16 +11,17 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
-public class ReimuModelLayer extends RenderLayer<Reimu, ReimuModel<Reimu>> {
+public class ReimuModelLayer extends RenderLayer<Reimu, ReimuModel> {
     private final ItemInHandRenderer itemInHandRenderer;
 
-    public ReimuModelLayer(RenderLayerParent<Reimu, ReimuModel<Reimu>> reimu, ItemInHandRenderer item) {
+    public ReimuModelLayer(RenderLayerParent<Reimu, ReimuModel> reimu, ItemInHandRenderer item) {
         super(reimu);
         this.itemInHandRenderer = item;
     }
     @Override
-    public void render(PoseStack pose, MultiBufferSource source, int p_117351_, Reimu reimu, float p_117353_, float p_117354_, float p_117355_, float p_117356_, float p_117357_, float p_117358_) {
+    public void render(PoseStack pose, @NotNull MultiBufferSource source, int p_117351_, Reimu reimu, float p_117353_, float p_117354_, float p_117355_, float p_117356_, float p_117357_, float p_117358_) {
         ItemStack itemstack = reimu.getItemBySlot(EquipmentSlot.MAINHAND);
         pose.pushPose();
         pose.translate(-0.5,0.9,-0.1);

@@ -9,10 +9,10 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
-public class ReimuRender extends MobRenderer<Reimu, ReimuModel<Reimu>> {
+public class ReimuRender extends MobRenderer<Reimu, ReimuModel> {
     public static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation("lively_danmaku", "textures/entity/reimu.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
-    public ReimuRender(EntityRendererProvider.Context manager, ReimuModel<Reimu> model, float shadowSize) {
+    public ReimuRender(EntityRendererProvider.Context manager, ReimuModel model, float shadowSize) {
         super(manager, model, shadowSize);
         addLayer(new ReimuModelLayer(this,manager.getItemInHandRenderer()));
     }
