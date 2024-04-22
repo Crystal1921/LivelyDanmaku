@@ -6,7 +6,7 @@ modId="lively_danmaku"
 version="${mod_version}"
 displayName="lively_danmaku"
 authors="Crystal1921"
-logoFile="crystal_logo.jpg"
+logoFile="logo.png"
 credits = "TartaricAcid,ZUN"
 description='''
 This is crystal1921, the 1.20.1 Modding tutorial mod.
