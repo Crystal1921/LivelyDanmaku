@@ -1,6 +1,7 @@
 # LivelyDanmaku 缤纷弹幕
 ![Static Badge](https://img.shields.io/badge/version-1.3.1-blue)
 ![Static Badge](https://img.shields.io/badge/minecraft-1.20.1-blue)
+[![Static Badge](https://img.shields.io/badge/Modrinth-1)](https://modrinth.com/mod/livelydanmaku)
 
 弹幕对战肯定很热闹awa
 

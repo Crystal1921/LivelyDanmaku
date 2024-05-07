@@ -28,7 +28,7 @@ public class SizeChangeEvent {
     public static void onSizeChange(EntityEvent.Size event) {
         if (event.getEntity() instanceof Player player && event.getEntity().isAddedToWorld()){
             if (player.getInventory().getArmor(3).is(ItemRegistry.ReimuHeaddress.get()) && event.getPose() == Pose.CROUCHING) {
-                event.setNewSize(new EntityDimensions(0.6F,0.6F,true),true);
+                event.setNewSize(new EntityDimensions(0.3F,0.3F,true),true);
             }
         }
     }
