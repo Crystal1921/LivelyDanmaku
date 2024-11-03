@@ -1,0 +1,776 @@
+[0311月2024 15:00:56.386] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, E:\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.0.35, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, lively_danmaku, --all, --output, D:\Minecraft-ex\code\LivelyDanmaku\src\generated\resources, --existing, D:\Minecraft-ex\code\LivelyDanmaku\src\main\resources, --mixin.config, danmaku.mixins.json]
+[0311月2024 15:00:56.390] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.9 by JetBrains s.r.o.; OS Windows 11 arch amd64 version 10.0
+[0311月2024 15:00:56.437] [main/DEBUG] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Found launch services [fmlclientdev,forgeclient,minecraft,forgegametestserverdev,fmlserveruserdev,fmlclient,fmldatauserdev,forgeserverdev,forgeserveruserdev,forgeclientdev,forgeclientuserdev,forgeserver,forgedatadev,fmlserver,fmlclientuserdev,fmlserverdev,forgedatauserdev,testharness,forgegametestserveruserdev]
+[0311月2024 15:00:56.451] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Found naming services : [srgtomcp]
+[0311月2024 15:00:56.467] [main/DEBUG] [cpw.mods.modlauncher.LaunchPluginHandler/MODLAUNCHER]: Found launch plugins: [mixin,eventbus,slf4jfixer,object_holder_definalize,runtime_enum_extender,capability_token_subclass,accesstransformer,runtimedistcleaner]
+[0311月2024 15:00:56.478] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Discovering transformation services
+[0311月2024 15:00:56.484] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path GAMEDIR is D:\Minecraft-ex\code\LivelyDanmaku\run-data
+[0311月2024 15:00:56.486] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path MODSDIR is D:\Minecraft-ex\code\LivelyDanmaku\run-data\mods
+[0311月2024 15:00:56.486] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path CONFIGDIR is D:\Minecraft-ex\code\LivelyDanmaku\run-data\config
+[0311月2024 15:00:56.486] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path FMLCONFIG is D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\fml.toml
+[0311月2024 15:00:56.519] [main/WARN] [net.minecraftforge.fml.loading.FMLConfig/CORE]: Configuration file D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\fml.toml is not correct. Correcting
+[0311月2024 15:00:56.520] [main/INFO] [net.minecraftforge.fml.loading.FMLConfig/CORE]: Incorrect key [earlyWindowSkipGLVersions] was corrected from null to []
+[0311月2024 15:00:56.532] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Found additional transformation services from discovery services: 
+[0311月2024 15:00:56.538] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[0311月2024 15:00:56.544] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Found transformer services : [mixin,fml]
+[0311月2024 15:00:56.545] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading
+[0311月2024 15:00:56.545] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loading service mixin
+[0311月2024 15:00:56.545] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loaded service mixin
+[0311月2024 15:00:56.546] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loading service fml
+[0311月2024 15:00:56.547] [main/DEBUG] [net.minecraftforge.fml.loading.LauncherVersion/CORE]: Found FMLLauncher version 1.0
+[0311月2024 15:00:56.547] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML 1.0 loading
+[0311月2024 15:00:56.548] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found ModLauncher version : 10.0.9+10.0.9+main.dcd20f30
+[0311月2024 15:00:56.548] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found AccessTransformer version : 8.0.4+66+master.c09db6d7
+[0311月2024 15:00:56.548] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found EventBus version : 6.0.3+6.0.3+master.039e4ea9
+[0311月2024 15:00:56.549] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found Runtime Dist Cleaner
+[0311月2024 15:00:56.550] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found CoreMod version : 5.0.1+15+master.dc5a2922
+[0311月2024 15:00:56.550] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found ForgeSPI package implementation version 7.0.1+7.0.1+master.d2b38bf6
+[0311月2024 15:00:56.550] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found ForgeSPI package specification 5
+[0311月2024 15:00:56.550] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loaded service fml
+[0311月2024 15:00:56.551] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Configuring option handling for services
+[0311月2024 15:00:56.556] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services initializing
+[0311月2024 15:00:56.556] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service mixin
+[0311月2024 15:00:56.568] [main/DEBUG] [mixin/]: MixinService [ModLauncher] was successfully booted in cpw.mods.cl.ModuleClassLoader@37654521
+[0311月2024 15:00:56.581] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/E:/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23132!/ Service=ModLauncher Env=CLIENT
+[0311月2024 15:00:56.583] [main/DEBUG] [mixin/]: Initialising Mixin Platform Manager
+[0311月2024 15:00:56.585] [main/DEBUG] [mixin/]: Adding mixin platform agents for container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[0311月2024 15:00:56.585] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for ModLauncher Root Container(ModLauncher:4f56a0a2)
+[0311月2024 15:00:56.585] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[0311月2024 15:00:56.585] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for ModLauncher Root Container(ModLauncher:4f56a0a2)
+[0311月2024 15:00:56.585] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[0311月2024 15:00:56.594] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service mixin
+[0311月2024 15:00:56.594] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service fml
+[0311月2024 15:00:56.594] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Setting up basic FML game directories
+[0311月2024 15:00:56.595] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path GAMEDIR is D:\Minecraft-ex\code\LivelyDanmaku\run-data
+[0311月2024 15:00:56.595] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path MODSDIR is D:\Minecraft-ex\code\LivelyDanmaku\run-data\mods
+[0311月2024 15:00:56.596] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path CONFIGDIR is D:\Minecraft-ex\code\LivelyDanmaku\run-data\config
+[0311月2024 15:00:56.596] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path FMLCONFIG is D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\fml.toml
+[0311月2024 15:00:56.596] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Loading configuration
+[0311月2024 15:00:56.598] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Preparing ModFile
+[0311月2024 15:00:56.601] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Preparing launch handler
+[0311月2024 15:00:56.601] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Using forgedatauserdev as launch service
+[0311月2024 15:00:56.613] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Received command line version data  : VersionInfo[forgeVersion=47.0.35, mcVersion=1.20.1, mcpVersion=20230612.114412, forgeGroup=net.minecraftforge]
+[0311月2024 15:00:56.615] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service fml
+[0311月2024 15:00:56.615] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Current naming domain is 'mcp'
+[0311月2024 15:00:56.616] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Identified name mapping providers {srg=srgtomcp:1234}
+[0311月2024 15:00:56.616] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services begin scanning
+[0311月2024 15:00:56.616] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service mixin
+[0311月2024 15:00:56.617] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: End scan trigger - transformation service mixin
+[0311月2024 15:00:56.617] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service fml
+[0311月2024 15:00:56.617] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Initiating mod scan
+[0311月2024 15:00:56.626] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModListHandler/CORE]: Found mod coordinates from lists: []
+[0311月2024 15:00:56.630] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer/CORE]: Found Mod Locators : (mods folder:null),(maven libs:null),(exploded directory:null),(minecraft:null),(userdev classpath:null)
+[0311月2024 15:00:56.631] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer/CORE]: Found Dependency Locators : (JarInJar:null)
+[0311月2024 15:00:56.638] [main/DEBUG] [net.minecraftforge.fml.loading.targets.CommonLaunchHandler/CORE]: Got mod coordinates lively_danmaku%%D:\Minecraft-ex\code\LivelyDanmaku\build\resources\main;lively_danmaku%%D:\Minecraft-ex\code\LivelyDanmaku\build\classes\java\main from env
+[0311月2024 15:00:56.639] [main/DEBUG] [net.minecraftforge.fml.loading.targets.CommonLaunchHandler/CORE]: Found supplied mod coordinates [{lively_danmaku=[D:\Minecraft-ex\code\LivelyDanmaku\build\resources\main, D:\Minecraft-ex\code\LivelyDanmaku\build\classes\java\main]}]
+[0311月2024 15:00:56.865] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar with {minecraft} mods - versions {1.20.1}
+[0311月2024 15:00:56.869] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.0.35\23170a4a30ff6c0fa06499843d59aeb9fc6251b3\javafmllanguage-1.20.1-47.0.35.jar
+[0311月2024 15:00:56.869] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.0.35\23170a4a30ff6c0fa06499843d59aeb9fc6251b3\javafmllanguage-1.20.1-47.0.35.jar is missing mods.toml file
+[0311月2024 15:00:56.871] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.0.35\4db60514ec40e674e6d418dcc2f5a0b3b33ee323\lowcodelanguage-1.20.1-47.0.35.jar
+[0311月2024 15:00:56.871] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.0.35\4db60514ec40e674e6d418dcc2f5a0b3b33ee323\lowcodelanguage-1.20.1-47.0.35.jar is missing mods.toml file
+[0311月2024 15:00:56.872] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.0.35\fcb5f28da4e1dd808b3636d9c5dd9133b19c8c26\mclanguage-1.20.1-47.0.35.jar
+[0311月2024 15:00:56.872] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.0.35\fcb5f28da4e1dd808b3636d9c5dd9133b19c8c26\mclanguage-1.20.1-47.0.35.jar is missing mods.toml file
+[0311月2024 15:00:56.874] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.0.35\7dd26b29e1873e125e38a5a390b8525089cd98b0\fmlcore-1.20.1-47.0.35.jar
+[0311月2024 15:00:56.874] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.0.35\7dd26b29e1873e125e38a5a390b8525089cd98b0\fmlcore-1.20.1-47.0.35.jar is missing mods.toml file
+[0311月2024 15:00:56.878] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate D:\Minecraft-ex\code\LivelyDanmaku\build\resources\main
+[0311月2024 15:00:56.881] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file main with {lively_danmaku} mods - versions {1.3.1}
+[0311月2024 15:00:56.883] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /
+[0311月2024 15:00:56.891] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file  with {forge} mods - versions {47.0.35}
+[0311月2024 15:00:56.904] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\mezz\jei\jei-1.20.1-forge\15.0.0.12_mapped_parchment_2023.06.26-1.20.1\jei-1.20.1-forge-15.0.0.12_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:56.907] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file jei-1.20.1-forge-15.0.0.12_mapped_parchment_2023.06.26-1.20.1.jar with {jei} mods - versions {15.0.0.12}
+[0311月2024 15:00:56.910] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\vazkii\patchouli\Patchouli\1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1\Patchouli-1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:56.913] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file Patchouli-1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1.jar with {patchouli} mods - versions {1.20.1-80-FORGE}
+[0311月2024 15:00:56.914] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\maven\modrinth\mmmmmmmmmmmm\kDOX4QqW_mapped_parchment_2023.06.26-1.20.1\mmmmmmmmmmmm-kDOX4QqW_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:56.916] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file mmmmmmmmmmmm-kDOX4QqW_mapped_parchment_2023.06.26-1.20.1.jar with {dummmmmmy} mods - versions {1.20-2.0.1}
+[0311月2024 15:00:56.917] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\maven\modrinth\moonlight\forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1\moonlight-forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:56.919] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file moonlight-forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1.jar with {moonlight} mods - versions {1.20-2.13.0}
+[0311月2024 15:00:56.926] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\mezz\jei\jei-1.20.1-forge\15.0.0.12_mapped_parchment_2023.06.26-1.20.1\jei-1.20.1-forge-15.0.0.12_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:56.929] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file jei-1.20.1-forge-15.0.0.12_mapped_parchment_2023.06.26-1.20.1.jar with {jei} mods - versions {15.0.0.12}
+[0311月2024 15:00:56.930] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\vazkii\patchouli\Patchouli\1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1\Patchouli-1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:56.931] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file Patchouli-1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1.jar with {patchouli} mods - versions {1.20.1-80-FORGE}
+[0311月2024 15:00:56.932] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\maven\modrinth\mmmmmmmmmmmm\kDOX4QqW_mapped_parchment_2023.06.26-1.20.1\mmmmmmmmmmmm-kDOX4QqW_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:56.934] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file mmmmmmmmmmmm-kDOX4QqW_mapped_parchment_2023.06.26-1.20.1.jar with {dummmmmmy} mods - versions {1.20-2.0.1}
+[0311月2024 15:00:56.936] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\maven\modrinth\moonlight\forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1\moonlight-forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:56.936] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file moonlight-forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1.jar with {moonlight} mods - versions {1.20-2.13.0}
+[0311月2024 15:00:56.941] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Found 2 mods for first modid moonlight, selecting most recent based on version data
+[0311月2024 15:00:56.941] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Selected file moonlight-forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1.jar for modid moonlight with version 1.20-2.13.0
+[0311月2024 15:00:56.942] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Found 2 mods for first modid dummmmmmy, selecting most recent based on version data
+[0311月2024 15:00:56.942] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Selected file mmmmmmmmmmmm-kDOX4QqW_mapped_parchment_2023.06.26-1.20.1.jar for modid dummmmmmy with version 1.20-2.0.1
+[0311月2024 15:00:56.942] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Found 2 mods for first modid patchouli, selecting most recent based on version data
+[0311月2024 15:00:56.942] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Selected file Patchouli-1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1.jar for modid patchouli with version 1.20.1-80-FORGE
+[0311月2024 15:00:56.942] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Found 2 mods for first modid jei, selecting most recent based on version data
+[0311月2024 15:00:56.942] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Selected file jei-1.20.1-forge-15.0.0.12_mapped_parchment_2023.06.26-1.20.1.jar for modid jei with version 15.0.0.12
+[0311月2024 15:00:56.950] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar, it does not contain dependency information.
+[0311月2024 15:00:56.950] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from , it does not contain dependency information.
+[0311月2024 15:00:56.951] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from Patchouli-1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1.jar, it does not contain dependency information.
+[0311月2024 15:00:56.951] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from main, it does not contain dependency information.
+[0311月2024 15:00:56.951] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from jei-1.20.1-forge-15.0.0.12_mapped_parchment_2023.06.26-1.20.1.jar, it does not contain dependency information.
+[0311月2024 15:00:56.951] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from mclanguage-1.20.1-47.0.35.jar, it does not contain dependency information.
+[0311月2024 15:00:56.951] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from javafmllanguage-1.20.1-47.0.35.jar, it does not contain dependency information.
+[0311月2024 15:00:56.951] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from fmlcore-1.20.1-47.0.35.jar, it does not contain dependency information.
+[0311月2024 15:00:56.951] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from lowcodelanguage-1.20.1-47.0.35.jar, it does not contain dependency information.
+[0311月2024 15:00:57.002] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate 
+[0311月2024 15:00:57.002] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file mixinextras-forge-0.3.6.jar with {mixinextras} mods - versions {0.3.6}
+[0311月2024 15:00:57.004] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate 
+[0311月2024 15:00:57.004] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file mixinextras-forge-0.2.1-beta.2.jar with {mixinextras} mods - versions {0.2.1-beta.2}
+[0311月2024 15:00:57.018] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from MixinExtras-0.3.6.jar, it does not contain dependency information.
+[0311月2024 15:00:57.018] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF\jarjar\metadata.json from MixinExtras-0.2.1-beta.2.jar, it does not contain dependency information.
+[0311月2024 15:00:57.042] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate 
+[0311月2024 15:00:57.042] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file mixinextras-forge-0.3.6.jar with {mixinextras} mods - versions {0.3.6}
+[0311月2024 15:00:57.045] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[0311月2024 15:00:57.048] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar with {minecraft} mods - versions {1.20.1}
+[0311月2024 15:00:57.049] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file D:\Minecraft-ex\code\LivelyDanmaku\build\fg_cache\net\minecraftforge\forge\1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1\forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar with languages [LanguageSpec[languageName=minecraft, acceptedVersions=1]]
+[0311月2024 15:00:57.051] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\maven\modrinth\moonlight\forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1\moonlight-forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:57.051] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file moonlight-forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1.jar with {moonlight} mods - versions {1.20-2.13.0}
+[0311月2024 15:00:57.051] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file E:\.gradle\caches\forge_gradle\deobf_dependencies\maven\modrinth\moonlight\forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1\moonlight-forge_1.20-2.13.0_mapped_parchment_2023.06.26-1.20.1.jar with languages [LanguageSpec[languageName=javafml, acceptedVersions=[40,)]]
+[0311月2024 15:00:57.051] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /
+[0311月2024 15:00:57.052] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file  with {forge} mods - versions {47.0.35}
+[0311月2024 15:00:57.052] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file / with languages [LanguageSpec[languageName=javafml, acceptedVersions=[24,]]]
+[0311月2024 15:00:57.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod field_to_method with Javascript path coremods/field_to_method.js
+[0311月2024 15:00:57.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod field_to_instanceof with Javascript path coremods/field_to_instanceof.js
+[0311月2024 15:00:57.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod add_bouncer_method with Javascript path coremods/add_bouncer_method.js
+[0311月2024 15:00:57.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod method_redirector with Javascript path coremods/method_redirector.js
+[0311月2024 15:00:57.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/field_to_method.js
+[0311月2024 15:00:57.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/field_to_instanceof.js
+[0311月2024 15:00:57.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/add_bouncer_method.js
+[0311月2024 15:00:57.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/method_redirector.js
+[0311月2024 15:00:57.055] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\maven\modrinth\mmmmmmmmmmmm\kDOX4QqW_mapped_parchment_2023.06.26-1.20.1\mmmmmmmmmmmm-kDOX4QqW_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:57.055] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file mmmmmmmmmmmm-kDOX4QqW_mapped_parchment_2023.06.26-1.20.1.jar with {dummmmmmy} mods - versions {1.20-2.0.1}
+[0311月2024 15:00:57.055] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file E:\.gradle\caches\forge_gradle\deobf_dependencies\maven\modrinth\mmmmmmmmmmmm\kDOX4QqW_mapped_parchment_2023.06.26-1.20.1\mmmmmmmmmmmm-kDOX4QqW_mapped_parchment_2023.06.26-1.20.1.jar with languages [LanguageSpec[languageName=javafml, acceptedVersions=[40,)]]
+[0311月2024 15:00:57.055] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\vazkii\patchouli\Patchouli\1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1\Patchouli-1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:57.056] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file Patchouli-1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1.jar with {patchouli} mods - versions {1.20.1-80-FORGE}
+[0311月2024 15:00:57.056] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file E:\.gradle\caches\forge_gradle\deobf_dependencies\vazkii\patchouli\Patchouli\1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1\Patchouli-1.20.1-80-FORGE_mapped_parchment_2023.06.26-1.20.1.jar with languages [LanguageSpec[languageName=javafml, acceptedVersions=[47,)]]
+[0311月2024 15:00:57.056] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate D:\Minecraft-ex\code\LivelyDanmaku\build\resources\main
+[0311月2024 15:00:57.056] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file main with {lively_danmaku} mods - versions {1.3.1}
+[0311月2024 15:00:57.056] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file D:\Minecraft-ex\code\LivelyDanmaku\build\resources\main with languages [LanguageSpec[languageName=javafml, acceptedVersions=[47,)]]
+[0311月2024 15:00:57.058] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate E:\.gradle\caches\forge_gradle\deobf_dependencies\mezz\jei\jei-1.20.1-forge\15.0.0.12_mapped_parchment_2023.06.26-1.20.1\jei-1.20.1-forge-15.0.0.12_mapped_parchment_2023.06.26-1.20.1.jar
+[0311月2024 15:00:57.058] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file jei-1.20.1-forge-15.0.0.12_mapped_parchment_2023.06.26-1.20.1.jar with {jei} mods - versions {15.0.0.12}
+[0311月2024 15:00:57.058] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file E:\.gradle\caches\forge_gradle\deobf_dependencies\mezz\jei\jei-1.20.1-forge\15.0.0.12_mapped_parchment_2023.06.26-1.20.1\jei-1.20.1-forge-15.0.0.12_mapped_parchment_2023.06.26-1.20.1.jar with languages [LanguageSpec[languageName=javafml, acceptedVersions=[47,)]]
+[0311月2024 15:00:57.058] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file  with languages []
+[0311月2024 15:00:57.058] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate 
+[0311月2024 15:00:57.059] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file mixinextras-forge-0.3.6.jar with {mixinextras} mods - versions {0.3.6}
+[0311月2024 15:00:57.059] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file  with languages [LanguageSpec[languageName=javafml, acceptedVersions=*]]
+[0311月2024 15:00:57.060] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: End scan trigger - transformation service fml
+[0311月2024 15:00:57.070] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found 3 language providers
+[0311月2024 15:00:57.070] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider minecraft, version 1.0
+[0311月2024 15:00:57.071] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider lowcodefml, version 47
+[0311月2024 15:00:57.071] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider javafml, version 47
+[0311月2024 15:00:57.081] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Configured system mods: [minecraft, forge]
+[0311月2024 15:00:57.081] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Found system mod: minecraft
+[0311月2024 15:00:57.081] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Found system mod: forge
+[0311月2024 15:00:57.085] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/LOADING]: Found 9 mod requirements (9 mandatory, 0 optional)
+[0311月2024 15:00:57.085] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/LOADING]: Found 0 mod requirements missing (0 mandatory, 0 optional)
+[0311月2024 15:00:57.474] [main/DEBUG] [net.minecraftforge.fml.loading.MCPNamingService/CORE]: Loaded 34315 method mappings from methods.csv
+[0311月2024 15:00:57.503] [main/DEBUG] [net.minecraftforge.fml.loading.MCPNamingService/CORE]: Loaded 31011 field mappings from fields.csv
+[0311月2024 15:00:57.556] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading transformers
+[0311月2024 15:00:57.557] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformers for transformation service mixin
+[0311月2024 15:00:57.557] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformers for transformation service mixin
+[0311月2024 15:00:57.557] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformers for transformation service fml
+[0311月2024 15:00:57.559] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Loading coremod transformers
+[0311月2024 15:00:57.559] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/field_to_method.js
+[0311月2024 15:00:57.731] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
+[0311月2024 15:00:57.732] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/field_to_instanceof.js
+[0311月2024 15:00:57.781] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
+[0311月2024 15:00:57.781] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/add_bouncer_method.js
+[0311月2024 15:00:57.816] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
+[0311月2024 15:00:57.816] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/method_redirector.js
+[0311月2024 15:00:57.869] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
+[0311月2024 15:00:57.880] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@713ec32d to Target : CLASS {Lnet/minecraft/world/level/biome/Biome;} {} {V}
+[0311月2024 15:00:57.882] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@33eb6758 to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/Structure;} {} {V}
+[0311月2024 15:00:57.882] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@f8a6243 to Target : CLASS {Lnet/minecraft/world/effect/MobEffectInstance;} {} {V}
+[0311月2024 15:00:57.882] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4a8ffd75 to Target : CLASS {Lnet/minecraft/world/level/block/LiquidBlock;} {} {V}
+[0311月2024 15:00:57.882] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@1727e03a to Target : CLASS {Lnet/minecraft/world/item/BucketItem;} {} {V}
+[0311月2024 15:00:57.883] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@7f9e8421 to Target : CLASS {Lnet/minecraft/world/level/block/StairBlock;} {} {V}
+[0311月2024 15:00:57.883] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@23da79eb to Target : CLASS {Lnet/minecraft/world/level/block/FlowerPotBlock;} {} {V}
+[0311月2024 15:00:57.883] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@168b4cb0 to Target : CLASS {Lnet/minecraft/world/item/ItemStack;} {} {V}
+[0311月2024 15:00:57.883] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@3e05586b to Target : CLASS {Lnet/minecraft/network/play/client/CClientSettingsPacket;} {} {V}
+[0311月2024 15:00:57.883] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/animal/horse/SkeletonTrapGoal;} {} {V}
+[0311月2024 15:00:57.883] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/structures/OceanMonumentPieces$OceanMonumentPiece;} {} {V}
+[0311月2024 15:00:57.883] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/server/commands/SummonCommand;} {} {V}
+[0311月2024 15:00:57.883] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/structures/SwampHutPiece;} {} {V}
+[0311月2024 15:00:57.883] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/structures/WoodlandMansionPieces$WoodlandMansionPiece;} {} {V}
+[0311月2024 15:00:57.885] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/monster/ZombieVillager;} {} {V}
+[0311月2024 15:00:57.885] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/monster/Strider;} {} {V}
+[0311月2024 15:00:57.885] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/level/NaturalSpawner;} {} {V}
+[0311月2024 15:00:57.885] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/EntityType;} {} {V}
+[0311月2024 15:00:57.885] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/monster/Spider;} {} {V}
+[0311月2024 15:00:57.885] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/monster/Evoker$EvokerSummonSpellGoal;} {} {V}
+[0311月2024 15:00:57.885] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/monster/Zombie;} {} {V}
+[0311月2024 15:00:57.885] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/server/commands/RaidCommand;} {} {V}
+[0311月2024 15:00:57.886] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/raid/Raid;} {} {V}
+[0311月2024 15:00:57.886] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/npc/Villager;} {} {V}
+[0311月2024 15:00:57.886] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/templatesystem/StructureTemplate;} {} {V}
+[0311月2024 15:00:57.886] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/animal/frog/Tadpole;} {} {V}
+[0311月2024 15:00:57.886] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/npc/CatSpawner;} {} {V}
+[0311月2024 15:00:57.886] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/structures/OceanRuinPieces$OceanRuinPiece;} {} {V}
+[0311月2024 15:00:57.886] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/entity/ai/village/VillageSiege;} {} {V}
+[0311月2024 15:00:57.886] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/level/levelgen/PatrolSpawner;} {} {V}
+[0311月2024 15:00:57.886] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@35b17c06 to Target : CLASS {Lnet/minecraft/world/level/levelgen/PhantomSpawner;} {} {V}
+[0311月2024 15:00:57.886] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformers for transformation service fml
+[0311月2024 15:00:58.239] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[0311月2024 15:00:58.239] [main/DEBUG] [mixin/]: Registering mixin config: danmaku.mixins.json
+[0311月2024 15:00:58.256] [main/DEBUG] [mixin/]: Compatibility level JAVA_17 specified by danmaku.mixins.json is higher than the maximum level supported by this version of mixin (JAVA_13).
+[0311月2024 15:00:58.260] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[0311月2024 15:00:58.260] [main/DEBUG] [mixin/]: Processing launch tasks for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[0311月2024 15:00:58.260] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(minecraft)
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(minecraft)
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(minecraft)
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(minecraft)
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(minecraft)
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(minecraft)]
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(moonlight)
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(moonlight)
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(moonlight)
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(moonlight)
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(moonlight)
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(moonlight)]
+[0311月2024 15:00:58.261] [main/DEBUG] [mixin/]: Registering mixin config: moonlight-common.mixins.json
+[0311月2024 15:00:58.373] [main/DEBUG] [mixin/]: Error cleaning class output directory: .mixin.out
+[0311月2024 15:00:58.375] [main/DEBUG] [mixin/]: Preparing mixins for MixinEnvironment[PREINIT]
+[0311月2024 15:00:58.392] [main/DEBUG] [mixin/]: Registering mixin config: moonlight.mixins.json
+[0311月2024 15:00:58.396] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(forge)
+[0311月2024 15:00:58.396] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(forge)
+[0311月2024 15:00:58.396] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(forge)
+[0311月2024 15:00:58.396] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(forge)
+[0311月2024 15:00:58.397] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(forge)
+[0311月2024 15:00:58.397] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(forge)]
+[0311月2024 15:00:58.397] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(dummmmmmy)
+[0311月2024 15:00:58.397] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(dummmmmmy)
+[0311月2024 15:00:58.397] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(dummmmmmy)
+[0311月2024 15:00:58.397] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(dummmmmmy)
+[0311月2024 15:00:58.397] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(dummmmmmy)
+[0311月2024 15:00:58.397] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(dummmmmmy)]
+[0311月2024 15:00:58.398] [main/DEBUG] [mixin/]: Registering mixin config: dummmmmmy-common.mixins.json
+[0311月2024 15:00:58.399] [main/DEBUG] [mixin/]: Registering mixin config: dummmmmmy.mixins.json
+[0311月2024 15:00:58.401] [main/DEBUG] [mixin/]: Compatibility level JAVA_16 specified by dummmmmmy.mixins.json is higher than the maximum level supported by this version of mixin (JAVA_13).
+[0311月2024 15:00:58.403] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(patchouli)
+[0311月2024 15:00:58.403] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(patchouli)
+[0311月2024 15:00:58.403] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(patchouli)
+[0311月2024 15:00:58.404] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(patchouli)
+[0311月2024 15:00:58.404] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(patchouli)
+[0311月2024 15:00:58.404] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(patchouli)]
+[0311月2024 15:00:58.404] [main/DEBUG] [mixin/]: Registering mixin config: patchouli_xplat.mixins.json
+[0311月2024 15:00:58.407] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(lively_danmaku)
+[0311月2024 15:00:58.407] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(lively_danmaku)
+[0311月2024 15:00:58.407] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(lively_danmaku)
+[0311月2024 15:00:58.407] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(lively_danmaku)
+[0311月2024 15:00:58.409] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(lively_danmaku)
+[0311月2024 15:00:58.409] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(lively_danmaku)]
+[0311月2024 15:00:58.409] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(jei)
+[0311月2024 15:00:58.409] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(jei)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(jei)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(jei)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(jei)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(jei)]
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(MixinExtras)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(MixinExtras)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(MixinExtras)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(MixinExtras)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(MixinExtras)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(MixinExtras)]
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(mixinextras)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(mixinextras)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(mixinextras)
+[0311月2024 15:00:58.410] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(mixinextras)
+[0311月2024 15:00:58.411] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(mixinextras)
+[0311月2024 15:00:58.411] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(mixinextras)]
+[0311月2024 15:00:58.411] [main/DEBUG] [mixin/]: Registering mixin config: mixinextras.init.mixins.json
+[0311月2024 15:00:58.414] [main/DEBUG] [mixin/]: inject() running with 10 agents
+[0311月2024 15:00:58.414] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[0311月2024 15:00:58.415] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(minecraft)]
+[0311月2024 15:00:58.415] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(moonlight)]
+[0311月2024 15:00:58.415] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(forge)]
+[0311月2024 15:00:58.415] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(dummmmmmy)]
+[0311月2024 15:00:58.415] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(patchouli)]
+[0311月2024 15:00:58.415] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(lively_danmaku)]
+[0311月2024 15:00:58.415] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(jei)]
+[0311月2024 15:00:58.415] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(MixinExtras)]
+[0311月2024 15:00:58.415] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(mixinextras)]
+[0311月2024 15:00:58.415] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, E:\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, lively_danmaku, --all, --output, D:\Minecraft-ex\code\LivelyDanmaku\src\generated\resources, --existing, D:\Minecraft-ex\code\LivelyDanmaku\src\main\resources]
+[0311月2024 15:00:58.418] [main/DEBUG] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
+[0311月2024 15:00:58.419] [main/DEBUG] [mixin/]: Selecting config danmaku.mixins.json
+[0311月2024 15:00:58.423] [main/WARN] [mixin/]: Reference map 'danmaku.refmap.json' for danmaku.mixins.json could not be read. If this is a development environment you can ignore this message
+[0311月2024 15:00:58.424] [main/DEBUG] [mixin/]: Selecting config moonlight-common.mixins.json
+[0311月2024 15:00:58.724] [main/INFO] [mixin/]: Remapping refMap moonlight-common-refmap.json using D:\Minecraft-ex\code\LivelyDanmaku\build\createSrgToMcp\output.srg
+[0311月2024 15:00:58.725] [main/DEBUG] [mixin/]: Selecting config moonlight.mixins.json
+[0311月2024 15:00:58.726] [main/INFO] [mixin/]: Remapping refMap moonlight-forge-refmap.json using D:\Minecraft-ex\code\LivelyDanmaku\build\createSrgToMcp\output.srg
+[0311月2024 15:00:58.726] [main/DEBUG] [mixin/]: Selecting config dummmmmmy-common.mixins.json
+[0311月2024 15:00:58.728] [main/INFO] [mixin/]: Remapping refMap dummmmmmy-common-refmap.json using D:\Minecraft-ex\code\LivelyDanmaku\build\createSrgToMcp\output.srg
+[0311月2024 15:00:58.728] [main/DEBUG] [mixin/]: Selecting config dummmmmmy.mixins.json
+[0311月2024 15:00:58.729] [main/DEBUG] [mixin/]: Selecting config patchouli_xplat.mixins.json
+[0311月2024 15:00:58.730] [main/INFO] [mixin/]: Remapping refMap patchouli.refmap.json using D:\Minecraft-ex\code\LivelyDanmaku\build\createSrgToMcp\output.srg
+[0311月2024 15:00:58.730] [main/DEBUG] [mixin/]: Selecting config mixinextras.init.mixins.json
+[0311月2024 15:00:58.756] [main/DEBUG] [MixinExtras|Service/]: com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.6) is taking over from null
+[0311月2024 15:00:58.787] [main/DEBUG] [mixin/]: Registering new injector for @Inject with org.spongepowered.asm.mixin.injection.struct.CallbackInjectionInfo
+[0311月2024 15:00:58.789] [main/DEBUG] [mixin/]: Registering new injector for @ModifyArg with org.spongepowered.asm.mixin.injection.struct.ModifyArgInjectionInfo
+[0311月2024 15:00:58.791] [main/DEBUG] [mixin/]: Registering new injector for @ModifyArgs with org.spongepowered.asm.mixin.injection.struct.ModifyArgsInjectionInfo
+[0311月2024 15:00:58.793] [main/DEBUG] [mixin/]: Registering new injector for @Redirect with org.spongepowered.asm.mixin.injection.struct.RedirectInjectionInfo
+[0311月2024 15:00:58.795] [main/DEBUG] [mixin/]: Registering new injector for @ModifyVariable with org.spongepowered.asm.mixin.injection.struct.ModifyVariableInjectionInfo
+[0311月2024 15:00:58.796] [main/DEBUG] [mixin/]: Registering new injector for @ModifyConstant with org.spongepowered.asm.mixin.injection.struct.ModifyConstantInjectionInfo
+[0311月2024 15:00:58.808] [main/DEBUG] [mixin/]: Preparing danmaku.mixins.json (2)
+[0311月2024 15:00:58.869] [main/DEBUG] [mixin/]: Preparing moonlight-common.mixins.json (33)
+[0311月2024 15:00:58.985] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/entity/npc/Villager
+[0311月2024 15:00:59.248] [main/DEBUG] [mixin/]: Preparing moonlight.mixins.json (10)
+[0311月2024 15:00:59.261] [main/DEBUG] [mixin/]: Preparing dummmmmmy-common.mixins.json (5)
+[0311月2024 15:00:59.279] [main/DEBUG] [mixin/]: Preparing dummmmmmy.mixins.json (0)
+[0311月2024 15:00:59.279] [main/DEBUG] [mixin/]: Preparing patchouli_xplat.mixins.json (10)
+[0311月2024 15:00:59.299] [main/DEBUG] [mixin/]: Preparing mixinextras.init.mixins.json (0)
+[0311月2024 15:00:59.331] [main/DEBUG] [mixin/]: Inner class net/mehvahdjukaar/moonlight/core/mixins/forge/ItemMixin$1 in net/mehvahdjukaar/moonlight/core/mixins/forge/ItemMixin on net/minecraft/world/item/Item gets unique name net/minecraft/world/item/Item$Anonymous$ad4e1dd7c3a645f084b786d75614f13d
+[0311月2024 15:00:59.334] [main/DEBUG] [mixin/]: Prepared 59 mixins in 0.914 sec (15.5ms avg) (0ms load, 0ms transform, 0ms plugin)
+[0311月2024 15:00:59.460] [main/DEBUG] [io.netty.util.internal.logging.InternalLoggerFactory/]: Using SLF4J as the default logging framework
+[0311月2024 15:00:59.465] [main/DEBUG] [io.netty.util.ResourceLeakDetector/]: -Dio.netty.leakDetection.level: simple
+[0311月2024 15:00:59.466] [main/DEBUG] [io.netty.util.ResourceLeakDetector/]: -Dio.netty.leakDetection.targetRecords: 4
+[0311月2024 15:00:59.640] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [lively_danmaku]
+[0311月2024 15:00:59.780] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.6).
+[0311月2024 15:00:59.788] [main/DEBUG] [mixin/]: Registering new injector for @SugarWrapper with com.llamalad7.mixinextras.sugar.impl.SugarWrapperInjectionInfo
+[0311月2024 15:00:59.789] [main/DEBUG] [mixin/]: Registering new injector for @FactoryRedirectWrapper with com.llamalad7.mixinextras.wrapper.factory.FactoryRedirectWrapperInjectionInfo
+[0311月2024 15:00:59.793] [main/DEBUG] [mixin/]: Mixing LivingEntityMixin from dummmmmmy-common.mixins.json into net.minecraft.world.entity.LivingEntity
+[0311月2024 15:00:59.941] [main/DEBUG] [mixin/]: Mixing MixinPlayer from danmaku.mixins.json into net.minecraft.world.entity.player.Player
+[0311月2024 15:00:59.948] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/item/ItemStack
+[0311月2024 15:00:59.972] [main/DEBUG] [mixin/]: Mixing PlayerMixin from dummmmmmy-common.mixins.json into net.minecraft.world.entity.player.Player
+[0311月2024 15:01:00.061] [main/DEBUG] [mixin/]: Mixing ItemMixin from moonlight-common.mixins.json into net.minecraft.world.item.Item
+[0311月2024 15:01:00.067] [main/DEBUG] [mixin/]: Mixing ItemMixin from moonlight.mixins.json into net.minecraft.world.item.Item
+[0311月2024 15:01:00.098] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/entity/EntityType
+[0311月2024 15:01:00.217] [main/DEBUG] [mixin/]: Mixing FireBlockMixin from moonlight.mixins.json into net.minecraft.world.level.block.FireBlock
+[0311月2024 15:01:00.418] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/block/LiquidBlock
+[0311月2024 15:01:00.433] [main/DEBUG] [mixin/]: Mixing accessor.DispenserBlockAccessor from moonlight-common.mixins.json into net.minecraft.world.level.block.DispenserBlock
+[0311月2024 15:01:00.433] [main/DEBUG] [mixin/]: Renaming @Accessor method getDispenserRegistry()Ljava/util/Map; to getDispenserRegistry_$md$19668c$0 in moonlight-common.mixins.json:accessor.DispenserBlockAccessor
+[0311月2024 15:01:00.460] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/block/StairBlock
+[0311月2024 15:01:00.505] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/block/FlowerPotBlock
+[0311月2024 15:01:00.680] [main/DEBUG] [mixin/]: Mixing accessor.DispenserBlockEntityAccessor from moonlight-common.mixins.json into net.minecraft.world.level.block.entity.DispenserBlockEntity
+[0311月2024 15:01:00.787] [main/DEBUG] [mixin/]: Mixing PistonBlockEntityMixin from moonlight-common.mixins.json into net.minecraft.world.level.block.piston.PistonMovingBlockEntity
+[0311月2024 15:01:01.015] [main/DEBUG] [mixin/]: Mixing EntityMixin from moonlight-common.mixins.json into net.minecraft.world.entity.Mob
+[0311月2024 15:01:01.017] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/entity/EntityType
+[0311月2024 15:01:01.119] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/item/ItemStack
+[0311月2024 15:01:01.463] [main/DEBUG] [mixin/]: Mixing LightningEntityMixin from moonlight-common.mixins.json into net.minecraft.world.entity.LightningBolt
+[0311月2024 15:01:01.511] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/entity/animal/frog/Tadpole
+[0311月2024 15:01:01.526] [main/DEBUG] [mixin/]: Mixing BlockItemMixin from moonlight-common.mixins.json into net.minecraft.world.item.BlockItem
+[0311月2024 15:01:01.555] [main/DEBUG] [mixin/]: Mixing SwordItemMixin from dummmmmmy-common.mixins.json into net.minecraft.world.item.SwordItem
+[0311月2024 15:01:01.567] [main/DEBUG] [mixin/]: Mixing ToolItemMixin from dummmmmmy-common.mixins.json into net.minecraft.world.item.DiggerItem
+[0311月2024 15:01:01.579] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/item/BucketItem
+[0311月2024 15:01:01.587] [main/DEBUG] [mixin/]: Mixing MapItemMixin from moonlight-common.mixins.json into net.minecraft.world.item.MapItem
+[0311月2024 15:01:01.589] [main/DEBUG] [mixin/]: Renaming synthetic method lambda$update$1(Lnet/minecraft/world/level/saveddata/maps/MapItemSavedData;Lnet/minecraft/world/entity/Entity;Ljava/util/concurrent/atomic/AtomicBoolean;Lnet/minecraft/resources/ResourceLocation;Lnet/mehvahdjukaar/moonlight/api/map/CustomMapData;)V to md19668c$lambda$update$1$0 in moonlight-common.mixins.json:MapItemMixin
+[0311月2024 15:01:01.589] [main/DEBUG] [mixin/]: Renaming synthetic method lambda$appendHoverText$0(Lnet/minecraft/world/level/saveddata/maps/MapItemSavedData;Lnet/minecraft/world/item/ItemStack;Ljava/util/List;Lnet/minecraft/resources/ResourceLocation;Lnet/mehvahdjukaar/moonlight/api/map/CustomMapData;)V to md19668c$lambda$appendHoverText$0$1 in moonlight-common.mixins.json:MapItemMixin
+[0311月2024 15:01:01.612] [main/DEBUG] [mixin/]: Mixing ShearItemMixin from moonlight-common.mixins.json into net.minecraft.world.item.ShearsItem
+[0311月2024 15:01:01.634] [main/DEBUG] [mixin/]: Mixing ArmorStandFIxMixin from dummmmmmy-common.mixins.json into net.minecraft.world.item.ArmorStandItem
+[0311月2024 15:01:02.296] [main/DEBUG] [mixin/]: Mixing BeeGoalMixin from moonlight-common.mixins.json into net.minecraft.world.entity.animal.Bee$BeeGrowCropGoal
+[0311月2024 15:01:02.338] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/entity/monster/Spider
+[0311月2024 15:01:02.374] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/entity/monster/Zombie
+[0311月2024 15:01:02.401] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/entity/monster/ZombieVillager
+[0311月2024 15:01:02.442] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/entity/monster/Evoker$EvokerSummonSpellGoal
+[0311月2024 15:01:02.453] [main/DEBUG] [mixin/]: Mixing FixBlockPlaceContextMixin from moonlight-common.mixins.json into net.minecraft.world.item.context.BlockPlaceContext
+[0311月2024 15:01:02.583] [main/DEBUG] [mixin/]: Mixing ThrownPotionMixin from moonlight-common.mixins.json into net.minecraft.world.entity.projectile.ThrownPotion
+[0311月2024 15:01:02.626] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/entity/animal/horse/SkeletonTrapGoal
+[0311月2024 15:01:02.644] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/entity/monster/Strider
+[0311月2024 15:01:02.722] [main/DEBUG] [mixin/]: Mixing LevelChunkMixin from moonlight-common.mixins.json into net.minecraft.world.level.chunk.LevelChunk
+[0311月2024 15:01:02.761] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/entity/npc/Villager
+[0311月2024 15:01:02.795] [main/DEBUG] [mixin/]: Mixing VillagerMixin from moonlight-common.mixins.json into net.minecraft.world.entity.npc.Villager
+[0311月2024 15:01:02.853] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/effect/MobEffectInstance
+[0311月2024 15:01:03.003] [main/DEBUG] [mixin/]: Mixing InventoryMixin from moonlight-common.mixins.json into net.minecraft.world.entity.player.Inventory
+[0311月2024 15:01:03.033] [main/DEBUG] [mixin/]: Mixing GrindstoneMenuSlotMixin from moonlight-common.mixins.json into net.minecraft.world.inventory.GrindstoneMenu$4
+[0311月2024 15:01:03.054] [main/DEBUG] [mixin/]: Mixing MapExtendingRecipeMixin from moonlight-common.mixins.json into net.minecraft.world.item.crafting.MapExtendingRecipe
+[0311月2024 15:01:03.335] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/levelgen/structure/Structure
+[0311月2024 15:01:03.366] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/levelgen/structure/structures/OceanRuinPieces$OceanRuinPiece
+[0311月2024 15:01:03.376] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/levelgen/structure/structures/SwampHutPiece
+[0311月2024 15:01:03.384] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/levelgen/structure/structures/OceanMonumentPieces$OceanMonumentPiece
+[0311月2024 15:01:03.398] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/levelgen/structure/structures/WoodlandMansionPieces$WoodlandMansionPiece
+[0311月2024 15:01:03.544] [main/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/biome/Biome
+[0311月2024 15:01:03.766] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Creating vanilla freeze snapshot
+[0311月2024 15:01:03.769] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:block Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.782] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:fluid Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.782] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:item Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.792] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:mob_effect Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.794] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:sound_event Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.804] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:potion Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.806] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:enchantment Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.807] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:entity_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.808] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:block_entity_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.808] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:particle_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.809] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:menu Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.809] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:painting_variant Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.809] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:recipe_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.809] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:recipe_serializer Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.811] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:attribute Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.811] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:stat_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.811] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:command_argument_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.811] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:villager_profession Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.811] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:point_of_interest_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.815] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:memory_module_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.815] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:sensor_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.815] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:schedule Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.816] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:activity Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.816] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:worldgen/carver Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.816] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:worldgen/feature Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.816] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:chunk_status Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.818] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:worldgen/block_state_provider_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.818] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:worldgen/foliage_placer_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.818] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:worldgen/tree_decorator_type Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.818] [main/DEBUG] [net.minecraftforge.registries.ForgeRegistry/REGISTRIES]: Registry minecraft:worldgen/biome Sync: VANILLA -> ACTIVE
+[0311月2024 15:01:03.834] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Vanilla freeze snapshot created
+[0311月2024 15:01:03.869] [main/DEBUG] [net.minecraftforge.fml.ModWorkManager/LOADING]: Using 16 threads for parallel mod-loading
+[0311月2024 15:01:03.883] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@3fa7df1 - got cpw.mods.cl.ModuleClassLoader@7d0614f
+[0311月2024 15:01:03.883] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for com.llamalad7.mixinextras.platform.forge.MixinExtrasMod
+[0311月2024 15:01:03.890] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@3fa7df1 - got cpw.mods.cl.ModuleClassLoader@7d0614f
+[0311月2024 15:01:03.890] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for net.mehvahdjukaar.moonlight.forge.MoonlightForge
+[0311月2024 15:01:03.891] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@3fa7df1 - got cpw.mods.cl.ModuleClassLoader@7d0614f
+[0311月2024 15:01:03.892] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for net.minecraftforge.common.ForgeMod
+[0311月2024 15:01:03.897] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@3fa7df1 - got cpw.mods.cl.ModuleClassLoader@7d0614f
+[0311月2024 15:01:03.897] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for net.mehvahdjukaar.dummmmmmy.forge.DummmmmmyForge
+[0311月2024 15:01:03.898] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@3fa7df1 - got cpw.mods.cl.ModuleClassLoader@7d0614f
+[0311月2024 15:01:03.898] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for vazkii.patchouli.forge.common.ForgeModInitializer
+[0311月2024 15:01:03.901] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@3fa7df1 - got cpw.mods.cl.ModuleClassLoader@7d0614f
+[0311月2024 15:01:03.901] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for com.tutorial.lively_danmaku.LivelyDanmaku
+[0311月2024 15:01:03.902] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@3fa7df1 - got cpw.mods.cl.ModuleClassLoader@7d0614f
+[0311月2024 15:01:03.902] [main/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for mezz.jei.forge.JustEnoughItems
+[0311月2024 15:01:03.926] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for mixinextras
+[0311月2024 15:01:03.951] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file moonlight-common.toml for moonlight tracking
+[0311月2024 15:01:03.951] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file jei-server.toml for jei tracking
+[0311月2024 15:01:03.953] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file patchouli-client.toml for patchouli tracking
+[0311月2024 15:01:03.956] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for patchouli
+[0311月2024 15:01:03.961] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Forge Version package package net.minecraftforge.versions.forge, Forge, version 47.0 from cpw.mods.modlauncher.TransformingClassLoader@3fa7df1
+[0311月2024 15:01:03.961] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Found Forge version 47.0.35
+[0311月2024 15:01:03.961] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Found Forge spec 47.0
+[0311月2024 15:01:03.962] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Found Forge group net.minecraftforge
+[0311月2024 15:01:03.962] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing vazkii.patchouli.forge.common.ForgeModInitializer to MOD
+[0311月2024 15:01:03.964] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.mcp.MCPVersion/CORE]: MCP Version package package net.minecraftforge.versions.mcp, Minecraft, version 1.20.1 from cpw.mods.modlauncher.TransformingClassLoader@3fa7df1
+[0311月2024 15:01:03.964] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.mcp.MCPVersion/CORE]: Found MC version information 1.20.1
+[0311月2024 15:01:03.964] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.mcp.MCPVersion/CORE]: Found MCP version information 20230612.114412
+[0311月2024 15:01:03.964] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.0.35, for MC 1.20.1 with MCP 20230612.114412
+[0311月2024 15:01:03.965] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.0.35 Initialized
+[0311月2024 15:01:03.974] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing vazkii.patchouli.forge.client.ForgeClientInitializer to MOD
+[0311月2024 15:01:04.018] [modloading-worker-0/DEBUG] [mixin/]: Mixing client.AccessorKeyMapping from patchouli_xplat.mixins.json into net.minecraft.client.KeyMapping
+[0311月2024 15:01:04.019] [modloading-worker-0/DEBUG] [mixin/]: Renaming @Accessor method getAllKeyMappings()Ljava/util/Map; to getAllKeyMappings_$md$19668c$0 in patchouli_xplat.mixins.json:client.AccessorKeyMapping
+[0311月2024 15:01:04.047] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file lively_danmaku-common.toml for lively_danmaku tracking
+[0311月2024 15:01:04.047] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for lively_danmaku
+[0311月2024 15:01:04.047] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.dataGen.DataGenerators to MOD
+[0311月2024 15:01:04.056] [modloading-worker-0/DEBUG] [mezz.jei.common.platform.Services/]: Loaded mezz.jei.forge.platform.PlatformHelper@28a1ff32 for service interface mezz.jei.common.platform.IPlatformHelper
+[0311月2024 15:01:04.057] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.event.CapabilityEvent to FORGE
+[0311月2024 15:01:04.057] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file dummmmmmy-client.toml for dummmmmmy tracking
+[0311月2024 15:01:04.098] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file dummmmmmy-common.toml for dummmmmmy tracking
+[0311月2024 15:01:04.112] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.event.ClientEvent to MOD
+[0311月2024 15:01:04.120] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\dummmmmmy-common.toml is not correct. Correcting
+[0311月2024 15:01:04.122] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key scarecrow was corrected from null to its default, SimpleCommentedConfig:{}. 
+[0311月2024 15:01:04.122] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: List on key mobs_whitelist is deemed to need correction. It is null, not a list, or an empty list. Modders, consider defineListAllowEmpty?
+[0311月2024 15:01:04.122] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key scarecrow.mobs_whitelist was corrected from null to its default, []. 
+[0311月2024 15:01:04.123] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key scarecrow.mobs_whitelist does not match the spec. This may create a backup.
+[0311月2024 15:01:04.123] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: List on key mobs_blacklist is deemed to need correction. It is null, not a list, or an empty list. Modders, consider defineListAllowEmpty?
+[0311月2024 15:01:04.123] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.event.EntityAttributeEvent to FORGE
+[0311月2024 15:01:04.123] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key scarecrow.mobs_blacklist was corrected from null to its default, []. 
+[0311月2024 15:01:04.124] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key scarecrow.mobs_blacklist does not match the spec. This may create a backup.
+[0311月2024 15:01:04.124] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key scarecrow.scare_radius was corrected from null to its default, 12. 
+[0311月2024 15:01:04.124] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key scarecrow.scare_radius does not match the spec. This may create a backup.
+[0311月2024 15:01:04.124] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.event.PatchouliNotice to FORGE
+[0311月2024 15:01:04.124] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general was corrected from null to its default, SimpleCommentedConfig:{}. 
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.DPS_mode was corrected from null to its default, DYNAMIC. 
+[0311月2024 15:01:04.125] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key general.DPS_mode does not match the spec. This may create a backup.
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.disable_equipment_damage was corrected from null to its default, true. 
+[0311月2024 15:01:04.125] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key general.disable_equipment_damage does not match the spec. This may create a backup.
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.maximum_out_of_combat_interval was corrected from null to its default, 120. 
+[0311月2024 15:01:04.125] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key general.maximum_out_of_combat_interval does not match the spec. This may create a backup.
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.dummy_decoy was corrected from null to its default, false. 
+[0311月2024 15:01:04.125] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key general.dummy_decoy does not match the spec. This may create a backup.
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.xp_per_damage_on_hit was corrected from null to its default, 0.0. 
+[0311月2024 15:01:04.125] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key general.xp_per_damage_on_hit does not match the spec. This may create a backup.
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.boss_health_color was corrected from null to its default, YELLOW. 
+[0311月2024 15:01:04.125] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key general.boss_health_color does not match the spec. This may create a backup.
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.boss_health was corrected from null to its default, 200. 
+[0311月2024 15:01:04.125] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key general.boss_health does not match the spec. This may create a backup.
+[0311月2024 15:01:04.126] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.event.RenderPowerPoint to FORGE
+[0311月2024 15:01:04.126] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key mobs_damage_numbers was corrected from null to its default, SimpleCommentedConfig:{}. 
+[0311月2024 15:01:04.127] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key mobs_damage_numbers.damage_mode was corrected from null to its default, NONE. 
+[0311月2024 15:01:04.127] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key mobs_damage_numbers.damage_mode does not match the spec. This may create a backup.
+[0311月2024 15:01:04.127] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key mobs_damage_numbers.healing_mode was corrected from null to its default, NONE. 
+[0311月2024 15:01:04.127] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key mobs_damage_numbers.healing_mode does not match the spec. This may create a backup.
+[0311月2024 15:01:04.134] [modloading-worker-0/DEBUG] [mixin/]: Mixing MinecraftMixin from moonlight-common.mixins.json into net.minecraft.client.Minecraft
+[0311月2024 15:01:04.143] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: -Dio.netty.noUnsafe: false
+[0311月2024 15:01:04.143] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: Java version: 17
+[0311月2024 15:01:04.144] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.theUnsafe: available
+[0311月2024 15:01:04.144] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.copyMemory: available
+[0311月2024 15:01:04.145] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.storeFence: available
+[0311月2024 15:01:04.145] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.Buffer.address: available
+[0311月2024 15:01:04.145] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: direct buffer constructor: unavailable
+java.lang.UnsupportedOperationException: Reflective setAccessible(true) disabled
+	at io.netty.util.internal.ReflectionUtil.trySetAccessible(ReflectionUtil.java:31) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at io.netty.util.internal.PlatformDependent0$5.run(PlatformDependent0.java:288) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at java.security.AccessController.doPrivileged(AccessController.java:318) ~[?:?]
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:282) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:333) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:88) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at io.netty.util.ConstantPool.<init>(ConstantPool.java:34) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at io.netty.util.AttributeKey$1.<init>(AttributeKey.java:27) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at io.netty.util.AttributeKey.<clinit>(AttributeKey.java:27) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at net.minecraftforge.network.NetworkConstants.<clinit>(NetworkConstants.java:34) ~[forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23190%23197!/:?]
+	at net.minecraftforge.common.ForgeMod.<init>(ForgeMod.java:429) ~[forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23190%23197!/:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?]
+	at net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:68) ~[javafmllanguage-1.20.1-47.0.35.jar%23192!/:?]
+	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$10(ModContainer.java:123) ~[fmlcore-1.20.1-47.0.35.jar%23195!/:?]
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) ~[?:?]
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?]
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?]
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?]
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?]
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
+[0311月2024 15:01:04.155] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.Bits.unaligned: available, true
+[0311月2024 15:01:04.156] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$7 (in module io.netty.common) cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to module io.netty.common
+	at jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:392) ~[?:?]
+	at java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:674) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:560) ~[?:?]
+	at io.netty.util.internal.PlatformDependent0$7.run(PlatformDependent0.java:410) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at java.security.AccessController.doPrivileged(AccessController.java:318) ~[?:?]
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:401) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:333) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:88) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at io.netty.util.ConstantPool.<init>(ConstantPool.java:34) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at io.netty.util.AttributeKey$1.<init>(AttributeKey.java:27) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at io.netty.util.AttributeKey.<clinit>(AttributeKey.java:27) ~[netty-common-4.1.82.Final.jar%23151!/:4.1.82.Final]
+	at net.minecraftforge.network.NetworkConstants.<clinit>(NetworkConstants.java:34) ~[forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23190%23197!/:?]
+	at net.minecraftforge.common.ForgeMod.<init>(ForgeMod.java:429) ~[forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23190%23197!/:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?]
+	at net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:68) ~[javafmllanguage-1.20.1-47.0.35.jar%23192!/:?]
+	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$10(ModContainer.java:123) ~[fmlcore-1.20.1-47.0.35.jar%23195!/:?]
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) ~[?:?]
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?]
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?]
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?]
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?]
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
+[0311月2024 15:01:04.158] [modloading-worker-0/DEBUG] [mixin/]: Mixing MixinGuiGraphics from danmaku.mixins.json into net.minecraft.client.gui.GuiGraphics
+[0311月2024 15:01:04.160] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.DirectByteBuffer.<init>(long, int): unavailable
+[0311月2024 15:01:04.160] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: sun.misc.Unsafe: available
+[0311月2024 15:01:04.162] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: maxDirectMemory: 4118806528 bytes (maybe)
+[0311月2024 15:01:04.163] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.tmpdir: C:\Users\19213\AppData\Local\Temp (java.io.tmpdir)
+[0311月2024 15:01:04.164] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.bitMode: 64 (sun.arch.data.model)
+[0311月2024 15:01:04.164] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: Platform: Windows
+[0311月2024 15:01:04.165] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.maxDirectMemory: -1 bytes
+[0311月2024 15:01:04.165] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.uninitializedArrayAllocationThreshold: -1
+[0311月2024 15:01:04.166] [modloading-worker-0/DEBUG] [io.netty.util.internal.CleanerJava9/]: java.nio.ByteBuffer.cleaner(): available
+[0311月2024 15:01:04.168] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.noPreferDirect: false
+[0311月2024 15:01:04.200] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.event.SizeChangeEvent to FORGE
+[0311月2024 15:01:04.202] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for dummmmmmy
+[0311月2024 15:01:04.203] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.init.ClientSetUp to MOD
+[0311月2024 15:01:04.205] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.init.EntityRenderRegistry to MOD
+[0311月2024 15:01:04.212] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.init.LayerRegistry to MOD
+[0311月2024 15:01:04.214] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.init.TooltipRegistry to MOD
+[0311月2024 15:01:04.216] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.tutorial.lively_danmaku.network.DanmakuNetwork to MOD
+[0311月2024 15:01:04.218] [modloading-worker-0/DEBUG] [mixin/]: Mixing client.AccessorScreen from patchouli_xplat.mixins.json into net.minecraft.client.gui.screens.Screen
+[0311月2024 15:01:04.245] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Loading Network data for FML net version: FML3
+[0311月2024 15:01:04.246] [modloading-worker-0/DEBUG] [mixin/]: Mixing ConditionHackMixin from moonlight.mixins.json into net.minecraft.server.packs.resources.SimplePreparableReloadListener
+[0311月2024 15:01:04.325] [modloading-worker-0/DEBUG] [mixin/]: Mixing client.MixinInventoryScreen from patchouli_xplat.mixins.json into net.minecraft.client.gui.screens.inventory.InventoryScreen
+[0311月2024 15:01:04.381] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-client.toml for forge tracking
+[0311月2024 15:01:04.381] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-server.toml for forge tracking
+[0311月2024 15:01:04.381] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.ModLoadingContext/]: Attempted to register an empty config for type COMMON on mod forge
+[0311月2024 15:01:04.390] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file moonlight-client.toml for moonlight tracking
+[0311月2024 15:01:04.390] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\moonlight-client.toml is not correct. Correcting
+[0311月2024 15:01:04.391] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general was corrected from null to its default, SimpleCommentedConfig:{}. 
+[0311月2024 15:01:04.391] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.merge_dynamic_packs was corrected from null to its default, true. 
+[0311月2024 15:01:04.391] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key general.merge_dynamic_packs does not match the spec. This may create a backup.
+[0311月2024 15:01:04.391] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.lazy_map_upload was corrected from null to its default, true. 
+[0311月2024 15:01:04.391] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key general.lazy_map_upload does not match the spec. This may create a backup.
+[0311月2024 15:01:04.391] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.maps_mipmap was corrected from null to its default, 3. 
+[0311月2024 15:01:04.391] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key general.maps_mipmap does not match the spec. This may create a backup.
+[0311月2024 15:01:04.391] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.consistent_entity_renderer_shading was corrected from null to its default, NO_GUI. 
+[0311月2024 15:01:04.392] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfigSpec/CORE]: The comment on key general.consistent_entity_renderer_shading does not match the spec. This may create a backup.
+[0311月2024 15:01:04.402] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for forge
+[0311月2024 15:01:04.402] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.common.ForgeSpawnEggItem$CommonHandler to MOD
+[0311月2024 15:01:04.403] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.common.ForgeSpawnEggItem$ColorRegisterHandler to MOD
+[0311月2024 15:01:04.404] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.client.model.data.ModelDataManager to FORGE
+[0311月2024 15:01:04.405] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.client.ForgeHooksClient$ClientEvents to MOD
+[0311月2024 15:01:04.414] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.client.ClientForgeMod to MOD
+[0311月2024 15:01:04.416] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for moonlight
+[0311月2024 15:01:04.416] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.mehvahdjukaar.moonlight.forge.MoonlightForgeClient to FORGE
+[0311月2024 15:01:04.439] [modloading-worker-0/DEBUG] [mezz.jei.common.config.file.ConfigSerializer/]: Saving config file: D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\jei\jei-debug.ini
+[0311月2024 15:01:04.447] [modloading-worker-0/DEBUG] [mezz.jei.common.config.file.ConfigSerializer/]: Saving config file: D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\jei\jei-mod-id-format.ini
+[0311月2024 15:01:04.455] [modloading-worker-0/DEBUG] [mezz.jei.common.config.file.ConfigSerializer/]: Saving config file: D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\jei\jei-colors.ini
+[0311月2024 15:01:04.463] [modloading-worker-0/DEBUG] [mezz.jei.common.config.file.ConfigSerializer/]: Saving config file: D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\jei\jei-client.ini
+[0311月2024 15:01:04.470] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[0311月2024 15:01:04.474] [modloading-worker-0/DEBUG] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Sending ConfigManager: jei:minecraft...
+[0311月2024 15:01:04.474] [modloading-worker-0/DEBUG] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Sending ConfigManager: patchouli:patchouli...
+[0311月2024 15:01:04.475] [modloading-worker-0/DEBUG] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Sending ConfigManager: jei:gui...
+[0311月2024 15:01:04.475] [modloading-worker-0/DEBUG] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Sending ConfigManager: jei:debug...
+[0311月2024 15:01:04.475] [modloading-worker-0/DEBUG] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Sending ConfigManager: jei:forge_gui...
+[0311月2024 15:01:04.475] [modloading-worker-0/DEBUG] [mezz.jei.library.load.PluginCallerTimerRunnable/]: Sending ConfigManager: jei:internal...
+[0311月2024 15:01:04.476] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 4.159 ms
+[0311月2024 15:01:04.484] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for jei
+[0311月2024 15:01:04.529] [main/DEBUG] [net.minecraftforge.registries.ObjectHolderRegistry/REGISTRIES]: Processing ObjectHolder annotations
+[0311月2024 15:01:04.557] [main/DEBUG] [net.minecraftforge.registries.ObjectHolderRegistry/REGISTRIES]: Found 3914 ObjectHolder annotations
+[0311月2024 15:01:04.562] [main/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/energy/IEnergyStorage;
+[0311月2024 15:01:04.566] [main/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/fluids/capability/IFluidHandler;
+[0311月2024 15:01:04.567] [main/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/fluids/capability/IFluidHandlerItem;
+[0311月2024 15:01:04.567] [main/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/items/IItemHandler;
+[0311月2024 15:01:04.567] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Unfreezing vanilla registries
+[0311月2024 15:01:04.573] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:sound_event
+[0311月2024 15:01:04.577] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:sound_event
+[0311月2024 15:01:04.577] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:fluid
+[0311月2024 15:01:04.578] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:fluid
+[0311月2024 15:01:04.588] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:block
+[0311月2024 15:01:04.591] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:block
+[0311月2024 15:01:04.604] [main/INFO] [Moonlight/]: Initialized block sets in 12ms
+[0311月2024 15:01:04.604] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:attribute
+[0311月2024 15:01:04.605] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:attribute
+[0311月2024 15:01:04.605] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:mob_effect
+[0311月2024 15:01:04.606] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:mob_effect
+[0311月2024 15:01:04.606] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:particle_type
+[0311月2024 15:01:04.607] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:particle_type
+[0311月2024 15:01:04.661] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:item
+[0311月2024 15:01:04.665] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:item
+[0311月2024 15:01:04.699] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:entity_type
+[0311月2024 15:01:04.701] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:entity_type
+[0311月2024 15:01:04.701] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:sensor_type
+[0311月2024 15:01:04.702] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:sensor_type
+[0311月2024 15:01:04.702] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:memory_module_type
+[0311月2024 15:01:04.703] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:memory_module_type
+[0311月2024 15:01:04.705] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:potion
+[0311月2024 15:01:04.707] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:potion
+[0311月2024 15:01:04.707] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:game_event
+[0311月2024 15:01:04.709] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:game_event
+[0311月2024 15:01:04.709] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:enchantment
+[0311月2024 15:01:04.711] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:enchantment
+[0311月2024 15:01:04.719] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:block_entity_type
+[0311月2024 15:01:04.720] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:block_entity_type
+[0311月2024 15:01:04.721] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:painting_variant
+[0311月2024 15:01:04.723] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:painting_variant
+[0311月2024 15:01:04.723] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:stat_type
+[0311月2024 15:01:04.726] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:stat_type
+[0311月2024 15:01:04.726] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:custom_stat
+[0311月2024 15:01:04.728] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:custom_stat
+[0311月2024 15:01:04.729] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:chunk_status
+[0311月2024 15:01:04.729] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:chunk_status
+[0311月2024 15:01:04.730] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:rule_test
+[0311月2024 15:01:04.731] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:rule_test
+[0311月2024 15:01:04.731] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:rule_block_entity_modifier
+[0311月2024 15:01:04.732] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:rule_block_entity_modifier
+[0311月2024 15:01:04.732] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:pos_rule_test
+[0311月2024 15:01:04.733] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:pos_rule_test
+[0311月2024 15:01:04.733] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:menu
+[0311月2024 15:01:04.734] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:menu
+[0311月2024 15:01:04.734] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:recipe_type
+[0311月2024 15:01:04.735] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:recipe_type
+[0311月2024 15:01:04.760] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:recipe_serializer
+[0311月2024 15:01:04.761] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:recipe_serializer
+[0311月2024 15:01:04.761] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:position_source_type
+[0311月2024 15:01:04.762] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:position_source_type
+[0311月2024 15:01:04.763] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:command_argument_type
+[0311月2024 15:01:04.764] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:command_argument_type
+[0311月2024 15:01:04.764] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:villager_type
+[0311月2024 15:01:04.764] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:villager_type
+[0311月2024 15:01:04.765] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:villager_profession
+[0311月2024 15:01:04.765] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:villager_profession
+[0311月2024 15:01:04.765] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:point_of_interest_type
+[0311月2024 15:01:04.766] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:point_of_interest_type
+[0311月2024 15:01:04.766] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:schedule
+[0311月2024 15:01:04.766] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:schedule
+[0311月2024 15:01:04.766] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:activity
+[0311月2024 15:01:04.766] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:activity
+[0311月2024 15:01:04.769] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:loot_pool_entry_type
+[0311月2024 15:01:04.770] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:loot_pool_entry_type
+[0311月2024 15:01:04.770] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:loot_function_type
+[0311月2024 15:01:04.771] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:loot_function_type
+[0311月2024 15:01:04.776] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:loot_condition_type
+[0311月2024 15:01:04.777] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:loot_condition_type
+[0311月2024 15:01:04.777] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:loot_number_provider_type
+[0311月2024 15:01:04.778] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:loot_number_provider_type
+[0311月2024 15:01:04.778] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:loot_nbt_provider_type
+[0311月2024 15:01:04.779] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:loot_nbt_provider_type
+[0311月2024 15:01:04.779] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:loot_score_provider_type
+[0311月2024 15:01:04.779] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:loot_score_provider_type
+[0311月2024 15:01:04.779] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:float_provider_type
+[0311月2024 15:01:04.780] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:float_provider_type
+[0311月2024 15:01:04.780] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:int_provider_type
+[0311月2024 15:01:04.780] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:int_provider_type
+[0311月2024 15:01:04.780] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:height_provider_type
+[0311月2024 15:01:04.780] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:height_provider_type
+[0311月2024 15:01:04.780] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:block_predicate_type
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:block_predicate_type
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/carver
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/carver
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/feature
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/feature
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/structure_processor
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/structure_processor
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/structure_placement
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/structure_placement
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/structure_piece
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/structure_piece
+[0311月2024 15:01:04.781] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/structure_type
+[0311月2024 15:01:04.782] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/structure_type
+[0311月2024 15:01:04.782] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/placement_modifier_type
+[0311月2024 15:01:04.782] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/placement_modifier_type
+[0311月2024 15:01:04.782] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/block_state_provider_type
+[0311月2024 15:01:04.782] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/block_state_provider_type
+[0311月2024 15:01:04.782] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/foliage_placer_type
+[0311月2024 15:01:04.782] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/foliage_placer_type
+[0311月2024 15:01:04.783] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/trunk_placer_type
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/trunk_placer_type
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/root_placer_type
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/root_placer_type
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/tree_decorator_type
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/tree_decorator_type
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/feature_size_type
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/feature_size_type
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/biome_source
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/biome_source
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/chunk_generator
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/chunk_generator
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/material_condition
+[0311月2024 15:01:04.784] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/material_condition
+[0311月2024 15:01:04.785] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/material_rule
+[0311月2024 15:01:04.785] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/material_rule
+[0311月2024 15:01:04.785] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/density_function_type
+[0311月2024 15:01:04.785] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/density_function_type
+[0311月2024 15:01:04.785] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/structure_pool_element
+[0311月2024 15:01:04.785] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/structure_pool_element
+[0311月2024 15:01:04.785] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:cat_variant
+[0311月2024 15:01:04.786] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:cat_variant
+[0311月2024 15:01:04.786] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:frog_variant
+[0311月2024 15:01:04.786] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:frog_variant
+[0311月2024 15:01:04.786] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:banner_pattern
+[0311月2024 15:01:04.786] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:banner_pattern
+[0311月2024 15:01:04.786] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:instrument
+[0311月2024 15:01:04.787] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:instrument
+[0311月2024 15:01:04.787] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:decorated_pot_patterns
+[0311月2024 15:01:04.787] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:decorated_pot_patterns
+[0311月2024 15:01:04.788] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:creative_mode_tab
+[0311月2024 15:01:04.789] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:creative_mode_tab
+[0311月2024 15:01:04.796] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: forge:biome_modifier_serializers
+[0311月2024 15:01:04.797] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: forge:biome_modifier_serializers
+[0311月2024 15:01:04.797] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: forge:display_contexts
+[0311月2024 15:01:04.799] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: forge:display_contexts
+[0311月2024 15:01:04.799] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: forge:entity_data_serializers
+[0311月2024 15:01:04.799] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: forge:entity_data_serializers
+[0311月2024 15:01:04.805] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: forge:fluid_type
+[0311月2024 15:01:04.805] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: forge:fluid_type
+[0311月2024 15:01:04.808] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: forge:global_loot_modifier_serializers
+[0311月2024 15:01:04.808] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: forge:global_loot_modifier_serializers
+[0311月2024 15:01:04.814] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: forge:holder_set_type
+[0311月2024 15:01:04.815] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: forge:holder_set_type
+[0311月2024 15:01:04.817] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: forge:structure_modifier_serializers
+[0311月2024 15:01:04.817] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: forge:structure_modifier_serializers
+[0311月2024 15:01:04.817] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Applying holder lookups: minecraft:worldgen/biome
+[0311月2024 15:01:04.818] [main/DEBUG] [net.minecraftforge.registries.GameData/REGISTRIES]: Holder lookups applied: minecraft:worldgen/biome
+[0311月2024 15:01:04.978] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/Minecraft-ex/code/LivelyDanmaku/build/fg_cache/net/minecraftforge/forge/1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[0311月2024 15:01:04.978] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/Minecraft-ex/code/LivelyDanmaku/build/fg_cache/net/minecraftforge/forge/1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[0311月2024 15:01:04.981] [Worker-Main-1/DEBUG] [mixin/]: Mixing MapDataMixin from moonlight-common.mixins.json into net.minecraft.world.level.saveddata.maps.MapItemSavedData
+[0311月2024 15:01:04.983] [Worker-Main-1/DEBUG] [mixin/]: Renaming synthetic method lambda$save$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/resources/ResourceLocation;Lnet/mehvahdjukaar/moonlight/api/map/CustomMapData;)V to md19668c$lambda$save$3$0 in moonlight-common.mixins.json:MapDataMixin
+[0311月2024 15:01:04.983] [Worker-Main-1/DEBUG] [mixin/]: Renaming synthetic method lambda$load$2(Lnet/minecraft/nbt/CompoundTag;Lnet/mehvahdjukaar/moonlight/api/map/CustomMapData;)V to md19668c$lambda$load$2$1 in moonlight-common.mixins.json:MapDataMixin
+[0311月2024 15:01:04.983] [Worker-Main-1/DEBUG] [mixin/]: Renaming synthetic method lambda$setCustomDataDirty$1(Lnet/mehvahdjukaar/moonlight/api/map/CustomMapData$Type;Ljava/util/function/Consumer;Lnet/minecraft/world/level/saveddata/maps/MapItemSavedData$HoldingPlayer;)V to md19668c$lambda$setCustomDataDirty$1$2 in moonlight-common.mixins.json:MapDataMixin
+[0311月2024 15:01:04.984] [Worker-Main-1/DEBUG] [mixin/]: Renaming synthetic method lambda$setCustomDecorationsDirty$0(Lnet/minecraft/world/level/saveddata/maps/MapItemSavedData$HoldingPlayer;)V to md19668c$lambda$setCustomDecorationsDirty$0$3 in moonlight-common.mixins.json:MapDataMixin
+[0311月2024 15:01:05.105] [main/DEBUG] [mixin/]: Mixing MultiPackResourceManagerMixin from moonlight-common.mixins.json into net.minecraft.server.packs.resources.MultiPackResourceManager
+[0311月2024 15:01:05.265] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Sound Definitions
+[0311月2024 15:01:05.269] [main/INFO] [net.minecraft.data.DataGenerator/]: Sound Definitions finished after 2 ms
+[0311月2024 15:01:05.269] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id lively_danmaku
+[0311月2024 15:01:05.474] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id lively_danmaku finished after 205 ms
+[0311月2024 15:01:05.474] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id lively_danmaku
+[0311月2024 15:01:05.486] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id lively_danmaku finished after 11 ms
+[0311月2024 15:01:05.486] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 221 ms
+[0311月2024 15:01:05.489] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 1, old count: 1, new count: 2, removed stale: 0, written: 1

@@ -1,0 +1,57 @@
+[0311月2024 15:00:56.386] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, E:\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.0.35, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, lively_danmaku, --all, --output, D:\Minecraft-ex\code\LivelyDanmaku\src\generated\resources, --existing, D:\Minecraft-ex\code\LivelyDanmaku\src\main\resources, --mixin.config, danmaku.mixins.json]
+[0311月2024 15:00:56.390] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.9 by JetBrains s.r.o.; OS Windows 11 arch amd64 version 10.0
+[0311月2024 15:00:56.519] [main/WARN] [net.minecraftforge.fml.loading.FMLConfig/CORE]: Configuration file D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\fml.toml is not correct. Correcting
+[0311月2024 15:00:56.520] [main/INFO] [net.minecraftforge.fml.loading.FMLConfig/CORE]: Incorrect key [earlyWindowSkipGLVersions] was corrected from null to []
+[0311月2024 15:00:56.538] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[0311月2024 15:00:56.581] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/E:/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23132!/ Service=ModLauncher Env=CLIENT
+[0311月2024 15:00:56.869] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.0.35\23170a4a30ff6c0fa06499843d59aeb9fc6251b3\javafmllanguage-1.20.1-47.0.35.jar is missing mods.toml file
+[0311月2024 15:00:56.871] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.0.35\4db60514ec40e674e6d418dcc2f5a0b3b33ee323\lowcodelanguage-1.20.1-47.0.35.jar is missing mods.toml file
+[0311月2024 15:00:56.872] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.0.35\fcb5f28da4e1dd808b3636d9c5dd9133b19c8c26\mclanguage-1.20.1-47.0.35.jar is missing mods.toml file
+[0311月2024 15:00:56.874] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file E:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.0.35\7dd26b29e1873e125e38a5a390b8525089cd98b0\fmlcore-1.20.1-47.0.35.jar is missing mods.toml file
+[0311月2024 15:00:57.045] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[0311月2024 15:00:58.260] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[0311月2024 15:00:58.415] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, E:\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, lively_danmaku, --all, --output, D:\Minecraft-ex\code\LivelyDanmaku\src\generated\resources, --existing, D:\Minecraft-ex\code\LivelyDanmaku\src\main\resources]
+[0311月2024 15:00:58.423] [main/WARN] [mixin/]: Reference map 'danmaku.refmap.json' for danmaku.mixins.json could not be read. If this is a development environment you can ignore this message
+[0311月2024 15:00:58.724] [main/INFO] [mixin/]: Remapping refMap moonlight-common-refmap.json using D:\Minecraft-ex\code\LivelyDanmaku\build\createSrgToMcp\output.srg
+[0311月2024 15:00:58.726] [main/INFO] [mixin/]: Remapping refMap moonlight-forge-refmap.json using D:\Minecraft-ex\code\LivelyDanmaku\build\createSrgToMcp\output.srg
+[0311月2024 15:00:58.728] [main/INFO] [mixin/]: Remapping refMap dummmmmmy-common-refmap.json using D:\Minecraft-ex\code\LivelyDanmaku\build\createSrgToMcp\output.srg
+[0311月2024 15:00:58.730] [main/INFO] [mixin/]: Remapping refMap patchouli.refmap.json using D:\Minecraft-ex\code\LivelyDanmaku\build\createSrgToMcp\output.srg
+[0311月2024 15:00:59.640] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [lively_danmaku]
+[0311月2024 15:00:59.780] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.6).
+[0311月2024 15:01:03.964] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.0.35, for MC 1.20.1 with MCP 20230612.114412
+[0311月2024 15:01:03.965] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.0.35 Initialized
+[0311月2024 15:01:04.120] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\dummmmmmy-common.toml is not correct. Correcting
+[0311月2024 15:01:04.122] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key scarecrow was corrected from null to its default, SimpleCommentedConfig:{}. 
+[0311月2024 15:01:04.122] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key scarecrow.mobs_whitelist was corrected from null to its default, []. 
+[0311月2024 15:01:04.123] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key scarecrow.mobs_blacklist was corrected from null to its default, []. 
+[0311月2024 15:01:04.124] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key scarecrow.scare_radius was corrected from null to its default, 12. 
+[0311月2024 15:01:04.124] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general was corrected from null to its default, SimpleCommentedConfig:{}. 
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.DPS_mode was corrected from null to its default, DYNAMIC. 
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.disable_equipment_damage was corrected from null to its default, true. 
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.maximum_out_of_combat_interval was corrected from null to its default, 120. 
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.dummy_decoy was corrected from null to its default, false. 
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.xp_per_damage_on_hit was corrected from null to its default, 0.0. 
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.boss_health_color was corrected from null to its default, YELLOW. 
+[0311月2024 15:01:04.125] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.boss_health was corrected from null to its default, 200. 
+[0311月2024 15:01:04.126] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key mobs_damage_numbers was corrected from null to its default, SimpleCommentedConfig:{}. 
+[0311月2024 15:01:04.127] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key mobs_damage_numbers.damage_mode was corrected from null to its default, NONE. 
+[0311月2024 15:01:04.127] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key mobs_damage_numbers.healing_mode was corrected from null to its default, NONE. 
+[0311月2024 15:01:04.390] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file D:\Minecraft-ex\code\LivelyDanmaku\run-data\config\moonlight-client.toml is not correct. Correcting
+[0311月2024 15:01:04.391] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general was corrected from null to its default, SimpleCommentedConfig:{}. 
+[0311月2024 15:01:04.391] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.merge_dynamic_packs was corrected from null to its default, true. 
+[0311月2024 15:01:04.391] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.lazy_map_upload was corrected from null to its default, true. 
+[0311月2024 15:01:04.391] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.maps_mipmap was corrected from null to its default, 3. 
+[0311月2024 15:01:04.391] [modloading-worker-0/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.consistent_entity_renderer_shading was corrected from null to its default, NO_GUI. 
+[0311月2024 15:01:04.470] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[0311月2024 15:01:04.476] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 4.159 ms
+[0311月2024 15:01:04.604] [main/INFO] [Moonlight/]: Initialized block sets in 12ms
+[0311月2024 15:01:04.978] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/Minecraft-ex/code/LivelyDanmaku/build/fg_cache/net/minecraftforge/forge/1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[0311月2024 15:01:04.978] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/Minecraft-ex/code/LivelyDanmaku/build/fg_cache/net/minecraftforge/forge/1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.0.35_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[0311月2024 15:01:05.265] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Sound Definitions
+[0311月2024 15:01:05.269] [main/INFO] [net.minecraft.data.DataGenerator/]: Sound Definitions finished after 2 ms
+[0311月2024 15:01:05.269] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id lively_danmaku
+[0311月2024 15:01:05.474] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id lively_danmaku finished after 205 ms
+[0311月2024 15:01:05.474] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id lively_danmaku
+[0311月2024 15:01:05.486] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id lively_danmaku finished after 11 ms
+[0311月2024 15:01:05.486] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 221 ms
+[0311月2024 15:01:05.489] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 1, old count: 1, new count: 2, removed stale: 0, written: 1
