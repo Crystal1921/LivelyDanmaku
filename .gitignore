@@ -23,4 +23,6 @@ run
 
 # Files from Forge MDK
 forge*changelog.txt
-/src/main/resources/assets/lively_danmaku/textures/gui/danmaku_table.psd
+src/main/resources/assets/lively_danmaku/textures/gui/danmaku_table.psd
+src/generated/resources/.cache
+run-data
