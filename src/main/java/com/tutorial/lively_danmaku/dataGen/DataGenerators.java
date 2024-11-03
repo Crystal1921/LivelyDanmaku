@@ -1,9 +1,6 @@
-package com.tutorial.lively_danmaku.init;
+package com.tutorial.lively_danmaku.dataGen;
 
 import com.tutorial.lively_danmaku.LivelyDanmaku;
-import com.tutorial.lively_danmaku.tag.ModBlockTagsProvider;
-import com.tutorial.lively_danmaku.tag.ModItemTagsProvider;
-import com.tutorial.lively_danmaku.tag.SoundsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;

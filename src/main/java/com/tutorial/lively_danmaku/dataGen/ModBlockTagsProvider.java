@@ -1,4 +1,4 @@
-package com.tutorial.lively_danmaku.tag;
+package com.tutorial.lively_danmaku.dataGen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

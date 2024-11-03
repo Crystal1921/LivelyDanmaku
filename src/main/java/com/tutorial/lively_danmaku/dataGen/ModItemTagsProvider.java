@@ -1,4 +1,4 @@
-package com.tutorial.lively_danmaku.tag;
+package com.tutorial.lively_danmaku.dataGen;
 
 import com.tutorial.lively_danmaku.LivelyDanmaku;
 import com.tutorial.lively_danmaku.init.ItemRegistry;
