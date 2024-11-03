@@ -41,7 +41,7 @@ public abstract class AbstractDanmaku extends ThrowableItemProjectile {
     protected void onHitEntity(@NotNull EntityHitResult entityHitResult) {
         super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        float i = (float) (Math.sqrt(this.distanceToSqr(this.getDeltaMovement())) / 20);
+        float i = (float) (this.getDeltaMovement().distanceTo(new Vec3(0,0,0)));
         if (!(entity instanceof Reimu)) {
             entity.hurt(new DamageSource(this.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypeRegistry.DANMAKU_SHOOT), this, this.getOwner()),i);
         }

@@ -13,8 +13,8 @@ import static com.tutorial.lively_danmaku.init.BlockRegistry.*;
 
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LivelyDanmaku.MOD_ID);
-    public static final RegistryObject<Item> HakureiGohei = ITEMS.register("hakurei_gohei", com.tutorial.lively_danmaku.item.HakureiGohei::new);
-    public static final RegistryObject<Item> SanaeGohei = ITEMS.register("sanae_gohei", com.tutorial.lively_danmaku.item.SanaeGohei::new);
+    public static final RegistryObject<Item> HakureiGohei = ITEMS.register("hakurei_gohei", HakureiGohei::new);
+    public static final RegistryObject<Item> SanaeGohei = ITEMS.register("sanae_gohei", SanaeGohei::new);
     public static final RegistryObject<Item> ItemMiniHakkero = ITEMS.register("mini_hakkero", MiniHakkero::new);
     public static final RegistryObject<Item> ReimuHeaddress = ITEMS.register("reimu_headdress", () -> new ReimuHeaddress(ArmorMaterials.IRON, ArmorItem.Type.HELMET , new Item.Properties()));
     public static final RegistryObject<Item> ItemDanmaku = ITEMS.register("danmaku", () -> new DanmakuItem(new Item.Properties()));

@@ -1,5 +1,6 @@
 package com.tutorial.lively_danmaku.network;
 
+import com.tutorial.lively_danmaku.LivelyDanmaku;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -16,7 +17,7 @@ import java.util.Optional;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DanmakuNetwork {
     private static final String NETWORK_VERSION = "1";
-    private static final ResourceLocation CHANNEL_POSITION = new ResourceLocation("lively_danmaku", "network_point");
+    private static final ResourceLocation CHANNEL_POSITION = new ResourceLocation(LivelyDanmaku.MOD_ID, "network_point");
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(CHANNEL_POSITION, () -> NETWORK_VERSION, NETWORK_VERSION::equals, NETWORK_VERSION::equals);
     @SubscribeEvent
     public static void onCommonSetup(FMLCommonSetupEvent event) {

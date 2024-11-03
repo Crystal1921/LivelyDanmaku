@@ -20,12 +20,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class FumoTable extends BaseEntityBlock {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
+
     public FumoTable(Properties properties) {
         super(properties);
     }
@@ -43,7 +43,7 @@ public class FumoTable extends BaseEntityBlock {
                     itemSupplier.setChanged();
                     level.sendBlockUpdated(blockPos, blockState, blockState, Block.UPDATE_CLIENTS);
                 }
-            }   else if (!itemSupplier.theItem.isEmpty() && !player.isCrouching() && !level.isClientSide) {
+            } else if (!itemSupplier.theItem.isEmpty() && !player.isCrouching() && !level.isClientSide) {
                 ServerPlayer serverPlayer = (ServerPlayer) player;
                 ItemStack itemstack1 = itemSupplier.theItem;
                 boolean flag = serverPlayer.getInventory().add(itemstack1);
@@ -72,7 +72,7 @@ public class FumoTable extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(@NotNull BlockPos blockPos, @NotNull BlockState blockState) {
-        return new FumoTableTE(blockPos,blockState);
+        return new FumoTableTE(blockPos, blockState);
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {

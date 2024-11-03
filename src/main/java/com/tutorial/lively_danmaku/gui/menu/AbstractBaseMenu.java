@@ -10,8 +10,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractBaseMenu extends AbstractContainerMenu {
+    protected static final int INV_SIZE = 36;
     protected final int INV_START;
-    protected static final int INV_SIZE=36;
+
     protected AbstractBaseMenu(@Nullable MenuType<?> pMenuType, int pContainerId, int inv_start) {
         super(pMenuType, pContainerId);
         this.INV_START = inv_start;
@@ -34,7 +35,7 @@ public abstract class AbstractBaseMenu extends AbstractContainerMenu {
             ItemStack slotStack = slot.getItem();
             itemStack = slotStack.copy();
             if (index < INV_START) {
-                if (!this.moveItemStackTo(slotStack, INV_START, INV_SIZE+INV_START, true)) {
+                if (!this.moveItemStackTo(slotStack, INV_START, INV_SIZE + INV_START, true)) {
                     return ItemStack.EMPTY;
                 }
                 slot.onQuickCraft(slotStack, itemStack);

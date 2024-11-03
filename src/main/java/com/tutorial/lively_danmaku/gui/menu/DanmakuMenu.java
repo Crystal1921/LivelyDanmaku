@@ -79,7 +79,7 @@ public class DanmakuMenu extends AbstractBaseMenu {
             this.access.execute((level,blockPos) -> {
                 StringBuilder position = new StringBuilder(81);
                 StringBuilder color = new StringBuilder();
-                for (int j = 0; j < 82; j++) {
+                for (int j = 38; j < 120; j++) {
                     ItemStack item = this.container.getItem(j);
                     if (item.is(ItemRegistry.ItemDanmaku.get())) {
                         position.append("1");

@@ -42,7 +42,6 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            args '--username', 'Crystal1921'
             mods {
                 "${mod_id}" {
                     source sourceSets.main
@@ -53,6 +52,7 @@ minecraft {
         client {
             property 'forge.enabledGameTestNamespaces', mod_id
             jvmArgs "-XX:+AllowEnhancedClassRedefinition"
+            args '--username', 'Crystal1921'
         }
 
         server {
@@ -80,9 +80,14 @@ mixin {
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven {
         name = 'Sponge / Mixin'
         url = 'https://repo.spongepowered.org/repository/maven-public/'
+    }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
     }
     maven {
         // location of the maven that hosts JEI files since January 2023
@@ -120,8 +125,12 @@ dependencies {
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 
+    runtimeOnly fg.deobf("maven.modrinth:mmmmmmmmmmmm:kDOX4QqW")
+    runtimeOnly fg.deobf("maven.modrinth:moonlight:forge_1.20-2.13.0")
+
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation 'com.ezylang:EvalEx:3.1.2'
+    implementation 'org.lz4:lz4-java:1.8.0'
 }
 
 tasks.named('processResources', ProcessResources).configure {

@@ -32,7 +32,6 @@ public class LivelyDanmaku {
         BlockEntityTypeRegistry.BLOCK_ENTITY_TYPES.register(eventBus);
         MenuRegistry.CONTAINERS.register(eventBus);
         GroupInit.TABS.register(eventBus);
-        eventBus.addListener(EntityTypeRegistry::addEntityAttributes);
         bind(eventBus,Registries.SOUND_EVENT,SoundRegistry::init);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DanmakuConfig.init());
         //TODO 符卡制作台

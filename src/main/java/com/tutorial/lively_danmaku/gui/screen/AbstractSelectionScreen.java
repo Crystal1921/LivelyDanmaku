@@ -12,11 +12,12 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractSelectionScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen<T> {
+    public int listWidth = 125;
     EditBox search;
     String lastFilterText = "";
     int PADDING = 6;
     int fullButtonHeight = PADDING + 20 + PADDING;
-    public int listWidth = 125;
+
     public AbstractSelectionScreen(T pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
@@ -31,6 +32,7 @@ public abstract class AbstractSelectionScreen<T extends AbstractContainerMenu> e
     }
 
     protected abstract void importEvent();
+
     @Override
     public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
         if (this.search.keyPressed(pKeyCode, pScanCode, pModifiers)) {
@@ -41,23 +43,22 @@ public abstract class AbstractSelectionScreen<T extends AbstractContainerMenu> e
     }
 
     @NotNull
-    public Minecraft getMinecraftInstance()
-    {
+    public Minecraft getMinecraftInstance() {
         return minecraft;
     }
 
-    public Font getFontRenderer()
-    {
+    public Font getFontRenderer() {
         return font;
     }
 
     @Override
-    protected void renderLabels(@NotNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {}
+    protected void renderLabels(@NotNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {
+    }
 
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(guiGraphics);
-        this.search.render(guiGraphics, pMouseX , pMouseY, pPartialTick);
+        this.search.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
         super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
         this.renderTooltip(guiGraphics, pMouseX, pMouseY);
     }
